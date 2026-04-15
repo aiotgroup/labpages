@@ -405,7 +405,25 @@
             photo: "./assets/media/people/zhenkui-yang.png",
             photoAlt: "Sample portrait for Zhenkui Yang",
             bio:
-              "Works on performant systems and machine learning from a strong MIT computer science background.",
+              "Graduated in 2025.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Haomin Xiong (熊浩民)",
+            role: "MEng Student",
+            photo: "./assets/media/people/haomin-xiong.jpg",
+            photoAlt: "Sample portrait for Haomin Xiong",
+            bio:
+              "Graduated in 2025.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Peixi Shi (史培玺)",
+            role: "MEng Student",
+            photo: "./assets/media/people/peixi-shi.jpg",
+            photoAlt: "Sample portrait for Peixi Shi",
+            bio:
+              "Graduated in 2025.",
             palette: ["#3d376a", "#e0dcff"]
           },
           {
@@ -463,6 +481,15 @@
         caption: "We won the second prize in the national competition in Nantong, Jiangsu.",
         tag: "Competition",
         image: "./assets/media/gallery/2025zhinengjianzao_competition.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "CHINA GRADUATE CONTEST ON SMART-CITY TECHNOLOGYAND CREATIVE DESIGN",
+        date: "November 10, 2025",
+        caption: "We won the second prize in the national competition in Wuhan, Hubei.",
+        tag: "Competition",
+        image: "./assets/media/gallery/2025zhihuichengshi_competition.jpg",
         photoAlt: "Poster session preparation snapshot",
         palette: ["#214c71", "#e4f2ff"]
       },
