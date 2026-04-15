@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paper Redirect - XJTU AIoT Group</title>
+  <meta name="description" content="Compatibility redirect for legacy paper detail URLs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/site.css">
+  <script>
+    (function () {
+      var slug = new URLSearchParams(window.location.search).get("slug");
+      if (slug) {
+        window.location.replace("./papers/" + encodeURIComponent(slug) + "/index.html");
+      }
+    })();
+  </script>
+</head>
+<body>
+  <main class="section">
+    <div class="shell">
+      <section class="panel stack-panel">
+        <p class="eyebrow">Legacy Route</p>
+        <h1>Paper pages now live in their own folders.</h1>
+        <p id="legacy-copy">
+          If the redirect does not happen automatically, return to the publication archive and open the paper again.
+        </p>
+        <div class="button-row">
+          <a class="button button-primary" href="./publications.html">Open publications</a>
+          <a class="button button-secondary" href="./index.html">Back to about</a>
+          <a class="button button-secondary" id="legacy-link" href="./publications.html">Open requested paper</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script>
+    (function () {
+      var slug = new URLSearchParams(window.location.search).get("slug");
+      var link = document.getElementById("legacy-link");
+      var copy = document.getElementById("legacy-copy");
+      if (!slug) {
+        link.style.display = "none";
+        return;
+      }
+
+      var href = "./papers/" + encodeURIComponent(slug) + "/index.html";
+      link.href = href;
+      copy.textContent = "This legacy route now forwards to a standalone paper page under papers/" + slug + "/index.html.";
+    })();
+  </script>
+</body>
+</html>
+

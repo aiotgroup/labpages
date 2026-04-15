@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 840" role="img" aria-label="Paper template cover">
+  <defs>
+    <linearGradient id="templateGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#183a5b"/>
+      <stop offset="50%" stop-color="#4f7197"/>
+      <stop offset="100%" stop-color="#f0cbd0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="840" rx="44" fill="url(#templateGradient)"/>
+  <circle cx="214" cy="180" r="110" fill="rgba(255,255,255,0.16)"/>
+  <circle cx="1018" cy="176" r="84" fill="rgba(255,255,255,0.16)"/>
+  <rect x="82" y="486" width="1036" height="248" rx="34" fill="rgba(255,255,255,0.14)"/>
+  <text x="96" y="592" font-family="Exo, Arial, sans-serif" font-size="62" font-weight="800" fill="#ffffff">Paper Title Goes Here</text>
+  <text x="96" y="660" font-family="Source Sans 3, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)">Research Theme</text>
+  <text x="96" y="704" font-family="Source Sans 3, Arial, sans-serif" font-size="28" fill="rgba(255,255,255,0.74)">Replace this cover with a teaser image or poster preview.</text>
+</svg>

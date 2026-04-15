@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-label="Poster session sprint">
+  <defs>
+    <linearGradient id="posterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#214c71"/>
+      <stop offset="100%" stop-color="#e4f2ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" rx="48" fill="url(#posterGradient)"/>
+  <rect x="110" y="120" width="360" height="460" rx="26" fill="rgba(255,255,255,0.18)"/>
+  <rect x="520" y="120" width="360" height="460" rx="26" fill="rgba(255,255,255,0.18)"/>
+  <rect x="930" y="120" width="360" height="460" rx="26" fill="rgba(255,255,255,0.18)"/>
+  <rect x="110" y="650" width="1180" height="128" rx="28" fill="rgba(255,255,255,0.14)"/>
+  <text x="136" y="730" font-family="Exo, Arial, sans-serif" font-size="64" font-weight="800" fill="#ffffff">Poster Session Sprint</text>
+</svg>

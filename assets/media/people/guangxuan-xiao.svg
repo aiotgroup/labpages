@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 860" role="img" aria-label="Sample portrait for Guangxuan Xiao">
+  <defs>
+    <linearGradient id="guangxuanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f4e5f"/>
+      <stop offset="100%" stop-color="#d8f3ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="860" rx="44" fill="url(#guangxuanGradient)"/>
+  <circle cx="360" cy="260" r="122" fill="rgba(255,255,255,0.18)"/>
+  <circle cx="360" cy="230" r="84" fill="rgba(255,255,255,0.86)"/>
+  <path d="M194 520c42-98 116-148 166-148 62 0 130 48 166 148v112H194z" fill="rgba(255,255,255,0.88)"/>
+  <text x="360" y="730" text-anchor="middle" font-family="Exo, Arial, sans-serif" font-size="86" font-weight="800" fill="rgba(255,255,255,0.92)">GX</text>
+  <text x="360" y="786" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.82)">Sample local member photo slot</text>
+</svg>

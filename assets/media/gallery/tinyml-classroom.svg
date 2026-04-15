@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-label="TinyML classroom">
+  <defs>
+    <linearGradient id="classroomGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#67501e"/>
+      <stop offset="100%" stop-color="#fff0c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" rx="48" fill="url(#classroomGradient)"/>
+  <rect x="102" y="124" width="1196" height="298" rx="32" fill="rgba(255,255,255,0.16)"/>
+  <rect x="102" y="488" width="320" height="184" rx="28" fill="rgba(255,255,255,0.14)"/>
+  <rect x="458" y="488" width="320" height="184" rx="28" fill="rgba(255,255,255,0.14)"/>
+  <rect x="814" y="488" width="320" height="184" rx="28" fill="rgba(255,255,255,0.14)"/>
+  <text x="102" y="778" font-family="Exo, Arial, sans-serif" font-size="64" font-weight="800" fill="#ffffff">TinyML Classroom</text>
+</svg>
