@@ -396,6 +396,15 @@
               "Performing fully supervised and weakly supervised temporal action localization using smart devices equipped with IMUs.",
             palette: ["#5d4628", "#ffe6c8"]
           },
+          {
+            name: "Baorui Zhang (张宝瑞)",
+            role: "Incoming M.Eng. Student",
+            photo: "./assets/media/people/2026baorui-zhang.jpg",
+            photoAlt: "Sample portrait for Baorui Zhang",
+            bio:
+              "Performing fully supervised and weakly supervised temporal action localization using smart devices equipped with IMUs.",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
         ]
       },
       {
@@ -428,21 +437,15 @@
               "Graduated in 2025 and then joined NR Electric Co., Ltd.",
             palette: ["#3d376a", "#e0dcff"]
           },
-          {
-            name: "Hanrui Wang",
-            role: "Co-Founder, Eigen AI",
+           {
+            name: "Bo Lan (兰博)",
+            role: "M.Eng.",
+            photo: "./assets/media/people/2022bo-lan.jpg",
+            photoAlt: "Sample portrait for Bo Lan",
             bio:
-              "Worked on efficient AI and emerging hardware, including quantum architecture and compiler systems.",
-            link: "https://hanruiwang.com/",
-            palette: ["#4d2d4a", "#ffd8f8"]
-          },
-          {
-            name: "Zhijian Liu",
-            role: "Assistant Professor, UCSD",
-            bio:
-              "Researches efficient machine learning systems and computer vision, with broad recognition across top venues.",
-            link: "https://zhijianliu.com/",
-            palette: ["#25503a", "#d6f9e5"]
+              "Graduated in 2025 and then joined Pinduoduo.",
+            lin: "https://scholar.google.com/citations?user=kP6Dr_4AAAAJ",
+            palette: ["#3d376a", "#e0dcff"]
           },
         ]
       }
