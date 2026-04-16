@@ -488,10 +488,9 @@
         members: [
           {
             name: "Shengyao Ding (丁声耀)",
-            role: "PhD Student",
+            role: "M.Eng. Student",
             photo: "./assets/media/people/2025shengyao-ding.jpg",
             photoAlt: "Sample portrait for Shengyao Ding",
-            link: "./member/shengyao-ding.html",
             bio:
               "Point cloud segmentation.",
             palette: ["#5d4628", "#ffe6c8"]
