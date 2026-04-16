@@ -658,6 +658,15 @@
             palette: ["#3d376a", "#e0dcff"]
           },
           {
+            name: "Yiao Gao (高一奥)",
+            role: "M.Eng.",
+            photo: "./assets/media/people/2020yiao-gao.png",
+            photoAlt: "Sample portrait for Yiao Gao",
+            bio:
+              "Graduated in 2023 and then joined Honor Device Co., Ltd.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
             name: "Yuhang Zhang (张宇航)",
             role: "Bachelor of Engineering",
             photo: "./assets/media/people/2024yuhang-zhang.jpg",
@@ -721,7 +730,16 @@
         photoAlt: "Poster session preparation snapshot",
         palette: ["#214c71", "#e4f2ff"]
       },
-       {
+      {
+        title: "HHME/HHMC @ Dalian",
+        date: "August 24, 2025",
+        caption: "We walked along the seaside in Dalian.",
+        tag: "Conference",
+        image: "./assets/media/gallery/2025hhme-dalian.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
         title: "Graduate of the Class of 2026.",
         date: "July, 2025",
         caption: "I met with my Ph.D. advisor and fellow lab mates in Nanjing during the Wireless Sensing Forum.",
