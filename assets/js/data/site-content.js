@@ -487,6 +487,16 @@
         title: "Students and Collaborators",
         members: [
           {
+            name: "Tingting Zhang (张婷婷)",
+            role: "M.Eng. Student",
+            photo: "./assets/media/people/2024tingting-zhang.png",
+            photoAlt: "Sample portrait for Tingting Zhang",
+            bio:
+              "Human sensing with smart devices with IMUs.",
+            link: "https://scholar.google.com/citations?user=R7kxvQkAAAAJ",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
             name: "Shengyao Ding (丁声耀)",
             role: "M.Eng. Student",
             photo: "./assets/media/people/2025shengyao-ding.jpg",
