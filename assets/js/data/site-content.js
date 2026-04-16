@@ -676,6 +676,15 @@
             palette: ["#3d376a", "#e0dcff"]
           },
           {
+            name: "Ruohua Wu (伍若华)",
+            role: "Summer Intern",
+            photo: "./assets/media/people/2025ruohua-wu.jpg",
+            photoAlt: "Sample portrait for Ruohua Wu",
+            bio:
+              "Summer research intern in 2025, and will pursue a master’s degree in the School of Mechanical Engineering at Xi’an Jiaotong University in Fall 2026.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
             name: "Yuhang Zhang (张宇航)",
             role: "Bachelor of Engineering",
             photo: "./assets/media/people/2024yuhang-zhang.jpg",
@@ -749,16 +758,16 @@
         palette: ["#214c71", "#e4f2ff"]
       },
       {
-        title: "ireless Sensing Forum @ Nanjing.",
+        title: "Wireless Sensing Forum @ Nanjing",
         date: "July, 2025",
         caption: "I met with my Ph.D. advisor and fellow lab mates in Nanjing during the Wireless Sensing Forum.",
-        tag: "Confrence",
+        tag: "Conference",
         image: "./assets/media/gallery/2025wuxianluntan-nanjing.jpg",
         photoAlt: "Poster session preparation snapshot",
         palette: ["#214c71", "#e4f2ff"]
       },
       {
-        title: "Graduate of the Class of 2026.",
+        title: "Graduate of the Class of 2026",
         date: "June, 2025",
         caption: "Six students have successfully graduated—congratulations, and wishing you all a bright and promising future.",
         tag: "Celebration",
@@ -776,7 +785,25 @@
         palette: ["#214c71", "#e4f2ff"]
       },
       {
-        title: "Time Square @ New York.",
+        title: "Niagara Falls",
+        date: "Spring Break, 2019",
+        caption: "I was at the U.S.–Canada border and saw the world’s third-largest waterfall, Niagara Falls.",
+        tag: "Vacation",
+        image: "./assets/media/gallery/2019niagara.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "MIT @ Boston",
+        date: "Spring Break, 2019",
+        caption: "During spring break, I made a quick trip to Boston and visited Harvard University, MIT, and Museum of Boston.",
+        tag: "Vacation",
+        image: "./assets/media/gallery/2019mit-boston.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "Time Square @ New York",
         date: "December, 2017",
         caption: "We drove to New York City from Pittsburgh to celebrate Christmas.",
         tag: "Festival",
@@ -785,7 +812,7 @@
         palette: ["#214c71", "#e4f2ff"]
       },
       {
-        title: "Museum of Natural History @ New York.",
+        title: "Museum of Natural History @ New York",
         date: "December，2017",
         caption: "I saw many fossils at the American Museum of Natural History.",
         tag: "Mesume",
