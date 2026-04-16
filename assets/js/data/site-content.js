@@ -551,6 +551,15 @@
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
+            name: "Pengcheng Weng (翁鹏程)",
+            role: "Master Student, Research Intern, Universität Bern",
+            photo: "./assets/media/people/2025pengcheng-weng.jpg",
+            photoAlt: "Sample portrait for Pengcheng Weng",
+            bio:
+              "Multimodal learning, Diffusion large language model.",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
             name: "Zixuan Xia (夏梓轩)",
             role: "Master Student, Research Intern, Universität Bern",
             photo: "./assets/media/people/2024zixuan-xia.jpg",
@@ -560,7 +569,7 @@
             link: "https://sumxiaa.github.io/",
             palette: ["#5d4628", "#ffe6c8"]
           },
-                    {
+          {
             name: "Hao Wang (王皓)",
             role: "Master Student, Research Intern, Universität Bern",
             photo: "./assets/media/people/2024hao-wang.png",
