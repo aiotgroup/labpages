@@ -379,6 +379,24 @@
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
+            name: "Jiaxi Yin (尹佳茜)",
+            role: "M.Sc Student",
+            photo: "./assets/media/people/2025jiaxi-yin.jpg",
+            photoAlt: "Sample portrait for Jiaxi Yin",
+            bio:
+              "Temporal action localization using smart devices equipped with IMUs.",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
+            name: "Chuntong Chu (初春童)",
+            role: "M.Eng. Student",
+            photo: "./assets/media/people/2025chuntong-chu.jpg",
+            photoAlt: "Sample portrait for Chuntong Chu",
+            bio:
+              "Intereseted in LLM Agent.",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
             name: "Wenqian Xu (徐文谦)",
             role: "M.Eng. Student",
             photo: "./assets/media/people/2024wenqian-xu.jpg",
@@ -388,12 +406,21 @@
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
+            name: "Kainan Shi (施凯南)",
+            role: "M.Eng. Student",
+            photo: "./assets/media/people/2024kainan-shi.jpg",
+            photoAlt: "Sample portrait for Kainan Shi",
+            bio:
+              "Taking LLMs as featues extractors for recommender systems.",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
             name: "Pei Li (李沛)",
             role: "M.Eng. Student",
             photo: "./assets/media/people/2023pei-li.jpg",
             photoAlt: "Sample portrait for Pei Li",
             bio:
-              "Performing fully supervised and weakly supervised temporal action localization using smart devices equipped with IMUs.",
+              "Temporal action localization using smart devices equipped with IMUs.",
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
