@@ -158,49 +158,167 @@
 
   SiteContent.feiWang = {
     name: "Fei Wang",
-    title: "Faculty Profile Template",
-    subtitle: "Associate Professor of Ubiquitous AI Systems and Multimodal Learning",
+    title: "Associate Professor and Ph.D. Supervisor",
+    subtitle: "Associate Professor · Ph.D. Supervisor",
     photo: "./assets/media/people/fei-wang.svg",
-    photoAlt: "Sample profile photo for Fei Wang",
+    photoAlt: "Profile photo for Fei Wang",
     note:
-      "This page is intentionally data-driven so you can replace the sample biography, timeline, and projects with the real faculty profile later.",
+      "Associate Professor in the School of Software Engineering at Xi'an Jiaotong University, working at the intersection of artificial intelligence, ubiquitous computing, wireless sensing, wearable systems, and multimodal learning.",
+    admissionsNote:
+      "We welcome applications from interns and prospective master's students. For more information about the group and admissions, please refer to: ",
+    admissionsLink: {
+      label: "Q&A",
+      href: "https://hqf1h4do6vh.feishu.cn/wiki/Qb7XwbUDjiTbikkEid2ctIHzn1d"
+    },
     bio: [
-      "Fei Wang's research centers on practical machine learning systems, especially the gap between algorithmic progress and real-world deployment. His group studies efficient training, inference, embodied intelligence, and reliable model serving for large foundation models.",
-      "He is particularly interested in GPU-efficient model design, robust multimodal systems, and the educational side of modern AI systems engineering. His lab philosophy emphasizes clarity, reproducibility, and engineering decisions that survive contact with production constraints."
+      "Fei Wang is an Associate Professor and Ph.D. supervisor in the School of Software Engineering, Faculty of Electronic and Information Engineering, Xi'an Jiaotong University. His research lies at the intersection of artificial intelligence and ubiquitous computing, with a particular emphasis on wireless sensing, wearable computing, multimodal machine learning, and efficient AIoT systems.",
     ],
     interests: [
-      "Efficient large language models",
-      "Multimodal systems and long-context reasoning",
-      "Training-time and inference-time optimization",
-      "Reliable deployment for research-to-production transfer"
+      "Wireless sensing with WiFi, mmWave, and UWB",
+      "Wearable computing and human-computer interaction",
+      "Multimodal learning for real-world sensing and interaction",
+      "Efficient and edge AI for AIoT systems",
+      "Security and privacy in intelligent sensing"
     ],
     profileLinks: [
-      { label: "Email", href: "mailto:feiwang@example.edu" },
-      { label: "Google Scholar", href: "#" },
-      { label: "Curriculum Vitae", href: "#" }
+      { label: "Email", href: "mailto:feynmanw@xjtu.edu.cn" },
+      { label: "Google Scholar", href: "https://scholar.google.com/citations?user=LKPpmXQAAAAJ&hl=en" }
     ],
-    teaching: [
-      "6.5940 TinyML and Efficient Deep Learning Computing",
-      "Special Topics in Efficient Generative AI Systems",
-      "Graduate Reading Group on Long-Context and Multimodal Models"
+    quickFacts: [
+      "School of Software Engineering, Xi'an Jiaotong University",
+      "Contact: feynmanw[at]xjtu.edu.cn",
+      "Executive Committee Member, CCF Technical Committee on Ubiquitous Computing",
+      "Executive Committee Member, CCF Technical Committee on Internet of Things"
     ],
-    timeline: [
-      { year: "2026", title: "Leads a new effort on efficient generative AI systems", text: "Building sample profile content around efficient LLM, VLM, and diffusion deployment." },
-      { year: "2024", title: "Launches graduate seminar on foundation model systems", text: "A discussion-based course on practical training, serving, and evaluation of large models." },
-      { year: "2021", title: "Receives early-career teaching recognition", text: "Recognized for making systems-heavy AI topics approachable for interdisciplinary students." }
+    roles: [
+      "Associate Professor and Ph.D. Supervisor, School of Software Engineering, Xi'an Jiaotong University",
+      "Postdoctoral Researcher in Control Science and Engineering, Xi'an Jiaotong University",
+      "Executive Committee Member, CCF Technical Committee on Ubiquitous Computing",
+      "Executive Committee Member, CCF Technical Committee on Internet of Things"
     ],
-    selectedProjects: [
+    appointments: [
       {
-        title: "Hardware-aware LLM Serving",
-        text: "Research on memory layout, quantized kernels, and scheduling strategies for long-context inference."
+        year: "Mar 2024 - Present",
+        title: "Associate Professor and Ph.D. Supervisor",
+        text: "School of Software Engineering, Faculty of Electronic and Information Engineering, Xi'an Jiaotong University."
       },
       {
-        title: "Reliable Multimodal Evaluation",
-        text: "Benchmarks and tooling for understanding model behavior on long video, mixed-modal, and real-time tasks."
+        year: "Sep 2020 - Mar 2024",
+        title: "Assistant Professor and Master's Supervisor",
+        text: "School of Software Engineering, Faculty of Electronic and Information Engineering, Xi'an Jiaotong University."
       },
       {
-        title: "Systems Education for Modern AI",
-        text: "Course materials and open teaching resources that connect theory with deployment constraints."
+        year: "Sep 2020 - Present",
+        title: "Postdoctoral Researcher in Control Science and Engineering",
+        text: "Xi'an Jiaotong University. Mentor: Prof. Yihong Gong (IEEE Fellow)."
+      },
+      {
+        year: "Mar 2016 - Mar 2020",
+        title: "Ph.D. in Computer Science and Technology",
+        text: "Xi'an Jiaotong University. Advisor: Prof. Jinsong Han."
+      },
+      {
+        year: "Nov 2019 - Jan 2020",
+        title: "Visiting Scholar",
+        text: "College of Cyber Security, Zhejiang University. Hosted by Prof. Jinsong Han, Research Prof. Feng Lin, and Prof. Kui Ren (ACM/IEEE Fellow)."
+      },
+      {
+        year: "Oct 2017 - Oct 2019",
+        title: "Joint Ph.D. Student",
+        text: "Robotics Institute, Carnegie Mellon University. Advisors: Dr. Dong Huang and Prof. Fernando De la Torre."
+      },
+      {
+        year: "Sep 2014 - Feb 2016",
+        title: "M.S. in Computer Science and Technology",
+        text: "Xi'an Jiaotong University. Advisor: Prof. Yinliang Zhao."
+      },
+      {
+        year: "Sep 2009 - Jul 2013",
+        title: "B.S. in Computer Science and Technology",
+        text: "Xi'an Jiaotong University."
+      }
+    ],
+    service: [
+      {
+        title: "Leadership and Memberships",
+        items: [
+          "Executive Committee Member, CCF Technical Committee on Ubiquitous Computing",
+          "Executive Committee Member, CCF Technical Committee on Internet of Things"
+        ]
+      },
+      {
+        title: "Guest Editorships and Chairs",
+        items: [
+          "Guest Editor: MDPI Electronics",
+          "Guest Editor: MDPI Sensors special issue (active call for papers)",
+          "Area / Workshop Chair: ICSEE 2024, IEEE ICCVIT 2025, IEEE ECIS 2026"
+        ]
+      },
+      {
+        title: "Conference Reviewing and PC Service",
+        items: [
+          "BMVC 2026, ECCV 2026, SIGIR 2026, ICML 2026, CVPR 2026, ICASSP 2026, AAAI 2026, UBICOMP 2026, WACV 2026, INFOCOM 2026",
+          "ACM MM 2025, ACM UBICOMP 2025, ICCV 2025, IJCNN 2025, CVPR 2025, ICASSP 2025, AAAI 2025",
+          "HPCC 2024, UIST 2024, ECCV 2024, CVPR 2024, AAAI 2024, ICCV 2023, CVPR 2023, AAAI 2023, SocialCom 2023, ICCV 2021, AAAI 2020"
+        ]
+      },
+      {
+        title: "Journal Reviewing",
+        items: [
+          "IEEE TPAMI, ACM IMWUT, IEEE TMC, IEEE TVCG, IEEE TIP, IEEE TNNLS, IEEE TII, IEEE IoT Journal, IEEE Access, IEEE TSMC",
+          "Elsevier Computer Networks and Computer Vision and Image Understanding",
+          "MDPI Sensors and related venues"
+        ]
+      }
+    ],
+    grants: [
+      {
+        period: "Jan 2026 - Dec 2029",
+        title: "Foundation Models for Open-Domain Generalizable Multimodal Wireless Sensing",
+        sponsor: "National Natural Science Foundation of China, General Program",
+        note: "Grant No. 62572383. Research on constructing and continuously updating foundation models for open-domain generalizable multimodal wireless sensing. RMB 500,000."
+      },
+      {
+        period: "May 2025 - May 2027",
+        title: "Fundamental Research Funds for the Central Universities",
+        sponsor: "New Associate Professor Program",
+        note: "Principal investigator of a university-level startup project. RMB 100,000."
+      },
+      {
+        period: "May 2025 - May 2026",
+        title: "Foundation-Model-Based Research for an Open Topic",
+        sponsor: "Open Project, State Key Laboratory of Integrated Services Networks",
+        note: "Project title is abbreviated in the source materials as a foundation-model-based xxxx topic. RMB 60,000."
+      },
+      {
+        period: "Jan 2024 - Dec 2026",
+        title: "Wireless Imaging via Foundation-Model Fine-Tuning",
+        sponsor: "Fundamental Research Funds for the Central Universities",
+        note: "Research on wireless imaging methods based on large-model fine-tuning. RMB 50,000."
+      },
+      {
+        period: "Jan 2022 - Dec 2024",
+        title: "Cross-Modal Wireless Sensing with Fine-Grained Spatial-Temporal Modeling",
+        sponsor: "National Natural Science Foundation of China, Young Scientists Fund",
+        note: "Grant No. 62102307. Completed. RMB 300,000."
+      },
+      {
+        period: "May 2021 - Apr 2023",
+        title: "Fine-Grained Behavior Sensing System Based on WiFi",
+        sponsor: "Shaanxi Key R&D Program",
+        note: "Grant No. 2021GXLH-Z-021. Completed. RMB 500,000."
+      },
+      {
+        period: "Sep 2021 - Feb 2023",
+        title: "Intelligently Enhanced Contactless Behavior Understanding",
+        sponsor: "China Postdoctoral Science Foundation, General Program",
+        note: "Grant No. 2021M692562. Completed. RMB 80,000."
+      },
+      {
+        period: "2021 - 2022",
+        title: "MindSpore Development on Ascend",
+        sponsor: "Huawei",
+        note: "Industry-supported project on MindSpore development under the Ascend ecosystem. Completed."
       }
     ]
   };

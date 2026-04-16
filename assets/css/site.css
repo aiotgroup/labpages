@@ -216,6 +216,14 @@ select {
   font-size: 1.16rem;
 }
 
+.hero-description p {
+  margin: 0;
+}
+
+.hero-description p + p {
+  margin-top: 12px;
+}
+
 .button-row {
   display: flex;
   gap: 14px;
@@ -262,6 +270,13 @@ select {
   background:
     radial-gradient(circle at top right, rgba(255, 255, 255, 0.78), transparent 32%),
     linear-gradient(160deg, rgba(248, 216, 220, 0.74), rgba(255, 255, 255, 0.78));
+}
+
+.hero-panel-plain {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .aside-card,
@@ -574,6 +589,19 @@ select {
   gap: 16px;
 }
 
+.profile-card-compact {
+  padding: 18px;
+  gap: 12px;
+}
+
+.profile-card-compact .clean-list {
+  margin-top: 8px;
+}
+
+.profile-card-compact .chip-row {
+  margin-top: 12px;
+}
+
 .avatar-large {
   width: 100%;
   max-width: 280px;
@@ -581,6 +609,11 @@ select {
   object-fit: cover;
   border-radius: 24px;
   box-shadow: var(--shadow-soft);
+  justify-self: center;
+}
+
+.profile-card-compact .avatar-large {
+  max-width: 252px;
 }
 
 .course-grid {
@@ -698,6 +731,10 @@ select {
 
 .timeline-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.timeline-grid.timeline-grid-single {
+  grid-template-columns: 1fr;
 }
 
 .site-footer {

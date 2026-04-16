@@ -81,14 +81,18 @@
           <div class="hero-copy">
             <p class="eyebrow">${SiteUI.escapeHtml(config.eyebrow || "")}</p>
             <h1>${SiteUI.escapeHtml(config.title || "").replace(/\n/g, "<br>")}</h1>
-            <p class="hero-description">${SiteUI.escapeHtml(config.description || "")}</p>
+            ${
+              config.descriptionHtml
+                ? `<div class="hero-description">${config.descriptionHtml}</div>`
+                : `<p class="hero-description">${SiteUI.escapeHtml(config.description || "")}</p>`
+            }
             ${
               Array.isArray(config.actions)
                 ? `<div class="button-row">${config.actions.map(buttonMarkup).join("")}</div>`
                 : ""
             }
           </div>
-          <aside class="hero-panel">
+          <aside class="${config.asideClass || "hero-panel"}">
             ${asideMarkup || ""}
           </aside>
         </div>
@@ -280,20 +284,27 @@
         {
           eyebrow: "Fei Wang",
           title: `${profile.name}\n${profile.subtitle}`,
-          description: profile.note,
+          asideClass: "hero-panel hero-panel-plain",
+          descriptionHtml: `
+            <p>${SiteUI.escapeHtml(profile.note)}</p>
+            <p>${SiteUI.escapeHtml(profile.admissionsNote)}<a class="inline-link" href="${profile.admissionsLink.href}">${SiteUI.escapeHtml(profile.admissionsLink.label)}</a></p>
+          `,
           actions: [
             { label: "View Courses", href: "./course.html", kind: "secondary" },
             { label: "Meet The Team", href: "./team.html", kind: "primary" }
           ]
         },
         `
-          <div class="profile-card">
+          <div class="profile-card profile-card-compact">
             <img class="avatar-large" src="${SiteUI.portraitSrc({
               name: profile.name,
               role: "Faculty",
               palette: ["#264a72", "#d9ebff"],
               photo: profile.photo
             })}" alt="${SiteUI.escapeHtml(profile.photoAlt || profile.name)}">
+            <ul class="clean-list">
+              ${profile.quickFacts.map((item) => `<li>${SiteUI.escapeHtml(item)}</li>`).join("")}
+            </ul>
             <div class="chip-row">
               ${profile.profileLinks
                 .map((item) => `<a class="chip-link" href="${item.href}">${SiteUI.escapeHtml(item.label)}</a>`)
@@ -308,32 +319,20 @@
           <div class="panel stack-panel">
             ${profile.bio.map((paragraph) => `<p>${SiteUI.escapeHtml(paragraph)}</p>`).join("")}
           </div>
-          <div class="card-grid card-grid-2">
-            <article class="panel info-card">
-              <p class="eyebrow">Research Interests</p>
-              <ul class="clean-list">
-                ${profile.interests.map((item) => `<li>${SiteUI.escapeHtml(item)}</li>`).join("")}
-              </ul>
-            </article>
-            <article class="panel info-card">
-              <p class="eyebrow">Teaching</p>
-              <ul class="clean-list">
-                ${profile.teaching.map((item) => `<li>${SiteUI.escapeHtml(item)}</li>`).join("")}
-              </ul>
-            </article>
-          </div>
         </div>
       </section>
       <section class="section section-muted">
         <div class="shell">
-          ${sectionHeading("Selected Projects", "Work")}
-          <div class="card-grid card-grid-3">
-            ${profile.selectedProjects
+          ${sectionHeading("Academic Service", "Service")}
+          <div class="card-grid card-grid-2">
+            ${profile.service
               .map(
                 (item) => `
                   <article class="panel info-card">
                     <h3>${SiteUI.escapeHtml(item.title)}</h3>
-                    <p>${SiteUI.escapeHtml(item.text)}</p>
+                    <ul class="clean-list">
+                      ${item.items.map((entry) => `<li>${SiteUI.escapeHtml(entry)}</li>`).join("")}
+                    </ul>
                   </article>
                 `
               )
@@ -343,9 +342,30 @@
       </section>
       <section class="section">
         <div class="shell">
-          ${sectionHeading("Timeline", "Milestones")}
-          <div class="timeline-grid">
-            ${profile.timeline
+          ${sectionHeading("Selected Grants As PI", "Funding")}
+          <div class="card-grid card-grid-2">
+            ${profile.grants
+              .map(
+                (item) => `
+                  <article class="panel info-card">
+                    <div class="meta-row">
+                      <span class="date-pill">${SiteUI.escapeHtml(item.period)}</span>
+                    </div>
+                    <h3>${SiteUI.escapeHtml(item.title)}</h3>
+                    <p class="muted">${SiteUI.escapeHtml(item.sponsor)}</p>
+                    <p>${SiteUI.escapeHtml(item.note)}</p>
+                  </article>
+                `
+              )
+              .join("")}
+          </div>
+        </div>
+      </section>
+      <section class="section section-muted">
+        <div class="shell">
+          ${sectionHeading("Appointments And Education", "Timeline")}
+          <div class="timeline-grid timeline-grid-single">
+            ${profile.appointments
               .map(
                 (item) => `
                   <article class="panel timeline-card">
@@ -485,7 +505,7 @@
       ${pageHeroMarkup(
         {
           eyebrow: "Team",
-          title: "People building ubiqutous AI systems together.",
+          title: "People building ubiquitous AI systems together.",
           description: SiteContent.team.intro,
           actions: [{ label: "View Awards", href: "./awards.html", kind: "secondary" }]
         },
