@@ -447,6 +447,15 @@
         title: "Alumni",
         members: [
           {
+            name: "Qunhang Fu (付群航)",
+            role: "M.Eng.",
+            photo: "./assets/media/people/2022qunhang-fu.jpg",
+            photoAlt: "Sample portrait for Qunhang Fu",
+            bio:
+              "Graduated in 2025 and then joined Hangzhou Xiaoshan District People's Government.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
             name: "Zhenkui Yang (杨振奎)",
             role: "M.Eng.",
             photo: "./assets/media/people/2022zhenkui-yang.png",
@@ -480,7 +489,44 @@
             photoAlt: "Sample portrait for Bo Lan",
             bio:
               "Graduated in 2025 and then joined Pinduoduo.",
-            lin: "https://scholar.google.com/citations?user=kP6Dr_4AAAAJ",
+            link: "https://scholar.google.com/citations?user=kP6Dr_4AAAAJ",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Huina Meng (孟慧娜)",
+            role: "M.Eng.",
+            photo: "./assets/media/people/2020huina-meng.jpg",
+            photoAlt: "Sample portrait for Huina Meng",
+            bio:
+              "Graduated in 2023 and then joined SPIC Nuelectronic（Wuxi）Company Limited.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Xin Wang (王欣)",
+            role: "M.Eng.",
+            photo: "./assets/media/people/2020xin-wang.jpg",
+            photoAlt: "Sample portrait for Xin Wang",
+            bio:
+              "Graduated in 2023 and then joined STATE GRID.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Yuhang Zhang (张宇航)",
+            role: "Bachelor of Engineering",
+            photo: "./assets/media/people/2024yuhang-zhang.jpg",
+            photoAlt: "Sample portrait for Yuhang Zhang",
+            bio:
+              "After graduating in 2024, he went on to pursue a master’s degree at Peking University.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Shichao Ma (马世超)",
+            role: "Bachelor of Engineering",
+            photo: "./assets/media/people/2024shichao-ma.jpg",
+            photoAlt: "Sample portrait for Yuhang Zhang",
+            bio:
+              "After graduating with a bachelor’s degree in 2024, he went on to pursue a master’s degree at University of Science and Technology of China.",
+            link: "https://scholar.google.com/citations?user=-ojMOq0AAAAJ",
             palette: ["#3d376a", "#e0dcff"]
           },
         ]
