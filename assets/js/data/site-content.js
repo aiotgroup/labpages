@@ -745,7 +745,7 @@
         date: "November 5, 2025",
         caption: "I had sweet drinks with friends in Hong Kong during MobiCom 2025.",
         tag: "Conference",
-        image: "./assets/media/gallery/2025-hetianshui-hongkong.jpg",
+        image: "./assets/media/gallery/2025hetianshui-hongkong.jpg",
         photoAlt: "Poster session preparation snapshot",
         palette: ["#214c71", "#e4f2ff"]
       },
@@ -781,7 +781,7 @@
         date: "June, 2025",
         caption: "Six students have successfully graduated—congratulations, and wishing you all a bright and promising future.",
         tag: "Celebration",
-        image: "./assets/media/gallery/2025biyekuaile.jpg",
+        image: "./assets/media/gallery/2025biyekuaile-xian.jpg",
         photoAlt: "Poster session preparation snapshot",
         palette: ["#214c71", "#e4f2ff"]
       },
@@ -795,11 +795,38 @@
         palette: ["#214c71", "#e4f2ff"]
       },
       {
-        title: "Niagara Falls",
-        date: "Spring Break, 2019",
-        caption: "At the U.S.–Canada border, I saw the world’s third-largest waterfall, Niagara Falls.",
-        tag: "Vacation",
-        image: "./assets/media/gallery/2019niagara.jpg",
+        title: "Golden Ginkgo Leaves",
+        date: "November 19, 2024",
+        caption: "When the ginkgo leaves turned golden, we visited Guanyin Zen Temple to see the thousand-year-old ginkgo tree.",
+        tag: "Tourist",
+        image: "./assets/media/gallery/2024guanyinchansi-xian.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "IEEE BLOBECOM @ Hawaii",
+        date: "9 Decemberber, 2019",
+        caption: "Our WIPIN received the Best Paper Award at IEEE GLOBECOM 2019.",
+        tag: "Conference",
+        image: "./assets/media/gallery/2019globecom-bestpaper.png",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "ICCV 2019 @ Seoul",
+        date: "October, 2019",
+        caption: "I saw Ross Girshick presenting a poster at ICCV, introducing his joint work with Kaiming He.",
+        tag: "Conference",
+        image: "./assets/media/gallery/2019iccv-seoul.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "We say goodbye @ Pittsburgh",
+        date: "October, 2019",
+        caption: "On the Friday before returning to China, we took a group photo at Paul’s place.",
+        tag: "Celebration",
+        image: "./assets/media/gallery/2019friday.jpg",
         photoAlt: "Poster session preparation snapshot",
         palette: ["#214c71", "#e4f2ff"]
       },
@@ -809,6 +836,33 @@
         caption: "During spring break, I made a quick trip to Boston and visited Harvard University, MIT, and Museum of Boston.",
         tag: "Vacation",
         image: "./assets/media/gallery/2019mit-boston.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "The While House @ Washington, D.C.",
+        date: "Winter, 2018",
+        caption: "In winter, I passed by the White House.",
+        tag: "Winter",
+        image: "./assets/media/gallery/2018washingtondc.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "Niagara Falls",
+        date: "June, 2018",
+        caption: "At the U.S.–Canada border, I saw the world’s third-largest waterfall, Niagara Falls.",
+        tag: "Vacation",
+        image: "./assets/media/gallery/2018niagara.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "Chinese New Year @ Pittsburgh",
+        date: "Chinese New Year, 2017",
+        caption: "We celebrated the Chinese New Year together.",
+        tag: "Festival",
+        image: "./assets/media/gallery/2017newyear.jpg",
         photoAlt: "Poster session preparation snapshot",
         palette: ["#214c71", "#e4f2ff"]
       },
@@ -827,6 +881,15 @@
         caption: "I saw many fossils at the American Museum of Natural History.",
         tag: "Mesume",
         image: "./assets/media/gallery/2017nhm-newyork.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "Graduation season @ Xi'an",
+        date: "June, 2017",
+        caption: "My friends are about to graduate, and I will continue pursuing the Ph.D. degree.",
+        tag: "Graduation",
+        image: "./assets/media/gallery/2017biyeji.jpg",
         photoAlt: "Poster session preparation snapshot",
         palette: ["#214c71", "#e4f2ff"]
       },
