@@ -521,6 +521,15 @@
         palette: ["#214c71", "#e4f2ff"]
       },
       {
+        title: "INFOCOM 2025 @ London",
+        date: "May 20, 2025",
+        caption: "I ran into Mr. Bean in a park in London.",
+        tag: "Conference",
+        image: "./assets/media/gallery/2025infocom-london.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
         title: "Time Square @ New York.",
         date: "December, 2017",
         caption: "We drove to New York City from Pittsburgh to celebrate Christmas.",
