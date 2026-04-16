@@ -526,9 +526,9 @@
         },
         `
           <div class="aside-card">
-            <p class="eyebrow">Editing</p>
+            <p class="eyebrow">Gallery</p>
             <h3>Mix visuals and short writing.</h3>
-            <p>The gallery can host conference moments, benchmarks, group events, or lightweight blog-style posts.</p>
+            <p>The gallery showcases our group’s activities, daily moments, and individual posts, including conference highlights, group events, and informal snapshots of research life.</p>
           </div>
         `
       )}

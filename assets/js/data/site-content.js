@@ -473,7 +473,7 @@
 
   SiteContent.gallery = {
     intro:
-      "The gallery mixes image-style cards with longer Markdown lab notes so the page can document both research milestones and everyday group life.",
+      "The gallery documents both research milestones and everyday group life.",
     snapshots: [
       {
         title: "China Graduate Intelligent Construction Innovation Competition",
