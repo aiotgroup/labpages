@@ -580,7 +580,7 @@
           },
           {
             name: "Xilei Han (韩茜蕾)",
-            role: "Bachelor, Research Intern",
+            role: "Undergraduate Student, Research Intern",
             photo: "./assets/media/people/2027xilei-han.jpg",
             photoAlt: "Sample portrait for Xilei Han",
             bio:
