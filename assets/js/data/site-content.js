@@ -565,7 +565,7 @@
             photo: "./assets/media/people/2024zixuan-xia.jpg",
             photoAlt: "Sample portrait for Zixuan Xia",
             bio:
-              "Multimodal machine learning, neural optimization.",
+              "Multimodal learning, neural optimization.",
             link: "https://sumxiaa.github.io/",
             palette: ["#5d4628", "#ffe6c8"]
           },
