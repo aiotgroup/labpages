@@ -722,7 +722,7 @@
         palette: ["#214c71", "#e4f2ff"]
       },
       {
-        title: "Museum of Art Pudong",
+        title: "Museum of Art Pudong @ Shanghai",
         date: "September 4, 2025",
         caption: "We visited the Museum of Art Pudong in Shanghai during CSWN 2025.",
         tag: "Conference",
