@@ -584,6 +584,16 @@
         title: "Alumni",
         members: [
           {
+            name: "Tiantian Wang (王天天)",
+            role: "M.Eng. student",
+            photo: "./assets/media/people/2024tiantian-wang.jpg",
+            photoAlt: "Sample portrait for Qunhang Fu",
+            bio:
+              "Go to pursue a master’s degree at The University of Tokyo.",
+            link: "https://scholar.google.com/citations?user=Pj4jG9YAAAAJ",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
             name: "Qunhang Fu (付群航)",
             role: "M.Eng.",
             photo: "./assets/media/people/2022qunhang-fu.jpg",
