@@ -491,9 +491,9 @@
         },
         `
           <div class="aside-card">
-            <p class="eyebrow">Directory</p>
-            <h3>Generated portraits and editable links.</h3>
-            <p>If a member card has a link configured, the whole card becomes clickable.</p>
+            <p class="eyebrow">Lab Members</p>
+            <h3>Meet our researchers and students.</h3>
+            <p>You can find all our team members here, including our graduates who remain a cherished part of our history.</p>
           </div>
         `
       )}

@@ -348,7 +348,7 @@
 
   SiteContent.team = {
     intro:
-      "The team page is configured from editable member objects. Each card can use a real photo if you provide one, otherwise it falls back to a generated portrait, plus a role label, optional link, and short biography.",
+      "Pioneering the frontiers of ubiquitous AI sensing and multimodal machine learning, our dynamic team is engineering smarter, more resilient AIoT systems for the future.",
     groups: [
       {
         title: "Principal Investigator",
