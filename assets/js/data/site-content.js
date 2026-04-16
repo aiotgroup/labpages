@@ -159,7 +159,7 @@
   SiteContent.feiWang = {
     name: "Fei Wang",
     title: "Faculty Profile Template",
-    subtitle: "Professor of Efficient AI Systems and Applied Machine Learning",
+    subtitle: "Associate Professor of Ubiquitous AI Systems and Multimodal Learning",
     photo: "./assets/media/people/fei-wang.svg",
     photoAlt: "Sample profile photo for Fei Wang",
     note:
