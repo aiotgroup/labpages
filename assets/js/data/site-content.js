@@ -578,6 +578,15 @@
               "",
             palette: ["#5d4628", "#ffe6c8"]
           },
+          {
+            name: "Xilei Han (韩茜蕾)",
+            role: "Bachelor, Research Intern",
+            photo: "./assets/media/people/2027xilei-han.jpg",
+            photoAlt: "Sample portrait for Xilei Han",
+            bio:
+              "",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
         ]
       },
       {
