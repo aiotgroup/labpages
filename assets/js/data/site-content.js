@@ -740,7 +740,7 @@
         palette: ["#214c71", "#e4f2ff"]
       },
       {
-        title: "Graduate of the Class of 2026.",
+        title: "ireless Sensing Forum @ Nanjing.",
         date: "July, 2025",
         caption: "I met with my Ph.D. advisor and fellow lab mates in Nanjing during the Wireless Sensing Forum.",
         tag: "Confrence",
