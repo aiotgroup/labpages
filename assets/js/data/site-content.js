@@ -787,7 +787,7 @@
       {
         title: "Niagara Falls",
         date: "Spring Break, 2019",
-        caption: "I was at the U.S.–Canada border and saw the world’s third-largest waterfall, Niagara Falls.",
+        caption: "At the U.S.–Canada border, I saw the world’s third-largest waterfall, Niagara Falls.",
         tag: "Vacation",
         image: "./assets/media/gallery/2019niagara.jpg",
         photoAlt: "Poster session preparation snapshot",
