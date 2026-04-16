@@ -541,6 +541,26 @@
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
+            name: "Zixuan Xia (夏梓轩)",
+            role: "Master Student, Research Intern, Universität Bern",
+            photo: "./assets/media/people/2024zixuan-xia.jpg",
+            photoAlt: "Sample portrait for Zixuan Xia",
+            bio:
+              "Multimodal machine learning, neural optimization.",
+            link: "https://sumxiaa.github.io/",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+                    {
+            name: "Hao Wang (王皓)",
+            role: "Master Student, Research Intern, Universität Bern",
+            photo: "./assets/media/people/2024hao-wang.png",
+            photoAlt: "Sample portrait for Hao Wang",
+            bio:
+              "Multimodal machine learning.",
+            link: "https://scholar.google.com/citations?user=RSjDZx0AAAAJ",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
             name: "Lei Ouyang (欧阳蕾)",
             role: "Incoming M.Eng. Student",
             photo: "./assets/media/people/2026lei-ouyang.png",
@@ -688,6 +708,15 @@
         caption: "We visited the Museum of Art Pudong in Shanghai during CSWN 2025.",
         tag: "Conference",
         image: "./assets/media/gallery/2025pumei-cwsn.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+       {
+        title: "Graduate of the Class of 2026.",
+        date: "July, 2025",
+        caption: "I met with my Ph.D. advisor and fellow lab mates in Nanjing during the Wireless Sensing Forum.",
+        tag: "Confrence",
+        image: "./assets/media/gallery/2025wuxianluntan-nanjing.jpg",
         photoAlt: "Poster session preparation snapshot",
         palette: ["#214c71", "#e4f2ff"]
       },
