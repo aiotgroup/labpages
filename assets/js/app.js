@@ -485,7 +485,7 @@
       ${pageHeroMarkup(
         {
           eyebrow: "Team",
-          title: "People building efficient AI systems together.",
+          title: "People building ubiqutous AI systems together.",
           description: SiteContent.team.intro,
           actions: [{ label: "View Awards", href: "./awards.html", kind: "secondary" }]
         },

@@ -369,9 +369,9 @@
         title: "Students and Collaborators",
         members: [
           {
-            name: "Shengyao Ding",
+            name: "Shengyao Ding (丁声耀)",
             role: "PhD Student",
-            photo: "./assets/media/people/shengyao-ding.jpg",
+            photo: "./assets/media/people/2025shengyao-ding.jpg",
             photoAlt: "Sample portrait for Shengyao Ding",
             link: "./member/shengyao-ding.html",
             bio:
@@ -379,21 +379,23 @@
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
+            name: "Wenqian Xu (徐文谦)",
+            role: "M.Eng. Student",
+            photo: "./assets/media/people/2024wenqian-xu.jpg",
+            photoAlt: "Sample portrait for Wenqian Xu",
+            bio:
+              "Using LLMs for equipment diagnostics with nuclear power sensor data.",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
             name: "Pei Li (李沛)",
-            role: "MSE Student",
-            photo: "./assets/media/people/pei-li.jpg",
+            role: "M.Eng. Student",
+            photo: "./assets/media/people/2023pei-li.jpg",
             photoAlt: "Sample portrait for Pei Li",
             bio:
               "Interested in efficient LLMs and low-bit quantization, with prior industry and interdisciplinary research experience.",
             palette: ["#5d4628", "#ffe6c8"]
           },
-          {
-            name: "Shreya Chaudhury",
-            role: "Undergraduate Researcher",
-            bio:
-              "Interested in quantum computing, variational algorithms, and practical quantum machine learning systems.",
-            palette: ["#4f5a27", "#eefbc2"]
-          }
         ]
       },
       {
@@ -401,29 +403,29 @@
         members: [
           {
             name: "Zhenkui Yang (杨振奎)",
-            role: "MEng Student",
-            photo: "./assets/media/people/zhenkui-yang.png",
+            role: "M.Eng.",
+            photo: "./assets/media/people/2022zhenkui-yang.png",
             photoAlt: "Sample portrait for Zhenkui Yang",
             bio:
-              "Graduated in 2025.",
+              "Graduated in 2025 and then joined Alibaba Group.",
             palette: ["#3d376a", "#e0dcff"]
           },
           {
             name: "Haomin Xiong (熊浩民)",
-            role: "MEng Student",
-            photo: "./assets/media/people/haomin-xiong.jpg",
+            role: "M.Eng.",
+            photo: "./assets/media/people/2022haomin-xiong.jpg",
             photoAlt: "Sample portrait for Haomin Xiong",
             bio:
-              "Graduated in 2025.",
+              "Graduated in 2025 and then joined Xianyu.",
             palette: ["#3d376a", "#e0dcff"]
           },
           {
             name: "Peixi Shi (史培玺)",
-            role: "MEng Student",
-            photo: "./assets/media/people/peixi-shi.jpg",
+            role: "M.Eng.",
+            photo: "./assets/media/people/2022peixi-shi.jpg",
             photoAlt: "Sample portrait for Peixi Shi",
             bio:
-              "Graduated in 2025.",
+              "Graduated in 2025 and then joined NR Electric Co., Ltd.",
             palette: ["#3d376a", "#e0dcff"]
           },
           {
@@ -539,11 +541,11 @@
         palette: ["#214c71", "#e4f2ff"]
       },
       {
-        title: "Mesume of Modern Art @ New York.",
+        title: "Museum of Natural History @ New York.",
         date: "December，2017",
-        caption: "At Museum of Modern Art, I saw The Starry Night.",
-        tag: "Art",
-        image: "./assets/media/gallery/2017moma-starrynight.jpg",
+        caption: "I saw many fossils at the American Museum of Natural History.",
+        tag: "Mesume",
+        image: "./assets/media/gallery/2017nhm-newyork.jpg",
         photoAlt: "Poster session preparation snapshot",
         palette: ["#214c71", "#e4f2ff"]
       },
