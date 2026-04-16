@@ -424,12 +424,21 @@
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
+            name: "Lei Ouyang (欧阳蕾)",
+            role: "Incoming M.Eng. Student",
+            photo: "./assets/media/people/2026lei-ouyang.png",
+            photoAlt: "Sample portrait for Lei Ouyang",
+            bio:
+              "Human sensing with Wi-Fi and IMUs.",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
             name: "Baorui Zhang (张宝瑞)",
             role: "Incoming M.Eng. Student",
             photo: "./assets/media/people/2026baorui-zhang.jpg",
             photoAlt: "Sample portrait for Baorui Zhang",
             bio:
-              "Performing fully supervised and weakly supervised temporal action localization using smart devices equipped with IMUs.",
+              "",
             palette: ["#5d4628", "#ffe6c8"]
           },
         ]
