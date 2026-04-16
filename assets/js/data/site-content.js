@@ -355,7 +355,7 @@
         members: [
           {
             name: "Fei Wang",
-            role: "Professor, Xi'an Jiaotong University",
+            role: "Associate Professor, Xi'an Jiaotong University",
             bio:
               "Leads XJTU AIoT Group with interests spanning efficient AI systems, multimodal intelligence, embodied AI, and AIoT applications.",
             link: "./fei-wang.html",
@@ -375,7 +375,7 @@
             photoAlt: "Sample portrait for Shengyao Ding",
             link: "./member/shengyao-ding.html",
             bio:
-              "Interested in efficient LLMs and low-bit quantization, with prior industry and interdisciplinary research experience.",
+              "Point cloud segmentation.",
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
@@ -393,7 +393,7 @@
             photo: "./assets/media/people/2023pei-li.jpg",
             photoAlt: "Sample portrait for Pei Li",
             bio:
-              "Interested in efficient LLMs and low-bit quantization, with prior industry and interdisciplinary research experience.",
+              "Performing fully supervised and weakly supervised temporal action localization using smart devices equipped with IMUs.",
             palette: ["#5d4628", "#ffe6c8"]
           },
         ]
@@ -444,30 +444,6 @@
             link: "https://zhijianliu.com/",
             palette: ["#25503a", "#d6f9e5"]
           },
-          {
-            name: "Han Cai",
-            role: "NVIDIA Research",
-            bio:
-              "Known for hardware-aware NAS and efficient deep learning algorithms deployed in widely used ML frameworks.",
-            link: "https://han-cai.github.io/",
-            palette: ["#3e355f", "#e5ddff"]
-          },
-          {
-            name: "Yujun Lin",
-            role: "NVIDIA Research",
-            bio:
-              "Focuses on the co-design of software and hardware for efficient deep learning and large-model serving.",
-            link: "https://yujunlin.com/",
-            palette: ["#543021", "#ffe0cf"]
-          },
-          {
-            name: "Wei-Chen Wang",
-            role: "Co-Founder, Eigen AI",
-            bio:
-              "Works on efficient deep learning, TinyML, embedded systems, and memory-aware deployment systems.",
-            link: "https://weichenwang.me/",
-            palette: ["#2a4f61", "#d6f1ff"]
-          }
         ]
       }
     ]
