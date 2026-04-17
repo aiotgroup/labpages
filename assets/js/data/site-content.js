@@ -758,7 +758,16 @@
     intro:
       "The gallery documents both research milestones and everyday group life.",
     snapshots: [
-        {
+      {
+        title: "Mentorship and Friendship",
+        date: "April 17, 2026",
+        caption: "Our academic lineage gathered in Xi’an, reflecting on 10-20 years of friendship and mentorship.",
+        tag: "Celebration",
+        image: "./assets/media/gallery/2026xiaobinjiebiye-xian.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
         title: "Birdwatching @ Hangzhou",
         date: "Janurary 4, 2026",
         caption: "We took very clear photos of Xiaocui—a kind of kingfisher—at the Hangzhou Zoo.",
