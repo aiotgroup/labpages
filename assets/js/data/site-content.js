@@ -849,7 +849,7 @@
         palette: ["#214c71", "#e4f2ff"]
       },
       {
-        title: "Hairy Crabs🦀🦀🦀",
+        title: "Hairy Crabs 🦀🦀🦀",
         date: "October 22, 2024",
         caption: "We enjoyed seasonal Yangcheng Lake hairy crabs together 🦀.",
         tag: "Meal",
