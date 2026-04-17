@@ -686,6 +686,15 @@
             palette: ["#3d376a", "#e0dcff"]
           },
           {
+            name: "Xilei Wu (吴熙磊)",
+            role: "M.Eng.",
+            photo: "./assets/media/people/2020xilei-wu.jpg",
+            photoAlt: "Sample portrait for Xilei Wu",
+            bio:
+              "Graduated in 2023 and then joined Kuaishou Technology Co., Ltd.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
             name: "Yiao Gao (高一奥)",
             role: "M.Eng.",
             photo: "./assets/media/people/2020yiao-gao.png",
@@ -731,6 +740,15 @@
     intro:
       "The gallery documents both research milestones and everyday group life.",
     snapshots: [
+        {
+        title: "Birdwatching @ Hangzhou",
+        date: "Janurary 4, 2026",
+        caption: "We took very clear photos of Xiaocui—a kind of kingfisher—at the Hangzhou Zoo.",
+        tag: "Nature",
+        image: "./assets/media/gallery/2026xixishidi-hangzhou.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
       {
         title: "China Graduate Intelligent Construction Innovation Competition",
         date: "November 29, 2025",
@@ -761,7 +779,7 @@
       {
         title: "Museum of Art Pudong @ Shanghai",
         date: "September 4, 2025",
-        caption: "We visited the Museum of Art Pudong in Shanghai during CSWN 2025.",
+        caption: "We visited the Museum of Art Pudong in Shanghai during CWSN 2025.",
         tag: "Conference",
         image: "./assets/media/gallery/2025pumei-cwsn.jpg",
         photoAlt: "Poster session preparation snapshot",
@@ -786,11 +804,20 @@
         palette: ["#214c71", "#e4f2ff"]
       },
       {
-        title: "Graduate of the Class of 2026",
+        title: "Graduate of the Class of 2025",
         date: "June, 2025",
         caption: "Six students have successfully graduated—congratulations, and wishing you all a bright and promising future.",
         tag: "Celebration",
         image: "./assets/media/gallery/2025biyekuaile-xian.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "Graduate of the Class of 2024",
+        date: "June, 2024",
+        caption: "Four students have successfully graduated—congratulations, and wishing you all a bright and promising future.",
+        tag: "Celebration",
+        image: "./assets/media/gallery/2024biyeji.jpg",
         photoAlt: "Poster session preparation snapshot",
         palette: ["#214c71", "#e4f2ff"]
       },
@@ -813,7 +840,7 @@
         palette: ["#214c71", "#e4f2ff"]
       },
       {
-        title: "IEEE BLOBECOM @ Hawaii",
+        title: "IEEE GLOBECOM @ Hawaii",
         date: "9 Decemberber, 2019",
         caption: "Our WIPIN received the Best Paper Award at IEEE GLOBECOM 2019.",
         tag: "Conference",
@@ -894,7 +921,7 @@
         palette: ["#214c71", "#e4f2ff"]
       },
       {
-        title: "Graduation season @ Xi'an",
+        title: "Graduation Season @ Xi'an",
         date: "June, 2017",
         caption: "My friends are about to graduate, and I will continue pursuing the Ph.D. degree.",
         tag: "Graduation",
