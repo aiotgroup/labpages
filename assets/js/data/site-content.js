@@ -668,6 +668,24 @@
             palette: ["#3d376a", "#e0dcff"]
           },
           {
+            name: "Yizhe Lyu (吕一喆)",
+            role: "M.Eng.",
+            photo: "./assets/media/people/2021yizhe-lv.jpg",
+            photoAlt: "Sample portrait for Yizhe Lyu",
+            bio:
+              "Graduated in 2024 and then joined NR Electric Co., Ltd.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Mengdie Zhu (朱梦蝶)",
+            role: "M.Eng.",
+            photo: "./assets/media/people/2021mengdie-zhu.jpg",
+            photoAlt: "Sample portrait for Mengdie Zhu",
+            bio:
+              "Graduated in 2024 and now in Nanjing.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
             name: "Huina Meng (孟慧娜)",
             role: "M.Eng.",
             photo: "./assets/media/people/2020huina-meng.jpg",
@@ -750,7 +768,7 @@
         palette: ["#214c71", "#e4f2ff"]
       },
       {
-        title: "China Graduate Intelligent Construction Innovation Competition",
+        title: "China Graduate Intelligent Construction Innovation Competition @ Nantong",
         date: "November 29, 2025",
         caption: "We won the second prize in the national competition in Nantong, Jiangsu.",
         tag: "Competition",
@@ -759,7 +777,7 @@
         palette: ["#214c71", "#e4f2ff"]
       },
       {
-        title: "CHINA GRADUATE CONTEST ON SMART-CITY TECHNOLOGYAND CREATIVE DESIGN",
+        title: "China Graduate Contest on Smart-City Technology and Creative Design @ Wuhan",
         date: "November 10, 2025",
         caption: "We won the second prize in the national competition in Wuhan, Hubei.",
         tag: "Competition",
@@ -813,15 +831,6 @@
         palette: ["#214c71", "#e4f2ff"]
       },
       {
-        title: "Graduate of the Class of 2024",
-        date: "June, 2024",
-        caption: "Four students have successfully graduated—congratulations, and wishing you all a bright and promising future.",
-        tag: "Celebration",
-        image: "./assets/media/gallery/2024biyeji.jpg",
-        photoAlt: "Poster session preparation snapshot",
-        palette: ["#214c71", "#e4f2ff"]
-      },
-      {
         title: "INFOCOM 2025 @ London",
         date: "May 20, 2025",
         caption: "I ran into Mr. Bean in a park in London.",
@@ -836,6 +845,42 @@
         caption: "When the ginkgo leaves turned golden, we visited Guanyin Zen Temple to see the thousand-year-old ginkgo tree.",
         tag: "Tourist",
         image: "./assets/media/gallery/2024guanyinchansi-xian.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "Hairy Crabs🦀🦀🦀",
+        date: "October 22, 2024",
+        caption: "We enjoyed seasonal Yangcheng Lake hairy crabs together 🦀.",
+        tag: "Meal",
+        image: "./assets/media/gallery/2024dazhaxie-xian.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "CWSN @ Taiyuan",
+        date: "September 21, 2024",
+        caption: "My first photo with my grand-advisor, Professor. Yunhao Liu, an academician of the Chinese Academy of Sciences.",
+        tag: "Conference",
+        image: "./assets/media/gallery/2024cwsn-taiyuan.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "HHME @ Taiyuan",
+        date: "August 22, 2024",
+        caption: "I presented our group’s XRF55 dataset and the Person-in-WiFi 3D CVPR paper at HHME 2024.",
+        tag: "Conference",
+        image: "./assets/media/gallery/2024hhme-taiyuan.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "Graduate of the Class of 2024",
+        date: "June, 2024",
+        caption: "Four students have successfully graduated—congratulations, and wishing you all a bright and promising future.",
+        tag: "Celebration",
+        image: "./assets/media/gallery/2024biyeji.jpg",
         photoAlt: "Poster session preparation snapshot",
         palette: ["#214c71", "#e4f2ff"]
       },
