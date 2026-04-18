@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Active Domain Adaptation for mmWave-based HAR via Renyi Entropy-based Uncertainty Estimation - XJTU AIoT Group</title>
-  <meta name="description" content="mmADA adapts mmWave human activity recognition models to new users, positions, and environments through active domain adaptation guided by Renyi entropy uncertainty estimation.">
+  <title>Active Domain Adaptation for mmWave-based HAR via Rényi Entropy-based Uncertainty Estimation - XJTU AIoT Group</title>
+  <meta name="description" content="mmADA adapts mmWave-based human activity recognition models to new users, positions, and environments with minimal target-domain labels, using Rényi entropy to select informative samples and unlabeled-data refinement to close the domain gap.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -30,32 +30,28 @@
       <div class="paper-shell paper-hero-grid">
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
-          <h1>Active Domain Adaptation for mmWave-based HAR via Renyi Entropy-based Uncertainty Estimation</h1>
+          <h1>Active Domain Adaptation for mmWave-based HAR via Rényi Entropy-based Uncertainty Estimation</h1>
           <p class="paper-subtitle">Mingzhi Lin, Teng Huang, Han Ding, Cui Zhao, Fei Wang, Ge Wang, Wei Xi</p>
           <div class="paper-meta-row">
-            <span class="paper-pill">IEEE Transactions on Mobile Computing, 2025</span>
-            <span class="paper-pill">2025</span>
+            <span class="paper-pill">IEEE Transactions on Mobile Computing, 2026</span>
+            <span class="paper-pill">2026</span>
             <span class="paper-pill">Ubiquitous Sensing</span>
-            <span class="paper-pill">XJTU AIoT Group</span>
+            <span class="paper-pill">XJTU-CSE / XJTU-SSE</span>
           </div>
-          <p class="paper-summary">mmADA adapts mmWave human activity recognition models to new users, positions, and environments through active domain adaptation guided by Renyi entropy uncertainty estimation.</p>
+          <p class="paper-summary">mmADA adapts mmWave-based human activity recognition models to new users, positions, and environments with minimal target-domain labels, using Rényi entropy to select informative samples and unlabeled-data refinement to close the domain gap.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
-            
-            
-            
-            
+            <a class="paper-link-chip" href="https://arxiv.org/abs/2511.04219">Paper</a>
           </div>
         </div>
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for Active Domain Adaptation for mmWave-based HAR via Renyi Entropy-based Uncertainty Estimation">
+            <img src="./assets/mmada-overview.png" alt="Overview of the mmADA active domain adaptation framework">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIoT Group</p>
+            <p>XJTU-CSE / XJTU-SSE</p>
           </aside>
         </aside>
       </div>
@@ -66,7 +62,7 @@
         <div class="paper-metric-grid">
           <article class="paper-panel paper-metric-card">
             <strong>Venue</strong>
-            <p>IEEE Transactions on Mobile Computing, 2025</p>
+            <p>IEEE Transactions on Mobile Computing, 2026</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
@@ -74,7 +70,7 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIoT Group</p>
+            <p>XJTU-CSE / XJTU-SSE</p>
           </article>
         </div>
       </div>
@@ -84,33 +80,121 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>mmWave-based human activity recognition is attractive because it is non-contact and privacy-friendly, but model accuracy often drops sharply when the deployment domain changes. New users, new positions, and new environments can all create <strong>domain shift</strong> that undermines the original training distribution.</p>
-<p>This paper introduces <strong>mmADA</strong>, an active domain adaptation framework that aims to recover performance with as little labeled target data as possible. The method combines uncertainty-based sample selection with unlabeled-domain adaptation so the model spends annotation effort on the most informative target examples.</p>
+<p>mmWave radar is attractive for Human Activity Recognition (HAR) because it is contactless, privacy-preserving, and capable of capturing fine-grained motion through range, angle, and Doppler signatures. The practical challenge is <strong>domain shift</strong>: a model trained on one set of users, positions, or rooms can degrade sharply when deployed in a new domain.</p>
+<p>This paper proposes <strong>mmADA</strong>, an <strong>Active Domain Adaptation</strong> framework for mmWave-based HAR. Instead of labeling target data uniformly or randomly, mmADA asks a more careful question: under a small labeling budget, which target samples are most worth annotating?</p>
+<blockquote>
+<p>Core idea: use Rényi entropy to estimate both domain uncertainty and prediction uncertainty, actively label the most informative target samples, then refine adaptation with pseudo-labeling and contrastive learning over the remaining unlabeled data.</p>
+</blockquote>
+<figure class="markdown-figure">
+  <img src="./assets/mmada-overview.png" alt="Overview of the mmADA active domain adaptation framework">
+  <figcaption>Figure 4 from the paper. mmADA converts raw mmWave radar data into sensing signatures, estimates Rényi entropy-based uncertainty, selects informative target samples, and refines adaptation with pseudo-labeling and contrastive learning.</figcaption>
+</figure>
+<h2>Why this matters</h2>
+<p>Cross-domain mmWave HAR is hard because the signal distribution changes for several reasons:</p>
+<ul>
+<li><strong>New positions</strong> change radar-to-human distance, angle, multipath, and reflection strength.</li>
+<li><strong>New users</strong> introduce different body shapes, limb lengths, and motion styles.</li>
+<li><strong>New environments</strong> alter reflections, clutter, furniture layout, and ambient interference.</li>
+</ul>
+<p>The paper shows this through Time-Doppler (TD) and Time-Angle (TA) heatmaps, t-SNE embeddings, and uncertainty distributions. Direct transfer keeps source-domain activities relatively separable, but target-domain and unseen-domain features become scattered. After mmADA, the feature geometry becomes much more aligned across source, target, and unseen domains.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Proposes an <strong>active domain adaptation</strong> pipeline specialized for mmWave HAR.</li>
-<li>Uses <strong>Renyi entropy-based uncertainty estimation</strong> to decide which target samples should be labeled.</li>
-<li>Combines active labeling, contrastive learning, and pseudo-labeling to refine alignment in the target domain.</li>
+<li>Introduces <strong>mmADA</strong>, the first active domain adaptation framework designed specifically for mmWave-based HAR.</li>
+<li>Proposes <strong>Rényi entropy-based uncertainty estimation</strong> that jointly captures domain uncertainty and prediction uncertainty.</li>
+<li>Uses a <strong>diversity-aware active selection</strong> step so labeled target samples are not only uncertain but also representative.</li>
+<li>Refines target adaptation with <strong>KNN-based pseudo-label sets</strong> and <strong>contrastive learning</strong>, making unlabeled target data useful instead of ignoring it.</li>
+<li>Validates the method on a self-collected mmWave dataset and two large public datasets, <strong>XRF55</strong> and <strong>MM-Fi</strong>.</li>
 </ul>
-<h2>Method</h2>
-<p>The framework is built around a simple idea: if labeling budget is limited, the system should request labels only for the target samples that are most likely to improve adaptation. mmADA estimates informativeness with Renyi entropy, then uses those selected samples together with unlabeled target data to improve cross-domain feature alignment.</p>
-<p>This coupling of active learning and adaptation is especially helpful in mmWave sensing, where collecting labeled data in every new environment is expensive.</p>
-<h2>Evaluation Highlights</h2>
+<h2>Method at a Glance</h2>
+<p>The mmADA pipeline has four main stages:</p>
+<ol>
+<li><strong>Signal processing</strong> Raw FMCW mmWave radar signals are converted into sensing signatures. The system uses <strong>Time-Doppler heatmaps</strong> to capture velocity dynamics and <strong>Time-Angle heatmaps</strong> to capture spatial movement patterns.</li>
+<li><strong>EDL-based Activity Recognizer (EAR)</strong> Two ResNet50 branches extract TD and TA features, fuse them in latent space, and feed a HyperNetwork-based classifier. The classifier uses <strong>Evidential Deep Learning</strong> with a Dirichlet prior, so the model can estimate uncertainty instead of only producing a hard class prediction.</li>
+<li><strong>Rényi entropy-based uncertainty selection</strong> mmADA computes a total uncertainty score from two parts: <strong>domain uncertainty</strong>, which measures whether a sample looks unfamiliar because of domain shift, and <strong>prediction uncertainty</strong>, which measures ambiguity near class boundaries.</li>
+<li><strong>Model refinement</strong> The selected target samples are labeled and used for adaptation. The remaining unlabeled target samples are further exploited through pseudo-labeling and contrastive learning.</li>
+</ol>
+<p>This design lets mmADA spend annotation effort on samples that actively improve cross-domain adaptation rather than labeling target data uniformly.</p>
+<h2>Rényi Entropy Selector</h2>
+<p>Most active learning methods use Shannon entropy. mmADA instead uses <strong>Rényi entropy</strong>, where the entropy order <code>s</code> can emphasize difficult high-uncertainty samples when <code>0 &lt; s &lt; 1</code>. In the paper, <code>s</code> is learnable but regularized so it remains in the useful range.</p>
+<p>The selector combines:</p>
 <ul>
-<li>Evaluated with a <strong>TI IWR1443BOOST</strong> radar across multiple users, positions, and environments.</li>
-<li>Achieves <strong>over 90% accuracy</strong> in a variety of cross-domain settings.</li>
-<li>Outperforms <strong>five baselines</strong> and remains robust on unseen users, unseen environments, and two additional open-source datasets.</li>
+<li><strong>Rényi mutual information</strong> for domain uncertainty.</li>
+<li><strong>Rényi conditional entropy</strong> for prediction uncertainty.</li>
+<li>A weighted total uncertainty score, with the domain-uncertainty term given higher weight because domain shift is the main adaptation problem.</li>
+</ul>
+<p>After ranking samples by total uncertainty, mmADA applies a diversity-aware filtering step. This avoids selecting many near-duplicate uncertain samples and encourages the labeled set to cover a broader range of target-domain patterns.</p>
+<figure class="markdown-figure">
+  <img src="./assets/uncertainty-selection.png" alt="Uncertainty-based selection and diversity-based filtering process">
+  <figcaption>Figure 6 from the paper. The selector first estimates domain and prediction uncertainty, then combines uncertainty-based selection with diversity-aware filtering to choose final samples for annotation.</figcaption>
+</figure>
+<h2>Pseudo-Labeling and Contrastive Learning</h2>
+<p>The paper does not stop after active annotation. It also uses the unlabeled target data that remain outside the labeling budget.</p>
+<p>The pseudo-labeling module uses a KNN-style similarity rule in latent space. Instead of forcing one pseudo label per sample, it predicts a <strong>Pseudo Label Set (PLS)</strong>:</p>
+<ul>
+<li>the set can be empty when the sample is too uncertain,</li>
+<li>contain one label when the neighborhood is clear,</li>
+<li>or contain multiple labels when several activities remain plausible.</li>
+</ul>
+<p>This is important because ordinary single-label pseudo-labeling can accumulate errors under domain shift. The PLS design is more conservative and turns out to be crucial in the ablation study.</p>
+<p>Contrastive learning then tightens class-level structure by pulling same-activity samples together and pushing different-activity samples apart. Together, pseudo-label sets and contrastive learning help unlabeled target data improve feature alignment instead of introducing noise.</p>
+<h2>Experimental Setup</h2>
+<p>The self-collected dataset uses a commodity <strong>TI IWR1443BOOST</strong> mmWave radar:</p>
+<div class="markdown-table-wrap"><table class="markdown-table"><thead><tr><th style="text-align:left">Item</th><th style="text-align:left">Setting</th></tr></thead><tbody><tr><td style="text-align:left">Radar</td><td style="text-align:left">TI IWR1443BOOST</td></tr><tr><td style="text-align:left">Frequency</td><td style="text-align:left">77-81 GHz</td></tr><tr><td style="text-align:left">Frame rate</td><td style="text-align:left">20 FPS</td></tr><tr><td style="text-align:left">Chirps per frame</td><td style="text-align:left">120</td></tr><tr><td style="text-align:left">Volunteers</td><td style="text-align:left">8 users</td></tr><tr><td style="text-align:left">Positions</td><td style="text-align:left">5 positions</td></tr><tr><td style="text-align:left">Environments</td><td style="text-align:left">2 indoor scenes</td></tr><tr><td style="text-align:left">Activities</td><td style="text-align:left">11 activities plus random / no action</td></tr><tr><td style="text-align:left">Total samples</td><td style="text-align:left">9,600</td></tr></tbody></table></div>
+<p>The default adaptation protocol uses data from two users at one position as the source domain. Other positions, users, and environments are used as target or unseen domains, making the setup close to real deployment where new sensing conditions appear after training.</p>
+<h2>Results at a Glance</h2>
+<p>On the main self-collected dataset, mmADA substantially improves over direct transfer and five representative baselines:</p>
+<div class="markdown-table-wrap"><table class="markdown-table"><thead><tr><th style="text-align:left">Method</th><th style="text-align:right">Accuracy</th><th style="text-align:right">Precision</th><th style="text-align:right">Recall</th><th style="text-align:right">F1-score</th></tr></thead><tbody><tr><td style="text-align:left">Direct Transfer</td><td style="text-align:right">43.52</td><td style="text-align:right">47.76</td><td style="text-align:right">43.52</td><td style="text-align:right">42.86</td></tr><tr><td style="text-align:left">mTransSee</td><td style="text-align:right">45.45</td><td style="text-align:right">61.47</td><td style="text-align:right">45.45</td><td style="text-align:right">47.73</td></tr><tr><td style="text-align:left">EI</td><td style="text-align:right">79.17</td><td style="text-align:right">85.14</td><td style="text-align:right">79.17</td><td style="text-align:right">78.22</td></tr><tr><td style="text-align:left">RoMF</td><td style="text-align:right">31.57</td><td style="text-align:right">51.13</td><td style="text-align:right">31.57</td><td style="text-align:right">31.28</td></tr><tr><td style="text-align:left">EADA</td><td style="text-align:right">85.19</td><td style="text-align:right">86.89</td><td style="text-align:right">85.19</td><td style="text-align:right">84.51</td></tr><tr><td style="text-align:left">MADA</td><td style="text-align:right">75.69</td><td style="text-align:right">83.94</td><td style="text-align:right">75.69</td><td style="text-align:right">76.16</td></tr><tr><td style="text-align:left"><strong>mmADA</strong></td><td style="text-align:right"><strong>96.30</strong></td><td style="text-align:right"><strong>96.33</strong></td><td style="text-align:right"><strong>96.30</strong></td><td style="text-align:right"><strong>96.28</strong></td></tr></tbody></table></div>
+<p>The method also maintains strong generalization to unseen domains:</p>
+<div class="markdown-table-wrap"><table class="markdown-table"><thead><tr><th style="text-align:left">Setting</th><th style="text-align:right">Accuracy</th></tr></thead><tbody><tr><td style="text-align:left">Source domain G1</td><td style="text-align:right">97.92</td></tr><tr><td style="text-align:left">Unseen domain G3</td><td style="text-align:right">91.25</td></tr><tr><td style="text-align:left">Unseen domain G4</td><td style="text-align:right">92.50</td></tr></tbody></table></div>
+<p>The paper reports over <strong>90% accuracy</strong> across cross-user, cross-position, and cross-environment settings. In per-user analysis, mmADA reaches more than <strong>95% accuracy</strong> on target-domain users; across positions, it keeps accuracy above <strong>90%</strong>, while selecting more labels for harder far-angle positions.</p>
+<figure class="markdown-figure">
+  <img src="./assets/main-results.png" alt="Confusion matrix, uncertainty distribution, user and position results, and Table I from the mmADA paper">
+  <figcaption>Figures 9-12 and Table I from the paper. The results connect action-level accuracy, uncertainty behavior, per-user/per-position robustness, and the overall comparison against direct transfer and domain adaptation baselines.</figcaption>
+</figure>
+<h2>Ablation Findings</h2>
+<p>The ablation results make the contribution of each module clear:</p>
+<div class="markdown-table-wrap"><table class="markdown-table"><thead><tr><th style="text-align:left">Variant</th><th style="text-align:right">Accuracy</th><th style="text-align:left">What changes</th></tr></thead><tbody><tr><td style="text-align:left"><strong>mmADA</strong></td><td style="text-align:right"><strong>96.30</strong></td><td style="text-align:left">Full method</td></tr><tr><td style="text-align:left">w/o Rényi entropy</td><td style="text-align:right">93.75</td><td style="text-align:left">Replaces Rényi entropy with Shannon entropy</td></tr><tr><td style="text-align:left">w/o pseudo-labeling</td><td style="text-align:right">81.48</td><td style="text-align:left">Removes unlabeled target-data refinement</td></tr><tr><td style="text-align:left">w/o pseudo-label set</td><td style="text-align:right">65.97</td><td style="text-align:left">Uses a single pseudo label instead of PLS</td></tr><tr><td style="text-align:left">w/o contrastive learning</td><td style="text-align:right">91.90</td><td style="text-align:left">Removes class-level latent alignment</td></tr></tbody></table></div>
+<p>Two patterns stand out. First, Rényi entropy improves sample selection beyond Shannon entropy. Second, pseudo-label sets are not just a small detail: replacing them with standard single-label pseudo-labeling causes a severe drop, showing how damaging noisy pseudo labels can be under domain shift.</p>
+<p>The micro-benchmark also shows that mmADA remains useful under very tight labeling budgets. With only <strong>1%</strong> active target samples, it already reaches <strong>86.81% accuracy</strong>; performance improves as the budget grows, with diminishing gains beyond the default <strong>5%</strong> budget.</p>
+<h2>Generalization on Public Datasets</h2>
+<p>The paper further evaluates mmADA on <strong>XRF55</strong> and <strong>MM-Fi</strong>.</p>
+<p>On <strong>XRF55</strong>, mmADA improves cross-person and cross-scene/person adaptation:</p>
+<figure class="markdown-figure">
+  <img src="./assets/xrf55-results.png" alt="Domain adaptation results on the XRF55 dataset">
+  <figcaption>Table II from the paper. On XRF55, mmADA improves both cross-person and cross-scene/person adaptation over direct transfer and representative baselines.</figcaption>
+</figure>
+<div class="markdown-table-wrap"><table class="markdown-table"><thead><tr><th style="text-align:left">XRF55 setting</th><th style="text-align:right">Direct Transfer</th><th style="text-align:right">Best listed baseline</th><th style="text-align:right">mmADA</th></tr></thead><tbody><tr><td style="text-align:left">Cross-person</td><td style="text-align:right">64.42</td><td style="text-align:right">67.94</td><td style="text-align:right"><strong>70.97</strong></td></tr><tr><td style="text-align:left">Scene 1 -&gt; 2</td><td style="text-align:right">11.36</td><td style="text-align:right">44.34</td><td style="text-align:right"><strong>53.84</strong></td></tr><tr><td style="text-align:left">Scene 1 -&gt; 3</td><td style="text-align:right">26.42</td><td style="text-align:right">47.88</td><td style="text-align:right"><strong>55.45</strong></td></tr><tr><td style="text-align:left">Scene 1 -&gt; 4</td><td style="text-align:right">26.58</td><td style="text-align:right">45.56</td><td style="text-align:right"><strong>54.65</strong></td></tr></tbody></table></div>
+<p>On <strong>MM-Fi</strong>, the gains are even larger across one-to-one environment adaptation tasks:</p>
+<figure class="markdown-figure">
+  <img src="./assets/mmfi-results.png" alt="One-to-one domain adaptation results on the MM-Fi dataset">
+  <figcaption>Table III from the paper. On MM-Fi, mmADA achieves the highest mean accuracy across one-to-one environment adaptation tasks.</figcaption>
+</figure>
+<div class="markdown-table-wrap"><table class="markdown-table"><thead><tr><th style="text-align:left">MM-Fi setting</th><th style="text-align:right">Direct Transfer</th><th style="text-align:right">EADA</th><th style="text-align:right">mmADA</th></tr></thead><tbody><tr><td style="text-align:left">Mean accuracy</td><td style="text-align:right">56.24</td><td style="text-align:right">89.90</td><td style="text-align:right"><strong>96.88</strong></td></tr><tr><td style="text-align:left">1 -&gt; 2</td><td style="text-align:right">64.11</td><td style="text-align:right">92.01</td><td style="text-align:right"><strong>97.65</strong></td></tr><tr><td style="text-align:left">1 -&gt; 3</td><td style="text-align:right">60.68</td><td style="text-align:right">92.64</td><td style="text-align:right"><strong>97.50</strong></td></tr><tr><td style="text-align:left">1 -&gt; 4</td><td style="text-align:right">31.82</td><td style="text-align:right">84.64</td><td style="text-align:right"><strong>93.57</strong></td></tr><tr><td style="text-align:left">2 -&gt; 3</td><td style="text-align:right">73.64</td><td style="text-align:right">93.08</td><td style="text-align:right"><strong>99.17</strong></td></tr><tr><td style="text-align:left">2 -&gt; 4</td><td style="text-align:right">53.13</td><td style="text-align:right">87.77</td><td style="text-align:right"><strong>96.04</strong></td></tr><tr><td style="text-align:left">3 -&gt; 4</td><td style="text-align:right">54.08</td><td style="text-align:right">91.38</td><td style="text-align:right"><strong>97.34</strong></td></tr></tbody></table></div>
+<p>These results support the paper&#x27;s main claim: active sample selection plus uncertainty-aware refinement can generalize beyond one collected dataset and remain effective on larger public sensing benchmarks.</p>
+<h2>Takeaways</h2>
+<ul>
+<li>The key shift is from <strong>few-shot labeling by class</strong> to <strong>active labeling by informativeness</strong>.</li>
+<li>Rényi entropy gives mmADA a stronger uncertainty signal than Shannon entropy for cross-domain mmWave HAR.</li>
+<li>Pseudo-label sets are a practical safeguard against noisy unlabeled-target supervision.</li>
+<li>The hardest cases remain cross-person and cross-angle adaptation, where mmWave signatures vary substantially.</li>
+<li>The method is especially valuable when collecting target-domain labels is expensive but unlabeled target data are available.</li>
 </ul>
 <h2>Resources</h2>
 <ul>
 <li><a href="https://arxiv.org/abs/2511.04219">arXiv abstract</a></li>
+<li><a href="./assets/cover.svg">Local generated cover image</a></li>
+<li><a href="./assets/mmada-overview.png">Local mmADA overview figure</a></li>
+<li><a href="./assets/uncertainty-selection.png">Local uncertainty selection figure</a></li>
+<li><a href="./assets/main-results.png">Local main results figure</a></li>
+<li><a href="./assets/xrf55-results.png">Local XRF55 results table</a></li>
+<li><a href="./assets/mmfi-results.png">Local MM-Fi results table</a></li>
 </ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@article{lin2025mmada,
-  title = {Active Domain Adaptation for mmWave-based HAR via Renyi Entropy-based Uncertainty Estimation},
+<pre><code class="language-bibtex">@article{lin2026mmada,
+  title = {Active Domain Adaptation for mmWave-based HAR via Rényi Entropy-based Uncertainty Estimation},
   author = {Lin, Mingzhi and Huang, Teng and Ding, Han and Zhao, Cui and Wang, Fei and Wang, Ge and Xi, Wei},
   journal = {IEEE Transactions on Mobile Computing},
-  year = {2025}
+  year = {2026}
 }
 </code></pre>
 

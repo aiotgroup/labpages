@@ -729,6 +729,24 @@
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
+            name: "Yangxin Xu (徐漾忻)",
+            role: "M.Eng. Student",
+            photo: "./assets/media/people/2025yangxin-xu.jpg",
+            photoAlt: "Sample portrait for Yangxin Xu",
+            bio:
+              "",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
+            name: "Zhixian Xu (许智献)",
+            role: "M.Eng. Student",
+            photo: "./assets/media/people/2025zhixian-xu.jpg",
+            photoAlt: "Sample portrait for Zhixian Xu",
+            bio:
+              "",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
             name: "Jiaxi Yin (尹佳茜)",
             role: "M.Sc Student",
             photo: "./assets/media/people/2025jiaxi-yin.jpg",
