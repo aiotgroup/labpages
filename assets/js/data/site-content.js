@@ -668,6 +668,15 @@
             palette: ["#3d376a", "#e0dcff"]
           },
           {
+            name: "Pengcheng Wang (王鹏程)",
+            role: "M.Eng.",
+            photo: "./assets/media/people/2022pengcheng-wang.jpg",
+            photoAlt: "Sample portrait for Pengcheng Wang",
+            bio:
+              "Graduated in 2025 and then joined ADBC.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
             name: "Yizhe Lyu (吕一喆)",
             role: "M.Eng.",
             photo: "./assets/media/people/2021yizhe-lv.jpg",
