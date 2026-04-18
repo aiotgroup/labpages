@@ -91,7 +91,6 @@
   <img src="./assets/uwash-overview.png" alt="UWash overview with smartwatch IMU streams, segmented handwashing gestures, and scores">
   <figcaption>Figure 1. UWash converts smartwatch IMU signals into gesture segments and handwashing quality scores.</figcaption>
 </figure>
-
 <h2>What UWash Adds</h2>
 <p>UWash targets six practical requirements for daily handwashing assessment: it works across locations, uses no additional sensors, automatically detects procedure start and end, supports random gesture order, reports the duration of each gesture, and provides instructive quality scores.</p>
 <p>This is different from many prior systems that rely on cameras, fixed sensors, RFID, dispensers, smart faucets, or manual activation. UWash is also more fine-grained than simply detecting whether someone washed hands; it estimates how the procedure unfolded.</p>
@@ -110,7 +109,6 @@
   <img src="./assets/uwash-architecture.png" alt="UWash two-stream UNet-like architecture for accelerometer and gyroscope time-series segmentation">
   <figcaption>Figure 2. The UWash architecture processes accelerometer and gyroscope streams with dual temporal UNet branches and produces sample-wise gesture predictions.</figcaption>
 </figure>
-
 <h2>Dataset And Evaluation Setup</h2>
 <p>The main dataset was collected with Samsung Gear Sport smartwatches. To increase environmental diversity, data were collected in <strong>five campus locations</strong>: teaching hall, laboratory hall, cafeteria, dormitory, and library. Participants were asked to walk to the sink, wash hands, and leave, while natural actions such as wetting hands, applying soap, and drying hands were allowed to vary.</p>
 <p>The paper evaluates UWash in several settings:</p>
@@ -121,7 +119,8 @@
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>User-dependent</td>
 <td>First four handwashing procedures per participant for training, last procedure for testing</td>
 </tr>
@@ -141,8 +140,9 @@
 <td>Wild study</td>
 <td>10 passersby tested under not-trained, trained, and shuffled/omitted-step conditions</td>
 </tr>
-</tbody></table></div>
-<h2>Core Results</h2>
+</tbody>
+</table>
+</div><h2>Core Results</h2>
 <div class="markdown-table-wrap"><table class="markdown-table">
 <thead>
 <tr>
@@ -150,7 +150,8 @@
 <th>Result</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>User-dependent gesture recognition accuracy</td>
 <td>92.27%</td>
 </tr>
@@ -178,62 +179,61 @@
 <td>Participants above 95% accuracy</td>
 <td>33 of 51</td>
 </tr>
-</tbody></table></div>
-<p>The final UWash model achieves the best result in the paper&#39;s main comparison table while using only about <strong>2.5%</strong> of the parameters of ResNet-18-1D.</p>
+</tbody>
+</table>
+</div><p>The final UWash model achieves the best result in the paper's main comparison table while using only about <strong>2.5%</strong> of the parameters of ResNet-18-1D.</p>
 <figure class="markdown-figure">
   <img src="./assets/main-results-table.png" alt="UWash main results table comparing model variants and baselines">
   <figcaption>Figure 3. UWash combines two-stream modeling, SE, PPM, multiple test voting, and mode filtering to reach 92.27% accuracy with 0.099M parameters.</figcaption>
 </figure>
-
 <figure class="markdown-figure">
   <img src="./assets/user-dependent-results.png" alt="UWash user-dependent participant results and start/end scoring visualization">
   <figcaption>Figure 4. User-dependent evaluation shows strong participant-level performance and low start/end and scoring errors.</figcaption>
 </figure>
-
 <h2>Cross-Domain And Cross-Time Results</h2>
 <div class="markdown-table-wrap"><table class="markdown-table">
 <thead>
 <tr>
 <th>Setting</th>
-<th align="right">Accuracy</th>
-<th align="right">Start error</th>
-<th align="right">End error</th>
-<th align="right">Score error</th>
+<th style="text-align:right">Accuracy</th>
+<th style="text-align:right">Start error</th>
+<th style="text-align:right">End error</th>
+<th style="text-align:right">Score error</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Cross-participant</td>
-<td align="right">83.34%</td>
-<td align="right">0.43 s</td>
-<td align="right">0.23 s</td>
-<td align="right">12.74 pts</td>
+<td style="text-align:right">83.34%</td>
+<td style="text-align:right">0.43 s</td>
+<td style="text-align:right">0.23 s</td>
+<td style="text-align:right">12.74 pts</td>
 </tr>
 <tr>
 <td>Cross-participant-cross-location</td>
-<td align="right">81.45%</td>
-<td align="right">0.48 s</td>
-<td align="right">0.36 s</td>
-<td align="right">15.21 pts</td>
+<td style="text-align:right">81.45%</td>
+<td style="text-align:right">0.48 s</td>
+<td style="text-align:right">0.36 s</td>
+<td style="text-align:right">15.21 pts</td>
 </tr>
 <tr>
 <td>Cross-participant-cross-location-cross-time</td>
-<td align="right">82.08%</td>
-<td align="right">0.39 s</td>
-<td align="right">0.14 s</td>
-<td align="right">14.30 pts</td>
+<td style="text-align:right">82.08%</td>
+<td style="text-align:right">0.39 s</td>
+<td style="text-align:right">0.14 s</td>
+<td style="text-align:right">14.30 pts</td>
 </tr>
-</tbody></table></div>
-<p>The cross-time test is especially useful: the authors collected a new hospital dataset with <strong>10 random passersby 9 months later</strong>, at a new location and on a new date. UWash stayed in the same performance range as the cross-participant-cross-location setting, suggesting promising robustness over time.</p>
+</tbody>
+</table>
+</div><p>The cross-time test is especially useful: the authors collected a new hospital dataset with <strong>10 random passersby 9 months later</strong>, at a new location and on a new date. UWash stayed in the same performance range as the cross-participant-cross-location setting, suggesting promising robustness over time.</p>
 <figure class="markdown-figure">
   <img src="./assets/cross-domain-results.png" alt="UWash cross-participant and cross-location evaluation results">
   <figcaption>Figure 5. UWash remains effective in cross-participant and cross-location evaluation, with sub-second start/end detection errors.</figcaption>
 </figure>
-
 <figure class="markdown-figure">
   <img src="./assets/cross-time-wild-study.png" alt="UWash cross-time hospital test and wild study results">
   <figcaption>Figure 6. Cross-time and wild-study results show that UWash can detect improvement after training and score drops when steps are shuffled or omitted.</figcaption>
 </figure>
-
 <h2>Deployment Notes</h2>
 <p>The paper reports that UWash is lightweight enough for edge-oriented deployment. The model has only <strong>0.099M parameters</strong>, and the authors measured latency on an Intel Core i7-620M class CPU. With a stride of 10, a 60-second handwashing sequence takes about <strong>2.18 s</strong> to process; clip-level inference for a 1.28-second IMU clip takes about <strong>0.0067 s</strong>.</p>
 <p>The paper also includes an Apple Watch S5 cross-device check. With simple axis swapping and a model trained on Samsung Gear Sport data, UWash achieved <strong>76.24% accuracy</strong>, <strong>0.39 s start error</strong>, <strong>0.57 s end error</strong>, and <strong>18.81-point score error</strong>, suggesting cross-device potential while leaving room for better coordinate alignment.</p>

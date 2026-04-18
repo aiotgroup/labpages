@@ -84,14 +84,13 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>Most mmWave-based pose estimation systems use fixed front-facing radar deployments. They work when the user stays in a predefined sensing volume, but that assumption is awkward for VR interaction, skill digitization, robotic teleoperation, and mobile hand-centric interfaces. <strong>mmEgoHand</strong> moves the radar onto the user&#39;s head and targets a more difficult problem: estimating fine-grained one-hand and two-hand 3D hand poses from an egocentric viewpoint.</p>
+<p>Most mmWave-based pose estimation systems use fixed front-facing radar deployments. They work when the user stays in a predefined sensing volume, but that assumption is awkward for VR interaction, skill digitization, robotic teleoperation, and mobile hand-centric interfaces. <strong>mmEgoHand</strong> moves the radar onto the user's head and targets a more difficult problem: estimating fine-grained one-hand and two-hand 3D hand poses from an egocentric viewpoint.</p>
 <p>The system fuses a head-mounted <strong>TI IWR6843 mmWave radar</strong> with an <strong>IMU</strong>. The radar captures hand-reflected signals, while the IMU records head motion so the model can compensate for egocentric viewpoint instability. A camera is used only during dataset collection to generate training labels with MediaPipe; it is not used at inference time.</p>
 <p>The institution field is abbreviated at the university level: <strong>XJTU</strong> and <strong>ZJU</strong>.</p>
 <figure class="markdown-figure">
   <img src="./assets/mmegohand-overview.png" alt="mmEgoHand overview with head-mounted radar and IMU, hand pose estimation, and application examples">
   <figcaption>Figure 1. mmEgoHand estimates hand poses from head-mounted mmWave radar and IMU signals for private, mobile, hand-centric interaction.</figcaption>
 </figure>
-
 <h2>Main Contributions</h2>
 <ul>
 <li>Introduces an egocentric mmWave-IMU system for 3D hand pose estimation and downstream gesture recognition.</li>
@@ -106,13 +105,11 @@
   <img src="./assets/mmegohand-signal-processing.png" alt="mmEgoHand mmWave radar signal processing with range FFT, Doppler FFT, and angle FFT">
   <figcaption>Figure 2. mmWave preprocessing produces range-Doppler and range-angle heatmaps for hand perception.</figcaption>
 </figure>
-
 <p>mmEgoHand takes a 2-second input window and outputs a sequence of 3D hand keypoints. The mmWave input is represented as 30 temporal frames of 256 by 128 heatmaps, while the IMU stream provides synchronized acceleration and angular velocity measurements. The output is a variable-hand-count sequence, allowing 0, 1, or 2 hands to be detected.</p>
 <figure class="markdown-figure">
   <img src="./assets/mmegohand-system-pipeline.png" alt="mmEgoHand system pipeline from head-mounted sensors to 3D hand keypoints">
   <figcaption>Figure 3. The camera is used only for label generation during training; inference relies on mmWave radar and IMU data.</figcaption>
 </figure>
-
 <h2>Network Design</h2>
 <p>The deep network has four main components:</p>
 <ul>
@@ -126,7 +123,6 @@
   <img src="./assets/mmegohand-network.png" alt="mmEgoHand network with mmWave encoder, IMU encoder, pose decoder, and context decoder">
   <figcaption>Figure 4. mmEgoHand fuses radar and IMU features, then combines spatial pose decoding with temporal context decoding.</figcaption>
 </figure>
-
 <h2>Dataset</h2>
 <p>The dataset covers VR-style hand interaction gestures collected from <strong>10 volunteers</strong>. Participants performed gestures across <strong>three scenes</strong> and <strong>three postures</strong>: sitting, lying, and standing. The gesture vocabulary contains <strong>8 gestures</strong>: click, swipe left, swipe right, swipe up, swipe down, swipe to bottom-right, zoom in, and zoom out. The first six are single-hand gestures, while zoom in and zoom out use two hands.</p>
 <div class="markdown-table-wrap"><table class="markdown-table">
@@ -136,7 +132,8 @@
 <th>Value</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Volunteers</td>
 <td>10</td>
 </tr>
@@ -172,104 +169,106 @@
 <td>Released code/data</td>
 <td><a href="https://github.com/WhisperYi/mmVR">https://github.com/WhisperYi/mmVR</a></td>
 </tr>
-</tbody></table></div>
-<figure class="markdown-figure">
+</tbody>
+</table>
+</div><figure class="markdown-figure">
   <img src="./assets/mmegohand-hardware-setup.jpg" alt="mmEgoHand head-mounted radar and IMU hardware setup">
   <figcaption>Figure 5. The collection rig mounts mmWave radar and IMU near the head, while a camera records labels during data collection.</figcaption>
 </figure>
-
 <h2>Pose Estimation Results</h2>
 <div class="markdown-table-wrap"><table class="markdown-table">
 <thead>
 <tr>
 <th>Method</th>
-<th align="right">MPJPE</th>
+<th style="text-align:right">MPJPE</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>mmEgoHand (mmWave + IMU)</td>
-<td align="right">72.73 mm</td>
+<td style="text-align:right">72.73 mm</td>
 </tr>
 <tr>
 <td>mmEgoHand (mmWave only)</td>
-<td align="right">96.42 mm</td>
+<td style="text-align:right">96.42 mm</td>
 </tr>
 <tr>
 <td>mmEgoHand without Context Decoder</td>
-<td align="right">109.02 mm</td>
+<td style="text-align:right">109.02 mm</td>
 </tr>
 <tr>
 <td>mm4Arm reimplementation, single-hand setting</td>
-<td align="right">165.19 mm</td>
+<td style="text-align:right">165.19 mm</td>
 </tr>
-</tbody></table></div>
-<p>The IMU fusion improves MPJPE by about <strong>24.6%</strong> compared with mmWave-only input, confirming that head-motion compensation matters in egocentric radar sensing. The Context Decoder also substantially improves pose estimation by modeling temporal relationships across frames.</p>
+</tbody>
+</table>
+</div><p>The IMU fusion improves MPJPE by about <strong>24.6%</strong> compared with mmWave-only input, confirming that head-motion compensation matters in egocentric radar sensing. The Context Decoder also substantially improves pose estimation by modeling temporal relationships across frames.</p>
 <figure class="markdown-figure">
-  <img src="./assets/mmegohand-pose-examples.jpg" alt="mmEgoHand pose estimation examples for click, swipe downward, zoom in, and swipe leftward">
+  <img src="./assets/mmegohand-pose-examples.png" alt="mmEgoHand pose estimation examples for click, swipe downward, zoom in, and swipe leftward">
   <figcaption>Figure 6. Example predictions show mmEgoHand estimating one-hand and two-hand keypoints across different gestures.</figcaption>
 </figure>
-
 <h2>Gesture Recognition Results</h2>
 <p>The paper uses mmEgoHand pose outputs as intermediate representations for downstream gesture recognition. This two-stage approach clearly outperforms one-stage models trained directly on raw mmWave and IMU data.</p>
 <div class="markdown-table-wrap"><table class="markdown-table">
 <thead>
 <tr>
 <th>Recognition model</th>
-<th align="right">Accuracy</th>
-<th align="right">Precision</th>
-<th align="right">Recall</th>
-<th align="right">F1</th>
+<th style="text-align:right">Accuracy</th>
+<th style="text-align:right">Precision</th>
+<th style="text-align:right">Recall</th>
+<th style="text-align:right">F1</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>mmEgoHand + ResNet50</td>
-<td align="right">90.80</td>
-<td align="right">93.34</td>
-<td align="right">93.20</td>
-<td align="right">93.19</td>
+<td style="text-align:right">90.80</td>
+<td style="text-align:right">93.34</td>
+<td style="text-align:right">93.20</td>
+<td style="text-align:right">93.19</td>
 </tr>
 <tr>
 <td>mmEgoHand + LSTM</td>
-<td align="right">89.26</td>
-<td align="right">91.56</td>
-<td align="right">91.48</td>
-<td align="right">91.46</td>
+<td style="text-align:right">89.26</td>
+<td style="text-align:right">91.56</td>
+<td style="text-align:right">91.48</td>
+<td style="text-align:right">91.46</td>
 </tr>
 <tr>
 <td>mmEgoHand + GCN</td>
-<td align="right">85.36</td>
-<td align="right">87.16</td>
-<td align="right">87.12</td>
-<td align="right">87.09</td>
+<td style="text-align:right">85.36</td>
+<td style="text-align:right">87.16</td>
+<td style="text-align:right">87.12</td>
+<td style="text-align:right">87.09</td>
 </tr>
 <tr>
 <td>mSeeNet</td>
-<td align="right">84.60</td>
-<td align="right">86.73</td>
-<td align="right">86.59</td>
-<td align="right">86.60</td>
+<td style="text-align:right">84.60</td>
+<td style="text-align:right">86.73</td>
+<td style="text-align:right">86.59</td>
+<td style="text-align:right">86.60</td>
 </tr>
 <tr>
 <td>mGesNet</td>
-<td align="right">81.34</td>
-<td align="right">81.98</td>
-<td align="right">81.56</td>
-<td align="right">81.64</td>
+<td style="text-align:right">81.34</td>
+<td style="text-align:right">81.98</td>
+<td style="text-align:right">81.56</td>
+<td style="text-align:right">81.64</td>
 </tr>
 <tr>
 <td>mmGesture</td>
-<td align="right">68.66</td>
-<td align="right">70.01</td>
-<td align="right">68.83</td>
-<td align="right">68.81</td>
+<td style="text-align:right">68.66</td>
+<td style="text-align:right">70.01</td>
+<td style="text-align:right">68.83</td>
+<td style="text-align:right">68.81</td>
 </tr>
-</tbody></table></div>
-<p>Single-hand gestures generally exceed 90% accuracy, while the two-hand zoom in / zoom out gestures are harder and are sometimes confused with each other. The paper attributes this partly to intra-class variability during data collection.</p>
+</tbody>
+</table>
+</div><p>Single-hand gestures generally exceed 90% accuracy, while the two-hand zoom in / zoom out gestures are harder and are sometimes confused with each other. The paper attributes this partly to intra-class variability during data collection.</p>
 <figure class="markdown-figure">
   <img src="./assets/mmegohand-confusion-matrix.png" alt="mmEgoHand gesture recognition confusion matrix">
   <figcaption>Figure 7. Gesture recognition confusion matrix for eight VR-style interaction gestures.</figcaption>
 </figure>
-
 <h2>Generalization Findings</h2>
 <p>The paper also evaluates few-shot generalization under cross-person, cross-posture, cross-scene, and cross-hand settings. Zero-shot performance drops in these harder splits, but one-shot or two-shot fine-tuning gives large gains. For example, in the No.1-8 to No.9-12 cross-person split, accuracy improves from <strong>63.11%</strong> zero-shot to <strong>83.97%</strong> with two-shot fine-tuning. In cross-hand evaluation, two-shot fine-tuning raises accuracy to <strong>73.53%</strong> for right-to-left and <strong>77.18%</strong> for left-to-right transfer.</p>
 <p>This suggests a practical deployment path: a short pre-use calibration session can help adapt mmEgoHand to new users, postures, scenes, and hand preferences.</p>

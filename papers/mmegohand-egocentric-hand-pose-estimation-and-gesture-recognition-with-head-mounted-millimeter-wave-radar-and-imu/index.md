@@ -97,7 +97,7 @@ The dataset covers VR-style hand interaction gestures collected from **10 volunt
 The IMU fusion improves MPJPE by about **24.6%** compared with mmWave-only input, confirming that head-motion compensation matters in egocentric radar sensing. The Context Decoder also substantially improves pose estimation by modeling temporal relationships across frames.
 
 <figure class="markdown-figure">
-  <img src="./assets/mmegohand-pose-examples.jpg" alt="mmEgoHand pose estimation examples for click, swipe downward, zoom in, and swipe leftward">
+  <img src="./assets/mmegohand-pose-examples.png" alt="mmEgoHand pose estimation examples for click, swipe downward, zoom in, and swipe leftward">
   <figcaption>Figure 6. Example predictions show mmEgoHand estimating one-hand and two-hand keypoints across different gestures.</figcaption>
 </figure>
 

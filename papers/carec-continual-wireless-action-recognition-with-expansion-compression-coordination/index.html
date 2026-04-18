@@ -91,7 +91,6 @@
   <img src="./assets/carec-class-incremental-learning.png" alt="Class-incremental Wi-Fi action recognition model updating">
   <figcaption>Figure 1. CAREC targets class-incremental Wi-Fi action recognition, where new classes arrive over time without forgetting old ones.</figcaption>
 </figure>
-
 <h2>Main Contributions</h2>
 <ul>
 <li>Introduces a continual wireless action recognition framework tailored to class-incremental Wi-Fi sensing.</li>
@@ -108,185 +107,186 @@
   <img src="./assets/carec-expansion-compression.png" alt="CAREC expansion and compression workflow">
   <figcaption>Figure 2. CAREC alternates expansion for adaptability and compression for deployment efficiency.</figcaption>
 </figure>
-
 <figure class="markdown-figure">
   <img src="./assets/carec-super-feature-extractor.png" alt="CAREC dynamic expansion with super-feature extractor and auxiliary classifier">
   <figcaption>Figure 3. Dynamic expansion preserves previous feature extractors while adding new capacity for incoming action classes.</figcaption>
 </figure>
-
 <figure class="markdown-figure">
   <img src="./assets/carec-balanced-distillation.png" alt="CAREC balanced knowledge distillation from expanded teacher to compact student">
   <figcaption>Figure 4. Balanced knowledge distillation compresses the expanded teacher into a single-backbone student while reweighting underrepresented classes.</figcaption>
 </figure>
-
 <h2>Dataset And Protocol</h2>
 <p>The evaluation uses <strong>Scene 1 of XRF55</strong>, which contains <strong>55 action classes</strong>, <strong>30 volunteers</strong>, and <strong>33,000 samples</strong>. Following the CCS protocol, the dataset is split into five non-overlapping sessions, each adding 11 action classes. During each incremental update, CAREC uses the current session data plus representative exemplars selected from the previous session through Herding replay.</p>
 <div class="markdown-table-wrap"><table class="markdown-table">
 <thead>
 <tr>
 <th>Dataset</th>
-<th align="right">Action classes</th>
-<th align="right">Volunteers</th>
-<th align="right">Samples</th>
-<th align="right">Categories</th>
+<th style="text-align:right">Action classes</th>
+<th style="text-align:right">Volunteers</th>
+<th style="text-align:right">Samples</th>
+<th style="text-align:right">Categories</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Widar3.0</td>
-<td align="right">16</td>
-<td align="right">16</td>
-<td align="right">17,000</td>
-<td align="right">2</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">17,000</td>
+<td style="text-align:right">2</td>
 </tr>
 <tr>
 <td>WiAR</td>
-<td align="right">16</td>
-<td align="right">10</td>
-<td align="right">4,800</td>
-<td align="right">1</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">4,800</td>
+<td style="text-align:right">1</td>
 </tr>
 <tr>
 <td>ARIL</td>
-<td align="right">6</td>
-<td align="right">1</td>
-<td align="right">1,394</td>
-<td align="right">1</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1,394</td>
+<td style="text-align:right">1</td>
 </tr>
 <tr>
 <td>MM-Fi</td>
-<td align="right">27</td>
-<td align="right">40</td>
-<td align="right">9 h</td>
-<td align="right">2</td>
+<td style="text-align:right">27</td>
+<td style="text-align:right">40</td>
+<td style="text-align:right">9 h</td>
+<td style="text-align:right">2</td>
 </tr>
 <tr>
 <td>UI-HAR</td>
-<td align="right">6</td>
-<td align="right">6</td>
-<td align="right">720</td>
-<td align="right">1</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">720</td>
+<td style="text-align:right">1</td>
 </tr>
 <tr>
 <td>XRF55</td>
-<td align="right">55</td>
-<td align="right">39</td>
-<td align="right">42,900 / 59.58 h</td>
-<td align="right">5</td>
+<td style="text-align:right">55</td>
+<td style="text-align:right">39</td>
+<td style="text-align:right">42,900 / 59.58 h</td>
+<td style="text-align:right">5</td>
 </tr>
-</tbody></table></div>
-<h2>Evaluation Highlights</h2>
+</tbody>
+</table>
+</div><h2>Evaluation Highlights</h2>
 <div class="markdown-table-wrap"><table class="markdown-table">
 <thead>
 <tr>
 <th>Method</th>
-<th align="right">Session 0</th>
-<th align="right">Session 1</th>
-<th align="right">Session 2</th>
-<th align="right">Session 3</th>
-<th align="right">Session 4</th>
+<th style="text-align:right">Session 0</th>
+<th style="text-align:right">Session 1</th>
+<th style="text-align:right">Session 2</th>
+<th style="text-align:right">Session 3</th>
+<th style="text-align:right">Session 4</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Baseline</td>
-<td align="right">89.67</td>
-<td align="right">38.84</td>
-<td align="right">26.97</td>
-<td align="right">21.83</td>
-<td align="right">16.25</td>
+<td style="text-align:right">89.67</td>
+<td style="text-align:right">38.84</td>
+<td style="text-align:right">26.97</td>
+<td style="text-align:right">21.83</td>
+<td style="text-align:right">16.25</td>
 </tr>
 <tr>
 <td>iCaRL</td>
-<td align="right">90.41</td>
-<td align="right">74.09</td>
-<td align="right">66.90</td>
-<td align="right">63.68</td>
-<td align="right">63.49</td>
+<td style="text-align:right">90.41</td>
+<td style="text-align:right">74.09</td>
+<td style="text-align:right">66.90</td>
+<td style="text-align:right">63.68</td>
+<td style="text-align:right">63.49</td>
 </tr>
 <tr>
 <td>BiC</td>
-<td align="right">86.11</td>
-<td align="right">64.91</td>
-<td align="right">52.56</td>
-<td align="right">50.10</td>
-<td align="right">44.35</td>
+<td style="text-align:right">86.11</td>
+<td style="text-align:right">64.91</td>
+<td style="text-align:right">52.56</td>
+<td style="text-align:right">50.10</td>
+<td style="text-align:right">44.35</td>
 </tr>
 <tr>
 <td>UCIR</td>
-<td align="right">88.07</td>
-<td align="right">77.16</td>
-<td align="right">69.24</td>
-<td align="right">61.73</td>
-<td align="right">63.58</td>
+<td style="text-align:right">88.07</td>
+<td style="text-align:right">77.16</td>
+<td style="text-align:right">69.24</td>
+<td style="text-align:right">61.73</td>
+<td style="text-align:right">63.58</td>
 </tr>
 <tr>
 <td>BEEF</td>
-<td align="right">89.81</td>
-<td align="right">73.11</td>
-<td align="right">63.46</td>
-<td align="right">57.72</td>
-<td align="right">53.73</td>
+<td style="text-align:right">89.81</td>
+<td style="text-align:right">73.11</td>
+<td style="text-align:right">63.46</td>
+<td style="text-align:right">57.72</td>
+<td style="text-align:right">53.73</td>
 </tr>
 <tr>
 <td>CCS</td>
-<td align="right">87.48</td>
-<td align="right">75.02</td>
-<td align="right">66.59</td>
-<td align="right">59.16</td>
-<td align="right">60.45</td>
+<td style="text-align:right">87.48</td>
+<td style="text-align:right">75.02</td>
+<td style="text-align:right">66.59</td>
+<td style="text-align:right">59.16</td>
+<td style="text-align:right">60.45</td>
 </tr>
 <tr>
 <td>CAREC</td>
-<td align="right">89.44</td>
-<td align="right">81.36</td>
-<td align="right">75.00</td>
-<td align="right">63.46</td>
-<td align="right">67.84</td>
+<td style="text-align:right">89.44</td>
+<td style="text-align:right">81.36</td>
+<td style="text-align:right">75.00</td>
+<td style="text-align:right">63.46</td>
+<td style="text-align:right">67.84</td>
 </tr>
-</tbody></table></div>
-<p>CAREC reaches <strong>67.84% final-session accuracy</strong> across all 55 action classes, outperforming the strongest baselines at the last stage. The paper also reports that CAREC reduces performance degradation by <strong>51.82%</strong> over four incremental stages.</p>
+</tbody>
+</table>
+</div><p>CAREC reaches <strong>67.84% final-session accuracy</strong> across all 55 action classes, outperforming the strongest baselines at the last stage. The paper also reports that CAREC reduces performance degradation by <strong>51.82%</strong> over four incremental stages.</p>
 <figure class="markdown-figure">
   <img src="./assets/carec-accn-comparison.png" alt="ACCN comparison of CAREC and class-incremental learning baselines">
   <figcaption>Figure 5. CAREC maintains stronger ACCN over incremental sessions than classic and recent continual-learning baselines.</figcaption>
 </figure>
-
 <h2>Compression Results</h2>
 <p>Without compression, the expanded model reaches <strong>105.24 M</strong> parameters. CAREC compresses it to <strong>21.08 M</strong> parameters, about <strong>20%</strong> of the expanded model, while keeping the final-stage accuracy close to the uncompressed teacher.</p>
 <div class="markdown-table-wrap"><table class="markdown-table">
 <thead>
 <tr>
 <th>Compression</th>
-<th align="right">Parameters</th>
-<th align="right">Session 0</th>
-<th align="right">Session 1</th>
-<th align="right">Session 2</th>
-<th align="right">Session 3</th>
-<th align="right">Session 4</th>
+<th style="text-align:right">Parameters</th>
+<th style="text-align:right">Session 0</th>
+<th style="text-align:right">Session 1</th>
+<th style="text-align:right">Session 2</th>
+<th style="text-align:right">Session 3</th>
+<th style="text-align:right">Session 4</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>No</td>
-<td align="right">105.24 M</td>
-<td align="right">89.44</td>
-<td align="right">88.07</td>
-<td align="right">78.40</td>
-<td align="right">72.00</td>
-<td align="right">70.09</td>
+<td style="text-align:right">105.24 M</td>
+<td style="text-align:right">89.44</td>
+<td style="text-align:right">88.07</td>
+<td style="text-align:right">78.40</td>
+<td style="text-align:right">72.00</td>
+<td style="text-align:right">70.09</td>
 </tr>
 <tr>
 <td>Yes</td>
-<td align="right">21.08 M</td>
-<td align="right">89.44</td>
-<td align="right">81.36</td>
-<td align="right">75.00</td>
-<td align="right">63.46</td>
-<td align="right">67.84</td>
+<td style="text-align:right">21.08 M</td>
+<td style="text-align:right">89.44</td>
+<td style="text-align:right">81.36</td>
+<td style="text-align:right">75.00</td>
+<td style="text-align:right">63.46</td>
+<td style="text-align:right">67.84</td>
 </tr>
-</tbody></table></div>
-<figure class="markdown-figure">
+</tbody>
+</table>
+</div><figure class="markdown-figure">
   <img src="./assets/carec-compression-curve.png" alt="CAREC ACCN with and without compression">
   <figcaption>Figure 6. Compression largely preserves accuracy while preventing continual model growth.</figcaption>
 </figure>
-
 <h2>Resources</h2>
 <ul>
 <li>Code: <a href="https://github.com/aiotgroup/carec/">https://github.com/aiotgroup/carec/</a></li>

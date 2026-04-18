@@ -91,7 +91,6 @@
   <img src="./assets/xrfv2-overview.png" alt="XRF V2 overview with wearable, Wi-Fi, video, temporal action localization, and LLM agent pipeline">
   <figcaption>Figure 1. XRF V2 connects multimodal sensing, temporal action localization, and LLM-based action summarization.</figcaption>
 </figure>
-
 <h2>Why This Dataset Matters</h2>
 <p>Existing temporal action localization datasets are often video-centric, task-specific, or focused on outdoor and sports scenarios. Indoor daily routines raise different requirements: privacy, continuous activity, diverse consumer devices, and robustness when some sensors are unavailable or poorly worn.</p>
 <p>XRF V2 is designed for that setting. It includes common home devices and ambient Wi-Fi, so researchers can test not only a full multimodal system, but also practical combinations such as a single watch, phone + watch, or Wi-Fi + wearables. This makes the dataset useful for smart homes, elderly care, personal assistants, health monitoring, multimodal learning, pose estimation, and synthetic sensor data generation.</p>
@@ -99,7 +98,6 @@
   <img src="./assets/xrfv2-scenes.png" alt="Dining room, study room, and bedroom layouts for XRF V2 data collection">
   <figcaption>Figure 2. XRF V2 covers three indoor scenes with synchronized wearable, Wi-Fi, and video sensing.</figcaption>
 </figure>
-
 <h2>Dataset Details</h2>
 <div class="markdown-table-wrap"><table class="markdown-table">
 <thead>
@@ -108,7 +106,8 @@
 <th>XRF V2</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Scenes</td>
 <td>Dining room, study room, bedroom</td>
 </tr>
@@ -140,13 +139,13 @@
 <td>Device sources</td>
 <td>2 smartphones, 2 smartwatches, earbuds, smart glasses, Wi-Fi transceivers, Kinect</td>
 </tr>
-</tbody></table></div>
-<p>The paper reports an 80:20 stratified split across environments and participants. Dining room contributes 305 valid sequences, study room 320, and bedroom 228, giving a balanced benchmark for temporal action localization and downstream action summarization.</p>
+</tbody>
+</table>
+</div><p>The paper reports an 80:20 stratified split across environments and participants. Dining room contributes 305 valid sequences, study room 320, and bedroom 228, giving a balanced benchmark for temporal action localization and downstream action summarization.</p>
 <figure class="markdown-figure">
   <img src="./assets/xrfv2-multimodal-sequence.png" alt="Example XRF V2 multimodal sequence with video frames, skeletons, IMU streams, and Wi-Fi CSI">
   <figcaption>Figure 3. Example synchronized sequence from XRF V2, combining video, pose, IMU, and Wi-Fi traces.</figcaption>
 </figure>
-
 <h2>XRFMamba</h2>
 <p>To benchmark the dataset, the paper proposes <strong>XRFMamba</strong>, a temporal action localization model built around state space modeling. The network first projects Wi-Fi and IMU streams into aligned feature channels, fuses the modalities, embeds temporal signals with a TSSE-style module, and uses a <strong>Decomposed Bidirectional Mamba</strong> backbone to model long-range dependencies. A pyramidal prediction head then outputs both action classes and temporal boundaries.</p>
 <p>This design targets the central difficulty of action summarization: the model must understand long, untrimmed sensory sequences containing multiple actions, not just classify short clipped examples.</p>
@@ -154,7 +153,6 @@
   <img src="./assets/xrfmamba-architecture.png" alt="XRFMamba architecture with projection, fusion, TSSE embedding, Mamba backbone, and pyramidal prediction head">
   <figcaption>Figure 4. XRFMamba fuses Wi-Fi and IMU data, models long temporal context with Mamba blocks, and predicts action categories plus temporal boundaries.</figcaption>
 </figure>
-
 <h2>Evaluation Highlights</h2>
 <div class="markdown-table-wrap"><table class="markdown-table">
 <thead>
@@ -163,7 +161,8 @@
 <th>Value</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Average mAP for temporal action localization</td>
 <td>78.74</td>
 </tr>
@@ -191,25 +190,23 @@
 <td>Real-apartment zero-shot mAP</td>
 <td>Around 70</td>
 </tr>
-</tbody></table></div>
-<p>XRFMamba outperforms adapted temporal action localization baselines including TemporalMaxer, ActionFormer, TriDet, UWiFiAction, WiFiTAD, and ActionMamba. The paper also introduces <strong>Response Meaning Consistency (RMC)</strong>, a human-audited metric that checks whether LLM responses based on predicted action tuples preserve the meaning of responses based on ground truth tuples.</p>
+</tbody>
+</table>
+</div><p>XRFMamba outperforms adapted temporal action localization baselines including TemporalMaxer, ActionFormer, TriDet, UWiFiAction, WiFiTAD, and ActionMamba. The paper also introduces <strong>Response Meaning Consistency (RMC)</strong>, a human-audited metric that checks whether LLM responses based on predicted action tuples preserve the meaning of responses based on ground truth tuples.</p>
 <figure class="markdown-figure">
   <img src="./assets/xrfv2-agent-examples.png" alt="Examples of XRF V2 action summarization with personal assistant, health assistant, and home assistant outputs">
   <figcaption>Figure 5. Action tuples can be converted into assistant-style summaries for daily routine, health, and smart-home questions.</figcaption>
 </figure>
-
 <h2>Device Flexibility</h2>
 <p>A useful part of XRF V2 is that it supports many sensor combinations. The paper studies individual devices and combinations of phones, watches, earbuds, glasses, and ambient Wi-Fi. Performance improves as more devices are available, but even sparse configurations remain meaningful. This matters in real homes, where a phone may be left on a table, a watch may be worn on only one wrist, or a Wi-Fi router may be temporarily unreliable.</p>
 <figure class="markdown-figure">
   <img src="./assets/xrfv2-device-combinations.jpg" alt="Device combination cases for XRF V2 with phones, watches, earbuds, glasses, and Wi-Fi">
   <figcaption>Figure 6. XRF V2 supports single-device and multi-device configurations for studying practical sensing trade-offs.</figcaption>
 </figure>
-
 <figure class="markdown-figure">
   <img src="./assets/xrfv2-real-apartment.png" alt="Real apartment zero-shot evaluation layout and photos for XRF V2">
   <figcaption>Figure 7. The paper also evaluates deployment in a real apartment without fine-tuning.</figcaption>
 </figure>
-
 <h2>Resources</h2>
 <ul>
 <li>Code and dataset: <a href="https://github.com/aiotgroup/XRFV2">https://github.com/aiotgroup/XRFV2</a></li>

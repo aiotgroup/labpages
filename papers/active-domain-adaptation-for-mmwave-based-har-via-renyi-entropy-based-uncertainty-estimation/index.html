@@ -41,7 +41,11 @@
           <p class="paper-summary">mmADA adapts mmWave-based human activity recognition models to new users, positions, and environments with minimal target-domain labels, using Rényi entropy to select informative samples and unlabeled-data refinement to close the domain gap.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
+            
+            
             <a class="paper-link-chip" href="https://arxiv.org/abs/2511.04219">Paper</a>
+            
+            
           </div>
         </div>
         <aside class="paper-hero-side">
@@ -108,10 +112,22 @@
 <h2>Method at a Glance</h2>
 <p>The mmADA pipeline has four main stages:</p>
 <ol>
-<li><strong>Signal processing</strong> Raw FMCW mmWave radar signals are converted into sensing signatures. The system uses <strong>Time-Doppler heatmaps</strong> to capture velocity dynamics and <strong>Time-Angle heatmaps</strong> to capture spatial movement patterns.</li>
-<li><strong>EDL-based Activity Recognizer (EAR)</strong> Two ResNet50 branches extract TD and TA features, fuse them in latent space, and feed a HyperNetwork-based classifier. The classifier uses <strong>Evidential Deep Learning</strong> with a Dirichlet prior, so the model can estimate uncertainty instead of only producing a hard class prediction.</li>
-<li><strong>Rényi entropy-based uncertainty selection</strong> mmADA computes a total uncertainty score from two parts: <strong>domain uncertainty</strong>, which measures whether a sample looks unfamiliar because of domain shift, and <strong>prediction uncertainty</strong>, which measures ambiguity near class boundaries.</li>
-<li><strong>Model refinement</strong> The selected target samples are labeled and used for adaptation. The remaining unlabeled target samples are further exploited through pseudo-labeling and contrastive learning.</li>
+<li>
+<p><strong>Signal processing</strong><br>
+Raw FMCW mmWave radar signals are converted into sensing signatures. The system uses <strong>Time-Doppler heatmaps</strong> to capture velocity dynamics and <strong>Time-Angle heatmaps</strong> to capture spatial movement patterns.</p>
+</li>
+<li>
+<p><strong>EDL-based Activity Recognizer (EAR)</strong><br>
+Two ResNet50 branches extract TD and TA features, fuse them in latent space, and feed a HyperNetwork-based classifier. The classifier uses <strong>Evidential Deep Learning</strong> with a Dirichlet prior, so the model can estimate uncertainty instead of only producing a hard class prediction.</p>
+</li>
+<li>
+<p><strong>Rényi entropy-based uncertainty selection</strong><br>
+mmADA computes a total uncertainty score from two parts: <strong>domain uncertainty</strong>, which measures whether a sample looks unfamiliar because of domain shift, and <strong>prediction uncertainty</strong>, which measures ambiguity near class boundaries.</p>
+</li>
+<li>
+<p><strong>Model refinement</strong><br>
+The selected target samples are labeled and used for adaptation. The remaining unlabeled target samples are further exploited through pseudo-labeling and contrastive learning.</p>
+</li>
 </ol>
 <p>This design lets mmADA spend annotation effort on samples that actively improve cross-domain adaptation rather than labeling target data uniformly.</p>
 <h2>Rényi Entropy Selector</h2>
@@ -139,22 +155,184 @@
 <p>Contrastive learning then tightens class-level structure by pulling same-activity samples together and pushing different-activity samples apart. Together, pseudo-label sets and contrastive learning help unlabeled target data improve feature alignment instead of introducing noise.</p>
 <h2>Experimental Setup</h2>
 <p>The self-collected dataset uses a commodity <strong>TI IWR1443BOOST</strong> mmWave radar:</p>
-<div class="markdown-table-wrap"><table class="markdown-table"><thead><tr><th style="text-align:left">Item</th><th style="text-align:left">Setting</th></tr></thead><tbody><tr><td style="text-align:left">Radar</td><td style="text-align:left">TI IWR1443BOOST</td></tr><tr><td style="text-align:left">Frequency</td><td style="text-align:left">77-81 GHz</td></tr><tr><td style="text-align:left">Frame rate</td><td style="text-align:left">20 FPS</td></tr><tr><td style="text-align:left">Chirps per frame</td><td style="text-align:left">120</td></tr><tr><td style="text-align:left">Volunteers</td><td style="text-align:left">8 users</td></tr><tr><td style="text-align:left">Positions</td><td style="text-align:left">5 positions</td></tr><tr><td style="text-align:left">Environments</td><td style="text-align:left">2 indoor scenes</td></tr><tr><td style="text-align:left">Activities</td><td style="text-align:left">11 activities plus random / no action</td></tr><tr><td style="text-align:left">Total samples</td><td style="text-align:left">9,600</td></tr></tbody></table></div>
-<p>The default adaptation protocol uses data from two users at one position as the source domain. Other positions, users, and environments are used as target or unseen domains, making the setup close to real deployment where new sensing conditions appear after training.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Item</th>
+<th>Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Radar</td>
+<td>TI IWR1443BOOST</td>
+</tr>
+<tr>
+<td>Frequency</td>
+<td>77-81 GHz</td>
+</tr>
+<tr>
+<td>Frame rate</td>
+<td>20 FPS</td>
+</tr>
+<tr>
+<td>Chirps per frame</td>
+<td>120</td>
+</tr>
+<tr>
+<td>Volunteers</td>
+<td>8 users</td>
+</tr>
+<tr>
+<td>Positions</td>
+<td>5 positions</td>
+</tr>
+<tr>
+<td>Environments</td>
+<td>2 indoor scenes</td>
+</tr>
+<tr>
+<td>Activities</td>
+<td>11 activities plus random / no action</td>
+</tr>
+<tr>
+<td>Total samples</td>
+<td>9,600</td>
+</tr>
+</tbody>
+</table>
+</div><p>The default adaptation protocol uses data from two users at one position as the source domain. Other positions, users, and environments are used as target or unseen domains, making the setup close to real deployment where new sensing conditions appear after training.</p>
 <h2>Results at a Glance</h2>
 <p>On the main self-collected dataset, mmADA substantially improves over direct transfer and five representative baselines:</p>
-<div class="markdown-table-wrap"><table class="markdown-table"><thead><tr><th style="text-align:left">Method</th><th style="text-align:right">Accuracy</th><th style="text-align:right">Precision</th><th style="text-align:right">Recall</th><th style="text-align:right">F1-score</th></tr></thead><tbody><tr><td style="text-align:left">Direct Transfer</td><td style="text-align:right">43.52</td><td style="text-align:right">47.76</td><td style="text-align:right">43.52</td><td style="text-align:right">42.86</td></tr><tr><td style="text-align:left">mTransSee</td><td style="text-align:right">45.45</td><td style="text-align:right">61.47</td><td style="text-align:right">45.45</td><td style="text-align:right">47.73</td></tr><tr><td style="text-align:left">EI</td><td style="text-align:right">79.17</td><td style="text-align:right">85.14</td><td style="text-align:right">79.17</td><td style="text-align:right">78.22</td></tr><tr><td style="text-align:left">RoMF</td><td style="text-align:right">31.57</td><td style="text-align:right">51.13</td><td style="text-align:right">31.57</td><td style="text-align:right">31.28</td></tr><tr><td style="text-align:left">EADA</td><td style="text-align:right">85.19</td><td style="text-align:right">86.89</td><td style="text-align:right">85.19</td><td style="text-align:right">84.51</td></tr><tr><td style="text-align:left">MADA</td><td style="text-align:right">75.69</td><td style="text-align:right">83.94</td><td style="text-align:right">75.69</td><td style="text-align:right">76.16</td></tr><tr><td style="text-align:left"><strong>mmADA</strong></td><td style="text-align:right"><strong>96.30</strong></td><td style="text-align:right"><strong>96.33</strong></td><td style="text-align:right"><strong>96.30</strong></td><td style="text-align:right"><strong>96.28</strong></td></tr></tbody></table></div>
-<p>The method also maintains strong generalization to unseen domains:</p>
-<div class="markdown-table-wrap"><table class="markdown-table"><thead><tr><th style="text-align:left">Setting</th><th style="text-align:right">Accuracy</th></tr></thead><tbody><tr><td style="text-align:left">Source domain G1</td><td style="text-align:right">97.92</td></tr><tr><td style="text-align:left">Unseen domain G3</td><td style="text-align:right">91.25</td></tr><tr><td style="text-align:left">Unseen domain G4</td><td style="text-align:right">92.50</td></tr></tbody></table></div>
-<p>The paper reports over <strong>90% accuracy</strong> across cross-user, cross-position, and cross-environment settings. In per-user analysis, mmADA reaches more than <strong>95% accuracy</strong> on target-domain users; across positions, it keeps accuracy above <strong>90%</strong>, while selecting more labels for harder far-angle positions.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Method</th>
+<th style="text-align:right">Accuracy</th>
+<th style="text-align:right">Precision</th>
+<th style="text-align:right">Recall</th>
+<th style="text-align:right">F1-score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Direct Transfer</td>
+<td style="text-align:right">43.52</td>
+<td style="text-align:right">47.76</td>
+<td style="text-align:right">43.52</td>
+<td style="text-align:right">42.86</td>
+</tr>
+<tr>
+<td>mTransSee</td>
+<td style="text-align:right">45.45</td>
+<td style="text-align:right">61.47</td>
+<td style="text-align:right">45.45</td>
+<td style="text-align:right">47.73</td>
+</tr>
+<tr>
+<td>EI</td>
+<td style="text-align:right">79.17</td>
+<td style="text-align:right">85.14</td>
+<td style="text-align:right">79.17</td>
+<td style="text-align:right">78.22</td>
+</tr>
+<tr>
+<td>RoMF</td>
+<td style="text-align:right">31.57</td>
+<td style="text-align:right">51.13</td>
+<td style="text-align:right">31.57</td>
+<td style="text-align:right">31.28</td>
+</tr>
+<tr>
+<td>EADA</td>
+<td style="text-align:right">85.19</td>
+<td style="text-align:right">86.89</td>
+<td style="text-align:right">85.19</td>
+<td style="text-align:right">84.51</td>
+</tr>
+<tr>
+<td>MADA</td>
+<td style="text-align:right">75.69</td>
+<td style="text-align:right">83.94</td>
+<td style="text-align:right">75.69</td>
+<td style="text-align:right">76.16</td>
+</tr>
+<tr>
+<td><strong>mmADA</strong></td>
+<td style="text-align:right"><strong>96.30</strong></td>
+<td style="text-align:right"><strong>96.33</strong></td>
+<td style="text-align:right"><strong>96.30</strong></td>
+<td style="text-align:right"><strong>96.28</strong></td>
+</tr>
+</tbody>
+</table>
+</div><p>The method also maintains strong generalization to unseen domains:</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Setting</th>
+<th style="text-align:right">Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source domain G1</td>
+<td style="text-align:right">97.92</td>
+</tr>
+<tr>
+<td>Unseen domain G3</td>
+<td style="text-align:right">91.25</td>
+</tr>
+<tr>
+<td>Unseen domain G4</td>
+<td style="text-align:right">92.50</td>
+</tr>
+</tbody>
+</table>
+</div><p>The paper reports over <strong>90% accuracy</strong> across cross-user, cross-position, and cross-environment settings. In per-user analysis, mmADA reaches more than <strong>95% accuracy</strong> on target-domain users; across positions, it keeps accuracy above <strong>90%</strong>, while selecting more labels for harder far-angle positions.</p>
 <figure class="markdown-figure">
   <img src="./assets/main-results.png" alt="Confusion matrix, uncertainty distribution, user and position results, and Table I from the mmADA paper">
   <figcaption>Figures 9-12 and Table I from the paper. The results connect action-level accuracy, uncertainty behavior, per-user/per-position robustness, and the overall comparison against direct transfer and domain adaptation baselines.</figcaption>
 </figure>
 <h2>Ablation Findings</h2>
 <p>The ablation results make the contribution of each module clear:</p>
-<div class="markdown-table-wrap"><table class="markdown-table"><thead><tr><th style="text-align:left">Variant</th><th style="text-align:right">Accuracy</th><th style="text-align:left">What changes</th></tr></thead><tbody><tr><td style="text-align:left"><strong>mmADA</strong></td><td style="text-align:right"><strong>96.30</strong></td><td style="text-align:left">Full method</td></tr><tr><td style="text-align:left">w/o Rényi entropy</td><td style="text-align:right">93.75</td><td style="text-align:left">Replaces Rényi entropy with Shannon entropy</td></tr><tr><td style="text-align:left">w/o pseudo-labeling</td><td style="text-align:right">81.48</td><td style="text-align:left">Removes unlabeled target-data refinement</td></tr><tr><td style="text-align:left">w/o pseudo-label set</td><td style="text-align:right">65.97</td><td style="text-align:left">Uses a single pseudo label instead of PLS</td></tr><tr><td style="text-align:left">w/o contrastive learning</td><td style="text-align:right">91.90</td><td style="text-align:left">Removes class-level latent alignment</td></tr></tbody></table></div>
-<p>Two patterns stand out. First, Rényi entropy improves sample selection beyond Shannon entropy. Second, pseudo-label sets are not just a small detail: replacing them with standard single-label pseudo-labeling causes a severe drop, showing how damaging noisy pseudo labels can be under domain shift.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Variant</th>
+<th style="text-align:right">Accuracy</th>
+<th>What changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>mmADA</strong></td>
+<td style="text-align:right"><strong>96.30</strong></td>
+<td>Full method</td>
+</tr>
+<tr>
+<td>w/o Rényi entropy</td>
+<td style="text-align:right">93.75</td>
+<td>Replaces Rényi entropy with Shannon entropy</td>
+</tr>
+<tr>
+<td>w/o pseudo-labeling</td>
+<td style="text-align:right">81.48</td>
+<td>Removes unlabeled target-data refinement</td>
+</tr>
+<tr>
+<td>w/o pseudo-label set</td>
+<td style="text-align:right">65.97</td>
+<td>Uses a single pseudo label instead of PLS</td>
+</tr>
+<tr>
+<td>w/o contrastive learning</td>
+<td style="text-align:right">91.90</td>
+<td>Removes class-level latent alignment</td>
+</tr>
+</tbody>
+</table>
+</div><p>Two patterns stand out. First, Rényi entropy improves sample selection beyond Shannon entropy. Second, pseudo-label sets are not just a small detail: replacing them with standard single-label pseudo-labeling causes a severe drop, showing how damaging noisy pseudo labels can be under domain shift.</p>
 <p>The micro-benchmark also shows that mmADA remains useful under very tight labeling budgets. With only <strong>1%</strong> active target samples, it already reaches <strong>86.81% accuracy</strong>; performance improves as the budget grows, with diminishing gains beyond the default <strong>5%</strong> budget.</p>
 <h2>Generalization on Public Datasets</h2>
 <p>The paper further evaluates mmADA on <strong>XRF55</strong> and <strong>MM-Fi</strong>.</p>
@@ -163,14 +341,102 @@
   <img src="./assets/xrf55-results.png" alt="Domain adaptation results on the XRF55 dataset">
   <figcaption>Table II from the paper. On XRF55, mmADA improves both cross-person and cross-scene/person adaptation over direct transfer and representative baselines.</figcaption>
 </figure>
-<div class="markdown-table-wrap"><table class="markdown-table"><thead><tr><th style="text-align:left">XRF55 setting</th><th style="text-align:right">Direct Transfer</th><th style="text-align:right">Best listed baseline</th><th style="text-align:right">mmADA</th></tr></thead><tbody><tr><td style="text-align:left">Cross-person</td><td style="text-align:right">64.42</td><td style="text-align:right">67.94</td><td style="text-align:right"><strong>70.97</strong></td></tr><tr><td style="text-align:left">Scene 1 -&gt; 2</td><td style="text-align:right">11.36</td><td style="text-align:right">44.34</td><td style="text-align:right"><strong>53.84</strong></td></tr><tr><td style="text-align:left">Scene 1 -&gt; 3</td><td style="text-align:right">26.42</td><td style="text-align:right">47.88</td><td style="text-align:right"><strong>55.45</strong></td></tr><tr><td style="text-align:left">Scene 1 -&gt; 4</td><td style="text-align:right">26.58</td><td style="text-align:right">45.56</td><td style="text-align:right"><strong>54.65</strong></td></tr></tbody></table></div>
-<p>On <strong>MM-Fi</strong>, the gains are even larger across one-to-one environment adaptation tasks:</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>XRF55 setting</th>
+<th style="text-align:right">Direct Transfer</th>
+<th style="text-align:right">Best listed baseline</th>
+<th style="text-align:right">mmADA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cross-person</td>
+<td style="text-align:right">64.42</td>
+<td style="text-align:right">67.94</td>
+<td style="text-align:right"><strong>70.97</strong></td>
+</tr>
+<tr>
+<td>Scene 1 -&gt; 2</td>
+<td style="text-align:right">11.36</td>
+<td style="text-align:right">44.34</td>
+<td style="text-align:right"><strong>53.84</strong></td>
+</tr>
+<tr>
+<td>Scene 1 -&gt; 3</td>
+<td style="text-align:right">26.42</td>
+<td style="text-align:right">47.88</td>
+<td style="text-align:right"><strong>55.45</strong></td>
+</tr>
+<tr>
+<td>Scene 1 -&gt; 4</td>
+<td style="text-align:right">26.58</td>
+<td style="text-align:right">45.56</td>
+<td style="text-align:right"><strong>54.65</strong></td>
+</tr>
+</tbody>
+</table>
+</div><p>On <strong>MM-Fi</strong>, the gains are even larger across one-to-one environment adaptation tasks:</p>
 <figure class="markdown-figure">
   <img src="./assets/mmfi-results.png" alt="One-to-one domain adaptation results on the MM-Fi dataset">
   <figcaption>Table III from the paper. On MM-Fi, mmADA achieves the highest mean accuracy across one-to-one environment adaptation tasks.</figcaption>
 </figure>
-<div class="markdown-table-wrap"><table class="markdown-table"><thead><tr><th style="text-align:left">MM-Fi setting</th><th style="text-align:right">Direct Transfer</th><th style="text-align:right">EADA</th><th style="text-align:right">mmADA</th></tr></thead><tbody><tr><td style="text-align:left">Mean accuracy</td><td style="text-align:right">56.24</td><td style="text-align:right">89.90</td><td style="text-align:right"><strong>96.88</strong></td></tr><tr><td style="text-align:left">1 -&gt; 2</td><td style="text-align:right">64.11</td><td style="text-align:right">92.01</td><td style="text-align:right"><strong>97.65</strong></td></tr><tr><td style="text-align:left">1 -&gt; 3</td><td style="text-align:right">60.68</td><td style="text-align:right">92.64</td><td style="text-align:right"><strong>97.50</strong></td></tr><tr><td style="text-align:left">1 -&gt; 4</td><td style="text-align:right">31.82</td><td style="text-align:right">84.64</td><td style="text-align:right"><strong>93.57</strong></td></tr><tr><td style="text-align:left">2 -&gt; 3</td><td style="text-align:right">73.64</td><td style="text-align:right">93.08</td><td style="text-align:right"><strong>99.17</strong></td></tr><tr><td style="text-align:left">2 -&gt; 4</td><td style="text-align:right">53.13</td><td style="text-align:right">87.77</td><td style="text-align:right"><strong>96.04</strong></td></tr><tr><td style="text-align:left">3 -&gt; 4</td><td style="text-align:right">54.08</td><td style="text-align:right">91.38</td><td style="text-align:right"><strong>97.34</strong></td></tr></tbody></table></div>
-<p>These results support the paper&#x27;s main claim: active sample selection plus uncertainty-aware refinement can generalize beyond one collected dataset and remain effective on larger public sensing benchmarks.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>MM-Fi setting</th>
+<th style="text-align:right">Direct Transfer</th>
+<th style="text-align:right">EADA</th>
+<th style="text-align:right">mmADA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mean accuracy</td>
+<td style="text-align:right">56.24</td>
+<td style="text-align:right">89.90</td>
+<td style="text-align:right"><strong>96.88</strong></td>
+</tr>
+<tr>
+<td>1 -&gt; 2</td>
+<td style="text-align:right">64.11</td>
+<td style="text-align:right">92.01</td>
+<td style="text-align:right"><strong>97.65</strong></td>
+</tr>
+<tr>
+<td>1 -&gt; 3</td>
+<td style="text-align:right">60.68</td>
+<td style="text-align:right">92.64</td>
+<td style="text-align:right"><strong>97.50</strong></td>
+</tr>
+<tr>
+<td>1 -&gt; 4</td>
+<td style="text-align:right">31.82</td>
+<td style="text-align:right">84.64</td>
+<td style="text-align:right"><strong>93.57</strong></td>
+</tr>
+<tr>
+<td>2 -&gt; 3</td>
+<td style="text-align:right">73.64</td>
+<td style="text-align:right">93.08</td>
+<td style="text-align:right"><strong>99.17</strong></td>
+</tr>
+<tr>
+<td>2 -&gt; 4</td>
+<td style="text-align:right">53.13</td>
+<td style="text-align:right">87.77</td>
+<td style="text-align:right"><strong>96.04</strong></td>
+</tr>
+<tr>
+<td>3 -&gt; 4</td>
+<td style="text-align:right">54.08</td>
+<td style="text-align:right">91.38</td>
+<td style="text-align:right"><strong>97.34</strong></td>
+</tr>
+</tbody>
+</table>
+</div><p>These results support the paper's main claim: active sample selection plus uncertainty-aware refinement can generalize beyond one collected dataset and remain effective on larger public sensing benchmarks.</p>
 <h2>Takeaways</h2>
 <ul>
 <li>The key shift is from <strong>few-shot labeling by class</strong> to <strong>active labeling by informativeness</strong>.</li>
