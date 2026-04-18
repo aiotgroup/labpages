@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Talk is not always cheap: Promoting wireless sensing models with text prompts - XJTU AIoT Group</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <title>Talk is Not Always Cheap: Promoting Wireless Sensing Models with Text Prompts - XJTU AIoT Group</title>
+  <meta name="description" content="WiTalk enhances wireless sensing models with hierarchical text prompts, showing that semantic descriptions can improve recognition and temporal localization without changing the backbone architecture.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,14 +14,14 @@
   <header class="paper-header">
     <div class="paper-shell paper-nav-shell">
       <a class="paper-brand" href="../../index.html">
-        <span class="paper-brand-mark">XJ</span>
+        <span class="paper-brand-mark">X</span>
         <span class="paper-brand-copy">
           <strong>XJTU AIoT Group</strong>
           <small>Publication Detail</small>
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../course.html">Course</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a>
       </nav>
     </div>
   </header>
@@ -30,17 +30,18 @@
       <div class="paper-shell paper-hero-grid">
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
-          <h1>Talk is not always cheap: Promoting wireless sensing models with text prompts</h1>
-          <p class="paper-subtitle">Z Yang, Z Huang, G Wang, H Ding, TX Han, F Wang</p>
+          <h1>Talk is Not Always Cheap: Promoting Wireless Sensing Models with Text Prompts</h1>
+          <p class="paper-subtitle">Zhenkui Yang, Zeyi Huang, Ge Wang, Han Ding, Tony Xiao Han, Fei Wang</p>
           <div class="paper-meta-row">
             <span class="paper-pill">arXiv preprint arXiv:2504.14621, 2025</span>
             <span class="paper-pill">2025</span>
-            <span class="paper-pill">Efficient AI Systems</span>
+            <span class="paper-pill">Ubiquitous Sensing</span>
             <span class="paper-pill">XJTU AIoT Group</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">WiTalk enhances wireless sensing models with hierarchical text prompts, showing that semantic descriptions can improve recognition and temporal localization without changing the backbone architecture.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
+            
             
             
             
@@ -50,7 +51,7 @@
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for Talk is not always cheap: Promoting wireless sensing models with text prompts">
+            <img src="./assets/cover.svg" alt="Cover image for Talk is Not Always Cheap: Promoting Wireless Sensing Models with Text Prompts">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
@@ -69,7 +70,7 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Efficient AI Systems</p>
+            <p>Ubiquitous Sensing</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
@@ -83,22 +84,38 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>Wireless sensing datasets often include useful textual knowledge such as action names and semantic descriptions, but most sensing models ignore that information during training. <strong>WiTalk</strong> explores whether text prompts can improve wireless sensing performance without adding more data or redesigning the core architecture.</p>
+<p>The paper focuses on WiFi, mmWave radar, and RFID-based sensing tasks. Instead of changing the backbone, WiTalk injects semantic guidance through text prompts at different levels of detail and tests whether those prompts improve both recognition and localization.</p>
 <h2>Main Contributions</h2>
-<ul><li>Research theme: Efficient AI Systems.</li><li>Published at arXiv preprint arXiv:2504.14621, 2025.</li><li>Replace these generated bullets with the paper&#39;s actual core contributions and experimental findings.</li></ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<ul>
+<li>Introduces <strong>WiTalk</strong>, a text-enhanced framework for wireless sensing.</li>
+<li>Uses three prompt strategies: <strong>label-only</strong>, <strong>brief description</strong>, and <strong>detailed action description</strong>.</li>
+<li>Demonstrates that textual supervision can improve both action recognition and temporal localization with minimal architectural friction.</li>
+</ul>
+<h2>Method</h2>
+<p>The framework keeps the sensing model architecture intact and augments training with semantic prompts derived from the dataset labels and action descriptions. This is an appealing design choice because it means the method can be attached to existing sensing pipelines without rebuilding the full model stack.</p>
+<p>The paper positions text prompts as a low-cost way to inject task semantics into wireless sensing, especially when the raw signal space is difficult to interpret directly.</p>
+<h2>Evaluation Highlights</h2>
+<ul>
+<li>Evaluated on <strong>XRF55</strong> for human action recognition and <strong>WiFiTAL / XRFV2</strong> for WiFi temporal action localization.</li>
+<li>Improves XRF55 accuracy by <strong>3.9% (WiFi)</strong>, <strong>2.59% (RFID)</strong>, and <strong>0.46% (mmWave)</strong>.</li>
+<li>Improves average WiFiTAD performance on WiFiTAL by <strong>4.98%</strong>.</li>
+<li>Improves mean average precision on XRFV2 by <strong>4.02% to 13.68%</strong> across different methods.</li>
+</ul>
 <h2>Resources</h2>
-<ul><li><a href="./assets/cover.svg">Cover image</a></li><li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li></ul>
+<ul>
+<li><a href="https://arxiv.org/abs/2504.14621">arXiv abstract</a></li>
+<li><a href="https://github.com/yangzhenkui/WiTalk">Code</a></li>
+</ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@inproceedings{talk-is-not-always-cheap-promoting-wireless-sensing-models-with-text-prompts,
-  title = {Talk is not always cheap: Promoting wireless sensing models with text prompts},
-  author = {Z Yang and Z Huang and G Wang and H Ding and TX Han and F Wang},
-  booktitle = {arXiv preprint arXiv:2504.14621, 2025},
+<pre><code class="language-bibtex">@article{yang2025witalk,
+  title = {Talk is Not Always Cheap: Promoting Wireless Sensing Models with Text Prompts},
+  author = {Yang, Zhenkui and Huang, Zeyi and Wang, Ge and Ding, Han and Han, Tony Xiao and Wang, Fei},
+  journal = {arXiv preprint arXiv:2504.14621},
   year = {2025}
-}</code></pre>
+}
+</code></pre>
+
         </article>
       </div>
     </section>

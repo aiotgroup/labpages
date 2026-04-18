@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cross-domain EEG-based Emotion Recognition with Contrastive Learning - XJTU AIoT Group</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="EmotionCLIP reformulates cross-domain EEG emotion recognition as an EEG-text matching problem, pairing a frozen CLIP text encoder with the proposed SST-LegoViT EEG backbone to improve cross-subject and cross-time generalization.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,14 +14,14 @@
   <header class="paper-header">
     <div class="paper-shell paper-nav-shell">
       <a class="paper-brand" href="../../index.html">
-        <span class="paper-brand-mark">XJ</span>
+        <span class="paper-brand-mark">X</span>
         <span class="paper-brand-copy">
           <strong>XJTU AIoT Group</strong>
           <small>Publication Detail</small>
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../course.html">Course</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a>
       </nav>
     </div>
   </header>
@@ -31,18 +31,19 @@
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
           <h1>Cross-domain EEG-based Emotion Recognition with Contrastive Learning</h1>
-          <p class="paper-subtitle">Rui Yan, Yibo Li, Han Ding, Fei Wang#</p>
+          <p class="paper-subtitle">Rui Yan, Yibo Li, Han Ding, Fei Wang</p>
           <div class="paper-meta-row">
             <span class="paper-pill">IEEE ICASSP 2026</span>
             <span class="paper-pill">2026</span>
-            <span class="paper-pill">Efficient AI Systems</span>
-            <span class="paper-pill">XJTU AIoT Group</span>
+            <span class="paper-pill">Ubiquitous Sensing</span>
+            <span class="paper-pill">XJTU-SSE / XJTU-CS</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">EmotionCLIP reformulates cross-domain EEG emotion recognition as an EEG-text matching problem, pairing a frozen CLIP text encoder with the proposed SST-LegoViT EEG backbone to improve cross-subject and cross-time generalization.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
             
-            
+            <a class="paper-link-chip" href="https://github.com/Departure2021/EmotionCLIP">Code</a>
+            <a class="paper-link-chip" href="https://arxiv.org/abs/2511.05293">Paper</a>
             
             
           </div>
@@ -50,11 +51,11 @@
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for Cross-domain EEG-based Emotion Recognition with Contrastive Learning">
+            <img src="./assets/teaser.png" alt="EmotionCLIP EEG encoder teaser">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIoT Group</p>
+            <p>XJTU-SSE / XJTU-CS</p>
           </aside>
         </aside>
       </div>
@@ -69,11 +70,11 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Efficient AI Systems</p>
+            <p>Ubiquitous Sensing</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIoT Group</p>
+            <p>XJTU-SSE / XJTU-CS</p>
           </article>
         </div>
       </div>
@@ -83,22 +84,169 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
-<h2>Main Contributions</h2>
-<ul><li>Research theme: Efficient AI Systems.</li><li>Published at IEEE ICASSP 2026.</li><li>Replace these generated bullets with the paper&#39;s actual core contributions and experimental findings.</li></ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<p>EEG-based emotion recognition is attractive for affective computing because EEG is non-invasive, has high temporal resolution, and reflects emotion-related brain activity more directly than facial expression or speech. The hard part is <strong>generalization</strong>: EEG distributions vary heavily across subjects and across recording sessions, so models that work well in-domain often degrade under cross-subject and cross-time evaluation.</p>
+<p>This paper proposes <strong>EmotionCLIP</strong>, which reframes the task from plain classification into an <strong>EEG-text matching</strong> problem. Instead of only learning a classifier over EEG features, the method aligns EEG embeddings with semantic text embeddings of emotion labels in a shared space, making the supervision signal more stable across domains.</p>
+<blockquote>
+<p>Core idea: use text as a stable semantic anchor for emotion categories, and align EEG features to that anchor with contrastive learning.</p>
+</blockquote>
+<figure class="markdown-figure">
+  <img src="./assets/figure-1.png" alt="EmotionCLIP task reformulation">
+  <figcaption>Figure 1 from the paper. EmotionCLIP converts cross-domain EEG emotion recognition from a direct classification task into an EEG-text matching problem.</figcaption>
+</figure>
+<h2>Why CLIP-style alignment helps</h2>
+<p>Traditional domain adaptation methods try to learn subject-invariant EEG features directly from multi-source data, but this is difficult because EEG signals are highly non-stationary and differ substantially across subjects. EmotionCLIP instead introduces <strong>text</strong> as an intermediate modality:</p>
+<ul>
+<li>textual emotion descriptions are more stable across subjects and across time,</li>
+<li>CLIP-style alignment supplies a shared embedding space for EEG and text,</li>
+<li>and the model can predict by matching EEG features to the most similar emotion text prompt.</li>
+</ul>
+<p>The text encoder is the <strong>official pre-trained CLIP text encoder</strong>, kept frozen during training to avoid overfitting on small EEG datasets.</p>
+<h2>Model Architecture</h2>
+<p>EmotionCLIP uses a dual-encoder design:</p>
+<ol>
+<li>
+<p><strong>Text encoder</strong>
+Emotion labels such as <code>happy</code>, <code>sad</code>, <code>fear</code>, and <code>neutral</code> are inserted into <strong>16 prompt templates</strong> to create richer text descriptions. These are encoded with frozen CLIP text features.</p>
+</li>
+<li>
+<p><strong>EEG encoder</strong>
+The proposed <strong>SST-LegoViT</strong> backbone extracts spatial, spectral, and temporal information from a 4D EEG representation.</p>
+</li>
+<li>
+<p><strong>Contrastive matching</strong>
+EEG and text features are projected into a shared space, and the model is trained to maximize similarity between correctly paired EEG-text embeddings.</p>
+</li>
+</ol>
+<figure class="markdown-figure">
+  <img src="./assets/teaser.png" alt="SST-LegoViT overview">
+  <figcaption>Figure 2 from the paper. SST-LegoViT processes EEG data sequentially across spatial, frequency-band, and temporal dimensions.</figcaption>
+</figure>
+<h2>EEG Representation and SST-LegoViT</h2>
+<p>The raw EEG signals are transformed into a <strong>4D tensor</strong> of shape <code>Time x Frequency x Height x Width</code>, so the network can jointly reason about temporal dynamics, spectral content, and spatial electrode topology.</p>
+<p>The preprocessing pipeline includes:</p>
+<ul>
+<li>filtering into six frequency bands: <code>delta</code>, <code>theta</code>, <code>alpha</code>, <code>beta</code>, <code>gamma1</code>, and <code>gamma2</code>,</li>
+<li>extracting both <strong>Differential Entropy (DE)</strong> and <strong>Power Spectral Density (PSD)</strong> features,</li>
+<li>mapping the 62 EEG channels to a 2D grid according to electrode positions,</li>
+<li>and segmenting the sequence over time to form multiple frames.</li>
+</ul>
+<p>The SST-LegoViT backbone contains four main parts:</p>
+<ul>
+<li>
+<p><strong>Embedding layer</strong><br>
+A stack of four small 2D convolutions replaces the standard ViT-style large-kernel patch embedding.</p>
+</li>
+<li>
+<p><strong>Spatial multi-scale encoder</strong><br>
+The feed-forward block is replaced with parallel <code>1x1</code>, <code>3x3</code>, and <code>5x5</code> convolution branches to capture spatial features at different scales.</p>
+</li>
+<li>
+<p><strong>Frequency-band encoder (Legoformer)</strong><br>
+DE and PSD are processed by separate Transformer encoders, then fused with cross-attention, using DE as the primary context and PSD as auxiliary support.</p>
+</li>
+<li>
+<p><strong>Temporal encoder</strong><br>
+A Transformer encoder models long-range temporal dependencies after cross-band fusion.</p>
+</li>
+</ul>
+<figure class="markdown-figure">
+  <img src="./assets/modules.png" alt="Spatial multi-scale encoder and Legoformer modules">
+  <figcaption>Figures 3 and 4 from the paper. The model combines a multi-scale spatial block with Legoformer-based DE/PSD fusion before temporal modeling.</figcaption>
+</figure>
+<h2>Results at a Glance</h2>
+<p>The paper evaluates EmotionCLIP on <strong>SEED</strong> and <strong>SEED-IV</strong> using both <strong>cross-subject</strong> and <strong>cross-time</strong> protocols.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Setting</th>
+<th style="text-align:right">SEED</th>
+<th style="text-align:right">SEED-IV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cross-subject accuracy</td>
+<td style="text-align:right">88.69</td>
+<td style="text-align:right">73.50</td>
+</tr>
+<tr>
+<td>Cross-time average accuracy</td>
+<td style="text-align:right">88.46</td>
+<td style="text-align:right">77.54</td>
+</tr>
+</tbody>
+</table>
+</div><p>For cross-subject recognition, EmotionCLIP achieves:</p>
+<ul>
+<li><strong>88.69%</strong> on SEED, beating <strong>MSFR-GCN (86.78%)</strong> by <strong>1.91 points</strong> and <strong>MADA (86.16%)</strong> by <strong>2.53 points</strong>.</li>
+<li><strong>73.50%</strong> on SEED-IV, slightly below <strong>RGNN (73.84%)</strong> but above <strong>MSFR-GCN (73.43%)</strong>.</li>
+</ul>
+<p>For cross-time evaluation, the three reported train/test session splits produce:</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Training -&gt; Test</th>
+<th style="text-align:right">SEED</th>
+<th style="text-align:right">SEED-IV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Session 1 -&gt; Session 2</td>
+<td style="text-align:right">88.65</td>
+<td style="text-align:right">74.38</td>
+</tr>
+<tr>
+<td>Session 1 -&gt; Session 3</td>
+<td style="text-align:right">88.31</td>
+<td style="text-align:right">79.99</td>
+</tr>
+<tr>
+<td>Session 2 -&gt; Session 3</td>
+<td style="text-align:right">88.42</td>
+<td style="text-align:right">78.24</td>
+</tr>
+</tbody>
+</table>
+</div><p>These numbers show that the model remains strong not only across people but also across sessions collected at different times.</p>
+<figure class="markdown-figure">
+  <img src="./assets/results.png" alt="EmotionCLIP results tables and plots">
+  <figcaption>Figure 5 and the main result tables. The paper reports strong cross-subject and cross-time performance, plus a positive ablation gain from EEG-text matching.</figcaption>
+</figure>
+<h2>Few-shot and Ablation Findings</h2>
+<p>The paper also studies <strong>zero-shot and N-shot</strong> settings on SEED. Performance improves consistently as the number of shots increases from <code>0</code> to <code>32</code>, and the authors therefore use the <strong>32-shot</strong> configuration for the main experiments.</p>
+<p>The ablation is also informative:</p>
+<ul>
+<li><strong>SST-LegoViT alone</strong> reaches <strong>61.42%</strong>.</li>
+<li><strong>EmotionCLIP</strong> reaches <strong>65.61%</strong>.</li>
+<li>The gain is <strong>+4.19 points</strong>, which the paper attributes to aligning EEG features with the semantic text space.</li>
+</ul>
+<p>This result supports the paper's central claim that text-guided contrastive learning improves cross-domain robustness beyond what the EEG encoder alone can provide.</p>
+<h2>Takeaways</h2>
+<ul>
+<li>EmotionCLIP turns EEG emotion recognition into a <strong>multimodal alignment</strong> problem rather than a pure classifier design problem.</li>
+<li>The frozen CLIP text encoder provides a stable semantic target for cross-domain generalization.</li>
+<li>SST-LegoViT is lightweight but still captures the three key EEG dimensions: <strong>spatial</strong>, <strong>spectral</strong>, and <strong>temporal</strong>.</li>
+<li>The method performs especially well on SEED and remains competitive on the harder SEED-IV benchmark.</li>
+</ul>
 <h2>Resources</h2>
-<ul><li><a href="./assets/cover.svg">Cover image</a></li><li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li></ul>
+<ul>
+<li><a href="https://arxiv.org/abs/2511.05293">arXiv abstract</a></li>
+<li><a href="https://github.com/Departure2021/EmotionCLIP">Code</a></li>
+<li><a href="./assets/figure-1.png">Local Figure 1 crop</a></li>
+<li><a href="./assets/teaser.png">Local teaser image</a></li>
+<li><a href="./assets/modules.png">Local module figure crop</a></li>
+<li><a href="./assets/results.png">Local results figure crop</a></li>
+</ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@inproceedings{cross-domain-eeg-based-emotion-recognition-with-contrastive-learning,
+<pre><code class="language-bibtex">@inproceedings{yan2026emotionclip,
   title = {Cross-domain EEG-based Emotion Recognition with Contrastive Learning},
-  author = {Rui Yan and Yibo Li and Han Ding and Fei Wang#},
-  booktitle = {IEEE ICASSP 2026},
+  author = {Yan, Rui and Li, Yibo and Ding, Han and Wang, Fei},
+  booktitle = {IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)},
   year = {2026}
-}</code></pre>
+}
+</code></pre>
+
         </article>
       </div>
     </section>

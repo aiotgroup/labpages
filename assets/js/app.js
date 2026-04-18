@@ -214,7 +214,9 @@
   function publicationCardMarkup(paper) {
     const theme = SiteUI.publicationTheme(paper);
     return `
-      <article class="panel publication-card" data-year="${paper.year || ""}" data-text="${SiteUI.escapeHtml(
+      <a class="panel publication-card publication-card-link" href="${localPaperHref(
+        paper.slug
+      )}" data-year="${paper.year || ""}" data-text="${SiteUI.escapeHtml(
         `${paper.title} ${paper.authors} ${paper.venue} ${theme.label}`.toLowerCase()
       )}">
         <span class="date-pill">${SiteUI.escapeHtml(String(paper.year || "Archive"))}</span>
@@ -224,8 +226,8 @@
           <span>${SiteUI.escapeHtml(paper.venue)}</span>
           <span>${SiteUI.escapeHtml(theme.label)}</span>
         </div>
-        <a class="inline-link" href="${localPaperHref(paper.slug)}">Read paper page</a>
-      </article>
+        <span class="inline-link">Read paper page</span>
+      </a>
     `;
   }
 
@@ -271,6 +273,81 @@
           <p id="publication-results" class="toolbar-note">Showing ${featuredCount} papers.</p>
           <div id="publication-grid" class="publication-grid">
             ${SiteContent.publications.map(publicationCardMarkup).join("")}
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  function renderDatasetPage() {
+    const datasets = SiteContent.datasets;
+    return `
+      ${pageHeroMarkup(
+        {
+          eyebrow: "Datasets",
+          title: "Datasets and benchmarks from XJTU AIoT Group.",
+          description: datasets.intro,
+          actions: [
+            { label: "Browse Publications", href: "./publications.html", kind: "secondary" },
+            { label: "Back To About", href: "./index.html", kind: "primary" }
+          ]
+        },
+        `
+          <div class="aside-card">
+            <p class="eyebrow">Collection</p>
+            <h3>${datasets.items.length} public resources</h3>
+            <p>Each entry can link to a local paper page, project repository, DOI, and dataset download portal.</p>
+          </div>
+        `
+      )}
+      <section class="section">
+        <div class="shell">
+          ${sectionHeading("Featured Datasets", "Resources")}
+          <div class="card-grid card-grid-2">
+            ${datasets.items
+              .map(
+                (item) => `
+                  <article class="panel info-card dataset-card">
+                    ${
+                      item.cover
+                        ? `<img class="dataset-cover" src="${item.cover}" alt="${SiteUI.escapeHtml(item.coverAlt || item.title)}">`
+                        : ""
+                    }
+                    <div class="meta-row">
+                      <span class="date-pill">${SiteUI.escapeHtml(item.year)}</span>
+                      <span>${SiteUI.escapeHtml(item.venue)}</span>
+                    </div>
+                    <h3>${SiteUI.escapeHtml(item.title)}</h3>
+                    <p>${SiteUI.escapeHtml(item.summary)}</p>
+                    ${
+                      Array.isArray(item.sensors) && item.sensors.length
+                        ? `<div class="chip-row">
+                            ${item.sensors.map((sensor) => `<span>${SiteUI.escapeHtml(sensor)}</span>`).join("")}
+                          </div>`
+                        : ""
+                    }
+                    ${
+                      Array.isArray(item.highlights) && item.highlights.length
+                        ? `<ul class="clean-list">
+                            ${item.highlights.map((point) => `<li>${SiteUI.escapeHtml(point)}</li>`).join("")}
+                          </ul>`
+                        : ""
+                    }
+                    <div class="dataset-link-row">
+                      <a class="chip-link" href="${localPaperHref(item.slug)}">Paper Page</a>
+                      ${(Array.isArray(item.links) ? item.links : [])
+                        .map((link) => {
+                          const external = /^https?:\/\//i.test(link.href);
+                          return `<a class="chip-link" href="${link.href}"${
+                            external ? ' target="_blank" rel="noreferrer"' : ""
+                          }>${SiteUI.escapeHtml(link.label)}</a>`;
+                        })
+                        .join("")}
+                    </div>
+                  </article>
+                `
+              )
+              .join("")}
           </div>
         </div>
       </section>
@@ -607,6 +684,8 @@
     switch (page) {
       case "publications":
         return renderPublicationsPage();
+      case "dataset":
+        return renderDatasetPage();
       case "fei-wang":
         return renderFeiWangPage();
       case "course":

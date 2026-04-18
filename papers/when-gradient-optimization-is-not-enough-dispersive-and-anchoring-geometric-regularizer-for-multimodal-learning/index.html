@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>When Gradient Optimization Is Not Enough: Dispersive and Anchoring Geometric Regularizer for Multimodal Learning - XJTU AIoT Group</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="This work studies representation geometry in multimodal learning and introduces a lightweight DAGR regularizer that jointly encourages intra-modal diversity and stable cross-modal anchoring.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,14 +14,14 @@
   <header class="paper-header">
     <div class="paper-shell paper-nav-shell">
       <a class="paper-brand" href="../../index.html">
-        <span class="paper-brand-mark">XJ</span>
+        <span class="paper-brand-mark">X</span>
         <span class="paper-brand-copy">
           <strong>XJTU AIoT Group</strong>
           <small>Publication Detail</small>
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../course.html">Course</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a>
       </nav>
     </div>
   </header>
@@ -31,16 +31,17 @@
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
           <h1>When Gradient Optimization Is Not Enough: Dispersive and Anchoring Geometric Regularizer for Multimodal Learning</h1>
-          <p class="paper-subtitle">Z Xia, H Wang, P Weng, Y Qian, Y Xu, W Dan, F Wang</p>
+          <p class="paper-subtitle">Zixuan Xia, Hao Wang, Pengcheng Weng, Yanyu Qian, Yangxin Xu, William Dan, Fei Wang</p>
           <div class="paper-meta-row">
             <span class="paper-pill">arXiv preprint arXiv:2601.21670, 2026</span>
             <span class="paper-pill">2026</span>
-            <span class="paper-pill">Visual Generation</span>
+            <span class="paper-pill">Multimodal Learning</span>
             <span class="paper-pill">XJTU AIoT Group</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">This work studies representation geometry in multimodal learning and introduces a lightweight DAGR regularizer that jointly encourages intra-modal diversity and stable cross-modal anchoring.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
+            
             
             
             
@@ -69,7 +70,7 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Visual Generation</p>
+            <p>Multimodal Learning</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
@@ -83,22 +84,46 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>Even carefully optimized multimodal models can develop unhealthy representation geometry. Typical failure modes include <strong>intra-modal collapse</strong>, where features inside a modality become insufficiently diverse, and <strong>sample-level cross-modal inconsistency</strong>, where paired observations from different modalities drift too far apart.</p>
+<p>This paper addresses that issue with a geometry-aware regularizer referred to as <strong>DAGR</strong>. The latest arXiv revision presents the work under the title <em>Improving Multimodal Learning with Dispersive and Anchoring Regularization</em>, but the central idea remains the same: gradient optimization alone is often not enough to shape robust multimodal representations.</p>
 <h2>Main Contributions</h2>
-<ul><li>Research theme: Visual Generation.</li><li>Published at arXiv preprint arXiv:2601.21670, 2026.</li><li>Replace these generated bullets with the paper&#39;s actual core contributions and experimental findings.</li></ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<ul>
+<li>Identifies representation geometry as a missing control axis in multimodal learning.</li>
+<li>Proposes a <strong>plug-and-play</strong> regularization framework that requires no architectural changes.</li>
+<li>Combines <strong>intra-modal dispersive regularization</strong> with <strong>inter-modal anchoring regularization</strong> to improve both unimodal robustness and multimodal fusion.</li>
+</ul>
+<h2>Method</h2>
+<p>The regularizer enforces two complementary constraints:</p>
+<ul>
+<li>
+<p><strong>Dispersive regularization</strong><br>
+Encourages richer and less collapsed embeddings within the same modality.</p>
+</li>
+<li>
+<p><strong>Anchoring regularization</strong><br>
+Limits sample-level drift across modalities without forcing rigid one-to-one alignment.</p>
+</li>
+</ul>
+<p>Because DAGR acts directly on intermediate embeddings, it can be added to existing multimodal training pipelines with minimal overhead.</p>
+<h2>Evaluation Highlights</h2>
+<ul>
+<li>Improves both <strong>multimodal</strong> and <strong>unimodal</strong> performance across multiple benchmarks.</li>
+<li>Mitigates modality trade-offs by explicitly controlling representation geometry.</li>
+<li>Demonstrates that better geometric structure can be achieved without redesigning the backbone or fusion architecture.</li>
+</ul>
 <h2>Resources</h2>
-<ul><li><a href="./assets/cover.svg">Cover image</a></li><li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li></ul>
+<ul>
+<li><a href="https://arxiv.org/abs/2601.21670">arXiv abstract</a></li>
+</ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@inproceedings{when-gradient-optimization-is-not-enough-dispersive-and-anchoring-geometric-regularizer-for-multimodal-learning,
-  title = {When Gradient Optimization Is Not Enough: Dispersive and Anchoring Geometric Regularizer for Multimodal Learning},
-  author = {Z Xia and H Wang and P Weng and Y Qian and Y Xu and W Dan and F Wang},
-  booktitle = {arXiv preprint arXiv:2601.21670, 2026},
+<pre><code class="language-bibtex">@article{xia2026dagr,
+  title = {Improving Multimodal Learning with Dispersive and Anchoring Regularization},
+  author = {Xia, Zixuan and Wang, Hao and Weng, Pengcheng and Qian, Yanyu and Xu, Yangxin and Dan, William and Wang, Fei},
+  journal = {arXiv preprint arXiv:2601.21670},
   year = {2026}
-}</code></pre>
+}
+</code></pre>
+
         </article>
       </div>
     </section>

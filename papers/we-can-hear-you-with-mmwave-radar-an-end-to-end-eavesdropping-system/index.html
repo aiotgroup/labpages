@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>We Can Hear You with mmWave Radar! An End-to-End Eavesdropping System - XJTU AIoT Group</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="mmSpeech reconstructs intelligible speech from loudspeaker-induced vibrations captured by mmWave radar, enabling through-wall audio recovery without prior speaker knowledge.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,14 +14,14 @@
   <header class="paper-header">
     <div class="paper-shell paper-nav-shell">
       <a class="paper-brand" href="../../index.html">
-        <span class="paper-brand-mark">XJ</span>
+        <span class="paper-brand-mark">X</span>
         <span class="paper-brand-copy">
           <strong>XJTU AIoT Group</strong>
           <small>Publication Detail</small>
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../course.html">Course</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a>
       </nav>
     </div>
   </header>
@@ -31,16 +31,17 @@
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
           <h1>We Can Hear You with mmWave Radar! An End-to-End Eavesdropping System</h1>
-          <p class="paper-subtitle">Dachao Han, Teng Huang, Han Ding#, Cui Zhao, Fei Wang, Ge Wang, Wei Xi</p>
+          <p class="paper-subtitle">Dachao Han, Teng Huang, Han Ding, Cui Zhao, Fei Wang, Ge Wang, Wei Xi</p>
           <div class="paper-meta-row">
             <span class="paper-pill">ACM IMWUT/UBICOMP 2026</span>
             <span class="paper-pill">2026</span>
-            <span class="paper-pill">Efficient AI Systems</span>
+            <span class="paper-pill">Ubiquitous Sensing</span>
             <span class="paper-pill">XJTU AIoT Group</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">mmSpeech reconstructs intelligible speech from loudspeaker-induced vibrations captured by mmWave radar, enabling through-wall audio recovery without prior speaker knowledge.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
+            
             
             
             
@@ -69,7 +70,7 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Efficient AI Systems</p>
+            <p>Ubiquitous Sensing</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
@@ -83,22 +84,40 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>Voice-enabled devices make loudspeaker playback increasingly common, which also creates new speech-privacy risks. Traditional eavesdropping approaches often require direct access, microphones close to the target, or a clear line of sight. This paper presents <strong>mmSpeech</strong>, an end-to-end mmWave-based eavesdropping system that reconstructs speech from <strong>vibration signals induced by loudspeaker playback</strong>.</p>
+<p>One of the most striking aspects of the work is that the system operates <strong>through walls</strong> and does not require prior knowledge of the speaker identity. The paper therefore sits at the boundary of wireless sensing, speech reconstruction, and security/privacy analysis.</p>
 <h2>Main Contributions</h2>
-<ul><li>Research theme: Efficient AI Systems.</li><li>Published at ACM IMWUT/UBICOMP 2026.</li><li>Replace these generated bullets with the paper&#39;s actual core contributions and experimental findings.</li></ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<ul>
+<li>Introduces an <strong>end-to-end mmWave speech reconstruction</strong> pipeline based on playback-induced vibrations.</li>
+<li>Studies the sensing setup itself, including the combination of vibrating material and radar sampling rate needed for reliable capture.</li>
+<li>Uses synthetic data and selective ASR-encoder fine-tuning to improve downstream speech understanding.</li>
+</ul>
+<h2>Method</h2>
+<p>The system first captures subtle vibration signals using <strong>narrowband mmWave sensing</strong>. It then estimates noisy spectrograms and feeds them into a neural network that reconstructs intelligible speech. To strengthen recognition quality beyond signal restoration alone, the authors:</p>
+<ul>
+<li>build a <strong>synthetic training pipeline</strong>,</li>
+<li>and selectively fine-tune the encoder of a <strong>pre-trained ASR model</strong>.</li>
+</ul>
+<p>This makes mmSpeech not only a signal-processing pipeline but also a bridge to downstream speech understanding.</p>
+<h2>Evaluation Highlights</h2>
+<ul>
+<li>Implemented on a <strong>commercial mmWave radar</strong> platform.</li>
+<li>Demonstrates strong performance across unseen speakers and varying conditions.</li>
+<li>Achieves state-of-the-art speech quality according to the paper's reported evaluation.</li>
+</ul>
 <h2>Resources</h2>
-<ul><li><a href="./assets/cover.svg">Cover image</a></li><li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li></ul>
+<ul>
+<li><a href="https://arxiv.org/abs/2511.06205">arXiv abstract</a></li>
+</ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@inproceedings{we-can-hear-you-with-mmwave-radar-an-end-to-end-eavesdropping-system,
+<pre><code class="language-bibtex">@article{han2026mmspeech,
   title = {We Can Hear You with mmWave Radar! An End-to-End Eavesdropping System},
-  author = {Dachao Han and Teng Huang and Han Ding# and Cui Zhao and Fei Wang and Ge Wang and Wei Xi},
-  booktitle = {ACM IMWUT/UBICOMP 2026},
+  author = {Han, Dachao and Huang, Teng and Ding, Han and Zhao, Cui and Wang, Fei and Wang, Ge and Xi, Wei},
+  journal = {ACM IMWUT / UbiComp},
   year = {2026}
-}</code></pre>
+}
+</code></pre>
+
         </article>
       </div>
     </section>

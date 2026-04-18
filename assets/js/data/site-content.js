@@ -13,6 +13,7 @@
       { key: "about", label: "About", href: "./index.html" },
       { key: "fei-wang", label: "Fei Wang", href: "./fei-wang.html" },
       { key: "publications", label: "Publications", href: "./publications.html" },
+      { key: "dataset", label: "Datasets", href: "./dataset.html" },
       { key: "course", label: "Courses", href: "./course.html" },
       { key: "awards", label: "Awards", href: "./awards.html" },
       { key: "team", label: "Team", href: "./team.html" },
@@ -21,6 +22,7 @@
     footerLinks: [
       { label: "XJTU AIoT Group", href: "./index.html" },
       { label: "Publications", href: "./publications.html" },
+      { label: "Datasets", href: "./dataset.html" },
       { label: "Team", href: "./team.html" },
       { label: "Gallery", href: "./gallery.html" }
     ]
@@ -370,6 +372,227 @@
       ]
     }
   ];
+
+  SiteContent.datasets = {
+    intro:
+      "This page highlights public benchmarks and self-collected study datasets produced by the group. Some entries provide a separate download portal, while others point to the project page, repository, or local paper page where the collection protocol and release details are documented.",
+    items: [
+      {
+        slug: "xrf-v2-a-dataset-for-action-summarization-with-wi-fi-signals-and-imus-in-phones-watches-earbuds-and-glasses",
+        title: "XRF V2",
+        venue: "ACM IMWUT/UBICOMP 2025",
+        year: "2025",
+        cover:
+          "./papers/xrf-v2-a-dataset-for-action-summarization-with-wi-fi-signals-and-imus-in-phones-watches-earbuds-and-glasses/assets/cover.svg",
+        coverAlt: "Cover image for the XRF V2 dataset",
+        summary:
+          "XRF V2 is a multimodal dataset for indoor temporal action localization and action summarization. It combines Wi-Fi signals, IMUs from phones, watches, earbuds, and glasses, and synchronized video to support smart-home sensing and agent-oriented action understanding.",
+        sensors: ["Wi-Fi", "Phone IMU", "Watch IMU", "Earbud IMU", "Glasses IMU", "Video"],
+        highlights: [
+          "16 volunteers across 3 indoor environments.",
+          "853 annotated action sequences and about 16 hours 16 minutes of recordings.",
+          "Designed for action summarization, temporal action localization, multimodal pre-training, and smart-home agents."
+        ],
+        links: [
+          { label: "DOI", href: "https://doi.org/10.1145/3749521" },
+          { label: "GitHub", href: "https://github.com/aiotgroup/XRFV2" },
+          { label: "Kaggle", href: "https://www.kaggle.com/datasets/anonymous20251/xrfv2dataset" },
+          { label: "SDP", href: "http://www.sdp8.org/Dataset?id=1186880c-b321-45d0-ac3a-74ef9d2fdeda" }
+        ]
+      },
+      {
+        slug: "xrf55-a-radio-frequency-dataset-for-human-indoor-action-analysis",
+        title: "XRF55",
+        venue: "ACM IMWUT/UBICOMP 2024",
+        year: "2024",
+        cover:
+          "./papers/xrf55-a-radio-frequency-dataset-for-human-indoor-action-analysis/assets/cover.svg",
+        coverAlt: "Cover image for the XRF55 dataset",
+        summary:
+          "XRF55 is a large-scale radio-frequency dataset for indoor human action analysis. It supports action recognition and broader RF-vision sensing research with synchronized sensing across multiple radio modalities and Kinect video.",
+        sensors: ["Wi-Fi CSI", "mmWave Radar", "RFID", "RGB+D+IR Kinect"],
+        highlights: [
+          "42.9K samples, 55 action classes, and 39 subjects collected over 100 days.",
+          "Covers human-object interaction, human-human interaction, fitness, body motion, and human-computer instructions.",
+          "Project page and repository include hardware tutorials, code, video access guidance, and public download instructions."
+        ],
+        links: [
+          { label: "Project Page", href: "https://aiotgroup.github.io/XRF55/" },
+          { label: "GitHub", href: "https://github.com/aiotgroup/XRF55-repo" },
+          { label: "DOI", href: "https://doi.org/10.1145/3643543" }
+        ]
+      },
+      {
+        slug: "person-in-wifi-3d-end-to-end-multi-person-3d-pose-estimation-with-wi-fi",
+        title: "Person-in-WiFi 3D Dataset",
+        venue: "CVPR 2024",
+        year: "2024",
+        cover:
+          "./papers/person-in-wifi-3d-end-to-end-multi-person-3d-pose-estimation-with-wi-fi/assets/cover.svg",
+        coverAlt: "Cover image for the Person-in-WiFi 3D dataset",
+        summary:
+          "Person-in-WiFi 3D introduces a Wi-Fi dataset for multi-person 3D pose estimation and mesh-oriented wireless perception. It packages synchronized CSI measurements and pose annotations for crowded indoor scenes.",
+        sensors: ["Wi-Fi CSI", "3D Pose", "Wireless Perception"],
+        highlights: [
+          "Project page reports more than 97K frames collected with seven volunteers.",
+          "Supports multi-person 3D pose estimation and follow-up mesh reconstruction studies.",
+          "Project page includes dataset download entries, visualizations, and paper resources."
+        ],
+        links: [
+          { label: "Project Page", href: "https://aiotgroup.github.io/Person-in-WiFi-3D/" },
+          {
+            label: "CVPR OpenAccess",
+            href: "https://openaccess.thecvf.com/content/CVPR2024/html/Yan_Person-in-WiFi_3D_End-to-End_Multi-Person_3D_Pose_Estimation_with_Wi-Fi_CVPR_2024_paper.html"
+          }
+        ]
+      },
+      {
+        slug: "you-can-wash-hands-better-accurate-daily-handwashing-assessment-with-a-smartwatch",
+        title: "UWash Dataset",
+        venue: "IEEE Transactions on Mobile Computing, 2025",
+        year: "2025",
+        cover:
+          "./papers/you-can-wash-hands-better-accurate-daily-handwashing-assessment-with-a-smartwatch/assets/cover.svg",
+        coverAlt: "Cover image for the UWash dataset",
+        summary:
+          "UWash is a smartwatch dataset for fine-grained daily handwashing assessment. It supports action segmentation, quality scoring, and wearable behavior analysis for hygiene-aware applications.",
+        sensors: ["Smartwatch IMU", "Wearable Sensing", "Hand Hygiene"],
+        highlights: [
+          "Paper reports experiments on 51 subjects for handwashing procedure assessment.",
+          "Supports gesture recognition, onset and offset detection, and quality scoring.",
+          "A representative wearable benchmark for behavior quality assessment in daily life."
+        ],
+        links: [
+          { label: "GitHub", href: "https://github.com/aiotgroup/UWash" },
+          { label: "arXiv", href: "https://arxiv.org/abs/2112.06657" }
+        ]
+      },
+      {
+        slug: "bullydetect-detecting-school-physical-bullying-with-wi-fi-and-deep-wavelet-transformer",
+        title: "BullyDetect Dataset",
+        venue: "IEEE Internet of Things Journal 2024",
+        year: "2024",
+        cover:
+          "./papers/bullydetect-detecting-school-physical-bullying-with-wi-fi-and-deep-wavelet-transformer/assets/cover.svg",
+        coverAlt: "Cover image for the BullyDetect dataset",
+        summary:
+          "BullyDetect packages a Wi-Fi sensing dataset for detecting school physical bullying and violence. It is intended as a practical benchmark for safety-oriented wireless sensing in educational environments.",
+        sensors: ["Wi-Fi CSI", "Wireless Sensing", "School Safety"],
+        highlights: [
+          "Released together with the BullyDetect project repository.",
+          "Repository provides original and preprocessed data entry points for training and evaluation.",
+          "A useful benchmark for safety, anomaly detection, and privacy-friendly ambient sensing."
+        ],
+        links: [
+          { label: "GitHub", href: "https://github.com/aiotgroup/WiFi-BullyDetect" },
+          { label: "Paper", href: "https://ieeexplore.ieee.org/document/10734315" }
+        ]
+      },
+      {
+        slug: "mask-wearing-status-estimation-with-smartwatches",
+        title: "MaskReminder Dataset",
+        venue: "arXiv, 2022",
+        year: "2022",
+        cover: "./papers/mask-wearing-status-estimation-with-smartwatches/assets/cover.svg",
+        coverAlt: "Cover image for the MaskReminder dataset",
+        summary:
+          "MaskReminder is a smartwatch dataset for recognizing mask-wearing and closely related hand movements. It is designed for wearable public-health sensing and context-aware reminders.",
+        sensors: ["Smartwatch IMU", "Accelerometer", "Gyroscope", "Wearable Health"],
+        highlights: [
+          "UCI release documents 7,600 time-series instances across 18 actions.",
+          "Covers true mask-wearing actions, mask adjustments, and visually similar distractor motions.",
+          "Repository and dataset release make it practical for benchmarking wearable activity recognition."
+        ],
+        links: [
+          { label: "UCI Dataset", href: "https://archive.ics.uci.edu/dataset/743/maskreminder" },
+          { label: "GitHub", href: "https://github.com/aiotgroup/MaskReminder" },
+          { label: "arXiv", href: "https://arxiv.org/abs/2205.06113" }
+        ]
+      },
+      {
+        slug: "social-distancing-alert-with-smartwatches",
+        title: "SoDA Dataset",
+        venue: "arXiv, 2022",
+        year: "2022",
+        cover: "./papers/social-distancing-alert-with-smartwatches/assets/cover.svg",
+        coverAlt: "Cover image for the SoDA dataset",
+        summary:
+          "SoDA is a smartwatch dataset for recognizing social interactions that may violate distancing rules. It targets multi-person public-health monitoring with on-wrist inertial sensing.",
+        sensors: ["Smartwatch IMU", "Accelerometer", "Gyroscope", "Social Activity Recognition"],
+        highlights: [
+          "Paper reports more than 1,800 samples collected from 10 volunteers.",
+          "Includes interaction classes such as handshaking, hugging, and other close-contact activities.",
+          "Released through the UCI repository for reproducible wearable sensing experiments."
+        ],
+        links: [
+          { label: "UCI Dataset", href: "https://archive.ics.uci.edu/dataset/742" },
+          { label: "arXiv", href: "https://arxiv.org/abs/2205.06110" }
+        ]
+      },
+      {
+        slug: "joint-activity-recognition-and-indoor-localization-with-wifi-fingerprints",
+        title: "ARIL Dataset",
+        venue: "IEEE Access, 2019",
+        year: "2019",
+        cover: "./papers/joint-activity-recognition-and-indoor-localization-with-wifi-fingerprints/assets/cover.svg",
+        coverAlt: "Cover image for the ARIL dataset",
+        summary:
+          "ARIL is a Wi-Fi fingerprint dataset for jointly modeling human activity recognition and indoor localization. It couples the two tasks in a single CSI collection pipeline and serves as an early benchmark for multi-task wireless sensing.",
+        sensors: ["Wi-Fi CSI", "Fingerprinting", "Indoor Localization", "Activity Recognition"],
+        highlights: [
+          "The paper reports more than 1,400 CSI fingerprints covering 6 activities and 16 indoor locations.",
+          "Designed for dual-task learning across activity recognition and indoor localization.",
+          "The public repository releases both code and data."
+        ],
+        links: [
+          { label: "GitHub", href: "https://github.com/geekfeiw/ARIL" },
+          { label: "arXiv", href: "https://arxiv.org/abs/1904.04964" },
+          { label: "DOI", href: "https://doi.org/10.1109/ACCESS.2019.2923743" }
+        ]
+      },
+      {
+        slug: "csi-net-unified-human-body-characterization-and-pose-recognition",
+        title: "CSI-Net Benchmark",
+        venue: "arXiv, 2018",
+        year: "2018",
+        cover: "./papers/csi-net-unified-human-body-characterization-and-pose-recognition/assets/cover.svg",
+        coverAlt: "Cover image for the CSI-Net benchmark",
+        summary:
+          "CSI-Net is an early Wi-Fi benchmark for unified human body characterization and pose recognition. It packages CSI data for biometrics estimation, person recognition, hand sign recognition, and fall detection.",
+        sensors: ["Wi-Fi CSI", "Biometrics", "Gesture Recognition", "Fall Detection"],
+        highlights: [
+          "Surveyed release covers 1 environment, 5 positions, and 30 participants.",
+          "Connects fine-grained hand signs and coarse body motions in one benchmark family.",
+          "Code and dataset references are publicly mirrored through the project repository."
+        ],
+        links: [
+          { label: "GitHub", href: "https://github.com/geekfeiw/CSI-Net" },
+          { label: "arXiv", href: "https://arxiv.org/abs/1810.03064" }
+        ]
+      },
+      {
+        slug: "mmegohand-egocentric-hand-pose-estimation-and-gesture-recognition-with-head-mounted-millimeter-wave-radar-and-imu",
+        title: "mmEgoHand Dataset",
+        venue: "arXiv, 2025",
+        year: "2025",
+        cover:
+          "./papers/mmegohand-egocentric-hand-pose-estimation-and-gesture-recognition-with-head-mounted-millimeter-wave-radar-and-imu/assets/cover.svg",
+        coverAlt: "Cover image for the mmEgoHand dataset",
+        summary:
+          "mmEgoHand is an egocentric radar-IMU dataset for hand pose estimation and gesture recognition from a head-mounted sensing rig. It explores wearable millimeter-wave perception for natural hand-centric interaction.",
+        sensors: ["Head-mounted mmWave Radar", "IMU", "Egocentric Interaction", "Hand Pose"],
+        highlights: [
+          "Combines head-mounted millimeter-wave radar with inertial sensing in a unified capture setup.",
+          "Targets both fine-grained gesture recognition and continuous hand pose estimation.",
+          "A useful benchmark for wearable AR, assistive interaction, and privacy-preserving hand tracking."
+        ],
+        links: [
+          { label: "GitHub", href: "https://github.com/WhisperYi/mmVR" },
+          { label: "arXiv", href: "https://arxiv.org/abs/2501.13805" }
+        ]
+      }
+    ]
+  };
 
   SiteContent.awards = {
     competition: [

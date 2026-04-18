@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Active Domain Adaptation for mmWave-based HAR via Renyi Entropy-based Uncertainty Estimation - XJTU AIoT Group</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="mmADA adapts mmWave human activity recognition models to new users, positions, and environments through active domain adaptation guided by Renyi entropy uncertainty estimation.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,14 +14,14 @@
   <header class="paper-header">
     <div class="paper-shell paper-nav-shell">
       <a class="paper-brand" href="../../index.html">
-        <span class="paper-brand-mark">XJ</span>
+        <span class="paper-brand-mark">X</span>
         <span class="paper-brand-copy">
           <strong>XJTU AIoT Group</strong>
           <small>Publication Detail</small>
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../course.html">Course</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a>
       </nav>
     </div>
   </header>
@@ -31,16 +31,17 @@
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
           <h1>Active Domain Adaptation for mmWave-based HAR via Renyi Entropy-based Uncertainty Estimation</h1>
-          <p class="paper-subtitle">Mingzhi Lin, Teng Huang, Han Ding#, Cui Zhao, Fei Wang, Ge Wang, Wei Xi</p>
+          <p class="paper-subtitle">Mingzhi Lin, Teng Huang, Han Ding, Cui Zhao, Fei Wang, Ge Wang, Wei Xi</p>
           <div class="paper-meta-row">
             <span class="paper-pill">IEEE Transactions on Mobile Computing, 2025</span>
             <span class="paper-pill">2025</span>
-            <span class="paper-pill">Efficient AI Systems</span>
+            <span class="paper-pill">Ubiquitous Sensing</span>
             <span class="paper-pill">XJTU AIoT Group</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">mmADA adapts mmWave human activity recognition models to new users, positions, and environments through active domain adaptation guided by Renyi entropy uncertainty estimation.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
+            
             
             
             
@@ -69,7 +70,7 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Efficient AI Systems</p>
+            <p>Ubiquitous Sensing</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
@@ -83,22 +84,36 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>mmWave-based human activity recognition is attractive because it is non-contact and privacy-friendly, but model accuracy often drops sharply when the deployment domain changes. New users, new positions, and new environments can all create <strong>domain shift</strong> that undermines the original training distribution.</p>
+<p>This paper introduces <strong>mmADA</strong>, an active domain adaptation framework that aims to recover performance with as little labeled target data as possible. The method combines uncertainty-based sample selection with unlabeled-domain adaptation so the model spends annotation effort on the most informative target examples.</p>
 <h2>Main Contributions</h2>
-<ul><li>Research theme: Efficient AI Systems.</li><li>Published at IEEE Transactions on Mobile Computing, 2025.</li><li>Replace these generated bullets with the paper&#39;s actual core contributions and experimental findings.</li></ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<ul>
+<li>Proposes an <strong>active domain adaptation</strong> pipeline specialized for mmWave HAR.</li>
+<li>Uses <strong>Renyi entropy-based uncertainty estimation</strong> to decide which target samples should be labeled.</li>
+<li>Combines active labeling, contrastive learning, and pseudo-labeling to refine alignment in the target domain.</li>
+</ul>
+<h2>Method</h2>
+<p>The framework is built around a simple idea: if labeling budget is limited, the system should request labels only for the target samples that are most likely to improve adaptation. mmADA estimates informativeness with Renyi entropy, then uses those selected samples together with unlabeled target data to improve cross-domain feature alignment.</p>
+<p>This coupling of active learning and adaptation is especially helpful in mmWave sensing, where collecting labeled data in every new environment is expensive.</p>
+<h2>Evaluation Highlights</h2>
+<ul>
+<li>Evaluated with a <strong>TI IWR1443BOOST</strong> radar across multiple users, positions, and environments.</li>
+<li>Achieves <strong>over 90% accuracy</strong> in a variety of cross-domain settings.</li>
+<li>Outperforms <strong>five baselines</strong> and remains robust on unseen users, unseen environments, and two additional open-source datasets.</li>
+</ul>
 <h2>Resources</h2>
-<ul><li><a href="./assets/cover.svg">Cover image</a></li><li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li></ul>
+<ul>
+<li><a href="https://arxiv.org/abs/2511.04219">arXiv abstract</a></li>
+</ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@inproceedings{active-domain-adaptation-for-mmwave-based-har-via-renyi-entropy-based-uncertainty-estimation,
+<pre><code class="language-bibtex">@article{lin2025mmada,
   title = {Active Domain Adaptation for mmWave-based HAR via Renyi Entropy-based Uncertainty Estimation},
-  author = {Mingzhi Lin and Teng Huang and Han Ding# and Cui Zhao and Fei Wang and Ge Wang and Wei Xi},
-  booktitle = {IEEE Transactions on Mobile Computing, 2025},
+  author = {Lin, Mingzhi and Huang, Teng and Ding, Han and Zhao, Cui and Wang, Fei and Wang, Ge and Xi, Wei},
+  journal = {IEEE Transactions on Mobile Computing},
   year = {2025}
-}</code></pre>
+}
+</code></pre>
+
         </article>
       </div>
     </section>

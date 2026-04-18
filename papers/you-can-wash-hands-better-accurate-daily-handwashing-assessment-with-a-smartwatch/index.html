@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>You Can Wash Hands Better: Accurate Daily Handwashing Assessment with a Smartwatch - XJTU AIoT Group</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="UWash is a smartwatch-based handwashing assessment system that reframes daily hygiene monitoring as fine-grained action segmentation, enabling gesture recognition, boundary detection, and quality scoring in realistic deployment settings.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,14 +14,14 @@
   <header class="paper-header">
     <div class="paper-shell paper-nav-shell">
       <a class="paper-brand" href="../../index.html">
-        <span class="paper-brand-mark">XJ</span>
+        <span class="paper-brand-mark">X</span>
         <span class="paper-brand-copy">
           <strong>XJTU AIoT Group</strong>
           <small>Publication Detail</small>
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../course.html">Course</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a>
       </nav>
     </div>
   </header>
@@ -31,16 +31,17 @@
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
           <h1>You Can Wash Hands Better: Accurate Daily Handwashing Assessment with a Smartwatch</h1>
-          <p class="paper-subtitle">Fei Wang#, Tingting Zhang, Xilei Wu, Pengcheng Wang, Xin Wang, Han Ding, Jingang Shi, Jinsong Han, Dong Huang</p>
+          <p class="paper-subtitle">Fei Wang, Tingting Zhang, Xilei Wu, Pengcheng Wang, Xin Wang, Han Ding, Jingang Shi, Jinsong Han, Dong Huang</p>
           <div class="paper-meta-row">
             <span class="paper-pill">IEEE Transactions on Mobile Computing, 2025</span>
             <span class="paper-pill">2025</span>
-            <span class="paper-pill">Efficient AI Systems</span>
+            <span class="paper-pill">Ubiquitous Sensing</span>
             <span class="paper-pill">XJTU AIoT Group</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">UWash is a smartwatch-based handwashing assessment system that reframes daily hygiene monitoring as fine-grained action segmentation, enabling gesture recognition, boundary detection, and quality scoring in realistic deployment settings.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
+            
             
             
             
@@ -69,7 +70,7 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Efficient AI Systems</p>
+            <p>Ubiquitous Sensing</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
@@ -83,22 +84,61 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>Hand hygiene is one of the simplest and most effective daily interventions for preventing infectious disease, but in practice many people do not follow high-quality washing procedures consistently. This paper presents <strong>UWash</strong>, a smartwatch-based system that assesses handwashing quality from wearable motion streams rather than only detecting whether a washing event happened.</p>
+<p>The key idea is to treat handwashing assessment as a <strong>fine-grained action segmentation</strong> problem. Instead of producing a single coarse label, UWash predicts the temporal structure of a washing session, recognizes gesture phases, estimates their boundaries, and scores how well each phase is performed.</p>
 <h2>Main Contributions</h2>
-<ul><li>Research theme: Efficient AI Systems.</li><li>Published at IEEE Transactions on Mobile Computing, 2025.</li><li>Replace these generated bullets with the paper&#39;s actual core contributions and experimental findings.</li></ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<ul>
+<li>Introduces one of the first wearable systems that scores <em>handwashing quality</em> instead of only recognizing a handwashing event.</li>
+<li>Reformulates the task as temporal action segmentation and uses a compact <strong>two-stream UNet-like network</strong> for gesture recognition and assessment.</li>
+<li>Evaluates the system with <strong>51 subjects</strong>, plus delayed real-world tests with hospital passersby and in-the-wild volunteers long after the original collection period.</li>
+</ul>
+<h2>Method</h2>
+<p>UWash processes smartwatch motion measurements and predicts gesture-level segments for a complete washing session. The two-stream UNet-like design captures both local motion evidence and longer temporal context, which allows the model to jointly support:</p>
+<ul>
+<li>fine-grained gesture recognition,</li>
+<li>onset and offset detection,</li>
+<li>and quality scoring for each gesture phase.</li>
+</ul>
+<p>This formulation matters because useful handwashing feedback depends on <em>when</em> a gesture starts and ends, not just <em>which</em> action label is present. By keeping the temporal structure explicit, the system can deliver actionable guidance instead of a single binary decision.</p>
+<h2>Evaluation Highlights</h2>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Metric</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gesture recognition accuracy</td>
+<td>92.27%</td>
+</tr>
+<tr>
+<td>Onset / offset error</td>
+<td>&lt; 0.5 s</td>
+</tr>
+<tr>
+<td>Gesture scoring error</td>
+<td>&lt; 5 points</td>
+</tr>
+</tbody>
+</table>
+</div><p>The paper also reports strong user-independent and user-independent-location-independent performance. Beyond controlled studies, UWash remained effective in later tests with <strong>10 random passersby at a hospital 9 months later</strong> and <strong>10 passersby in an in-the-wild test 2 years later</strong>, which suggests meaningful robustness for real deployment.</p>
 <h2>Resources</h2>
-<ul><li><a href="./assets/cover.svg">Cover image</a></li><li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li></ul>
+<ul>
+<li>Paper: <a href="https://arxiv.org/abs/2112.06657">https://arxiv.org/abs/2112.06657</a></li>
+<li>Code and dataset: <a href="https://github.com/aiotgroup/UWash">https://github.com/aiotgroup/UWash</a></li>
+<li>Handwashing protocol reference: <a href="https://www.who.int/teams/integrated-health-services/infection-prevention-control/hand-hygiene">WHO hand hygiene guidance</a></li>
+</ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@inproceedings{you-can-wash-hands-better-accurate-daily-handwashing-assessment-with-a-smartwatch,
+<pre><code class="language-bibtex">@article{wang2025uwash,
   title = {You Can Wash Hands Better: Accurate Daily Handwashing Assessment with a Smartwatch},
-  author = {Fei Wang# and Tingting Zhang and Xilei Wu and Pengcheng Wang and Xin Wang and Han Ding and Jingang Shi and Jinsong Han and Dong Huang},
-  booktitle = {IEEE Transactions on Mobile Computing, 2025},
+  author = {Wang, Fei and Zhang, Tingting and Wu, Xilei and Wang, Pengcheng and Wang, Xin and Ding, Han and Shi, Jingang and Han, Jinsong and Huang, Dong},
+  journal = {IEEE Transactions on Mobile Computing},
   year = {2025}
-}</code></pre>
+}
+</code></pre>
+
         </article>
       </div>
     </section>

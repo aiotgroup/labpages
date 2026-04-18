@@ -1,8 +1,8 @@
 ---
 title: CodexGraph: Bridging Large Language Models and Code Repositories via Code Graph Databases
-authors: Xiangyan Liu, Bo Lan, Zhiyuan Hu, Yang Liu, Zhicheng Zhang, Fei Wang, Michael Shieh, Wenmeng Zhou
+authors: Xiangyan Liu, Bo Lan, Zhiyuan Hu, Yang Liu, Zhicheng Zhang, Fei Wang, Michael Qizhe Shieh, Wenmeng Zhou
 institution: XJTU AIoT Group
-summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
+summary: CodexGraph improves repository-scale code intelligence by connecting LLM agents to graph-database representations of code structure for precise retrieval and navigation.
 cover: ./assets/cover.svg
 coverAlt: Cover image for CodexGraph: Bridging Large Language Models and Code Repositories via Code Graph Databases
 eyebrow: Publication
@@ -10,34 +10,47 @@ eyebrow: Publication
 
 # Overview
 
-This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
+Large language models perform well on stand-alone coding benchmarks, but repository-scale software engineering remains difficult because the model needs precise access to project structure, symbol relations, and multi-hop context. **CodexGraph** addresses this by connecting LLM agents to a **graph database interface** extracted from a code repository.
+
+The paper argues that graph retrieval is a better fit than pure similarity search for many codebase tasks. By representing modules, classes, functions, and their relationships in a unified graph schema, the LLM can issue structured queries and navigate a repository with much stronger structural awareness.
 
 ## Main Contributions
 
-- Research theme: LLM Systems.
-- Published at NAACL 2025.
-- Replace these generated bullets with the paper's actual core contributions and experimental findings.
+- Introduces a graph-based repository interface for LLM agents instead of relying only on similarity retrieval or hand-written task APIs.
+- Enables **code structure-aware context retrieval** and **multi-hop code navigation** through graph queries.
+- Evaluates the approach on academic benchmarks and real-world coding applications.
 
-## Technical Details
+## Method
 
-Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.
+CodexGraph builds a graph database from the repository and exposes query operations to the LLM agent. This lets the model retrieve context based on structural relationships such as caller-callee edges, module hierarchy, and symbol dependencies.
 
-## Results
+The advantage is twofold:
 
-Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.
+- retrieval becomes more precise for complex codebase questions,
+- and the same graph schema can support many different software-engineering tasks instead of only a single benchmark.
+
+## Evaluation Highlights
+
+- Evaluated on **CrossCodeEval**, **SWE-bench**, and **EvoCodeBench**.
+- Augmented with **five real-world coding applications** to test broader utility.
+- The paper reports competitive performance across both benchmark and applied settings.
 
 ## Resources
 
-- [Cover image](./assets/cover.svg)
-- Add figures, PDFs, posters, or demos to the local `./assets/` folder when they are ready.
+- [ACL Anthology page](https://aclanthology.org/2025.naacl-long.7/)
+- [arXiv preprint](https://arxiv.org/abs/2408.03910)
+- [Project page](https://laptype.github.io/CodexGraph-page/)
+- [Code and demo entry](https://github.com/modelscope/modelscope-agent/tree/master/apps/codexgraph_agent)
 
 ## Citation
 
 ```bibtex
-@inproceedings{codexgraph-bridging-large-language-models-and-code-repositories-via-code-graph-databases,
+@inproceedings{liu2025codexgraph,
   title = {CodexGraph: Bridging Large Language Models and Code Repositories via Code Graph Databases},
-  author = {Xiangyan Liu and Bo Lan and Zhiyuan Hu and Yang Liu and Zhicheng Zhang and Fei Wang and Michael Shieh and Wenmeng Zhou},
-  booktitle = {NAACL 2025},
-  year = {2025}
+  author = {Liu, Xiangyan and Lan, Bo and Hu, Zhiyuan and Liu, Yang and Zhang, Zhicheng and Wang, Fei and Shieh, Michael Qizhe and Zhou, Wenmeng},
+  booktitle = {Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)},
+  year = {2025},
+  pages = {142--160},
+  doi = {10.18653/v1/2025.naacl-long.7}
 }
 ```

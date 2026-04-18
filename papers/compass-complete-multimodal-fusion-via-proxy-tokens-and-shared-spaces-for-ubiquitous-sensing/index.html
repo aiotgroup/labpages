@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>COMPASS: Complete Multimodal Fusion via Proxy Tokens and Shared Spaces for Ubiquitous Sensing - XJTU AIoT Group</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="COMPASS tackles missing-modality ubiquitous sensing with a slot-complete fusion design: every modality slot is kept alive at inference, and missing slots are filled with proxy tokens generated from the observed modalities in a shared latent space.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,14 +14,14 @@
   <header class="paper-header">
     <div class="paper-shell paper-nav-shell">
       <a class="paper-brand" href="../../index.html">
-        <span class="paper-brand-mark">XJ</span>
+        <span class="paper-brand-mark">X</span>
         <span class="paper-brand-copy">
           <strong>XJTU AIoT Group</strong>
           <small>Publication Detail</small>
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../course.html">Course</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a>
       </nav>
     </div>
   </header>
@@ -31,18 +31,19 @@
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
           <h1>COMPASS: Complete Multimodal Fusion via Proxy Tokens and Shared Spaces for Ubiquitous Sensing</h1>
-          <p class="paper-subtitle">H Wang, Y Qian, P Weng, Z Xia, W Dan, Y Xu, F Wang</p>
+          <p class="paper-subtitle">Hao Wang, Yanyu Qian, Pengcheng Weng, Zixuan Xia, William Dan, Yangxin Xu, Fei Wang</p>
           <div class="paper-meta-row">
             <span class="paper-pill">arXiv preprint arXiv:2604.02056, 2026</span>
             <span class="paper-pill">2026</span>
-            <span class="paper-pill">Visual Generation</span>
-            <span class="paper-pill">XJTU AIoT Group</span>
+            <span class="paper-pill">Ubiquitous Sensing</span>
+            <span class="paper-pill">UniBE / XJTU / NTU</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">COMPASS tackles missing-modality ubiquitous sensing with a slot-complete fusion design: every modality slot is kept alive at inference, and missing slots are filled with proxy tokens generated from the observed modalities in a shared latent space.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
             
             
+            <a class="paper-link-chip" href="https://arxiv.org/abs/2604.02056">Paper</a>
             
             
           </div>
@@ -50,11 +51,11 @@
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for COMPASS: Complete Multimodal Fusion via Proxy Tokens and Shared Spaces for Ubiquitous Sensing">
+            <img src="./assets/teaser.png" alt="COMPASS framework teaser">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIoT Group</p>
+            <p>UniBE / XJTU / NTU</p>
           </aside>
         </aside>
       </div>
@@ -69,11 +70,11 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Visual Generation</p>
+            <p>Ubiquitous Sensing</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIoT Group</p>
+            <p>UniBE / XJTU / NTU</p>
           </article>
         </div>
       </div>
@@ -83,22 +84,164 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>Missing modalities are a persistent problem in real-world multimodal sensing. In practice, one or more sensing channels may disappear because of occlusion, sensor failure, deployment constraints, or incomplete collection. Most existing methods react to this by either <strong>dropping missing branches</strong> or <strong>reconstructing missing features</strong>, but both approaches change what the fusion head sees at inference time.</p>
+<p><strong>COMPASS</strong> takes a different view: robustness should come from preserving a <strong>slot-complete fusion interface</strong>. Instead of adapting the fusion pipeline to the observed subset, it keeps a fixed <strong>N-slot token layout</strong> and fills each missing slot with a learned proxy token generated from the observed modalities in a shared latent space.</p>
+<blockquote>
+<p>Core idea: do not let missing modalities change the fusion interface. Reconstruct the missing slots, keep the token layout fixed, and let the same fusion rule run under every missingness pattern.</p>
+</blockquote>
+<figure class="markdown-figure">
+  <img src="./assets/teaser.png" alt="COMPASS framework overview">
+  <figcaption>Framework overview from the paper. Each observed modality is encoded into a shared space, pairwise proxy generators synthesize the missing slot, and fusion always operates on the same fixed token interface.</figcaption>
+</figure>
+<h2>Why this matters</h2>
+<p>The paper shows that many missing-modality methods are still <strong>fusion-interface inconsistent</strong>:</p>
+<ul>
+<li><strong>Skip-based methods</strong> remove absent tokens entirely, which changes the structure of the fusion input.</li>
+<li><strong>Imputation-based methods</strong> often generate a single missing feature but do not preserve a clean, fixed slot interface for every modality.</li>
+<li>As a result, the fusion head receives a different input structure from the one it saw during training.</li>
+</ul>
+<p>COMPASS is designed around the opposite principle: every modality slot should exist whether the raw modality is observed or not.</p>
+<figure class="markdown-figure">
+  <img src="./assets/figure-1.png" alt="Comparison of fusion strategies under missing modalities">
+  <figcaption>Figure 1 from the paper. COMPASS differs from skip and generic imputation baselines by preserving a fixed token layout for the fusion head.</figcaption>
+</figure>
 <h2>Main Contributions</h2>
-<ul><li>Research theme: Visual Generation.</li><li>Published at arXiv preprint arXiv:2604.02056, 2026.</li><li>Replace these generated bullets with the paper&#39;s actual core contributions and experimental findings.</li></ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<ul>
+<li>Proposes <strong>fusion completeness</strong> as a design principle for robust multimodal sensing under missing modalities.</li>
+<li>Introduces <strong>pairwise source-to-target proxy generators</strong> that synthesize a missing modality token from each observed modality.</li>
+<li>Aggregates these source-specific proxy estimates into <strong>one proxy token per missing slot</strong>, so the fusion head always receives exactly one token for each modality.</li>
+<li>Combines <strong>proxy alignment</strong>, <strong>shared-space regularization</strong>, and <strong>per-proxy task supervision</strong> so the generated proxy is both representation-compatible and discriminative for the downstream task.</li>
+</ul>
+<h2>Method at a Glance</h2>
+<p>The pipeline has four stages:</p>
+<ol>
+<li>
+<p><strong>Modality-specific encoding</strong><br>
+Each observed modality is processed by its own encoder and projection head to obtain a token sequence in a shared latent space.</p>
+</li>
+<li>
+<p><strong>Shared-space projection and global tokens</strong><br>
+Token sequences are pooled into one global token per observed modality.</p>
+</li>
+<li>
+<p><strong>Cross-modal proxy generation</strong><br>
+For a missing target modality <code>v_j</code>, every observed modality <code>v_i</code> feeds its shared-space token into a directed generator <code>G_i_to_j</code>. The outputs are then mean-aggregated into one proxy token for the missing slot.</p>
+</li>
+<li>
+<p><strong>Fixed fusion</strong><br>
+The fusion head always receives a modality-complete token set: either a real token if the modality is observed, or a proxy token if it is missing. Those tokens are summed, layer-normalized, and passed to the task head.</p>
+</li>
+</ol>
+<p>This means the fusion computation itself never needs to change across different missingness patterns.</p>
+<h2>Training Objectives</h2>
+<p>The paper uses three complementary learning signals:</p>
+<ul>
+<li><strong>Task supervision</strong>: every proxy-complete token set must still solve the downstream HAR task.</li>
+<li><strong>Proxy alignment loss</strong>: when a modality is synthetically masked during training, the generated proxy is pulled toward the real target token.</li>
+<li><strong>Shared-space regularization</strong>: a VICReg-style objective encourages observed modalities to form a more compatible shared latent geometry.</li>
+</ul>
+<p>This combination is important. Proxy generation alone provides structural completeness, but strong performance also requires the shared space to be aligned enough that a token from one modality can meaningfully substitute for another.</p>
+<h2>Results at a Glance</h2>
+<p>The paper evaluates COMPASS on <strong>MM-Fi</strong>, <strong>XRF55</strong>, and <strong>OctoNet</strong>, consistently showing that the method is strongest in the regimes where missing modalities matter most: <strong>single-modality</strong> and <strong>low-modality</strong> settings.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Dataset / Scenario</th>
+<th style="text-align:right">X-Fi</th>
+<th style="text-align:right">COMPASS</th>
+<th style="text-align:right">Gain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>XRF55, WiFi only</td>
+<td style="text-align:right">55.7</td>
+<td style="text-align:right">85.4</td>
+<td style="text-align:right">+29.7</td>
+</tr>
+<tr>
+<td>XRF55, WiFi + RFID</td>
+<td style="text-align:right">58.1</td>
+<td style="text-align:right">86.3</td>
+<td style="text-align:right">+28.2</td>
+</tr>
+<tr>
+<td>XRF55, full (R + W + RF)</td>
+<td style="text-align:right">89.8</td>
+<td style="text-align:right">95.1</td>
+<td style="text-align:right">+5.3</td>
+</tr>
+<tr>
+<td>MM-Fi, Image + LiDAR</td>
+<td style="text-align:right">35.2</td>
+<td style="text-align:right">60.4</td>
+<td style="text-align:right">+25.2</td>
+</tr>
+<tr>
+<td>MM-Fi, Depth + LiDAR</td>
+<td style="text-align:right">51.6</td>
+<td style="text-align:right">66.3</td>
+<td style="text-align:right">+14.7</td>
+</tr>
+<tr>
+<td>MM-Fi, full (I + D + L + R)</td>
+<td style="text-align:right">72.2</td>
+<td style="text-align:right">82.1</td>
+<td style="text-align:right">+9.9</td>
+</tr>
+<tr>
+<td>OctoNet, ToF only</td>
+<td style="text-align:right">7.6</td>
+<td style="text-align:right">89.3</td>
+<td style="text-align:right">+81.7</td>
+</tr>
+</tbody>
+</table>
+</div><p>The paper's conclusion also highlights the broader pattern on OctoNet: across <strong>five modalities and 31 combinations</strong>, COMPASS improves the <strong>single-modality average by up to 28 points</strong> and the <strong>dual-modality average by up to 11 points</strong> over X-Fi.</p>
+<h2>Representation Geometry and Ablations</h2>
+<p>One of the most useful parts of the paper is the geometry analysis on XRF55. The authors show that X-Fi still separates different modalities in representation space, while COMPASS significantly reduces those modality boundaries without collapsing class structure. That makes proxy transfer much more reliable.</p>
+<figure class="markdown-figure">
+  <img src="./assets/figure-3.png" alt="Representation geometry and efficiency figures from the COMPASS paper">
+  <figcaption>Figure 3 and the accompanying ablation / efficiency tables. COMPASS improves cross-modal compactness, class separation, proxy effectiveness, and inference efficiency.</figcaption>
+</figure>
+<p>The ablations tell a clear story:</p>
+<ul>
+<li><strong>No proxy</strong> on XRF55 gets a 7-scenario average of <strong>76.9</strong>.</li>
+<li><strong>Proxy only (without alignment)</strong> improves that to <strong>79.6</strong>.</li>
+<li><strong>Full COMPASS</strong> raises it further to <strong>84.6</strong>.</li>
+</ul>
+<p>The paper also reports that the best masking probability is <code>p_drop = 0.7</code>, and that the hardest <code>WiFi + RFID</code> case benefits the most from proxy practice.</p>
+<h2>Efficiency</h2>
+<p>COMPASS uses <strong>element-wise summation</strong> as its final fusion rule. This turns out to be both simple and effective:</p>
+<ul>
+<li>Summation gives the best XRF55 numbers among the tested fusion variants.</li>
+<li>It introduces <strong>0 fusion parameters</strong>, compared with <code>788K</code> for concatenation + linear and <code>1.05M</code> for 1-layer cross-attention fusion.</li>
+<li>On XRF55, reported latency drops from <strong>9.49 / 4.48 ms</strong> for X-Fi to <strong>4.91 / 1.71 ms</strong> for COMPASS under all-modality / single-modality settings.</li>
+</ul>
+<p>So the method is not only more accurate under missing modalities, but also <strong>faster at inference</strong> once the token interface is made compatible.</p>
+<h2>Takeaways</h2>
+<ul>
+<li>The key innovation is not just proxy generation, but <strong>keeping the fusion interface fixed</strong>.</li>
+<li>COMPASS works especially well when weaker modalities need to borrow information from stronger ones.</li>
+<li>Better shared-space geometry is essential: proxy tokens become useful only when modalities are aligned enough to substitute for one another.</li>
+<li>The method achieves stronger robustness <strong>without paying a latency penalty</strong>.</li>
+</ul>
 <h2>Resources</h2>
-<ul><li><a href="./assets/cover.svg">Cover image</a></li><li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li></ul>
+<ul>
+<li><a href="https://arxiv.org/abs/2604.02056">arXiv abstract</a></li>
+<li><a href="./assets/teaser.png">Local teaser image</a></li>
+<li><a href="./assets/figure-1.png">Local Figure 1 crop</a></li>
+<li><a href="./assets/figure-3.png">Local Figure 3 / ablation crop</a></li>
+</ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@inproceedings{compass-complete-multimodal-fusion-via-proxy-tokens-and-shared-spaces-for-ubiquitous-sensing,
+<pre><code class="language-bibtex">@article{wang2026compass,
   title = {COMPASS: Complete Multimodal Fusion via Proxy Tokens and Shared Spaces for Ubiquitous Sensing},
-  author = {H Wang and Y Qian and P Weng and Z Xia and W Dan and Y Xu and F Wang},
-  booktitle = {arXiv preprint arXiv:2604.02056, 2026},
+  author = {Wang, Hao and Qian, Yanyu and Weng, Pengcheng and Xia, Zixuan and Dan, William and Xu, Yangxin and Wang, Fei},
+  journal = {arXiv preprint arXiv:2604.02056},
   year = {2026}
-}</code></pre>
+}
+</code></pre>
+
         </article>
       </div>
     </section>

@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
+const MarkdownIt = require("markdown-it");
 
 const root = path.resolve(__dirname, "..");
 const overwrite = process.argv.includes("--overwrite");
@@ -63,6 +64,14 @@ function publicationTheme(paper) {
 
   if (/llm|language|context|attention|serving|retrieval/i.test(title)) {
     return "LLM Systems";
+  }
+
+  if (/wifi|wi-fi|mmwave|radar|rfid|wireless|radio frequency|imu|wearable|eeg|sensing|ubiquitous|har|respiration|pose|emotion|handwashing|speech enhancement|speech separation/i.test(title)) {
+    return "Ubiquitous Sensing";
+  }
+
+  if (/multimodal/i.test(title)) {
+    return "Multimodal Learning";
   }
 
   if (/diffusion|image|visual|multimodal|vila|gan/i.test(title)) {
@@ -130,136 +139,22 @@ function parseFrontmatter(source) {
   return { meta, body: normalized.slice(end + 5) };
 }
 
-function inlineMarkup(text) {
-  let html = escapeHtml(text);
+const markdownRenderer = new MarkdownIt({
+  html: true,
+  linkify: true
+});
 
-  html = html.replace(/`([^`]+)`/g, (_, code) => `<code>${escapeHtml(code)}</code>`);
-  html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-  html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>");
-  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, href) => {
-    return `<a href="${escapeHtml(href)}">${escapeHtml(label)}</a>`;
-  });
+markdownRenderer.renderer.rules.table_open = (tokens, idx, options, env, self) => {
+  tokens[idx].attrJoin("class", "markdown-table");
+  return `<div class="markdown-table-wrap">${self.renderToken(tokens, idx, options)}`;
+};
 
-  return html;
-}
+markdownRenderer.renderer.rules.table_close = (tokens, idx, options, env, self) => {
+  return `${self.renderToken(tokens, idx, options)}</div>`;
+};
 
 function markdownToHtml(markdown) {
-  const lines = String(markdown).replace(/\r\n?/g, "\n").split("\n");
-  const html = [];
-  let paragraph = [];
-  let quote = [];
-  let listItems = [];
-  let listType = null;
-  let codeFence = null;
-  let codeLines = [];
-
-  function flushParagraph() {
-    if (!paragraph.length) {
-      return;
-    }
-    html.push(`<p>${inlineMarkup(paragraph.join(" "))}</p>`);
-    paragraph = [];
-  }
-
-  function flushQuote() {
-    if (!quote.length) {
-      return;
-    }
-    html.push(`<blockquote><p>${inlineMarkup(quote.join(" "))}</p></blockquote>`);
-    quote = [];
-  }
-
-  function flushList() {
-    if (!listItems.length) {
-      return;
-    }
-    html.push(`<${listType}>${listItems.map((item) => `<li>${inlineMarkup(item)}</li>`).join("")}</${listType}>`);
-    listItems = [];
-    listType = null;
-  }
-
-  function flushAll() {
-    flushParagraph();
-    flushQuote();
-    flushList();
-  }
-
-  lines.forEach((line) => {
-    const trimmed = line.trim();
-
-    if (codeFence) {
-      if (/^```/.test(trimmed)) {
-        const languageClass = codeFence === "text" ? "" : ` class="language-${escapeHtml(codeFence)}"`;
-        html.push(`<pre><code${languageClass}>${escapeHtml(codeLines.join("\n"))}</code></pre>`);
-        codeFence = null;
-        codeLines = [];
-      } else {
-        codeLines.push(line);
-      }
-      return;
-    }
-
-    if (/^```/.test(trimmed)) {
-      flushAll();
-      codeFence = trimmed.replace(/^```/, "").trim() || "text";
-      codeLines = [];
-      return;
-    }
-
-    if (!trimmed) {
-      flushAll();
-      return;
-    }
-
-    const figureMatch = trimmed.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
-    if (figureMatch) {
-      flushAll();
-      const alt = figureMatch[1];
-      const src = figureMatch[2];
-      html.push(
-        `<figure class="markdown-figure"><img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}">${alt ? `<figcaption>${escapeHtml(alt)}</figcaption>` : ""}</figure>`
-      );
-      return;
-    }
-
-    const headingMatch = trimmed.match(/^(#{1,6})\s+(.*)$/);
-    if (headingMatch) {
-      flushAll();
-      const level = headingMatch[1].length;
-      html.push(`<h${level}>${inlineMarkup(headingMatch[2])}</h${level}>`);
-      return;
-    }
-
-    if (/^>\s?/.test(trimmed)) {
-      flushParagraph();
-      flushList();
-      quote.push(trimmed.replace(/^>\s?/, ""));
-      return;
-    }
-
-    const listMatch = trimmed.match(/^([-*]|\d+\.)\s+(.*)$/);
-    if (listMatch) {
-      flushParagraph();
-      flushQuote();
-      const currentType = /\d+\./.test(listMatch[1]) ? "ol" : "ul";
-      if (listType && listType !== currentType) {
-        flushList();
-      }
-      listType = currentType;
-      listItems.push(listMatch[2]);
-      return;
-    }
-
-    paragraph.push(trimmed);
-  });
-
-  if (codeFence) {
-    const languageClass = codeFence === "text" ? "" : ` class="language-${escapeHtml(codeFence)}"`;
-    html.push(`<pre><code${languageClass}>${escapeHtml(codeLines.join("\n"))}</code></pre>`);
-  }
-
-  flushAll();
-  return html.join("\n");
+  return markdownRenderer.render(String(markdown).replace(/\r\n?/g, "\n"));
 }
 
 function wrapSvgLines(text, maxLineLength, maxLines) {
@@ -377,6 +272,7 @@ function buildPaperModel(siteContent, paper, manualNotes) {
     projectUrl: manualNotes && manualNotes.projectUrl ? manualNotes.projectUrl : "",
     codeUrl: manualNotes && manualNotes.codeUrl ? manualNotes.codeUrl : "",
     paperUrl: manualNotes && manualNotes.paperUrl ? manualNotes.paperUrl : "",
+    slidesUrl: manualNotes && manualNotes.slidesUrl ? manualNotes.slidesUrl : "",
     videoUrl: manualNotes && manualNotes.videoUrl ? manualNotes.videoUrl : ""
   };
 }
@@ -385,6 +281,7 @@ function defaultPaperMarkdown(model) {
   const projectLine = model.projectUrl ? `project: ${model.projectUrl}\n` : "";
   const codeLine = model.codeUrl ? `code: ${model.codeUrl}\n` : "";
   const paperLine = model.paperUrl ? `paper: ${model.paperUrl}\n` : "";
+  const slidesLine = model.slidesUrl ? `slides: ${model.slidesUrl}\n` : "";
   const videoLine = model.videoUrl ? `video: ${model.videoUrl}\n` : "";
 
   return `---
@@ -395,7 +292,7 @@ summary: ${model.summary}
 cover: ./assets/cover.svg
 coverAlt: Cover image for ${model.title}
 eyebrow: Publication
-${projectLine}${codeLine}${paperLine}${videoLine}---
+${projectLine}${codeLine}${paperLine}${slidesLine}${videoLine}---
 
 # Overview
 
@@ -444,6 +341,7 @@ function paperPageHtml(siteContent, model, meta, articleHtml) {
   const projectUrl = meta.project || model.projectUrl;
   const codeUrl = meta.code || model.codeUrl;
   const paperUrl = meta.paper || model.paperUrl;
+  const slidesUrl = meta.slides || model.slidesUrl;
   const videoUrl = meta.video || model.videoUrl;
 
   return `<!DOCTYPE html>
@@ -479,6 +377,7 @@ function paperPageHtml(siteContent, model, meta, articleHtml) {
             ${paperButtonMarkup("Project page", projectUrl)}
             ${paperButtonMarkup("Code", codeUrl)}
             ${paperButtonMarkup("Paper", paperUrl)}
+            ${paperButtonMarkup("Slides", slidesUrl)}
             ${paperButtonMarkup("Video", videoUrl)}
           </div>
         </div>

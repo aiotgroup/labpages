@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WS-IMUBench: Can Weakly Supervised Methods from Audio, Image, and Video Be Adapted for IMU-based Temporal Action Localization? - XJTU AIoT Group</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="WS-IMUBench establishes a large benchmarking study for weakly supervised IMU temporal action localization and analyzes how methods from audio, image, and video transfer to sequence-level IMU labels.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,14 +14,14 @@
   <header class="paper-header">
     <div class="paper-shell paper-nav-shell">
       <a class="paper-brand" href="../../index.html">
-        <span class="paper-brand-mark">XJ</span>
+        <span class="paper-brand-mark">X</span>
         <span class="paper-brand-copy">
           <strong>XJTU AIoT Group</strong>
           <small>Publication Detail</small>
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../course.html">Course</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a>
       </nav>
     </div>
   </header>
@@ -31,16 +31,17 @@
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
           <h1>WS-IMUBench: Can Weakly Supervised Methods from Audio, Image, and Video Be Adapted for IMU-based Temporal Action Localization?</h1>
-          <p class="paper-subtitle">P Li, J Yin, L Ouyang, S Pan, G Wang, H Ding, F Wang</p>
+          <p class="paper-subtitle">Pei Li, Jiaxi Yin, Lei Ouyang, Shihan Pan, Ge Wang, Han Ding, Fei Wang</p>
           <div class="paper-meta-row">
             <span class="paper-pill">arXiv preprint arXiv:2602.01850, 2026</span>
             <span class="paper-pill">2026</span>
             <span class="paper-pill">Video &amp; Streaming</span>
             <span class="paper-pill">XJTU AIoT Group</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">WS-IMUBench establishes a large benchmarking study for weakly supervised IMU temporal action localization and analyzes how methods from audio, image, and video transfer to sequence-level IMU labels.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
+            
             
             
             
@@ -83,22 +84,42 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>IMU-based human activity recognition is widely used in wearable computing, but most existing work still follows a <strong>clip classification</strong> paradigm that ignores the finer temporal structure of continuous behavior. This paper shifts the focus to <strong>IMU Temporal Action Localization (IMU-TAL)</strong>, where the goal is to predict both action classes and their start/end times.</p>
+<p>Dense temporal annotation is expensive to scale, so the authors study whether weakly supervised localization methods from <strong>audio</strong>, <strong>image</strong>, and <strong>video</strong> can be adapted to IMU streams using only sequence-level labels. The result is <strong>WS-IMUBench</strong>, a benchmark study rather than a single new model.</p>
 <h2>Main Contributions</h2>
-<ul><li>Research theme: Video &amp; Streaming.</li><li>Published at arXiv preprint arXiv:2602.01850, 2026.</li><li>Replace these generated bullets with the paper&#39;s actual core contributions and experimental findings.</li></ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<ul>
+<li>Establishes a systematic benchmark for <strong>weakly supervised IMU temporal action localization</strong>.</li>
+<li>Evaluates <strong>seven representative methods</strong> from neighboring modalities on <strong>seven public IMU datasets</strong>.</li>
+<li>Analyzes which paradigms transfer well, where they fail, and what research directions are most promising for IMU-TAL.</li>
+</ul>
+<h2>Method</h2>
+<p>The benchmark keeps the supervision level intentionally weak: models only see <strong>sequence-level labels</strong>, not dense frame-level boundaries. Under that setting, the paper measures how well existing weakly supervised localization ideas can adapt to IMU data, including methods originally designed for audio, image, and video tasks.</p>
+<p>Rather than claiming one universal winner, the paper emphasizes a benchmarker's view:</p>
+<ul>
+<li>which methods are stable,</li>
+<li>which datasets are favorable,</li>
+<li>and which failure modes repeatedly appear.</li>
+</ul>
+<h2>Evaluation Highlights</h2>
+<ul>
+<li>More than <strong>3,540 training runs</strong> and <strong>7,080 inference evaluations</strong>.</li>
+<li>Shows that transferability is strongly <strong>modality-dependent</strong>.</li>
+<li>Finds that temporal-domain methods are generally more stable than image-derived proposal approaches.</li>
+<li>Highlights short actions, temporal ambiguity, and proposal quality as dominant failure modes.</li>
+</ul>
 <h2>Resources</h2>
-<ul><li><a href="./assets/cover.svg">Cover image</a></li><li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li></ul>
+<ul>
+<li><a href="https://arxiv.org/abs/2602.01850">arXiv abstract</a></li>
+</ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@inproceedings{ws-imubench-can-weakly-supervised-methods-from-audio-image-and-video-be-adapted-for-imu-based-temporal-action-localization,
+<pre><code class="language-bibtex">@article{li2026wsimubench,
   title = {WS-IMUBench: Can Weakly Supervised Methods from Audio, Image, and Video Be Adapted for IMU-based Temporal Action Localization?},
-  author = {P Li and J Yin and L Ouyang and S Pan and G Wang and H Ding and F Wang},
-  booktitle = {arXiv preprint arXiv:2602.01850, 2026},
+  author = {Li, Pei and Yin, Jiaxi and Ouyang, Lei and Pan, Shihan and Wang, Ge and Ding, Han and Wang, Fei},
+  journal = {arXiv preprint arXiv:2602.01850},
   year = {2026}
-}</code></pre>
+}
+</code></pre>
+
         </article>
       </div>
     </section>

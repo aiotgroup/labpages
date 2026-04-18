@@ -395,9 +395,52 @@ a {
   font-family: Consolas, Monaco, monospace;
 }
 
+.paper-article hr {
+  margin: 28px 0 0;
+  border: 0;
+  border-top: 1px solid rgba(36, 72, 107, 0.18);
+}
+
+.paper-article .markdown-table-wrap {
+  margin: 18px 0 0;
+  overflow-x: auto;
+}
+
+.paper-article .markdown-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.paper-article .markdown-table th,
+.paper-article .markdown-table td {
+  padding: 12px 14px;
+  border: 1px solid rgba(36, 72, 107, 0.14);
+  vertical-align: top;
+  color: var(--paper-muted);
+}
+
+.paper-article .markdown-table th {
+  background: rgba(36, 72, 107, 0.08);
+  color: #20374f;
+  font-family: "Exo", sans-serif;
+  font-size: 0.98rem;
+}
+
+.paper-article .markdown-table tbody tr:nth-child(even) td {
+  background: rgba(36, 72, 107, 0.03);
+}
+
+.paper-article img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+
 .paper-article .markdown-figure img {
   width: 100%;
-  border-radius: 18px;
 }
 
 .paper-article .markdown-figure figcaption {

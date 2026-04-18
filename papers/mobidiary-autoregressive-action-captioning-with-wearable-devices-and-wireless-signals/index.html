@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MobiDiary: Autoregressive Action Captioning with Wearable Devices and Wireless Signals - XJTU AIoT Group</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="MobiDiary generates natural-language descriptions of daily activities directly from IMU and Wi-Fi signals through a unified sensor encoder and an autoregressive Transformer decoder.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,14 +14,14 @@
   <header class="paper-header">
     <div class="paper-shell paper-nav-shell">
       <a class="paper-brand" href="../../index.html">
-        <span class="paper-brand-mark">XJ</span>
+        <span class="paper-brand-mark">X</span>
         <span class="paper-brand-copy">
           <strong>XJTU AIoT Group</strong>
           <small>Publication Detail</small>
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../course.html">Course</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a>
       </nav>
     </div>
   </header>
@@ -31,16 +31,17 @@
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
           <h1>MobiDiary: Autoregressive Action Captioning with Wearable Devices and Wireless Signals</h1>
-          <p class="paper-subtitle">F Deng, Y He, C Chu, G Wang, H Ding, J Han, F Wang</p>
+          <p class="paper-subtitle">Fei Deng, Yinghui He, Chuntong Chu, Ge Wang, Han Ding, Jinsong Han, Fei Wang</p>
           <div class="paper-meta-row">
             <span class="paper-pill">arXiv preprint arXiv:2601.08204, 2026</span>
             <span class="paper-pill">2026</span>
-            <span class="paper-pill">Efficient AI Systems</span>
+            <span class="paper-pill">Ubiquitous Sensing</span>
             <span class="paper-pill">XJTU AIoT Group</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">MobiDiary generates natural-language descriptions of daily activities directly from IMU and Wi-Fi signals through a unified sensor encoder and an autoregressive Transformer decoder.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
+            
             
             
             
@@ -69,7 +70,7 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Efficient AI Systems</p>
+            <p>Ubiquitous Sensing</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
@@ -83,22 +84,40 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>Most wearable and wireless sensing systems describe activity using a fixed label set such as <em>walking</em>, <em>cooking</em>, or <em>washing hands</em>. <strong>MobiDiary</strong> moves beyond that setting and asks whether heterogeneous physical signals can produce <strong>free-form natural language descriptions</strong> of human activity.</p>
+<p>The paper focuses on IMU and Wi-Fi sensing in smart-home scenarios. Instead of building separate modality-specific pipelines, MobiDiary introduces a unified signal encoder and an autoregressive captioning decoder so that the same framework can describe actions across different sensing modalities.</p>
 <h2>Main Contributions</h2>
-<ul><li>Research theme: Efficient AI Systems.</li><li>Published at arXiv preprint arXiv:2601.08204, 2026.</li><li>Replace these generated bullets with the paper&#39;s actual core contributions and experimental findings.</li></ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<ul>
+<li>Formulates <strong>action captioning from physical signals</strong> as a cross-modal sequence generation problem.</li>
+<li>Proposes a <strong>unified sensor encoder</strong> that works across both IMU and Wi-Fi inputs.</li>
+<li>Uses a Transformer-based autoregressive decoder to generate coherent action descriptions token by token.</li>
+</ul>
+<h2>Method</h2>
+<p>The encoder is designed around two ideas:</p>
+<ul>
+<li>a <strong>patch-based temporal representation</strong> that captures local motion correlations,</li>
+<li>and <strong>heterogeneous placement embeddings</strong> that normalize spatial context across sensors placed on different devices.</li>
+</ul>
+<p>After encoding, the unified signal tokens are passed to a Transformer decoder, which predicts the textual description autoregressively. The paper argues that IMU and Wi-Fi signals share motion-induced structure, and that exploiting this shared inductive bias is more scalable than writing separate feature engineering pipelines for each modality.</p>
+<h2>Evaluation Highlights</h2>
+<ul>
+<li>Evaluated on <strong>XRF V2</strong>, <strong>UWash</strong>, and <strong>WiFiTAD</strong>.</li>
+<li>Achieves state-of-the-art captioning performance on metrics including <strong>BLEU@4</strong>, <strong>CIDEr</strong>, and <strong>RMC</strong>.</li>
+<li>Outperforms specialized baselines while generalizing across both wearable and wireless sensing modalities.</li>
+</ul>
 <h2>Resources</h2>
-<ul><li><a href="./assets/cover.svg">Cover image</a></li><li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li></ul>
+<ul>
+<li><a href="https://arxiv.org/abs/2601.08204">arXiv abstract</a></li>
+</ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@inproceedings{mobidiary-autoregressive-action-captioning-with-wearable-devices-and-wireless-signals,
+<pre><code class="language-bibtex">@article{deng2026mobidiary,
   title = {MobiDiary: Autoregressive Action Captioning with Wearable Devices and Wireless Signals},
-  author = {F Deng and Y He and C Chu and G Wang and H Ding and J Han and F Wang},
-  booktitle = {arXiv preprint arXiv:2601.08204, 2026},
+  author = {Deng, Fei and He, Yinghui and Chu, Chuntong and Wang, Ge and Ding, Han and Han, Jinsong and Wang, Fei},
+  journal = {arXiv preprint arXiv:2601.08204},
   year = {2026}
-}</code></pre>
+}
+</code></pre>
+
         </article>
       </div>
     </section>

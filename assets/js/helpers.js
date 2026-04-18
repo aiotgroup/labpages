@@ -127,6 +127,20 @@
           "This work addresses the systems and modeling bottlenecks behind large language model training or inference."
       };
     }
+    if (/wifi|wi-fi|mmwave|radar|rfid|wireless|radio frequency|imu|wearable|eeg|sensing|ubiquitous|har|respiration|pose|emotion|handwashing|speech enhancement|speech separation/i.test(title)) {
+      return {
+        label: "Ubiquitous Sensing",
+        overview:
+          "This paper studies AI systems for sensing people, activities, or environments from wireless signals, wearables, or other ubiquitous-computing data sources."
+      };
+    }
+    if (/multimodal/i.test(title)) {
+      return {
+        label: "Multimodal Learning",
+        overview:
+          "This work focuses on how multiple sensing or data modalities can be aligned, fused, or made robust under real-world missingness and noise."
+      };
+    }
     if (/diffusion|image|visual|multimodal|vila|gan/i.test(title)) {
       return {
         label: "Visual Generation",

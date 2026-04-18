@@ -1,0 +1,25 @@
+{
+  "name": "xjtu-aiot-group-site",
+  "version": "1.0.0",
+  "description": "This project is a multi-page static website for `XJTU AIoT Group`.",
+  "private": true,
+  "scripts": {
+    "generate": "node tools/generate-paper-pages.js",
+    "check": "node --check assets/js/app.js && node --check tools/generate-paper-pages.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aiotgroup/labpages.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/aiotgroup/labpages/issues"
+  },
+  "homepage": "https://github.com/aiotgroup/labpages#readme",
+  "dependencies": {
+    "markdown-it": "^14.1.1"
+  }
+}

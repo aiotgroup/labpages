@@ -6,6 +6,8 @@ This project is a multi-page static website for `XJTU AIoT Group`.
 
 ```text
 .
+|-- package.json
+|-- package-lock.json
 |-- index.html
 |-- publications.html
 |-- paper.html
@@ -74,6 +76,12 @@ This project is a multi-page static website for `XJTU AIoT Group`.
 
 ## Publications Workflow
 
+Install the Markdown renderer dependency once before regenerating pages:
+
+```bash
+npm install
+```
+
 Each paper lives in its own folder:
 
 - `papers/<paper-slug>/index.md`
@@ -83,7 +91,7 @@ Each paper lives in its own folder:
 The paper page is rendered as:
 
 - HTML hero blocks for title, authors, venue, institution, and links
-- Markdown body for the long-form article content
+- Markdown body for the long-form article content, rendered with `markdown-it`
 
 Use the template folder as a starting point:
 

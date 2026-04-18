@@ -553,6 +553,22 @@ select {
   font-size: 1.18rem;
 }
 
+.publication-card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  cursor: pointer;
+}
+
+.publication-card-link .inline-link {
+  margin-top: 16px;
+}
+
+.publication-card-link:hover .inline-link,
+.publication-card-link:focus-visible .inline-link {
+  text-decoration: underline;
+}
+
 .publication-card[hidden] {
   display: none;
 }
@@ -622,6 +638,29 @@ select {
 
 .course-card .chip-row {
   margin-top: 14px;
+}
+
+.dataset-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.dataset-cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.dataset-card .chip-row {
+  margin-top: 14px;
+}
+
+.dataset-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
 }
 
 .member-grid {
