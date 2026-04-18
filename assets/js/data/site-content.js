@@ -617,7 +617,7 @@
             photo: "./assets/media/people/2024tiantian-wang.jpg",
             photoAlt: "Sample portrait for Qunhang Fu",
             bio:
-              "Go to pursue a master’s degree at The University of Tokyo.",
+              "Go to pursue a master’s degree at The University of Tokyo in 2026.",
             link: "https://scholar.google.com/citations?user=Pj4jG9YAAAAJ",
             palette: ["#3d376a", "#e0dcff"]
           },
@@ -804,10 +804,19 @@
         palette: ["#214c71", "#e4f2ff"]
       },
       {
+        title: "West Lake Sunrise @ Hangzhou",
+        date: "September, 2025",
+        caption: "We got up at 4 a.m. and saw the tranquil West Lake and a pink sunrise.",
+        tag: "Nature",
+        image: "./assets/media/gallery/20250907-xihurichu.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
         title: "Museum of Art Pudong @ Shanghai",
         date: "September 4, 2025",
         caption: "We visited the Museum of Art Pudong in Shanghai during CWSN 2025.",
-        tag: "Conference",
+        tag: "Mesuem",
         image: "./assets/media/gallery/2025pumei-cwsn.jpg",
         photoAlt: "Poster session preparation snapshot",
         palette: ["#214c71", "#e4f2ff"]
@@ -845,6 +854,42 @@
         caption: "I ran into Mr. Bean in a park in London.",
         tag: "Conference",
         image: "./assets/media/gallery/2025infocom-london.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "Zhuque National Forest Park",
+        date: "May 12, 2025",
+        caption: "We reached the alpine meadow in Zhuque National Forest Park around 2,680 meters above sea level.",
+        tag: "Conference",
+        image: "./assets/media/gallery/20250510-zhuquesenlingongyuan.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "Black Myth Art Exhibition @ Hangzhou",
+        date: "April 12, 2025",
+        caption: "I visited the Black Myth: Wukong art exhibition and really liked the many exquisite Golden Cudgels on display.",
+        tag: "Museum",
+        image: "./assets/media/gallery/20250412-heishenhuazhan.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "A Dinner after School on Friday.",
+        date: "March 28, 2025",
+        caption: "We had cheesy eggs, and someone came up with the idea of serving mashed potatoes in a wine glass. Elegant",
+        tag: "Meal",
+        image: "./assets/media/gallery/20250328-jiubeitudou.jpg",
+        photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "Mount Taibai",
+        date: "December 21, 2024",
+        caption: "We hiked up to Tianyuan Difang (3,511 m) on Mount Taibai, the highest peak of the Qinling Mountains.",
+        tag: "Nature",
+        image: "./assets/media/gallery/2024taibaishan-xian.jpg",
         photoAlt: "Poster session preparation snapshot",
         palette: ["#214c71", "#e4f2ff"]
       },
