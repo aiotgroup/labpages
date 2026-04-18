@@ -825,7 +825,7 @@
         title: "Museum of Art Pudong @ Shanghai",
         date: "September 4, 2025",
         caption: "We visited the Museum of Art Pudong in Shanghai during CWSN 2025.",
-        tag: "Mesuem",
+        tag: "Conference",
         image: "./assets/media/gallery/2025pumei-cwsn.jpg",
         photoAlt: "Poster session preparation snapshot",
         palette: ["#214c71", "#e4f2ff"]
