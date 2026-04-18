@@ -734,7 +734,7 @@
             photo: "./assets/media/people/2025yangxin-xu.jpg",
             photoAlt: "Sample portrait for Yangxin Xu",
             bio:
-              "",
+              "Multimodal learning",
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
@@ -744,6 +744,15 @@
             photoAlt: "Sample portrait for Zhixian Xu",
             bio:
               "",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
+            name: "Rui Yan (颜锐)",
+            role: "M.Sc Student",
+            photo: "./assets/media/people/2025rui-yan.jpg",
+            photoAlt: "Sample portrait for Rui Yan",
+            bio:
+              "Multimodal learning",
             palette: ["#5d4628", "#ffe6c8"]
           },
           {

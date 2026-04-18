@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>You Can Wash Hands Better: Accurate Daily Handwashing Assessment with a Smartwatch - XJTU AIoT Group</title>
-  <meta name="description" content="UWash is a smartwatch-based handwashing assessment system that reframes daily hygiene monitoring as fine-grained action segmentation, enabling gesture recognition, boundary detection, and quality scoring in realistic deployment settings.">
+  <meta name="description" content="UWash is a smartwatch-only handwashing assessment system that treats daily handwashing as fine-grained temporal segmentation, estimating gesture boundaries, per-gesture duration, and WHO-guideline-based quality scores from IMU streams.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -36,14 +36,14 @@
             <span class="paper-pill">IEEE Transactions on Mobile Computing, 2025</span>
             <span class="paper-pill">2025</span>
             <span class="paper-pill">Ubiquitous Sensing</span>
-            <span class="paper-pill">XJTU AIoT Group</span>
+            <span class="paper-pill">XJTU, XDU, Kuaishou, ZJU, CMU</span>
           </div>
-          <p class="paper-summary">UWash is a smartwatch-based handwashing assessment system that reframes daily hygiene monitoring as fine-grained action segmentation, enabling gesture recognition, boundary detection, and quality scoring in realistic deployment settings.</p>
+          <p class="paper-summary">UWash is a smartwatch-only handwashing assessment system that treats daily handwashing as fine-grained temporal segmentation, estimating gesture boundaries, per-gesture duration, and WHO-guideline-based quality scores from IMU streams.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
             
-            
-            
+            <a class="paper-link-chip" href="https://github.com/aiotgroup/UWash">Code</a>
+            <a class="paper-link-chip" href="https://arxiv.org/abs/2112.06657">Paper</a>
             
             
           </div>
@@ -51,11 +51,11 @@
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for You Can Wash Hands Better: Accurate Daily Handwashing Assessment with a Smartwatch">
+            <img src="./assets/uwash-overview.png" alt="UWash smartwatch handwashing assessment overview">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIoT Group</p>
+            <p>XJTU, XDU, Kuaishou, ZJU, CMU</p>
           </aside>
         </aside>
       </div>
@@ -74,7 +74,7 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIoT Group</p>
+            <p>XJTU, XDU, Kuaishou, ZJU, CMU</p>
           </article>
         </div>
       </div>
@@ -84,23 +84,65 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>Hand hygiene is one of the simplest and most effective daily interventions for preventing infectious disease, but in practice many people do not follow high-quality washing procedures consistently. This paper presents <strong>UWash</strong>, a smartwatch-based system that assesses handwashing quality from wearable motion streams rather than only detecting whether a washing event happened.</p>
-<p>The key idea is to treat handwashing assessment as a <strong>fine-grained action segmentation</strong> problem. Instead of producing a single coarse label, UWash predicts the temporal structure of a washing session, recognizes gesture phases, estimates their boundaries, and scores how well each phase is performed.</p>
+<p>Hand hygiene is one of the most effective daily practices for preventing infectious diseases, yet people often do not follow standard procedures consistently. A questionnaire in the paper, covering <strong>505 subjects across 26 provinces in China</strong>, found that most respondents had heard of WHO or seven-step handwashing guidelines, but only <strong>34.65%</strong> reported following standard guidelines.</p>
+<p><strong>UWash</strong> is designed for daily use rather than fixed clinical infrastructure. It uses only smartwatch IMU data, specifically accelerometer and gyroscope streams, to detect the start and end of handwashing, segment fine-grained gestures, estimate gesture durations, and score both each gesture and the whole procedure according to WHO-style guidance.</p>
+<p>The institution field is abbreviated at the university/company level: <strong>XJTU</strong>, <strong>XDU</strong>, <strong>Kuaishou</strong>, <strong>ZJU</strong>, and <strong>CMU</strong>.</p>
+<figure class="markdown-figure">
+  <img src="./assets/uwash-overview.png" alt="UWash overview with smartwatch IMU streams, segmented handwashing gestures, and scores">
+  <figcaption>Figure 1. UWash converts smartwatch IMU signals into gesture segments and handwashing quality scores.</figcaption>
+</figure>
+
+<h2>What UWash Adds</h2>
+<p>UWash targets six practical requirements for daily handwashing assessment: it works across locations, uses no additional sensors, automatically detects procedure start and end, supports random gesture order, reports the duration of each gesture, and provides instructive quality scores.</p>
+<p>This is different from many prior systems that rely on cameras, fixed sensors, RFID, dispensers, smart faucets, or manual activation. UWash is also more fine-grained than simply detecting whether someone washed hands; it estimates how the procedure unfolded.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Introduces one of the first wearable systems that scores <em>handwashing quality</em> instead of only recognizing a handwashing event.</li>
-<li>Reformulates the task as temporal action segmentation and uses a compact <strong>two-stream UNet-like network</strong> for gesture recognition and assessment.</li>
-<li>Evaluates the system with <strong>51 subjects</strong>, plus delayed real-world tests with hospital passersby and in-the-wild volunteers long after the original collection period.</li>
+<li>Proposes a smartwatch-only daily handwashing assessment system that can detect, segment, and score a complete handwashing procedure.</li>
+<li>Reformulates handwashing assessment as a <strong>temporal semantic segmentation</strong> problem rather than top-down slicing or window-wise classification.</li>
+<li>Designs a lightweight two-stream UNet-like model for accelerometer and gyroscope data, enhanced with squeeze-and-excitation, pyramid pooling, multiple test voting, and mode filtering.</li>
+<li>Builds a dataset with <strong>51 subjects</strong> across <strong>5 locations</strong> and evaluates user-dependent, cross-participant, cross-location, cross-time, and wild-study settings.</li>
+<li>Releases both code and dataset for research use.</li>
 </ul>
 <h2>Method</h2>
-<p>UWash processes smartwatch motion measurements and predicts gesture-level segments for a complete washing session. The two-stream UNet-like design captures both local motion evidence and longer temporal context, which allows the model to jointly support:</p>
-<ul>
-<li>fine-grained gesture recognition,</li>
-<li>onset and offset detection,</li>
-<li>and quality scoring for each gesture phase.</li>
-</ul>
-<p>This formulation matters because useful handwashing feedback depends on <em>when</em> a gesture starts and ends, not just <em>which</em> action label is present. By keeping the temporal structure explicit, the system can deliver actionable guidance instead of a single binary decision.</p>
-<h2>Evaluation Highlights</h2>
+<p>UWash uses a bottom-up time-series segmentation strategy. Instead of first cutting the signal into uncertain slices, it performs sample-wise recognition over IMU sequences and then smooths the sequence-level output. This lets the system recover gesture boundaries and durations directly from the predicted labels.</p>
+<p>The model uses two branches, one for accelerometers and one for gyroscopes. Each branch adapts UNet-style temporal encoding and decoding to 1D IMU data. The two streams are fused before prediction so the model can combine complementary motion cues from both sensors.</p>
+<figure class="markdown-figure">
+  <img src="./assets/uwash-architecture.png" alt="UWash two-stream UNet-like architecture for accelerometer and gyroscope time-series segmentation">
+  <figcaption>Figure 2. The UWash architecture processes accelerometer and gyroscope streams with dual temporal UNet branches and produces sample-wise gesture predictions.</figcaption>
+</figure>
+
+<h2>Dataset And Evaluation Setup</h2>
+<p>The main dataset was collected with Samsung Gear Sport smartwatches. To increase environmental diversity, data were collected in <strong>five campus locations</strong>: teaching hall, laboratory hall, cafeteria, dormitory, and library. Participants were asked to walk to the sink, wash hands, and leave, while natural actions such as wetting hands, applying soap, and drying hands were allowed to vary.</p>
+<p>The paper evaluates UWash in several settings:</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>User-dependent</td>
+<td>First four handwashing procedures per participant for training, last procedure for testing</td>
+</tr>
+<tr>
+<td>Cross-participant</td>
+<td>Leave-one-participant-out across 51 participants</td>
+</tr>
+<tr>
+<td>Cross-participant-cross-location</td>
+<td>Train on 50 participants and 4 locations, test on the held-out participant/location</td>
+</tr>
+<tr>
+<td>Cross-participant-cross-location-cross-time</td>
+<td>New hospital dataset with 10 passersby collected 9 months later</td>
+</tr>
+<tr>
+<td>Wild study</td>
+<td>10 passersby tested under not-trained, trained, and shuffled/omitted-step conditions</td>
+</tr>
+</tbody></table></div>
+<h2>Core Results</h2>
 <div class="markdown-table-wrap"><table class="markdown-table">
 <thead>
 <tr>
@@ -108,27 +150,98 @@
 <th>Result</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td>Gesture recognition accuracy</td>
+<tbody><tr>
+<td>User-dependent gesture recognition accuracy</td>
 <td>92.27%</td>
 </tr>
 <tr>
-<td>Onset / offset error</td>
-<td>&lt; 0.5 s</td>
+<td>Mean precision / recall / F1</td>
+<td>91.26% / 90.85% / 0.91</td>
 </tr>
 <tr>
-<td>Gesture scoring error</td>
-<td>&lt; 5 points</td>
+<td>Model parameters</td>
+<td>0.099M, about 496 KB</td>
 </tr>
-</tbody>
-</table>
-</div><p>The paper also reports strong user-independent and user-independent-location-independent performance. Beyond controlled studies, UWash remained effective in later tests with <strong>10 random passersby at a hospital 9 months later</strong> and <strong>10 passersby in an in-the-wild test 2 years later</strong>, which suggests meaningful robustness for real deployment.</p>
+<tr>
+<td>Start detection mean error</td>
+<td>0.49 s</td>
+</tr>
+<tr>
+<td>End detection mean error</td>
+<td>0.23 s</td>
+</tr>
+<tr>
+<td>Handwashing scoring mean error</td>
+<td>4.0 points</td>
+</tr>
+<tr>
+<td>Participants above 95% accuracy</td>
+<td>33 of 51</td>
+</tr>
+</tbody></table></div>
+<p>The final UWash model achieves the best result in the paper&#39;s main comparison table while using only about <strong>2.5%</strong> of the parameters of ResNet-18-1D.</p>
+<figure class="markdown-figure">
+  <img src="./assets/main-results-table.png" alt="UWash main results table comparing model variants and baselines">
+  <figcaption>Figure 3. UWash combines two-stream modeling, SE, PPM, multiple test voting, and mode filtering to reach 92.27% accuracy with 0.099M parameters.</figcaption>
+</figure>
+
+<figure class="markdown-figure">
+  <img src="./assets/user-dependent-results.png" alt="UWash user-dependent participant results and start/end scoring visualization">
+  <figcaption>Figure 4. User-dependent evaluation shows strong participant-level performance and low start/end and scoring errors.</figcaption>
+</figure>
+
+<h2>Cross-Domain And Cross-Time Results</h2>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Setting</th>
+<th align="right">Accuracy</th>
+<th align="right">Start error</th>
+<th align="right">End error</th>
+<th align="right">Score error</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cross-participant</td>
+<td align="right">83.34%</td>
+<td align="right">0.43 s</td>
+<td align="right">0.23 s</td>
+<td align="right">12.74 pts</td>
+</tr>
+<tr>
+<td>Cross-participant-cross-location</td>
+<td align="right">81.45%</td>
+<td align="right">0.48 s</td>
+<td align="right">0.36 s</td>
+<td align="right">15.21 pts</td>
+</tr>
+<tr>
+<td>Cross-participant-cross-location-cross-time</td>
+<td align="right">82.08%</td>
+<td align="right">0.39 s</td>
+<td align="right">0.14 s</td>
+<td align="right">14.30 pts</td>
+</tr>
+</tbody></table></div>
+<p>The cross-time test is especially useful: the authors collected a new hospital dataset with <strong>10 random passersby 9 months later</strong>, at a new location and on a new date. UWash stayed in the same performance range as the cross-participant-cross-location setting, suggesting promising robustness over time.</p>
+<figure class="markdown-figure">
+  <img src="./assets/cross-domain-results.png" alt="UWash cross-participant and cross-location evaluation results">
+  <figcaption>Figure 5. UWash remains effective in cross-participant and cross-location evaluation, with sub-second start/end detection errors.</figcaption>
+</figure>
+
+<figure class="markdown-figure">
+  <img src="./assets/cross-time-wild-study.png" alt="UWash cross-time hospital test and wild study results">
+  <figcaption>Figure 6. Cross-time and wild-study results show that UWash can detect improvement after training and score drops when steps are shuffled or omitted.</figcaption>
+</figure>
+
+<h2>Deployment Notes</h2>
+<p>The paper reports that UWash is lightweight enough for edge-oriented deployment. The model has only <strong>0.099M parameters</strong>, and the authors measured latency on an Intel Core i7-620M class CPU. With a stride of 10, a 60-second handwashing sequence takes about <strong>2.18 s</strong> to process; clip-level inference for a 1.28-second IMU clip takes about <strong>0.0067 s</strong>.</p>
+<p>The paper also includes an Apple Watch S5 cross-device check. With simple axis swapping and a model trained on Samsung Gear Sport data, UWash achieved <strong>76.24% accuracy</strong>, <strong>0.39 s start error</strong>, <strong>0.57 s end error</strong>, and <strong>18.81-point score error</strong>, suggesting cross-device potential while leaving room for better coordinate alignment.</p>
 <h2>Resources</h2>
 <ul>
-<li>Paper: <a href="https://arxiv.org/abs/2112.06657">https://arxiv.org/abs/2112.06657</a></li>
 <li>Code and dataset: <a href="https://github.com/aiotgroup/UWash">https://github.com/aiotgroup/UWash</a></li>
-<li>Handwashing protocol reference: <a href="https://www.who.int/teams/integrated-health-services/infection-prevention-control/hand-hygiene">WHO hand hygiene guidance</a></li>
+<li>Paper: <a href="https://arxiv.org/abs/2112.06657">https://arxiv.org/abs/2112.06657</a></li>
+<li>Venue: IEEE Transactions on Mobile Computing, 2025</li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@article{wang2025uwash,

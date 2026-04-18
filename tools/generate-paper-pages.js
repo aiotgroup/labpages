@@ -343,6 +343,7 @@ function paperPageHtml(siteContent, model, meta, articleHtml) {
   const paperUrl = meta.paper || model.paperUrl;
   const slidesUrl = meta.slides || model.slidesUrl;
   const videoUrl = meta.video || model.videoUrl;
+  const theme = meta.theme || model.theme;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -368,7 +369,7 @@ function paperPageHtml(siteContent, model, meta, articleHtml) {
           <div class="paper-meta-row">
             <span class="paper-pill">${escapeHtml(model.venue)}</span>
             <span class="paper-pill">${escapeHtml(String(model.year || ""))}</span>
-            <span class="paper-pill">${escapeHtml(model.theme)}</span>
+            <span class="paper-pill">${escapeHtml(theme)}</span>
             <span class="paper-pill">${escapeHtml(institution)}</span>
           </div>
           <p class="paper-summary">${escapeHtml(summary)}</p>
@@ -403,7 +404,7 @@ function paperPageHtml(siteContent, model, meta, articleHtml) {
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>${escapeHtml(model.theme)}</p>
+            <p>${escapeHtml(theme)}</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>

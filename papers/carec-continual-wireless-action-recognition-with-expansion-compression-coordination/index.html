@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CAREC: Continual Wireless Action Recognition with Expansion-Compression Coordination - XJTU AIoT Group</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <title>CAREC: Continual Wireless Action Recognition with Expansion–Compression Coordination - XJTU AIoT Group</title>
+  <meta name="description" content="CAREC is a class-incremental Wi-Fi action recognition framework that alternates dynamic model expansion with balanced knowledge distillation, reducing catastrophic forgetting while keeping the model compact for long-term deployment.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -30,20 +30,20 @@
       <div class="paper-shell paper-hero-grid">
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
-          <h1>CAREC: Continual Wireless Action Recognition with Expansion-Compression Coordination</h1>
-          <p class="paper-subtitle">T Zhang, Q Fu, H Ding, G Wang, F Wang</p>
+          <h1>CAREC: Continual Wireless Action Recognition with Expansion–Compression Coordination</h1>
+          <p class="paper-subtitle">Tingting Zhang, Qunhang Fu, Han Ding, Ge Wang, Fei Wang</p>
           <div class="paper-meta-row">
             <span class="paper-pill">Sensors 25 (15), 4706, 2025</span>
             <span class="paper-pill">2025</span>
-            <span class="paper-pill">Compression &amp; Quantization</span>
-            <span class="paper-pill">XJTU AIoT Group</span>
+            <span class="paper-pill">Ubiquitous Sensing</span>
+            <span class="paper-pill">XJTU, XDU</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">CAREC is a class-incremental Wi-Fi action recognition framework that alternates dynamic model expansion with balanced knowledge distillation, reducing catastrophic forgetting while keeping the model compact for long-term deployment.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
             
-            
-            
+            <a class="paper-link-chip" href="https://github.com/aiotgroup/carec/">Code</a>
+            <a class="paper-link-chip" href="https://doi.org/10.3390/s25154706">Paper</a>
             
             
           </div>
@@ -51,11 +51,11 @@
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for CAREC: Continual Wireless Action Recognition with Expansion-Compression Coordination">
+            <img src="./assets/carec-expansion-compression.png" alt="CAREC expansion and compression pipeline">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIoT Group</p>
+            <p>XJTU, XDU</p>
           </aside>
         </aside>
       </div>
@@ -70,11 +70,11 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Compression &amp; Quantization</p>
+            <p>Ubiquitous Sensing</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIoT Group</p>
+            <p>XJTU, XDU</p>
           </article>
         </div>
       </div>
@@ -84,28 +84,225 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>Wi-Fi sensing systems often start with a fixed set of actions, but real deployments keep changing: a user may first need smoking detection, then later add fall detection, medication reminders, or other household activities. Retraining from scratch is inefficient, while simply updating a model on new classes can cause catastrophic forgetting.</p>
+<p><strong>CAREC</strong> addresses this class-incremental learning problem for Wi-Fi-based indoor action recognition. It alternates between a model expansion stage, which learns new action classes while preserving old features, and a compression stage, which distills the expanded model back into a compact single-backbone student.</p>
+<p>The institution field is abbreviated at the university level: <strong>XJTU</strong> and <strong>XDU</strong>.</p>
+<figure class="markdown-figure">
+  <img src="./assets/carec-class-incremental-learning.png" alt="Class-incremental Wi-Fi action recognition model updating">
+  <figcaption>Figure 1. CAREC targets class-incremental Wi-Fi action recognition, where new classes arrive over time without forgetting old ones.</figcaption>
+</figure>
+
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: Compression &amp; Quantization.</li>
-<li>Published at Sensors 25 (15), 4706, 2025.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Introduces a continual wireless action recognition framework tailored to class-incremental Wi-Fi sensing.</li>
+<li>Uses dynamic expansion with frozen historical feature extractors and a new trainable extractor for each incoming session.</li>
+<li>Adds a super-feature extractor and auxiliary classifier to better separate old and new classes.</li>
+<li>Compresses the expanded teacher into a compact student through balanced knowledge distillation.</li>
+<li>Evaluates on XRF55 and achieves the best final-stage performance among classical and recent CIL baselines.</li>
 </ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<h2>Method</h2>
+<p>CAREC separates learning into two coordinated phases.</p>
+<p>In the <strong>expansion phase</strong>, the previous feature extractor is frozen and a new extractor is initialized from it. The model then concatenates features from old and new extractors into a super-feature representation. This lets the network keep stable knowledge for old actions while still adapting to newly introduced actions.</p>
+<p>In the <strong>compression phase</strong>, the expanded model acts as a teacher. A lightweight single-backbone student learns from it using balanced knowledge distillation, where class-wise weights compensate for the imbalance between many new-class samples and fewer replayed old-class exemplars.</p>
+<figure class="markdown-figure">
+  <img src="./assets/carec-expansion-compression.png" alt="CAREC expansion and compression workflow">
+  <figcaption>Figure 2. CAREC alternates expansion for adaptability and compression for deployment efficiency.</figcaption>
+</figure>
+
+<figure class="markdown-figure">
+  <img src="./assets/carec-super-feature-extractor.png" alt="CAREC dynamic expansion with super-feature extractor and auxiliary classifier">
+  <figcaption>Figure 3. Dynamic expansion preserves previous feature extractors while adding new capacity for incoming action classes.</figcaption>
+</figure>
+
+<figure class="markdown-figure">
+  <img src="./assets/carec-balanced-distillation.png" alt="CAREC balanced knowledge distillation from expanded teacher to compact student">
+  <figcaption>Figure 4. Balanced knowledge distillation compresses the expanded teacher into a single-backbone student while reweighting underrepresented classes.</figcaption>
+</figure>
+
+<h2>Dataset And Protocol</h2>
+<p>The evaluation uses <strong>Scene 1 of XRF55</strong>, which contains <strong>55 action classes</strong>, <strong>30 volunteers</strong>, and <strong>33,000 samples</strong>. Following the CCS protocol, the dataset is split into five non-overlapping sessions, each adding 11 action classes. During each incremental update, CAREC uses the current session data plus representative exemplars selected from the previous session through Herding replay.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Dataset</th>
+<th align="right">Action classes</th>
+<th align="right">Volunteers</th>
+<th align="right">Samples</th>
+<th align="right">Categories</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Widar3.0</td>
+<td align="right">16</td>
+<td align="right">16</td>
+<td align="right">17,000</td>
+<td align="right">2</td>
+</tr>
+<tr>
+<td>WiAR</td>
+<td align="right">16</td>
+<td align="right">10</td>
+<td align="right">4,800</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td>ARIL</td>
+<td align="right">6</td>
+<td align="right">1</td>
+<td align="right">1,394</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td>MM-Fi</td>
+<td align="right">27</td>
+<td align="right">40</td>
+<td align="right">9 h</td>
+<td align="right">2</td>
+</tr>
+<tr>
+<td>UI-HAR</td>
+<td align="right">6</td>
+<td align="right">6</td>
+<td align="right">720</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td>XRF55</td>
+<td align="right">55</td>
+<td align="right">39</td>
+<td align="right">42,900 / 59.58 h</td>
+<td align="right">5</td>
+</tr>
+</tbody></table></div>
+<h2>Evaluation Highlights</h2>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Method</th>
+<th align="right">Session 0</th>
+<th align="right">Session 1</th>
+<th align="right">Session 2</th>
+<th align="right">Session 3</th>
+<th align="right">Session 4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Baseline</td>
+<td align="right">89.67</td>
+<td align="right">38.84</td>
+<td align="right">26.97</td>
+<td align="right">21.83</td>
+<td align="right">16.25</td>
+</tr>
+<tr>
+<td>iCaRL</td>
+<td align="right">90.41</td>
+<td align="right">74.09</td>
+<td align="right">66.90</td>
+<td align="right">63.68</td>
+<td align="right">63.49</td>
+</tr>
+<tr>
+<td>BiC</td>
+<td align="right">86.11</td>
+<td align="right">64.91</td>
+<td align="right">52.56</td>
+<td align="right">50.10</td>
+<td align="right">44.35</td>
+</tr>
+<tr>
+<td>UCIR</td>
+<td align="right">88.07</td>
+<td align="right">77.16</td>
+<td align="right">69.24</td>
+<td align="right">61.73</td>
+<td align="right">63.58</td>
+</tr>
+<tr>
+<td>BEEF</td>
+<td align="right">89.81</td>
+<td align="right">73.11</td>
+<td align="right">63.46</td>
+<td align="right">57.72</td>
+<td align="right">53.73</td>
+</tr>
+<tr>
+<td>CCS</td>
+<td align="right">87.48</td>
+<td align="right">75.02</td>
+<td align="right">66.59</td>
+<td align="right">59.16</td>
+<td align="right">60.45</td>
+</tr>
+<tr>
+<td>CAREC</td>
+<td align="right">89.44</td>
+<td align="right">81.36</td>
+<td align="right">75.00</td>
+<td align="right">63.46</td>
+<td align="right">67.84</td>
+</tr>
+</tbody></table></div>
+<p>CAREC reaches <strong>67.84% final-session accuracy</strong> across all 55 action classes, outperforming the strongest baselines at the last stage. The paper also reports that CAREC reduces performance degradation by <strong>51.82%</strong> over four incremental stages.</p>
+<figure class="markdown-figure">
+  <img src="./assets/carec-accn-comparison.png" alt="ACCN comparison of CAREC and class-incremental learning baselines">
+  <figcaption>Figure 5. CAREC maintains stronger ACCN over incremental sessions than classic and recent continual-learning baselines.</figcaption>
+</figure>
+
+<h2>Compression Results</h2>
+<p>Without compression, the expanded model reaches <strong>105.24 M</strong> parameters. CAREC compresses it to <strong>21.08 M</strong> parameters, about <strong>20%</strong> of the expanded model, while keeping the final-stage accuracy close to the uncompressed teacher.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Compression</th>
+<th align="right">Parameters</th>
+<th align="right">Session 0</th>
+<th align="right">Session 1</th>
+<th align="right">Session 2</th>
+<th align="right">Session 3</th>
+<th align="right">Session 4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>No</td>
+<td align="right">105.24 M</td>
+<td align="right">89.44</td>
+<td align="right">88.07</td>
+<td align="right">78.40</td>
+<td align="right">72.00</td>
+<td align="right">70.09</td>
+</tr>
+<tr>
+<td>Yes</td>
+<td align="right">21.08 M</td>
+<td align="right">89.44</td>
+<td align="right">81.36</td>
+<td align="right">75.00</td>
+<td align="right">63.46</td>
+<td align="right">67.84</td>
+</tr>
+</tbody></table></div>
+<figure class="markdown-figure">
+  <img src="./assets/carec-compression-curve.png" alt="CAREC ACCN with and without compression">
+  <figcaption>Figure 6. Compression largely preserves accuracy while preventing continual model growth.</figcaption>
+</figure>
+
 <h2>Resources</h2>
 <ul>
-<li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
+<li>Code: <a href="https://github.com/aiotgroup/carec/">https://github.com/aiotgroup/carec/</a></li>
+<li>Experiment configs: <a href="https://github.com/aiotgroup/carec/tree/main/exps">https://github.com/aiotgroup/carec/tree/main/exps</a></li>
+<li>Paper DOI: <a href="https://doi.org/10.3390/s25154706">10.3390/s25154706</a></li>
 </ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@inproceedings{carec-continual-wireless-action-recognition-with-expansion-compression-coordination,
-  title = {CAREC: Continual Wireless Action Recognition with Expansion-Compression Coordination},
-  author = {T Zhang and Q Fu and H Ding and G Wang and F Wang},
-  booktitle = {Sensors 25 (15), 4706, 2025},
-  year = {2025}
+<pre><code class="language-bibtex">@article{zhang2025carec,
+  title = {CAREC: Continual Wireless Action Recognition with Expansion--Compression Coordination},
+  author = {Zhang, Tingting and Fu, Qunhang and Ding, Han and Wang, Ge and Wang, Fei},
+  journal = {Sensors},
+  volume = {25},
+  number = {15},
+  pages = {4706},
+  year = {2025},
+  doi = {10.3390/s25154706}
 }
 </code></pre>
 
