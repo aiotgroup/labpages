@@ -1017,6 +1017,60 @@
             palette: ["#3d376a", "#e0dcff"]
           },
           {
+            name: "Yixi Xiang (向贻茜)",
+            role: "Bachelor of Law and Fintech",
+            photo: "./assets/media/people/2025xyx-1.jpg",
+            photoAlt: "Sample portrait for Yixi Xiang",
+            bio:
+              "Graduated in 2025 and then go to pursue a master’s degree at Nanjing University, specializing in Comparative and International Law. She holds a double degree in Law and Fintech from Xi'an Jiaotong University (XJTU), where she graduated with top academic honors (ranked 1st).",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Yixi Xiang (向贻茜)",
+            role: "Bachelor of Law and Fintech",
+            photo: "./assets/media/people/2025xyx-2.jpg",
+            photoAlt: "Sample portrait for Yixi Xiang",
+            bio:
+              "Graduated in 2025 and then go to pursue a master’s degree at Nanjing University, specializing in Comparative and International Law. She holds a double degree in Law and Fintech from Xi'an Jiaotong University (XJTU), where she graduated with top academic honors (ranked 1st).",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Yixi Xiang (向贻茜)",
+            role: "Bachelor of Law and Fintech",
+            photo: "./assets/media/people/2025xyx-3.jpg",
+            photoAlt: "Sample portrait for Yixi Xiang",
+            bio:
+              "Graduated in 2025 and then go to pursue a master’s degree at Nanjing University, specializing in Comparative and International Law. She holds a double degree in Law and Fintech from Xi'an Jiaotong University (XJTU), where she graduated with top academic honors (ranked 1st).",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Yixi Xiang (向贻茜)",
+            role: "Bachelor of Law and Fintech",
+            photo: "./assets/media/people/2025xyx-4.jpg",
+            photoAlt: "Sample portrait for Yixi Xiang",
+            bio:
+              "Graduated in 2025 and then go to pursue a master’s degree at Nanjing University, specializing in Comparative and International Law. She holds a double degree in Law and Fintech from Xi'an Jiaotong University (XJTU), where she graduated with top academic honors (ranked 1st).",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Yixi Xiang (向贻茜)",
+            role: "Bachelor of Law and Fintech",
+            photo: "./assets/media/people/2025xyx-5.jpg",
+            photoAlt: "Sample portrait for Yixi Xiang",
+            bio:
+              "Graduated in 2025 and then go to pursue a master’s degree at Nanjing University, specializing in Comparative and International Law. She holds a double degree in Law and Fintech from Xi'an Jiaotong University (XJTU), where she graduated with top academic honors (ranked 1st).",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Yixi Xiang (向贻茜)",
+            role: "Bachelor of Law and Fintech",
+            photo: "./assets/media/people/2025xyx-6.jpg",
+            photoAlt: "Sample portrait for Yixi Xiang",
+            bio:
+              "Graduated in 2025 and then go to pursue a master’s degree at Nanjing University, specializing in Comparative and International Law. She holds a double degree in Law and Fintech from Xi'an Jiaotong University (XJTU), where she graduated with top academic honors (ranked 1st).",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
             name: "Kai Li (李楷)",
             role: "Bachelor of Engineering",
             photo: "./assets/media/people/2025kai-li.jpg",
