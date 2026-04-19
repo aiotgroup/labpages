@@ -1,51 +1,76 @@
 ---
 title: Purify-then-Align: Towards Robust Human Sensing under Modality Missing with Knowledge Distillation from Noisy Multimodal Teacher
 authors: Pengcheng Weng, Yanyu Qian, Yangxin Xu, Fei Wang
-institution: XJTU AIoT Group
-summary: PTA improves missing-modality human sensing by first purifying noisy multimodal knowledge with meta-learned weighting and then aligning student modalities through diffusion-based knowledge distillation.
-cover: ./assets/cover.svg
-coverAlt: Cover image for Purify-then-Align: Towards Robust Human Sensing under Modality Missing with Knowledge Distillation from Noisy Multimodal Teacher
-eyebrow: Publication
+institution: XJTU / University of Bern / NTU
+summary: PTA makes missing-modality human sensing more robust by first purifying a noisy multimodal teacher with meta-learned modality weights, then aligning each student modality through diffusion-based knowledge distillation.
+cover: ./assets/pta-framework.png
+coverAlt: PTA framework showing the Purify stage for meta-learned modality weighting and the Align stage for diffusion-based distillation
+eyebrow: CVPR 2026 Workshop
+theme: Ubiquitous Sensing
+paper: https://arxiv.org/abs/2604.05584
+code: https://github.com/Vongolia11/PTA
 ---
 
 # Overview
 
-Robust multimodal human sensing is often limited by two connected problems: a **representation gap** between heterogeneous modalities and a **contamination effect** introduced by low-quality or noisy sensing channels. This paper argues that the contamination problem must be addressed before effective cross-modal alignment can happen.
+Multimodal human sensing is powerful when every sensor is available, but real deployments often lose modalities because of hardware failures, environmental interference, deployment cost, or communication dropouts. PTA focuses on the harder missing-modality setting where each single-modality model must remain reliable even after other sensing channels disappear.
 
-To do so, the authors propose **PTA (Purify-then-Align)**, a framework that first purifies the multimodal teacher signal and then transfers that cleaned knowledge back to single-modality students. The result is a stronger set of modality-specific encoders that remain effective even when some sensing channels are missing at test time.
+The paper identifies two linked obstacles. The **Representation Gap** comes from heterogeneous sensors such as depth cameras, LiDAR, Wi-Fi CSI, mmWave radar, and RFID producing very different feature spaces. The **Contamination Effect** appears when low-quality or noisy modalities pollute the multimodal teacher, making later distillation unreliable. PTA argues that the teacher must be cleaned before cross-modal alignment can work.
 
-## Main Contributions
+![PTA framework](./assets/pta-framework.png)
 
-- Identifies a causal link between noisy modalities and the failure to reduce representation gaps in multimodal sensing.
-- Proposes a **meta-learning-driven weighting mechanism** that down-weights low-contributing and contaminated modalities.
-- Introduces a **diffusion-based knowledge distillation** strategy that aligns student modalities using an information-rich clean teacher.
+## Core Idea
 
-## Method
+PTA uses a **Purify-then-Align** strategy. It first builds a cleaner multimodal teacher by learning how much each modality should contribute, then uses that purified teacher to strengthen every single-modality student encoder.
 
-PTA runs in two stages:
+- **Purify the teacher.** A meta-learning-driven weighting mechanism dynamically down-weights noisy or low-contributing modalities. The method uses uniform modality dropout during training, avoiding the brittle hand-tuning of per-modality dropout probabilities.
+- **Align the students.** A diffusion-based knowledge distillation module treats each single-modality feature as an incomplete version of the purified teacher feature. The student feature is refined toward the teacher in a compressed latent space.
+- **Keep inference practical.** Projection layers reduce feature dimensionality, a lightweight diffusion model performs the feature alignment, and DDIM sampling uses five deterministic denoising steps for efficient inference.
 
-1. **Purify**  
-   A meta-learning component estimates how much each modality should contribute, reducing the influence of noisy channels before fusion.
+## Method Details
 
-2. **Align**  
-   A diffusion-style distillation process transfers purified multimodal knowledge to student encoders, strengthening each single-modality branch with cross-modal context.
+In the **Purify** stage, PTA optimizes model parameters and modality weights in a nested loop. The inner loop trains the encoders, task head, and alignment module on the training set. The outer loop updates the modality weights on a validation set, so modalities that hurt task performance receive lower influence in the fused teacher representation.
 
-The main payoff is not only better multimodal performance, but also stronger **single-modality robustness** when some channels are unavailable.
+In the **Align** stage, the purified teacher feature is formed as a weighted sum of available modality features. Each student modality is projected into the same latent space and refined with diffusion-based distillation. A small noise adapter predicts how noisy the student feature is, blends it with Gaussian noise, and provides an adaptive starting point for the reverse denoising process.
 
-## Evaluation Highlights
+The result is a set of single-modality encoders that carry richer cross-modal knowledge. This matters because the model can still perform well when only one sensor stream remains available at test time.
 
-- Evaluated on **MM-Fi** and **XRF55**.
-- Targets settings with both pronounced representation gap and contamination effect.
-- Achieves state-of-the-art performance and improves the robustness of single-modality models under diverse missing-modality scenarios.
+## Evaluation
+
+The paper evaluates PTA on two large-scale multimodal human sensing benchmarks. **MM-Fi** is used for human pose estimation with depth, LiDAR, and Wi-Fi CSI modalities. **XRF55** is used for human action recognition with mmWave radar, Wi-Fi, and RFID modalities.
+
+On MM-Fi, PTA improves single-modality MPJPE over X-Fi by **12.0%** for Depth, **47.5%** for LiDAR, and **13.3%** for Wi-Fi CSI. It also improves several missing-modality combinations, including **D+L** by **27.7%**, **L+W** by **32.8%**, and **D+L+W** by **21.4%**.
+
+![MM-Fi pose estimation results](./assets/pta-mmfi-results.png)
+
+On XRF55, PTA achieves the best result across every evaluated modality combination. Compared with X-Fi, the single-modality accuracy increases by **6.13** points for Radar, **26.64** points for Wi-Fi, and **12.54** points for RFID. With all three RF modalities available, PTA reaches **95.87%** accuracy.
+
+![XRF55 action recognition results](./assets/pta-xrf55-results.png)
+
+## Ablation Findings
+
+The ablation study shows that the two stages are complementary. Removing diffusion-based alignment weakens several single-modality results, while removing meta-learning causes much larger degradation because the model loses its ability to suppress contaminated modalities.
+
+On MM-Fi, removing the meta-learning module raises D+L MPJPE from **64.68** to **148.65**, showing how strongly contamination can damage multimodal fusion. On XRF55, the full model still wins most settings, while a few pairwise cases show that diffusion alignment can be slightly sensitive when one modality is extremely noisy.
+
+![MM-Fi ablation results](./assets/pta-mmfi-ablation.png)
+
+![XRF55 ablation results](./assets/pta-xrf55-ablation.png)
+
+## Takeaways
+
+PTA's main lesson is that robust missing-modality sensing is not just a matter of better alignment. The multimodal teacher must first be made trustworthy. By explicitly purifying the teacher before distillation, PTA improves both multimodal fusion and the standalone strength of each sensor-specific encoder.
 
 ## Resources
 
 - [arXiv abstract](https://arxiv.org/abs/2604.05584)
+- [arXiv PDF](https://arxiv.org/pdf/2604.05584)
+- [Code](https://github.com/Vongolia11/PTA)
 
 ## Citation
 
 ```bibtex
-@inproceedings{weng2026pta,
+@inproceedings{weng2026purify,
   title = {Purify-then-Align: Towards Robust Human Sensing under Modality Missing with Knowledge Distillation from Noisy Multimodal Teacher},
   author = {Weng, Pengcheng and Qian, Yanyu and Xu, Yangxin and Wang, Fei},
   booktitle = {CVPR 2026 Workshop on Any-to-Any Multimodal Learning},

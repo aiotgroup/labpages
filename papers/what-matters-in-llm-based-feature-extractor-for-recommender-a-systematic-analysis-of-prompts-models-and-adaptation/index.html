@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>What Matters in LLM-Based Feature Extractor for Recommender? A Systematic Analysis of Prompts, Models, and Adaptation - XJTU AIoT Group</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="RecXplore is a modular diagnostic framework for understanding what actually matters when large language models are used as offline semantic feature extractors for sequential recommendation.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,19 +31,19 @@
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
           <h1>What Matters in LLM-Based Feature Extractor for Recommender? A Systematic Analysis of Prompts, Models, and Adaptation</h1>
-          <p class="paper-subtitle">K Shi, P Zhou, G Wang, H Ding, F Wang</p>
+          <p class="paper-subtitle">Kainan Shi, Peilin Zhou, Ge Wang, Han Ding, Fei Wang</p>
           <div class="paper-meta-row">
-            <span class="paper-pill">arXiv preprint arXiv:2509.14979, 2025</span>
-            <span class="paper-pill">2025</span>
-            <span class="paper-pill">LLM Systems</span>
-            <span class="paper-pill">XJTU AIoT Group</span>
+            <span class="paper-pill">arXiv preprint arXiv:2509.14979v3, 2026</span>
+            <span class="paper-pill">2026</span>
+            <span class="paper-pill">Recommender Systems</span>
+            <span class="paper-pill">XJTU, HKUST(GZ)</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">RecXplore is a modular diagnostic framework for understanding what actually matters when large language models are used as offline semantic feature extractors for sequential recommendation.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
             
             
-            
+            <a class="paper-link-chip" href="https://arxiv.org/abs/2509.14979">Paper</a>
             
             
           </div>
@@ -51,11 +51,11 @@
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for What Matters in LLM-Based Feature Extractor for Recommender? A Systematic Analysis of Prompts, Models, and Adaptation">
+            <img src="./assets/recxplore-framework.png" alt="RecXplore modular diagnostic framework for LLM-based feature extractors in recommender systems">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIoT Group</p>
+            <p>XJTU, HKUST(GZ)</p>
           </aside>
         </aside>
       </div>
@@ -66,15 +66,15 @@
         <div class="paper-metric-grid">
           <article class="paper-panel paper-metric-card">
             <strong>Venue</strong>
-            <p>arXiv preprint arXiv:2509.14979, 2025</p>
+            <p>arXiv preprint arXiv:2509.14979v3, 2026</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>LLM Systems</p>
+            <p>Recommender Systems</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIoT Group</p>
+            <p>XJTU, HKUST(GZ)</p>
           </article>
         </div>
       </div>
@@ -84,28 +84,158 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
-<h2>Main Contributions</h2>
+<p>This paper studies a practical way to use large language models in recommender systems: not as online generative recommenders, but as <strong>offline feature extractors</strong> that turn item metadata into semantic embeddings for conventional sequential recommenders. This paradigm is attractive because expensive LLM inference can be done offline, while online serving only needs cached embeddings and a lightweight recommendation model.</p>
+<p>The challenge is that existing LLM-enhanced recommenders mix many design choices at once: prompt construction, LLM adaptation, token aggregation, dimensionality reduction, adapter architecture, and ID feature fusion. Because these choices are tightly coupled, it is hard to know which part truly improves recommendation quality.</p>
+<p>The paper proposes <strong>RecXplore</strong>, a controlled modular diagnostic framework that decomposes the LLM-as-feature-extractor pipeline into four modules and evaluates representative choices in isolation. The headline finding is simple and useful: carefully combining robust design choices beats more complicated monolithic pipelines, reaching up to <strong>18.7% relative improvement in NDCG@5</strong> and <strong>15.1% in HR@5</strong> over strong baselines.</p>
+<p>The institution field is abbreviated at the university level: <strong>XJTU</strong> and <strong>HKUST(GZ)</strong>.</p>
+<figure class="markdown-figure">
+  <img src="./assets/llmrec-paradigms.png" alt="Two paradigms for using LLMs in recommender systems">
+  <figcaption>Figure 1. The paper contrasts LLM-centric generation with the more deployment-friendly LLM-as-feature-extractor paradigm.</figcaption>
+</figure>
+
+<h2>RecXplore Framework</h2>
+<p>RecXplore factorizes the pipeline into four modules:</p>
 <ul>
-<li>Research theme: LLM Systems.</li>
-<li>Published at arXiv preprint arXiv:2509.14979, 2025.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li><strong>Data Processing</strong> converts item attributes such as title, brand, category, and description into natural language prompts.</li>
+<li><strong>Feature Extraction</strong> uses an LLM to encode prompts into semantic item embeddings, while testing fine-tuning and token aggregation strategies.</li>
+<li><strong>Feature Adaptation</strong> compresses high-dimensional LLM embeddings into the latent space required by sequential recommenders.</li>
+<li><strong>Sequential Modeling</strong> evaluates the resulting representations inside standard backbones such as SASRec, BERT4Rec, and GRU4Rec.</li>
 </ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<p>This decomposition lets the paper ask a sharper question: if the experimental setup is controlled, which choices consistently help?</p>
+<figure class="markdown-figure">
+  <img src="./assets/recxplore-framework.png" alt="RecXplore framework with data processing, feature extraction, feature adaptation, and sequential modeling modules">
+  <figcaption>Figure 2. RecXplore evaluates each design dimension independently before assembling the best-performing configuration.</figcaption>
+</figure>
+
+<h2>Design Space And Best Practices</h2>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Module</th>
+<th>Choices Studied</th>
+<th>Main Finding</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Data processing</td>
+<td>Attribute flattening, keyword extraction, summarization, knowledge expansion</td>
+<td>Simple attribute flattening is the most robust prompt strategy.</td>
+</tr>
+<tr>
+<td>Feature aggregation</td>
+<td>Mean pooling, max pooling, last token, explicit one-word limitation</td>
+<td>Mean pooling consistently works best by preserving distributed token evidence.</td>
+</tr>
+<tr>
+<td>LLM adaptation</td>
+<td>Frozen, CPT, SFT, SCFT, CPT+SFT</td>
+<td>The two-stage CPT+SFT pipeline gives the most consistent gains.</td>
+</tr>
+<tr>
+<td>Feature adaptation</td>
+<td>Linear, MLP, PQ, MoE, with or without PCA</td>
+<td>MoE is the strongest adapter; PCA+MoE is the best overall configuration.</td>
+</tr>
+<tr>
+<td>ID fusion</td>
+<td>Replace, concatenate, align semantic and ID embeddings</td>
+<td>With a strong MoE adapter, directly replacing ID embeddings is usually optimal.</td>
+</tr>
+</tbody></table></div>
+<p>The resulting optimized configuration uses flattened item attributes, mean pooling, CPT+SFT, PCA-enhanced MoE adaptation, and direct replacement of ID embeddings with semantic vectors.</p>
+<figure class="markdown-figure">
+  <img src="./assets/prompt-templates.png" alt="Prompt templates for keyword extraction, summarization, and knowledge expansion">
+  <figcaption>Figure 3. The paper compares LLM-assisted prompt transformations against a simple flattened-attribute baseline.</figcaption>
+</figure>
+
+<h2>Experimental Setup</h2>
+<p>The experiments use four public sequential recommendation benchmarks: <strong>Beauty</strong>, <strong>Fashion</strong>, and <strong>Games</strong> from Amazon product reviews, plus <strong>Steam</strong>. Evaluation uses <strong>HR@5/10</strong> and <strong>NDCG@5/10</strong>, with 100 randomly sampled uninteracted items per test instance and three random seeds.</p>
+<p>The main configuration uses <strong>LLaMA2-7B</strong> as the feature extractor. LLM outputs are 4096-dimensional and can be reduced to 1536 dimensions with PCA before being projected into the 128-dimensional recommender space. Fine-tuning uses LoRA with rank 8 and scaling factor 32. Experiments were run on 8 NVIDIA L20 GPUs.</p>
+<h2>Key Results</h2>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Question</th>
+<th>Representative Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Does prompt rewriting help?</td>
+<td>Attribute flattening reaches 0.5592 HR@5 and 0.7106 HR@10 on Steam, and is the most robust strategy overall.</td>
+</tr>
+<tr>
+<td>Which aggregation strategy works best?</td>
+<td>Mean pooling wins across all datasets; max pooling drops to 0.1801 HR@5 on Beauty, less than half of mean pooling.</td>
+</tr>
+<tr>
+<td>Does LLM adaptation matter?</td>
+<td>On Beauty, HR@5 rises from 0.4282 with a frozen LLM to 0.4812 with CPT+SFT.</td>
+</tr>
+<tr>
+<td>Which adapter is strongest?</td>
+<td>PCA+MoE reaches 0.6464 HR@5 on Games and 0.6227 HR@5 on Steam.</td>
+</tr>
+<tr>
+<td>Are ID embeddings still needed?</td>
+<td>With MoE, replacing ID embeddings with semantic embeddings is better than concatenation or alignment.</td>
+</tr>
+</tbody></table></div>
+<p>Under the SASRec backbone, the final RecXplore configuration achieves:</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Dataset</th>
+<th align="right">HR@5 / HR@10</th>
+<th align="right">NDCG@5 / NDCG@10</th>
+<th>Relative Gain Over Strongest Baseline</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Beauty</td>
+<td align="right">0.5066 / 0.6053</td>
+<td align="right">0.3957 / 0.4268</td>
+<td>+12.3% HR@5, +14.4% NDCG@5</td>
+</tr>
+<tr>
+<td>Games</td>
+<td align="right">0.6464 / 0.7675</td>
+<td align="right">0.4896 / 0.5289</td>
+<td>+12.7% HR@5, +18.7% NDCG@5</td>
+</tr>
+<tr>
+<td>Fashion</td>
+<td align="right">0.5544 / 0.6112</td>
+<td align="right">0.5088 / 0.5282</td>
+<td>+7.3% HR@5, +8.0% NDCG@5</td>
+</tr>
+<tr>
+<td>Steam</td>
+<td align="right">0.6227 / 0.7683</td>
+<td align="right">0.4612 / 0.5062</td>
+<td>+7.2% HR@5, +7.0% NDCG@5</td>
+</tr>
+</tbody></table></div>
+<p>The improvements also hold when the optimized configuration is applied to GRU4Rec and BERT4Rec, suggesting that the design choices are not tied to a single downstream recommender.</p>
+<figure class="markdown-figure">
+  <img src="./assets/feature-extractor-comparison.png" alt="Performance comparison of feature extractors on Beauty and Games datasets">
+  <figcaption>Figure 4. Larger LLM-based feature extractors outperform static embeddings and small encoder-only models on Beauty and Games.</figcaption>
+</figure>
+
+<h2>Efficiency And Deployment</h2>
+<p>RecXplore is designed for deployment-friendly recommendation. All semantic item embeddings are precomputed and cached offline, so the online system only performs standard lookup and lightweight recommendation inference. This means the stronger MoE adapter does not introduce extra online LLM latency.</p>
+<p>The paper reports that, on Beauty with about 57k items, CPT+SFT adds about <strong>45 minutes</strong> of offline training compared with the <strong>1.5-hour</strong> frozen baseline. Feature generation with MoE adds only about <strong>0.04 seconds</strong> total overhead over a linear adapter for the full dataset. The trade-off is therefore concentrated offline, while online serving remains efficient.</p>
 <h2>Resources</h2>
 <ul>
-<li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
+<li>Paper: <a href="https://arxiv.org/abs/2509.14979">https://arxiv.org/abs/2509.14979</a></li>
+<li>Code status: the PDF states that code will be released upon acceptance; no public code URL is provided in the paper.</li>
 </ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@inproceedings{what-matters-in-llm-based-feature-extractor-for-recommender-a-systematic-analysis-of-prompts-models-and-adaptation,
+<pre><code class="language-bibtex">@article{shi2026what,
   title = {What Matters in LLM-Based Feature Extractor for Recommender? A Systematic Analysis of Prompts, Models, and Adaptation},
-  author = {K Shi and P Zhou and G Wang and H Ding and F Wang},
-  booktitle = {arXiv preprint arXiv:2509.14979, 2025},
-  year = {2025}
+  author = {Shi, Kainan and Zhou, Peilin and Wang, Ge and Ding, Han and Wang, Fei},
+  journal = {arXiv preprint arXiv:2509.14979},
+  year = {2026},
+  note = {Version 3, January 28, 2026}
 }
 </code></pre>
 

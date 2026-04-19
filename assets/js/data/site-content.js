@@ -839,10 +839,28 @@
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
+            name: "Jijun Liu (刘纪君)",
+            role: "Incoming M.Sc. Student",
+            photo: "./assets/media/people/2026jijun-liu.jpg",
+            photoAlt: "Sample portrait for Jijun Liu",
+            bio:
+              "",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
             name: "Baorui Zhang (张宝瑞)",
             role: "Incoming M.Eng. Student",
             photo: "./assets/media/people/2026baorui-zhang.jpg",
             photoAlt: "Sample portrait for Baorui Zhang",
+            bio:
+              "",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
+            name: "Yitao Li (李艺韬)",
+            role: "Incoming M.Eng. Student",
+            photo: "./assets/media/people/2026yitao-li.jpg",
+            photoAlt: "Sample portrait for Yitao Li",
             bio:
               "",
             palette: ["#5d4628", "#ffe6c8"]
@@ -854,6 +872,15 @@
             photoAlt: "Sample portrait for Xilei Han",
             bio:
               "",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
+            name: "Kexin Ren (任珂心)",
+            role: "Undergraduate Student, Bachelor Thesis",
+            photo: "./assets/media/people/2026kexin-ren.jpg",
+            photoAlt: "Sample portrait for Kexin Ren",
+            bio:
+              "Working on wearable device sensing for her bachelor thesis in the group.",
             palette: ["#5d4628", "#ffe6c8"]
           },
         ]
@@ -987,6 +1014,15 @@
             photoAlt: "Sample portrait for Ruohua Wu",
             bio:
               "Summer research intern in 2025, and will pursue a master’s degree in the School of Mechanical Engineering at Xi’an Jiaotong University in Fall 2026.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Kai Li (李楷)",
+            role: "Bachelor of Engineering",
+            photo: "./assets/media/people/2025kai-li.jpg",
+            photoAlt: "Sample portrait for Kai Li",
+            bio:
+              "After graduating in 2025, he went on to pursue a master's degree in the School of Chemistry at Xi'an Jiaotong University.",
             palette: ["#3d376a", "#e0dcff"]
           },
           {

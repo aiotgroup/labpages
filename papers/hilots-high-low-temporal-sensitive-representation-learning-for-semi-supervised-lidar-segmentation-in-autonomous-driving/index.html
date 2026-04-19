@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HiLoTs: High-Low Temporal Sensitive Representation Learning for Semi-Supervised LiDAR Segmentation in Autonomous Driving - XJTU AIoT Group</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="HiLoTs is a semi-supervised LiDAR semantic segmentation framework that learns separate high- and low-temporal-sensitivity representations from continuous driving point clouds.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,19 +31,19 @@
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
           <h1>HiLoTs: High-Low Temporal Sensitive Representation Learning for Semi-Supervised LiDAR Segmentation in Autonomous Driving</h1>
-          <p class="paper-subtitle">R.D. Lin, Pengcheng Weng, Yinqiao Wang, Ding Han, Jinsong Han, Fei Wang#</p>
+          <p class="paper-subtitle">R.D. Lin, Pengcheng Weng, Yinqiao Wang, Han Ding, Jinsong Han, Fei Wang</p>
           <div class="paper-meta-row">
             <span class="paper-pill">IEEE/CVF CVPR 2025</span>
             <span class="paper-pill">2025</span>
-            <span class="paper-pill">Efficient AI Systems</span>
-            <span class="paper-pill">XJTU AIoT Group</span>
+            <span class="paper-pill">Autonomous Driving</span>
+            <span class="paper-pill">XJTU, ZJU</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">HiLoTs is a semi-supervised LiDAR semantic segmentation framework that learns separate high- and low-temporal-sensitivity representations from continuous driving point clouds.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
             
-            
-            
+            <a class="paper-link-chip" href="https://github.com/rdlin118/HiLoTs">Code</a>
+            <a class="paper-link-chip" href="https://openaccess.thecvf.com/content/CVPR2025/papers/Lin_HiLoTs_High-Low_Temporal_Sensitive_Representation_Learning_for_Semi-Supervised_LiDAR_Segmentation_CVPR_2025_paper.pdf">Paper</a>
             
             
           </div>
@@ -51,11 +51,11 @@
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for HiLoTs: High-Low Temporal Sensitive Representation Learning for Semi-Supervised LiDAR Segmentation in Autonomous Driving">
+            <img src="./assets/hilots-pipeline.png" alt="HiLoTs pipeline for semi-supervised LiDAR segmentation">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIoT Group</p>
+            <p>XJTU, ZJU</p>
           </aside>
         </aside>
       </div>
@@ -70,11 +70,11 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Efficient AI Systems</p>
+            <p>Autonomous Driving</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIoT Group</p>
+            <p>XJTU, ZJU</p>
           </article>
         </div>
       </div>
@@ -84,27 +84,163 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
-<h2>Main Contributions</h2>
+<p>LiDAR semantic segmentation is essential for autonomous driving, but dense point-wise annotation is expensive. HiLoTs addresses this with a semi-supervised setup that uses a small portion of labeled LiDAR frames together with many unlabeled frames.</p>
+<p>The core observation is spatially intuitive: nearby regions such as road, sidewalk, and vehicles tend to remain relatively stable across consecutive driving frames, while distant regions such as vegetation, buildings, fences, and pedestrians change more rapidly in category and shape. HiLoTs converts this into a model design by learning <strong>High Temporal Sensitivity Flow (HTSF)</strong> for distant dynamic regions and <strong>Low Temporal Sensitivity Flow (LTSF)</strong> for nearby stable regions.</p>
+<p>The institution field is abbreviated at the university level: <strong>XJTU</strong> and <strong>ZJU</strong>.</p>
+<figure class="markdown-figure">
+  <img src="./assets/hilots-temporal-sensitivity.png" alt="High and low temporal sensitivity regions in LiDAR point clouds">
+  <figcaption>Figure 1. Nearby objects are less sensitive to temporal changes, while farther objects show stronger category and shape variation.</figcaption>
+</figure>
+
+<h2>Method</h2>
+<p>HiLoTs has three stages:</p>
 <ul>
-<li>Research theme: Efficient AI Systems.</li>
-<li>Published at IEEE/CVF CVPR 2025.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li><strong>Voxelization</strong> converts unordered point clouds into cylindrical voxel grids, then extracts spatial features with a backbone network.</li>
+<li><strong>HiLoTs representation learning</strong> uses a student-teacher semi-supervised framework and a HiLoTs Embedding Unit to model temporal sensitivity.</li>
+<li><strong>Voxel-to-point refinement</strong> maps voxel-level predictions back to point-level semantic segmentation results.</li>
 </ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<p>The framework follows the Mean Teacher semi-supervised paradigm. Labeled frames train the student branch with supervised focal loss, while unlabeled frames are processed by the teacher branch and aligned through consistency loss. The teacher is updated by exponential moving average and is used during inference.</p>
+<figure class="markdown-figure">
+  <img src="./assets/hilots-pipeline.png" alt="HiLoTs segmentation pipeline with voxelization, student-teacher learning, and voxel-to-point refinement">
+  <figcaption>Figure 2. HiLoTs combines cylindrical voxelization, student-teacher semi-supervised training, temporal sensitivity modeling, and point-wise refinement.</figcaption>
+</figure>
+
+<h2>HiLoTs Embedding Unit</h2>
+<p>The <strong>HiLoTs Embedding Unit (HEU)</strong> is the main architectural contribution. It separates far-range and near-range cylindrical voxel features before temporal modeling:</p>
+<ul>
+<li><strong>Multi-Voxel Aggregation (MVA)</strong> groups neighboring voxels into super-voxels, reducing attention cost while preserving coherent local semantics.</li>
+<li><strong>HTSF</strong> processes far-range voxels, where temporal and spatial changes are stronger.</li>
+<li><strong>LTSF</strong> processes close-range voxels, where categories and shapes are more stable over time.</li>
+<li><strong>Cross-attention</strong> lets high- and low-sensitivity representations interact before they are fused with the segmentation bottleneck feature map.</li>
+</ul>
+<figure class="markdown-figure">
+  <img src="./assets/hilots-embedding-unit.png" alt="HiLoTs Embedding Unit with multi-voxel aggregation, HTSF, LTSF, and cross-attention">
+  <figcaption>Figure 3. HEU explicitly models high- and low-temporal-sensitivity regions, then fuses them into the segmentation decoder.</figcaption>
+</figure>
+
+<h2>Experimental Setup</h2>
+<p>HiLoTs is evaluated on two autonomous-driving LiDAR benchmarks:</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Dataset</th>
+<th>Sensor / Scale</th>
+<th align="right">Classes</th>
+<th>Evaluation Split</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SemanticKITTI</td>
+<td>64-beam Velodyne HDL-64E at 10 Hz; 19,120 training scenes</td>
+<td align="right">19</td>
+<td>Sequence 08 validation set with 4,070 scenes</td>
+</tr>
+<tr>
+<td>nuScenes</td>
+<td>32-beam Velodyne HDL-32E at 20 Hz; 27,287 training scenes</td>
+<td align="right">16</td>
+<td>Validation set with 5,850 scenes</td>
+</tr>
+</tbody></table></div>
+<p>The paper reports mean Intersection-over-Union (<strong>mIoU</strong>) under <strong>1%</strong>, <strong>10%</strong>, <strong>20%</strong>, and <strong>50%</strong> labeled-frame ratios. HiLoTs is trained for 50,000 iterations with AdamW, batch size 16 on four RTX 3090 GPUs. The temporal input length is set to <strong>t = 5</strong>, and the cylindrical voxel grid resolution is <strong>240 x 180 x 20</strong>.</p>
+<h2>Main Results</h2>
+<p>HiLoTs is a LiDAR-only method, yet it performs competitively with LiDAR+Camera semi-supervised approaches while avoiding camera input and RGB annotation.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Method</th>
+<th>Modality</th>
+<th align="right">SemanticKITTI 1 / 10 / 20 / 50</th>
+<th align="right">nuScenes 1 / 10 / 20 / 50</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cylinder3D</td>
+<td>LiDAR</td>
+<td align="right">45.4 / 56.1 / 57.8 / 58.7</td>
+<td align="right">53.4 / 63.4 / 67.0 / 71.9</td>
+</tr>
+<tr>
+<td>LaserMix</td>
+<td>LiDAR</td>
+<td align="right">50.6 / 60.0 / 61.9 / 62.3</td>
+<td align="right">55.3 / 69.9 / 71.8 / 73.2</td>
+</tr>
+<tr>
+<td>DDSemi</td>
+<td>LiDAR</td>
+<td align="right">59.3 / 65.1 / 66.3 / 67.0</td>
+<td align="right">58.1 / 70.2 / 74.0 / 76.5</td>
+</tr>
+<tr>
+<td>FRNet</td>
+<td>LiDAR</td>
+<td align="right">55.8 / 64.8 / 65.2 / 65.4</td>
+<td align="right">61.2 / 72.2 / 74.6 / 75.4</td>
+</tr>
+<tr>
+<td>LaserMix++</td>
+<td>LiDAR+Camera</td>
+<td align="right">63.2 / 67.5 / 67.7 / 68.6</td>
+<td align="right">65.3 / 75.3 / 75.2 / 76.3</td>
+</tr>
+<tr>
+<td>HiLoTs</td>
+<td>LiDAR</td>
+<td align="right">58.6 / 65.7 / 66.5 / 67.6</td>
+<td align="right">58.7 / 72.2 / 75.2 / 76.9</td>
+</tr>
+</tbody></table></div>
+<p>On SemanticKITTI, HiLoTs improves over strong LiDAR-only semi-supervised baselines at 10%, 20%, and 50% labeled ratios. On nuScenes, it reaches 76.9 mIoU at the 50% labeled ratio and remains close to LiDAR+Camera methods without using image data.</p>
+<figure class="markdown-figure">
+  <img src="./assets/hilots-error-visualization.png" alt="HiLoTs error-map visualization compared with LaserMix and ground truth">
+  <figcaption>Figure 4. Error-map visualization shows that HiLoTs improves distant-object segmentation, where temporal variation is stronger.</figcaption>
+</figure>
+
+<h2>Ablation Findings</h2>
+<p>The ablation study confirms that both high- and low-temporal-sensitivity modeling matter, with the complete HEU giving the strongest results.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>HEU Variant</th>
+<th align="right">SemanticKITTI 10 / 20 / 50</th>
+<th align="right">nuScenes 10 / 20 / 50</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>None</td>
+<td align="right">59.2 / 60.3 / 60.9</td>
+<td align="right">66.8 / 68.4 / 69.2</td>
+</tr>
+<tr>
+<td>HTSF only</td>
+<td align="right">63.4 / 63.9 / 64.5</td>
+<td align="right">69.2 / 71.8 / 74.3</td>
+</tr>
+<tr>
+<td>LTSF only</td>
+<td align="right">62.8 / 63.5 / 64.3</td>
+<td align="right">68.5 / 71.2 / 73.9</td>
+</tr>
+<tr>
+<td>Full HEU</td>
+<td align="right">65.7 / 66.5 / 67.6</td>
+<td align="right">72.2 / 75.2 / 76.9</td>
+</tr>
+</tbody></table></div>
+<p>The fusion study also shows that cross-attention is better than simple addition or concatenation. Using the low-sensitivity flow as the query reaches the best overall configuration: <strong>65.7 / 66.5 / 67.6</strong> mIoU on SemanticKITTI and <strong>72.2 / 75.2 / 76.9</strong> on nuScenes under 10%, 20%, and 50% labels.</p>
+<p>The Multi-Voxel Aggregation design is also important. Compared with random or density-based voxel selection, aggregation reaches <strong>65.7 / 66.5 / 67.6</strong> on SemanticKITTI and <strong>72.2 / 75.2 / 76.9</strong> on nuScenes, outperforming alternatives by roughly 2-3 mIoU in many settings.</p>
 <h2>Resources</h2>
 <ul>
-<li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
+<li>Code: <a href="https://github.com/rdlin118/HiLoTs">https://github.com/rdlin118/HiLoTs</a></li>
+<li>Paper: <a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Lin_HiLoTs_High-Low_Temporal_Sensitive_Representation_Learning_for_Semi-Supervised_LiDAR_Segmentation_CVPR_2025_paper.pdf">CVF Open Access PDF</a></li>
 </ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@inproceedings{hilots-high-low-temporal-sensitive-representation-learning-for-semi-supervised-lidar-segmentation-in-autonomous-driving,
+<pre><code class="language-bibtex">@inproceedings{lin2025hilots,
   title = {HiLoTs: High-Low Temporal Sensitive Representation Learning for Semi-Supervised LiDAR Segmentation in Autonomous Driving},
-  author = {R.D. Lin and Pengcheng Weng and Yinqiao Wang and Ding Han and Jinsong Han and Fei Wang#},
-  booktitle = {IEEE/CVF CVPR 2025},
+  author = {Lin, R. D. and Weng, Pengcheng and Wang, Yinqiao and Ding, Han and Han, Jinsong and Wang, Fei},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages = {1429--1438},
   year = {2025}
 }
 </code></pre>
