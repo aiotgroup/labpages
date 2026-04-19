@@ -234,24 +234,25 @@
   function renderPublicationsPage() {
     const years = SiteUI.uniqueYears(SiteContent.publications);
     const featuredCount = SiteContent.publications.length;
+    const latestPaper = SiteContent.publications[0];
 
     return `
       ${pageHeroMarkup(
         {
           eyebrow: "Publications",
-          title: "A local, editable publication archive.",
+          title: "Publications from the XJTU AIoT Group.",
           description:
-            "The list below is stored in a local data file, and each paper opens a dedicated detail page generated from a local Markdown document.",
+            "Explore our work on wireless sensing, ubiquitous computing, multimodal learning, and AI systems for understanding people and the physical world.",
           actions: [
-            { label: "Open Example Paper", href: localPaperHref("qserve-w4a8kv4-quantization-and-system-co-design-for-efficient-llm-serving"), kind: "secondary" },
-            { label: "Back To About", href: "./index.html", kind: "primary" }
+            { label: "Read Latest Paper", href: localPaperHref(latestPaper.slug), kind: "secondary" },
+            { label: "About The Group", href: "./index.html", kind: "primary" }
           ]
         },
         `
           <div class="aside-card">
-            <p class="eyebrow">Archive Stats</p>
-            <h3>${featuredCount} papers</h3>
-            <p>Grouped from the source publication list and rendered as local detail pages with Markdown-based body content.</p>
+            <p class="eyebrow">Research Output</p>
+            <h3>${featuredCount} publications</h3>
+            <p>Browse peer-reviewed papers, preprints, and project pages spanning sensing datasets, learning methods, and real-world intelligent systems.</p>
           </div>
         `
       )}
@@ -542,16 +543,16 @@
       ${pageHeroMarkup(
         {
           eyebrow: "Awards",
-          title: "Competition wins, paper awards, and honors.",
+          title: "Recognitions earned by our students and faculty.",
           description:
-            "This page organizes awards by type so the lab can maintain a public record of recognition for systems work, publications, and individual milestones.",
-          actions: [{ label: "Meet The Team", href: "./team.html", kind: "primary" }]
+            "A curated record of student competition results, paper awards, academic honors, and professional service milestones from the XJTU AIoT Group.",
+          actions: [{ label: "Meet Our Team", href: "./team.html", kind: "primary" }]
         },
         `
           <div class="aside-card">
-            <p class="eyebrow">Sections</p>
-            <h3>Competition, paper awards, honors.</h3>
-            <p>Each section is editable from the same structured content file.</p>
+            <p class="eyebrow">Recognition Areas</p>
+            <h3>Competitions, papers, and honors.</h3>
+            <p>Awards are grouped by recognition type and ordered with the newest achievements first.</p>
           </div>
         `
       )}

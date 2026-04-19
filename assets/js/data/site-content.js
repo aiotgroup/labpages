@@ -189,16 +189,33 @@
     quickFacts: [
       "School of Software Engineering, Xi'an Jiaotong University",
       "Contact: feynmanw[at]xjtu.edu.cn",
-      "Executive Committee Member, CCF Technical Committee on Ubiquitous Computing",
-      "Executive Committee Member, CCF Technical Committee on Internet of Things"
+      "IEEE Senior Member (Apr 2026)",
+      "Executive Committee Member, CCF Technical Committee on Internet of Things (Sep 2025)",
+      "Executive Committee Member, CCF Technical Committee on Ubiquitous Computing (Aug 2025)"
     ],
     roles: [
       "Associate Professor and Ph.D. Supervisor, School of Software Engineering, Xi'an Jiaotong University",
       "Postdoctoral Researcher in Control Science and Engineering, Xi'an Jiaotong University",
-      "Executive Committee Member, CCF Technical Committee on Ubiquitous Computing",
-      "Executive Committee Member, CCF Technical Committee on Internet of Things"
+      "IEEE Senior Member",
+      "Executive Committee Member, CCF Technical Committee on Internet of Things",
+      "Executive Committee Member, CCF Technical Committee on Ubiquitous Computing"
     ],
     appointments: [
+      {
+        year: "Apr 19, 2026",
+        title: "IEEE Senior Member",
+        text: "Promoted to IEEE Senior Member."
+      },
+      {
+        year: "Sep 2025",
+        title: "Executive Committee Member",
+        text: "CCF Technical Committee on Internet of Things."
+      },
+      {
+        year: "Aug 2025",
+        title: "Executive Committee Member",
+        text: "CCF Technical Committee on Ubiquitous Computing."
+      },
       {
         year: "Mar 2024 - Present",
         title: "Associate Professor and Ph.D. Supervisor",
@@ -244,8 +261,9 @@
       {
         title: "Leadership and Memberships",
         items: [
-          "Executive Committee Member, CCF Technical Committee on Ubiquitous Computing",
-          "Executive Committee Member, CCF Technical Committee on Internet of Things"
+          "IEEE Senior Member",
+          "Executive Committee Member, CCF Technical Committee on Internet of Things",
+          "Executive Committee Member, CCF Technical Committee on Ubiquitous Computing"
         ]
       },
       {
@@ -597,92 +615,64 @@
   SiteContent.awards = {
     competition: [
       {
-        year: "2023",
-        title: "1st Place Award",
-        org: "ACM Quantum Computing for Drug Discovery Contest @ ICCAD 2023",
-        people: "QuantumNAS team",
-        note: "Recognized for top performance in a competition setting that connects quantum computing research to practical discovery workflows."
+        year: "Nov 29, 2025",
+        title: "Second Prize",
+        org: "China Graduate Intelligent Construction Innovation Competition @ Nantong",
+        people: "Shengyao Ding, Tingting Zhang",
+        note: "Recognized in the national competition for intelligent construction innovation."
       },
       {
-        year: "2022",
-        title: "First Place (1/150)",
-        org: "ACM/IEEE TinyML Design Contest, Memory Occupation Track",
-        people: "HAT / TinyML team",
-        note: "Demonstrated strong end-to-end optimization under strict deployment constraints."
-      },
-      {
-        year: "2021",
-        title: "First Place",
-        org: "AI Driving Olympics, nuScenes Semantic Segmentation @ ICRA",
-        people: "SPVNAS team",
-        note: "A notable win for efficient 3D understanding and autonomous driving workloads."
-      },
-      {
-        year: "2020",
-        title: "First Place",
-        org: "Low-Power Computer Vision Challenge, CPU Detection / FPGA @ CVPR",
-        people: "OFA team",
-        note: "Illustrates the lab's consistent strength in resource-constrained vision systems."
+        year: "Nov 10, 2025",
+        title: "Second Prize",
+        org: "China Graduate Contest on Smart-City Technology and Creative Design @ Wuhan",
+        people: "Pei Li, Jiaxi Yin",
+        note: "Recognized in the national smart-city technology and creative design competition."
       }
     ],
     paperAwards: [
       {
-        year: "2024",
+        year: "2019",
         title: "Best Paper Award",
-        org: "MLSys 2024",
-        people: "AWQ team",
-        note: "Recognition for activation-aware quantization work with broad downstream adoption."
-      },
-      {
-        year: "2023",
-        title: "Best Demo Award",
-        org: "DAC University Demo",
-        people: "SpAtten team",
-        note: "Highlights the lab's strength in turning research ideas into compelling systems demonstrations."
-      },
-      {
-        year: "2023",
-        title: "Top-5 Cited Paper in 50 Years of ISCA",
-        org: "ISCA retrospective recognition",
-        people: "EIE retrospective team",
-        note: "A landmark signal of the long-term impact of sparse and compressed inference research."
-      },
-      {
-        year: "2017 / 2016",
-        title: "Best Paper Awards",
-        org: "FPGA 2017 and ICLR 2016",
-        people: "Fei Wang team",
-        note: "Foundational recognition for efficient neural network compression and deployment work."
+        org: "IEEE GLOBECOM 2019",
+        people: "Fei Wang, Jinsong Han, Feng Lin, Kui Ren",
+        note: "WiPIN: Operation-free Passive Person Identification Using Wi-Fi Signals received the Best Paper Award."
       }
     ],
     honors: [
       {
-        year: "2024",
-        title: "Rising Stars in ML and Systems",
-        org: "MLCommons",
-        people: "Qinghao Hu",
-        note: "Recognized for research at the intersection of efficient learning systems and scalable model training."
-      },
-      {
-        year: "2023",
-        title: "Google PhD Fellowship",
-        org: "Google",
-        people: "Qinghao Hu",
-        note: "Awarded for promising contributions to machine learning systems."
-      },
-      {
-        year: "2023",
-        title: "Sloan Research Fellowship",
-        org: "Alfred P. Sloan Foundation",
+        year: "Apr 19, 2026",
+        title: "IEEE Senior Member",
+        org: "IEEE",
         people: "Fei Wang",
-        note: "Highlights broader academic impact beyond individual papers and projects."
+        note: "Promoted to IEEE Senior Member on April 19, 2026."
       },
       {
-        year: "2022",
-        title: "Qualcomm Innovation Fellowship",
-        org: "Qualcomm",
-        people: "Ji Lin, Yujun Lin, Zhijian Liu, Han Cai, Hanrui Wang",
-        note: "Multiple lab members have been recognized for strong research potential and technical depth."
+        year: "Oct 2025",
+        title: "Special Scholarship",
+        org: "Xi'an Jiaotong University",
+        people: "Tingting Zhang",
+        note: "Received the Special Scholarship in October 2025."
+      },
+      {
+        year: "Sep 2025",
+        title: "Executive Committee Member",
+        org: "CCF Technical Committee on Internet of Things",
+        people: "Fei Wang",
+        note: "Served as an Executive Committee Member of the CCF Technical Committee on Internet of Things."
+      },
+      {
+        year: "Aug 2025",
+        title: "Executive Committee Member",
+        org: "CCF Technical Committee on Ubiquitous Computing",
+        people: "Fei Wang",
+        note: "Served as an Executive Committee Member of the CCF Technical Committee on Ubiquitous Computing."
+      },
+      {
+        year: "Jun 2025",
+        title: "Excellent Graduate Thesis",
+        org: "Xi'an Jiaotong University",
+        people: "Bo Lan",
+        note: "His thesis was recognized as an excellent graduate thesis in June 2025."
       }
     ]
   };
@@ -1150,6 +1140,15 @@
         tag: "Celebration",
         image: "./assets/media/gallery/2025biyekuaile-xian.jpg",
         photoAlt: "Poster session preparation snapshot",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
+        title: "June 2025 Graduation Celebration",
+        date: "June, 2025",
+        caption: "Yixi Xiang graduated with top academic honors (ranked 1st).",
+        tag: "Celebration",
+        image: "./assets/media/gallery/2025xyx-graduation-celebration-card.jpg",
+        photoAlt: "Yixi Xiang graduation celebration collage",
         palette: ["#214c71", "#e4f2ff"]
       },
       {
