@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MobiDiary: Autoregressive Action Captioning with Wearable Devices and Wireless Signals - XJTU AIoT Group</title>
-  <meta name="description" content="MobiDiary generates natural-language descriptions of daily activities directly from IMU and Wi-Fi signals through a unified sensor encoder and an autoregressive Transformer decoder.">
+  <meta name="description" content="MobiDiary turns raw IMU and Wi-Fi CSI streams into free-form daily activity captions with a unified sensor encoder, placement-aware physical priors, and autoregressive language generation.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -36,14 +36,14 @@
             <span class="paper-pill">arXiv preprint arXiv:2601.08204, 2026</span>
             <span class="paper-pill">2026</span>
             <span class="paper-pill">Ubiquitous Sensing</span>
-            <span class="paper-pill">XJTU AIoT Group</span>
+            <span class="paper-pill">XJTU, NTU, ZJU</span>
           </div>
-          <p class="paper-summary">MobiDiary generates natural-language descriptions of daily activities directly from IMU and Wi-Fi signals through a unified sensor encoder and an autoregressive Transformer decoder.</p>
+          <p class="paper-summary">MobiDiary turns raw IMU and Wi-Fi CSI streams into free-form daily activity captions with a unified sensor encoder, placement-aware physical priors, and autoregressive language generation.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
             
             
-            
+            <a class="paper-link-chip" href="https://arxiv.org/abs/2601.08204">Paper</a>
             
             
           </div>
@@ -51,11 +51,11 @@
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for MobiDiary: Autoregressive Action Captioning with Wearable Devices and Wireless Signals">
+            <img src="./assets/mobidiary-sensing-caption.png" alt="MobiDiary sensing streams and generated daily activity caption">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIoT Group</p>
+            <p>XJTU, NTU, ZJU</p>
           </aside>
         </aside>
       </div>
@@ -74,7 +74,7 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIoT Group</p>
+            <p>XJTU, NTU, ZJU</p>
           </article>
         </div>
       </div>
@@ -84,30 +84,287 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>Most wearable and wireless sensing systems describe activity using a fixed label set such as <em>walking</em>, <em>cooking</em>, or <em>washing hands</em>. <strong>MobiDiary</strong> moves beyond that setting and asks whether heterogeneous physical signals can produce <strong>free-form natural language descriptions</strong> of human activity.</p>
-<p>The paper focuses on IMU and Wi-Fi sensing in smart-home scenarios. Instead of building separate modality-specific pipelines, MobiDiary introduces a unified signal encoder and an autoregressive captioning decoder so that the same framework can describe actions across different sensing modalities.</p>
+<p>Most wearable and wireless sensing systems still summarize human activity with a fixed label such as <em>walking</em>, <em>cooking</em>, or <em>washing hands</em>. <strong>MobiDiary</strong> tackles a richer task: generating natural-language descriptions of continuous daily activities directly from privacy-preserving physical signals.</p>
+<p>The framework works with two common smart-home sensing sources: <strong>IMU streams</strong> from wearable and mobile devices, and <strong>Wi-Fi CSI</strong> from ambient wireless infrastructure. Instead of treating these modalities as separate problems, MobiDiary uses a unified sensor encoder and an autoregressive generation pipeline to produce human-readable activity logs.</p>
+<p>The institution field is abbreviated at the university level: <strong>XJTU</strong>, <strong>NTU</strong>, and <strong>ZJU</strong>.</p>
+<figure class="markdown-figure">
+  <img src="./assets/mobidiary-sensing-caption.png" alt="MobiDiary captures IMU and Wi-Fi sequences and generates an action caption">
+  <figcaption>Figure 1. MobiDiary converts wearable IMU and ambient Wi-Fi signal sequences into interpretable daily activity captions.</figcaption>
+</figure>
+<h2>Why This Paper Matters</h2>
+<p>Human action captioning is usually studied with cameras, but camera deployment in homes raises privacy, occlusion, cost, and coverage concerns. IMU and Wi-Fi sensing are more practical in everyday spaces, yet their raw signals are low-level, noisy, and heavily shaped by device placement or wireless layout.</p>
+<p>MobiDiary reframes the problem as <strong>signal-based action captioning</strong>. The generated text can serve as an activity diary, support retrieval and monitoring, and connect naturally to LLM-based assistants for health, rehabilitation, elder care, and smart-home automation.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Formulates <strong>action captioning from physical signals</strong> as a cross-modal sequence generation problem.</li>
-<li>Proposes a <strong>unified sensor encoder</strong> that works across both IMU and Wi-Fi inputs.</li>
-<li>Uses a Transformer-based autoregressive decoder to generate coherent action descriptions token by token.</li>
+<li>Proposes a general framework that generates natural-language action descriptions from either raw IMU or Wi-Fi signals.</li>
+<li>Designs a unified sensor encoder for heterogeneous physical signals by combining local temporal semantics with deployment-aware physical priors.</li>
+<li>Uses autoregressive generation so each word is conditioned on the sensor sequence and the caption prefix generated so far.</li>
+<li>Evaluates on four modality-task settings: XRF V2 IMU, UWash IMU, XRF V2 Wi-Fi, and WiFiTAD Wi-Fi.</li>
+<li>Achieves state-of-the-art performance across captioning metrics including BLEU@4, METEOR, ROUGE-L, CIDEr, and Response Meaning Consistency.</li>
 </ul>
-<h2>Method</h2>
-<p>The encoder is designed around two ideas:</p>
+<h2>System Design</h2>
+<p>MobiDiary has three main components:</p>
 <ul>
-<li>a <strong>patch-based temporal representation</strong> that captures local motion correlations,</li>
-<li>and <strong>heterogeneous placement embeddings</strong> that normalize spatial context across sensors placed on different devices.</li>
+<li><strong>Sensor Encoder</strong> extracts motion-aware temporal features from IMU or Wi-Fi streams.</li>
+<li><strong>Text Encoder</strong> encodes the ground-truth caption during training or the generated prefix during inference.</li>
+<li><strong>Language Generation Network</strong> uses cross-attention to fuse text context with sensor tokens and predicts the next word.</li>
 </ul>
-<p>After encoding, the unified signal tokens are passed to a Transformer decoder, which predicts the textual description autoregressively. The paper argues that IMU and Wi-Fi signals share motion-induced structure, and that exploiting this shared inductive bias is more scalable than writing separate feature engineering pipelines for each modality.</p>
-<h2>Evaluation Highlights</h2>
+<figure class="markdown-figure">
+  <img src="./assets/mobidiary-architecture.png" alt="MobiDiary architecture with sensor encoder, text encoder, and language generation network">
+  <figcaption>Figure 2. The model encodes sensor sequences, attends from text context to sensor features, and generates action captions autoregressively.</figcaption>
+</figure>
+<p>The unified encoder is motivated by three shared properties of IMU and Wi-Fi sensing:</p>
 <ul>
-<li>Evaluated on <strong>XRF V2</strong>, <strong>UWash</strong>, and <strong>WiFiTAD</strong>.</li>
-<li>Achieves state-of-the-art captioning performance on metrics including <strong>BLEU@4</strong>, <strong>CIDEr</strong>, and <strong>RMC</strong>.</li>
-<li>Outperforms specialized baselines while generalizing across both wearable and wireless sensing modalities.</li>
+<li><strong>Common kinematic causality:</strong> both modalities reflect the same underlying human motion.</li>
+<li><strong>Local signal stationarity:</strong> adjacent sensor samples are redundant and strongly correlated.</li>
+<li><strong>Spatial sensitivity:</strong> IMU placement and Wi-Fi transmitter-receiver layout both change the observed signal pattern.</li>
 </ul>
+<h2>Unified Sensor Encoder</h2>
+<p>The encoder targets two difficulties: sensor signals are semantically sparse, and their patterns vary strongly with deployment context. MobiDiary addresses these with four design choices.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Patching</td>
+<td>Groups adjacent frames into temporal tokens so the model can capture local motion primitives and action boundaries.</td>
+</tr>
+<tr>
+<td>Sinusoidal position encoding</td>
+<td>Encourages local temporal focus by making distant patches less similar; the implementation uses a smoother decay than the original Transformer setting.</td>
+</tr>
+<tr>
+<td>Placement embedding</td>
+<td>Adds trainable source IDs for IMU body placement or Wi-Fi Tx-Rx links, helping the model separate human motion from device-specific variation.</td>
+</tr>
+<tr>
+<td>Conv-FFN block</td>
+<td>Uses depthwise and pointwise convolutions to model temporal, channel, device, subcarrier, and link relationships efficiently.</td>
+</tr>
+</tbody>
+</table>
+</div><p>For IMU, the Conv-FFN separates inter-channel relationships such as acceleration versus rotation from inter-device relationships such as wrist versus head movement. For Wi-Fi, a Tx-Rx link is treated like a device and CSI subcarriers are treated like channels, giving the same encoder structure a meaningful wireless interpretation.</p>
+<h2>Training And Inference</h2>
+<p>During training, MobiDiary uses <strong>teacher forcing</strong>: the ground-truth caption prefix is fed into the text encoder, and the model learns next-token prediction with cross-entropy loss. During inference, it starts from <code>&lt;SOS&gt;</code>, predicts one token at a time, and stops at <code>&lt;EOS&gt;</code> or a maximum length of 50 tokens.</p>
+<figure class="markdown-figure">
+  <img src="./assets/mobidiary-teacher-autoregressive.png" alt="Teacher forcing during training and autoregressive generation during inference">
+  <figcaption>Figure 3. Training uses teacher forcing, while inference generates the caption word by word.</figcaption>
+</figure>
+<p>The paper constrains the output vocabulary to the top 1000 high-frequency words from the training corpus. This keeps captions concise, reduces overfitting to rare words, and lowers softmax computation.</p>
+<p>For deployment feasibility, the paper reports 30-second input latency on two hardware settings:</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Input</th>
+<th style="text-align:right">RTX 3090 latency</th>
+<th style="text-align:right">CPU latency</th>
+<th style="text-align:right">Memory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6-DoF IMU at 100 Hz</td>
+<td style="text-align:right">About 0.6 s</td>
+<td style="text-align:right">About 5.0 s</td>
+<td style="text-align:right">1.0 GB VRAM / 1.2 GB RAM</td>
+</tr>
+<tr>
+<td>Wi-Fi CSI</td>
+<td style="text-align:right">About 0.8 s</td>
+<td style="text-align:right">About 6.5 s</td>
+<td style="text-align:right">1.3 GB VRAM / 1.5 GB RAM</td>
+</tr>
+</tbody>
+</table>
+</div><h2>Datasets And Metrics</h2>
+<p>The evaluation covers both wearable and wireless captioning.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Dataset setting</th>
+<th>Modality</th>
+<th>Key details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>XRF V2</td>
+<td>IMU and Wi-Fi</td>
+<td>16 participants, 853 valid sequences, about 16 hours, 7-10 actions per sequence, 682 / 171 train-test split.</td>
+</tr>
+<tr>
+<td>UWash</td>
+<td>IMU</td>
+<td>51 participants performing WHO-style handwashing routines with fine-grained timestamped labels.</td>
+</tr>
+<tr>
+<td>WiFiTAD</td>
+<td>Wi-Fi CSI</td>
+<td>553 untrimmed Wi-Fi CSI samples, 2,114 action instances, seven daily activities.</td>
+</tr>
+</tbody>
+</table>
+</div><p>The paper also discusses Ego-ADL and WEAR, but does not use them for the main task because Ego-ADL labels are unreliable for captioning and WEAR focuses on outdoor sports classification rather than detailed sequential captions.</p>
+<p>Metrics combine standard language-generation quality with action understanding:</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Metric</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BLEU@4</td>
+<td>n-gram precision and surface fluency.</td>
+</tr>
+<tr>
+<td>METEOR</td>
+<td>unigram precision-recall balance with semantic matching support.</td>
+</tr>
+<tr>
+<td>ROUGE-L</td>
+<td>longest common subsequence coverage.</td>
+</tr>
+<tr>
+<td>CIDEr</td>
+<td>TF-IDF weighted caption consensus.</td>
+</tr>
+<tr>
+<td>RMC</td>
+<td>response meaning consistency, measuring whether captions preserve action semantics for downstream question answering.</td>
+</tr>
+</tbody>
+</table>
+</div><h2>Main Results</h2>
+<p>MobiDiary leads across all reported metrics on the four main benchmark settings.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Setting</th>
+<th style="text-align:right">BLEU@4</th>
+<th style="text-align:right">METEOR</th>
+<th style="text-align:right">ROUGE-L</th>
+<th style="text-align:right">CIDEr</th>
+<th style="text-align:right">RMC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>XRF V2 (IMU)</td>
+<td style="text-align:right">0.742</td>
+<td style="text-align:right">0.841</td>
+<td style="text-align:right">0.838</td>
+<td style="text-align:right">0.834</td>
+<td style="text-align:right">0.855</td>
+</tr>
+<tr>
+<td>UWash</td>
+<td style="text-align:right">0.866</td>
+<td style="text-align:right">0.904</td>
+<td style="text-align:right">0.893</td>
+<td style="text-align:right">0.908</td>
+<td style="text-align:right">0.843</td>
+</tr>
+<tr>
+<td>XRF V2 (Wi-Fi)</td>
+<td style="text-align:right">0.454</td>
+<td style="text-align:right">0.483</td>
+<td style="text-align:right">0.492</td>
+<td style="text-align:right">0.481</td>
+<td style="text-align:right">0.410</td>
+</tr>
+<tr>
+<td>WiFiTAD</td>
+<td style="text-align:right">0.513</td>
+<td style="text-align:right">0.583</td>
+<td style="text-align:right">0.588</td>
+<td style="text-align:right">0.576</td>
+<td style="text-align:right">0.522</td>
+</tr>
+</tbody>
+</table>
+</div><p>On IMU datasets, the strongest baselines include PatchTST, ModernTCN, TimeLLM, SensorLLM, LLaSA, and XRFMamba. MobiDiary achieves the best RMC on XRF V2 (IMU) and UWash, showing that it does more than generate fluent text: it better preserves the underlying action meaning.</p>
+<p>On Wi-Fi datasets, MobiDiary also outperforms RF-Diary, XRFMamba, WiFiTAD, and time-series baselines. This is the harder setting because Wi-Fi CSI is more abstract and noisier than wearable motion, so the gains suggest that the encoder design transfers beyond IMU.</p>
+<h2>Ablation Findings</h2>
+<p>The ablations support the three encoder choices: local patching, placement awareness, and Conv-FFN feature modeling.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Variant</th>
+<th style="text-align:right">XRF V2 IMU RMC</th>
+<th style="text-align:right">UWash RMC</th>
+<th style="text-align:right">XRF V2 Wi-Fi RMC</th>
+<th style="text-align:right">WiFiTAD RMC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Full MobiDiary</td>
+<td style="text-align:right">0.855</td>
+<td style="text-align:right">0.843</td>
+<td style="text-align:right">0.410</td>
+<td style="text-align:right">0.522</td>
+</tr>
+<tr>
+<td>Without patching</td>
+<td style="text-align:right">0.776</td>
+<td style="text-align:right">0.791</td>
+<td style="text-align:right">0.373</td>
+<td style="text-align:right">0.499</td>
+</tr>
+<tr>
+<td>Without placement embedding</td>
+<td style="text-align:right">0.826</td>
+<td style="text-align:right">0.855</td>
+<td style="text-align:right">0.390</td>
+<td style="text-align:right">0.509</td>
+</tr>
+<tr>
+<td>Without Conv-FFN</td>
+<td style="text-align:right">0.814</td>
+<td style="text-align:right">0.810</td>
+<td style="text-align:right">0.399</td>
+<td style="text-align:right">0.515</td>
+</tr>
+</tbody>
+</table>
+</div><p>Patching produces the largest drops, especially on XRF V2 (IMU), confirming the importance of local temporal semantics. Placement embeddings matter most when multiple devices or wireless links are involved. Conv-FFN consistently helps feature extraction across both modalities.</p>
+<h2>Qualitative Results</h2>
+<figure class="markdown-figure">
+  <img src="./assets/mobidiary-qualitative-results.png" alt="Qualitative MobiDiary captions for IMU and Wi-Fi examples">
+  <figcaption>Figure 4. Qualitative examples show accurate captions on XRF V2 IMU, UWash, and WiFiTAD, with one XRF V2 Wi-Fi example confusing a small hand-motion action.</figcaption>
+</figure>
+<p>The examples highlight both promise and limits. MobiDiary correctly captures continuous activities such as taking medicine, standing up, walking to a cabinet, and handwashing steps such as rubbing palms and interlacing fingers. The harder XRF V2 Wi-Fi example confuses &quot;cuts fruit&quot; with &quot;writes&quot;, which the paper attributes to similar small-scale hand motion patterns in noisy Wi-Fi signals.</p>
+<h2>Device Combination Study</h2>
+<p>XRF V2 includes six IMU-equipped device sources: smart glasses, left wrist watch, right wrist watch, left-pocket phone, right-pocket phone, and earbuds. The paper evaluates representative device combinations to understand how realistic wearing habits affect captioning.</p>
+<figure class="markdown-figure">
+  <img src="./assets/mobidiary-device-combinations.png" alt="MobiDiary device combination results on XRF V2 IMU">
+  <figcaption>Figure 5. More IMU devices generally improve captioning, but placement diversity matters as much as device count.</figcaption>
+</figure>
+<p>Key findings:</p>
+<ul>
+<li>A wrist-worn watch is more informative than a pocket phone when used alone.</li>
+<li>Bilateral coverage can outperform a same-side setup because it captures a more complete body-motion pattern.</li>
+<li>Strong configurations cover multiple body segments such as head, wrists, torso, and ears.</li>
+<li>Gains diminish as device count grows, and extra devices can introduce redundant or conflicting signals.</li>
+</ul>
+<p>Even a sparse setup with one smartwatch and one smartphone in a bilateral configuration remains useful, reaching 0.618 ROUGE-L and 0.591 METEOR in the reported study.</p>
+<h2>Long-Sequence Robustness</h2>
+<figure class="markdown-figure">
+  <img src="./assets/mobidiary-sequence-length-results.png" alt="MobiDiary performance across 30, 45, 60, 90, and 120 second input lengths">
+  <figcaption>Figure 6. MobiDiary keeps the highest performance across longer input windows, though all models degrade as redundant signal context accumulates.</figcaption>
+</figure>
+<p>The sequence-length study evaluates 30, 45, 60, 90, and 120 second inputs. IMU performance can slightly improve at 45 seconds because the extra context helps disambiguate action boundaries. Wi-Fi performance declines earlier, reflecting more accumulated noise. Across all lengths, MobiDiary maintains the best performance ceiling among the compared methods.</p>
+<h2>Limitations And Future Work</h2>
+<p>The paper has so far evaluated MobiDiary on daily activity datasets. It has not yet tested broader settings such as industrial worker behavior analysis, clinical rehabilitation motion description, or athletic training. Future work could build captioning datasets in factories, hospital wards, and sports venues to measure cross-domain robustness.</p>
 <h2>Resources</h2>
 <ul>
-<li><a href="https://arxiv.org/abs/2601.08204">arXiv abstract</a></li>
+<li>Paper: <a href="https://arxiv.org/abs/2601.08204">https://arxiv.org/abs/2601.08204</a></li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@article{deng2026mobidiary,
