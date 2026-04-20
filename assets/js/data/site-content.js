@@ -345,51 +345,166 @@
 
   SiteContent.courses = [
     {
-      code: "6.5940",
-      name: "TinyML and Efficient Deep Learning Computing",
-      term: "Fall 2024",
-      level: "Graduate / Advanced Undergraduate",
-      link: "https://efficientml.ai",
+      code: "Graduate",
+      name: "高等计算机网络与通讯",
+      school: "软件工程学院",
+      term: "2025春季 / 2024春季",
+      level: "研究生课程",
       overview:
-        "The lab's flagship course on efficient ML systems, covering model compression, accelerator-aware deployment, TinyML, and practical throughput optimization.",
-      topics: ["Model compression", "TinyML", "efficient inference", "hardware-aware design"],
+        "面向研究生的高等计算机网络与通讯课程，围绕现代网络系统、无线通信、移动计算和智能互联系统中的关键技术展开。",
+      topics: ["Computer networks", "wireless communication", "mobile systems", "AIoT networking"],
+      offerings: [
+        { label: "2025春季" },
+        { label: "2025春季" },
+        { label: "2024春季" }
+      ],
       outcomes: [
-        "Understand end-to-end efficiency tradeoffs in modern ML systems.",
-        "Build intuition for deploying models under strict memory and power budgets.",
-        "Connect algorithmic ideas with systems-level constraints."
+        "理解高等计算机网络体系结构、协议机制和系统设计方法。",
+        "结合无线感知、移动计算和 AIoT 场景分析网络系统问题。",
+        "通过论文阅读和课程讨论提升研究型网络系统分析能力。"
       ]
     },
     {
-      code: "6.S982",
-      name: "Efficient Generative AI Systems",
-      term: "Spring 2026",
-      level: "Graduate Seminar",
-      link: "#",
+      code: "Undergraduate",
+      name: "虚拟现实技术",
+      school: "西安交通大学米兰理工联合创新学院",
+      term: "2026春季 / 2025春季",
+      level: "本科生课程",
       overview:
-        "A sample editable course entry focused on LLM serving, sparse attention, diffusion acceleration, and multimodal deployment.",
-      topics: ["LLM serving", "diffusion systems", "multimodal inference", "benchmarking"],
+        "面向本科生的虚拟现实技术课程，覆盖 VR 系统基础、交互设计、三维内容构建和课程大作业实践。",
+      topics: ["virtual reality", "3D interaction", "Unity / WebXR", "course project"],
+      offerings: [
+        {
+          label: "2026春季",
+          href: "./vr-2026-projects.html",
+          action: "大作业展示"
+        },
+        { label: "2025春季" }
+      ],
       outcomes: [
-        "Analyze the systems bottlenecks in generative AI pipelines.",
-        "Compare practical optimization strategies for different model families.",
-        "Develop a project that links research ideas to deployable implementations."
+        "理解虚拟现实系统的显示、追踪、交互和内容组织方式。",
+        "完成一个团队 VR 大作业，从创意、实现到演示形成闭环。",
+        "训练面向沉浸式应用的人机交互设计和工程表达能力。"
       ]
     },
     {
-      code: "6.S991",
-      name: "Reading Group: Long-Context and Streaming Models",
-      term: "Independent Study",
-      level: "Research Reading Group",
-      link: "#",
+      code: "Graduate",
+      name: "专业英语实践",
+      school: "电子与信息学部",
+      term: "2025年春季 / 2023年春季",
+      level: "研究生课程",
       overview:
-        "A lighter-weight discussion format for papers on long-context reasoning, streaming video understanding, and memory-aware attention.",
-      topics: ["StreamingLLM", "StreamingVLM", "KV-cache design", "evaluation"],
+        "面向研究生的专业英语实践课程，强调学术表达、论文阅读、技术报告写作和英文展示能力。",
+      topics: ["academic English", "paper reading", "technical writing", "presentation"],
+      offerings: [
+        { label: "2025年春季" },
+        { label: "2023年春季" }
+      ],
       outcomes: [
-        "Track current literature on long-context modeling.",
-        "Practice concise technical presentation and synthesis.",
-        "Bridge paper reading with prototype design ideas."
+        "提升英文科技文献阅读和专业词汇表达能力。",
+        "练习英文技术报告、摘要、演示和学术交流。",
+        "将专业方向内容转化为清晰、准确的英文表达。"
+      ]
+    },
+    {
+      code: "Undergraduate",
+      name: "计算机组成原理课程实践",
+      school: "软件工程学院",
+      term: "2025春 / 2024秋 / 2023秋",
+      level: "本科生课程",
+      overview:
+        "面向本科生的计算机组成原理课程实践，围绕计算机系统结构、指令执行、处理器组成和软硬件协同实践展开。",
+      topics: ["computer organization", "processor design", "instruction execution", "system practice"],
+      offerings: [
+        { label: "2025春" },
+        { label: "2024秋" },
+        { label: "2023秋" }
+      ],
+      outcomes: [
+        "理解计算机组成原理中的关键部件和指令执行流程。",
+        "通过实践任务加深对处理器、存储层次和系统接口的认识。",
+        "训练从硬件结构到软件运行机制的系统级分析能力。"
       ]
     }
   ];
+
+  SiteContent.vrShowcase2026 = {
+    title: "2026年春季虚拟现实课程大作业汇总展示",
+    subtitle: "西安交通大学-米兰理工联合创新学院",
+    description:
+      "This page collects final projects from the 2026 Spring Virtual Reality Technology course, highlighting student-built VR demos, interaction ideas, and course outcomes.",
+    staff: [
+      {
+        role: "授课教师 / Instructor",
+        name: "王飞",
+        englishName: "Fei Wang",
+        photo: "./assets/media/people/fei-wang.svg",
+        href: "https://gr.xjtu.edu.cn/zh/web/feynmanw"
+      },
+      {
+        role: "助教 / TA",
+        name: "张婷婷",
+        englishName: "Tingting Zhang",
+        photo: "./assets/media/people/2024tingting-zhang.png",
+        href: "https://scholar.google.com/citations?user=R7kxvQkAAAAJ"
+      },
+      {
+        role: "助教 / TA",
+        name: "李怡诺",
+        englishName: "Yinuo Li"
+      },
+      {
+        role: "助教 / TA",
+        name: "李亚宁",
+        englishName: "Yaning Li",
+        href: "https://scholar.google.com/citations?user=ydbRdm4AAAAJ"
+      }
+    ],
+    projects: [
+      {
+        title: "作品名称示例",
+        video: "https://www.youtube.com/embed/LL3yonBuQK0?si=NXzYvJuifnapTZfY",
+        authors: ["学生A", "学生B", "学生C", "学生D"],
+        description:
+          "这是第一个作品的简短介绍。描述该 VR 项目的核心创意、使用的技术栈以及在 XJTU-POLIMI 课程中的收获。"
+      },
+      {
+        title: "第二个作品名称",
+        video: "https://www.youtube.com/embed/QgiRK3_qPWk?si=nkpDf2T304OZevvm",
+        authors: ["作者 1", "作者 2", "作者 3", "作者 4"],
+        description:
+          "这里填入第二个作品的介绍。可以继续补充作品的目标场景、交互方式、使用工具和最终演示效果。"
+      },
+      {
+        title: "第三个作品名称",
+        video: "https://player.bilibili.com/player.html?isOutside=true&aid=115150086541498&bvid=BV1uza4zWEaa&cid=32172802420&p=1",
+        authors: ["作者 1", "作者 2", "作者 3", "作者 4"],
+        description:
+          "这里填入第三个作品的介绍。此条目使用 Bilibili 视频嵌入，适合展示国内平台上的课程演示视频。"
+      },
+      {
+        title: "第四个作品名称",
+        video: "https://www.youtube.com/embed/QgiRK3_qPWk?si=nkpDf2T304OZevvm",
+        authors: ["作者 1", "作者 2", "作者 3", "作者 4"],
+        description:
+          "这里填入第四个作品的介绍。后续可以按同样的数据结构继续增加更多项目。"
+      },
+      {
+        title: "第五个作品名称",
+        video: "https://www.youtube.com/embed/QgiRK3_qPWk?si=nkpDf2T304OZevvm",
+        authors: ["作者 1", "作者 2", "作者 3", "作者 4"],
+        description:
+          "这里填入第五个作品的介绍。建议补充项目亮点、VR 交互设计和团队分工。"
+      },
+      {
+        title: "第六个作品名称",
+        video: "https://www.youtube.com/embed/QgiRK3_qPWk?si=nkpDf2T304OZevvm",
+        authors: ["作者 1", "作者 2", "作者 3", "作者 4"],
+        description:
+          "这里填入第六个作品的介绍。等真实作品信息齐备后，可直接替换标题、作者、视频和描述。"
+      }
+    ]
+  };
 
   SiteContent.datasets = {
     intro:

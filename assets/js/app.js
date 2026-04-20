@@ -15,6 +15,7 @@
 
   function headerMarkup(currentPage) {
     const brandMark = SiteContent.site.brandMark || "XJ";
+    const activePage = currentPage === "vr-2026-projects" ? "course" : currentPage;
     return `
       <header class="site-header">
         <div class="shell nav-shell">
@@ -34,7 +35,7 @@
             ${SiteContent.site.nav
               .map(
                 (item) => `
-                  <a class="nav-link${item.key === currentPage ? " is-active" : ""}" href="${item.href}">
+                  <a class="nav-link${item.key === activePage ? " is-active" : ""}" href="${item.href}">
                     ${SiteUI.escapeHtml(item.label)}
                   </a>
                 `
@@ -365,7 +366,13 @@
           asideClass: "hero-panel hero-panel-plain",
           descriptionHtml: `
             <p>${SiteUI.escapeHtml(profile.note)}</p>
-            <p>${SiteUI.escapeHtml(profile.admissionsNote)}<a class="inline-link" href="${profile.admissionsLink.href}">${SiteUI.escapeHtml(profile.admissionsLink.label)}</a></p>
+            <div class="admissions-callout">
+              <div>
+                <strong>Interns & Master's Applicants</strong>
+                <p>${SiteUI.escapeHtml(profile.admissionsNote)}</p>
+              </div>
+              <a class="admissions-link" href="${profile.admissionsLink.href}" target="_blank" rel="noreferrer">${SiteUI.escapeHtml(profile.admissionsLink.label)}</a>
+            </div>
           `,
           actions: [
             { label: "View Courses", href: "./course.html", kind: "secondary" },
@@ -465,22 +472,22 @@
       ${pageHeroMarkup(
         {
           eyebrow: "Course",
-          title: "Teaching efficient AI, from theory to deployment.",
+          title: "Courses for networks, VR, and academic practice.",
           description:
-            "This page collects course descriptions in a simple editable format, including topic lists, outcomes, and external links where available.",
+            "This page collects recent teaching records, course levels, offering terms, and project links for courses taught by the group.",
           actions: [{ label: "Back To About", href: "./index.html", kind: "primary" }]
         },
         `
           <div class="aside-card">
-            <p class="eyebrow">Editing</p>
-            <h3>Courses live in one array.</h3>
-            <p>Add or reorder teaching entries from assets/js/data/site-content.js.</p>
+            <p class="eyebrow">Teaching</p>
+            <h3>Course archive and project showcases.</h3>
+            <p>Recent offerings include graduate networking, undergraduate virtual reality, and professional English practice.</p>
           </div>
         `
       )}
       <section class="section">
         <div class="shell">
-          ${sectionHeading("Course Offerings", "Teaching")}
+          ${sectionHeading("Course Offerings", "Teaching Archive")}
           <div class="course-grid">
             ${SiteContent.courses
               .map(
@@ -488,18 +495,114 @@
                   <article class="panel course-card">
                     <div class="meta-row">
                       <span class="date-pill">${SiteUI.escapeHtml(course.code)}</span>
-                      <span>${SiteUI.escapeHtml(course.term)}</span>
+                      <span>${SiteUI.escapeHtml(course.level)}</span>
                     </div>
                     <h3>${SiteUI.escapeHtml(course.name)}</h3>
-                    <p class="muted">${SiteUI.escapeHtml(course.level)}</p>
+                    <p class="course-school">${SiteUI.escapeHtml(course.school || "")}</p>
                     <p>${SiteUI.escapeHtml(course.overview)}</p>
+                    <div class="course-offering-list" aria-label="${SiteUI.escapeHtml(course.name)} offerings">
+                      ${(course.offerings || [])
+                        .map((offering) => {
+                          const label = SiteUI.escapeHtml(offering.label);
+                          const action = offering.action ? SiteUI.escapeHtml(offering.action) : "";
+                          const content = action ? `<span>${label}</span><strong>${action}</strong>` : `<span>${label}</span>`;
+                          if (!offering.href) {
+                            return `<span class="course-offering-chip">${content}</span>`;
+                          }
+                          const external = /^https?:\/\//i.test(offering.href);
+                          return `<a class="course-offering-chip course-offering-link" href="${offering.href}"${
+                            external ? ' target="_blank" rel="noreferrer"' : ""
+                          }>${content}</a>`;
+                        })
+                        .join("")}
+                    </div>
                     <div class="chip-row">
-                      ${course.topics.map((topic) => `<span>${SiteUI.escapeHtml(topic)}</span>`).join("")}
+                      ${(course.topics || []).map((topic) => `<span>${SiteUI.escapeHtml(topic)}</span>`).join("")}
                     </div>
                     <ul class="clean-list">
-                      ${course.outcomes.map((item) => `<li>${SiteUI.escapeHtml(item)}</li>`).join("")}
+                      ${(course.outcomes || []).map((item) => `<li>${SiteUI.escapeHtml(item)}</li>`).join("")}
                     </ul>
-                    ${course.link && course.link !== "#" ? `<a class="inline-link" href="${course.link}">Open course link</a>` : ""}
+                  </article>
+                `
+              )
+              .join("")}
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  function renderVRShowcase2026Page() {
+    const showcase = SiteContent.vrShowcase2026;
+    return `
+      ${pageHeroMarkup(
+        {
+          eyebrow: "Virtual Reality Technology",
+          title: "2026 Spring VR course project showcase.",
+          descriptionHtml: `
+            <p>${SiteUI.escapeHtml(showcase.subtitle)}</p>
+            <p>${SiteUI.escapeHtml(showcase.description)}</p>
+          `,
+          actions: [
+            { label: "Back To Courses", href: "./course.html", kind: "primary" },
+            { label: "Meet The Team", href: "./team.html", kind: "secondary" }
+          ]
+        },
+        `
+          <div class="aside-card">
+            <p class="eyebrow">Final Projects</p>
+            <h3>${SiteUI.escapeHtml(showcase.title)}</h3>
+            <p>Student demos are collected as embedded videos with team information and short project notes.</p>
+          </div>
+        `
+      )}
+      <section class="section section-muted">
+        <div class="shell">
+          ${sectionHeading("Course Staff", "Instructor & TAs")}
+          <div class="vr-staff-grid">
+            ${showcase.staff
+              .map((person) => {
+                const card = `
+                  <article class="panel vr-staff-card">
+                    <img src="${SiteUI.portraitPreviewSrc({
+                      name: `${person.name} ${person.englishName || ""}`.trim(),
+                      role: person.role,
+                      photo: person.photo,
+                      palette: ["#243c5a", "#d8ecff"]
+                    })}" alt="${SiteUI.escapeHtml(`${person.name} ${person.englishName || ""}`.trim())}" decoding="async">
+                    <span>${SiteUI.escapeHtml(person.role)}</span>
+                    <h3>${SiteUI.escapeHtml(person.name)}</h3>
+                    <p>${SiteUI.escapeHtml(person.englishName || "")}</p>
+                  </article>
+                `;
+                if (!person.href || person.href === "#") {
+                  return card;
+                }
+                return `<a class="vr-staff-link" href="${person.href}" target="_blank" rel="noreferrer">${card}</a>`;
+              })
+              .join("")}
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="shell">
+          ${sectionHeading("Project Videos", "2026 Spring")}
+          <div class="vr-project-grid">
+            ${showcase.projects
+              .map(
+                (project, index) => `
+                  <article class="panel vr-project-card">
+                    <div class="vr-video-frame">
+                      <iframe src="${project.video}" title="${SiteUI.escapeHtml(project.title)} video" loading="lazy" allowfullscreen></iframe>
+                    </div>
+                    <div class="vr-project-copy">
+                      <p class="eyebrow">Project ${String(index + 1).padStart(2, "0")}</p>
+                      <h3>${SiteUI.escapeHtml(project.title)}</h3>
+                      <div class="vr-author-grid">
+                        ${(project.authors || []).map((author) => `<span>${SiteUI.escapeHtml(author)}</span>`).join("")}
+                      </div>
+                      <p>${SiteUI.escapeHtml(project.description)}</p>
+                    </div>
                   </article>
                 `
               )
@@ -691,6 +794,8 @@
         return renderFeiWangPage();
       case "course":
         return renderCoursePage();
+      case "vr-2026-projects":
+        return renderVRShowcase2026Page();
       case "awards":
         return renderAwardsPage();
       case "team":
