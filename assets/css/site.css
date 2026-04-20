@@ -442,12 +442,27 @@ select {
   margin-top: 14px;
 }
 
+.performance-summary {
+  margin-bottom: 18px;
+}
+
+.performance-grid {
+  margin-bottom: 18px;
+}
+
+.performance-card {
+  border-color: rgba(216, 27, 96, 0.14);
+}
+
+.performance-note {
+  background: rgba(255, 240, 245, 0.72);
+}
+
 .metric-grid,
 .card-grid,
 .news-grid,
-.course-grid,
-.publication-grid,
-.timeline-grid {
+  .publication-grid,
+  .timeline-grid {
   display: grid;
   gap: 18px;
 }
@@ -684,8 +699,24 @@ select {
   max-width: 252px;
 }
 
-.course-grid {
+.course-pair-list,
+.course-pair {
+  display: grid;
+  gap: 18px;
+}
+
+.course-pair-list {
+  grid-template-columns: 1fr;
+}
+
+.course-pair {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.course-language-card {
+  display: flex;
+  flex-direction: column;
 }
 
 .course-school {
@@ -726,17 +757,24 @@ select {
 }
 
 .course-offering-link {
-  border-color: rgba(189, 69, 102, 0.5);
-  background: #f8d8dc;
-  color: #171717;
-  box-shadow: 0 16px 32px rgba(189, 69, 102, 0.18);
+  border-color: rgba(216, 27, 96, 0.38);
+  background: #fff0f5;
+  color: #8a1738;
+  box-shadow: 0 16px 32px rgba(216, 27, 96, 0.16);
   transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.course-offering-link strong {
+  background: #d81b60;
+  color: #ffffff;
 }
 
 .course-offering-link:hover,
 .course-offering-link:focus-visible {
   transform: translateY(-1px);
-  box-shadow: 0 20px 36px rgba(189, 69, 102, 0.24);
+  border-color: rgba(216, 27, 96, 0.68);
+  background: #ffe3ee;
+  box-shadow: 0 20px 36px rgba(216, 27, 96, 0.24);
 }
 
 .course-card .chip-row {
@@ -1154,7 +1192,7 @@ select {
   .card-grid-2,
   .card-grid-3,
   .news-grid,
-  .course-grid,
+  .course-pair,
   .publication-grid,
   .member-grid,
   .gallery-grid,

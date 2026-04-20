@@ -24,7 +24,8 @@
       { label: "Publications", href: "./publications.html" },
       { label: "Datasets", href: "./dataset.html" },
       { label: "Team", href: "./team.html" },
-      { label: "Gallery", href: "./gallery.html" }
+      { label: "Gallery", href: "./gallery.html" },
+      { label: "GitHub", href: "https://github.com/aiotgroup" }
     ]
   };
 
@@ -36,7 +37,8 @@
         "XJTU AIoT Group explores the intersection of artificial intelligence and ubiquitous computing, building intelligent sensing and interaction systems that can serve people in the physical world.",
       actions: [
         { label: "Browse Publications", href: "./publications.html", kind: "primary" },
-        { label: "Meet The Team", href: "./team.html", kind: "secondary" }
+        { label: "Meet The Team", href: "./team.html", kind: "secondary" },
+        { label: "GitHub", href: "https://github.com/aiotgroup", kind: "secondary" }
       ]
     },
     intro: [
@@ -162,7 +164,7 @@
     name: "Fei Wang",
     title: "Associate Professor and Ph.D. Supervisor",
     subtitle: "Associate Professor · Ph.D. Supervisor",
-    photo: "./assets/media/people/fei-wang.svg",
+    photo: "./assets/media/people/fei-wang.jpg",
     photoAlt: "Profile photo for Fei Wang",
     note:
       "Associate Professor in the School of Software Engineering at Xi'an Jiaotong University, working at the intersection of artificial intelligence, ubiquitous computing, wireless sensing, wearable systems, and multimodal learning.",
@@ -173,8 +175,32 @@
       href: "https://hqf1h4do6vh.feishu.cn/wiki/Qb7XwbUDjiTbikkEid2ctIHzn1d"
     },
     bio: [
-      "Fei Wang is an Associate Professor and Ph.D. supervisor in the School of Software Engineering, Faculty of Electronic and Information Engineering, Xi'an Jiaotong University. His research lies at the intersection of artificial intelligence and ubiquitous computing, with a particular emphasis on wireless sensing, wearable computing, multimodal machine learning, and efficient AIoT systems.",
+      "I am an Associate Professor and Ph.D. supervisor in the School of Software Engineering, Faculty of Electronic and Information Engineering, Xi'an Jiaotong University. My research interest is building novel sensory systems for human, event, and things sensing, including activity recognition, human pose estimation, person re-identification, and broader intelligent sensing and communications.",
+      "My work sits at the intersection of machine learning, deep learning, sensors, robotics, signal processing, large language models, and AIoT systems. I have published papers in top-tier journals such as ACM IMWUT, IEEE Internet of Things Journal, IEEE Transactions on Industrial Informatics, and IEEE Transactions on Image Processing, as well as flagship conferences including IEEE GLOBECOM, ICCV, ACM MobiHoc, CVPR, and UbiComp. I received the IEEE GLOBECOM 2019 Best Paper Award.",
+      "I currently lead the AIoT Group at Xi'an Jiaotong University. Our group has released several open research projects and benchmarks, including Person-in-WiFi 3D (CVPR 2024), XRF55 Dataset (UbiComp 2024), XRF V2 (UbiComp 2025), and Awesome Wireless Sensing Generalization (IEEE COMST 2026). I am also a founding leadership member of the Sensing Dataset Platform for Intelligent Sensing and Communications, SDP4ISAC."
     ],
+    significantPerformance: {
+      items: [
+        {
+          title: "Technical Breakthroughs in Fine-grained Sensing",
+          period: "2017 - Present",
+          text:
+            "I helped drive the shift from coarse-grained WiFi sensing toward fine-grained, human-centric perception, including activity recognition, pose estimation, and person re-identification. I led the Person-in-WiFi research series, with work published at ICCV 2019 and CVPR 2024, and my original contributions were recognized with the IEEE GLOBECOM 2019 Best Paper Award."
+        },
+        {
+          title: "Leadership in Community Infrastructure",
+          period: "2019 - Present",
+          text:
+            "I led the construction and release of large-scale datasets and open resources including ARIL, XRF55, XRF V2, Person-in-WiFi 3D, and Awesome Wireless Sensing Generalization. These projects support reproducible wireless sensing research and provide practical benchmarks and reading resources for the global community."
+        },
+        {
+          title: "Academic Leadership and Talent Development",
+          period: "2020 - Present",
+          text:
+            "Since joining Xi'an Jiaotong University, I have directed the AIoT Group Laboratory, shaped research roadmaps, managed competitive funding including NSFC programs, mentored more than 20 graduate students, and maintained high-impact publications in journals such as IEEE TMC, IEEE TII, IEEE IoTJ, IEEE TIP, and ACM IMWUT."
+        }
+      ]
+    },
     interests: [
       "Wireless sensing with WiFi, mmWave, and UWB",
       "Wearable computing and human-computer interaction",
@@ -184,14 +210,20 @@
     ],
     profileLinks: [
       { label: "Email", href: "mailto:feynmanw@xjtu.edu.cn" },
-      { label: "Google Scholar", href: "https://scholar.google.com/citations?user=LKPpmXQAAAAJ&hl=en" }
+      { label: "Google Scholar", href: "https://scholar.google.com/citations?user=LKPpmXQAAAAJ&hl=en" },
+      { label: "SDP4ISAC", href: "https://sdp8.org/" }
     ],
     quickFacts: [
       "School of Software Engineering, Xi'an Jiaotong University",
       "Contact: feynmanw[at]xjtu.edu.cn",
       "IEEE Senior Member (Apr 2026)",
       "Executive Committee Member, CCF Technical Committee on Internet of Things (Sep 2025)",
-      "Executive Committee Member, CCF Technical Committee on Ubiquitous Computing (Aug 2025)"
+      "Executive Committee Member, CCF Technical Committee on Ubiquitous Computing (Aug 2025)",
+      [
+        "Founding Leadership Member, ",
+        { label: "SDP4ISAC", href: "https://sdp8.org/" },
+        " (Sep 2024)"
+      ]
     ],
     roles: [
       "Associate Professor and Ph.D. Supervisor, School of Software Engineering, Xi'an Jiaotong University",
@@ -217,6 +249,15 @@
         text: "CCF Technical Committee on Ubiquitous Computing."
       },
       {
+        year: "Sep 2024 - Present",
+        title: "Founding Leadership Member",
+        textParts: [
+          "Sensing Dataset Platform for Intelligent Sensing and Communications, ",
+          { label: "SDP4ISAC", href: "https://sdp8.org/" },
+          "."
+        ]
+      },
+      {
         year: "Mar 2024 - Present",
         title: "Associate Professor and Ph.D. Supervisor",
         text: "School of Software Engineering, Faculty of Electronic and Information Engineering, Xi'an Jiaotong University."
@@ -229,27 +270,77 @@
       {
         year: "Sep 2020 - Present",
         title: "Postdoctoral Researcher in Control Science and Engineering",
-        text: "Xi'an Jiaotong University. Mentor: Prof. Yihong Gong (IEEE Fellow)."
+        textParts: [
+          "Xi'an Jiaotong University. Mentor: Prof. ",
+          {
+            label: "Yihong Gong (龚怡宏)",
+            href: "https://gr.xjtu.edu.cn/web/ygong"
+          },
+          " (IEEE Fellow)."
+        ]
       },
       {
         year: "Mar 2016 - Mar 2020",
         title: "Ph.D. in Computer Science and Technology",
-        text: "Xi'an Jiaotong University. Advisor: Prof. Jinsong Han."
+        textParts: [
+          "Xi'an Jiaotong University. Advisor: Prof. ",
+          {
+            label: "Jinsong Han (韩劲松)",
+            href: "https://person.zju.edu.cn/hanjinsong"
+          },
+          "."
+        ]
       },
       {
         year: "Nov 2019 - Jan 2020",
         title: "Visiting Scholar",
-        text: "College of Cyber Security, Zhejiang University. Hosted by Prof. Jinsong Han, Research Prof. Feng Lin, and Prof. Kui Ren (ACM/IEEE Fellow)."
+        textParts: [
+          "College of Cyber Security, Zhejiang University. Hosted by Prof. ",
+          {
+            label: "Jinsong Han (韩劲松)",
+            href: "https://person.zju.edu.cn/hanjinsong"
+          },
+          ", Research Prof. ",
+          {
+            label: "Feng Lin (林峰)",
+            href: "https://person.zju.edu.cn/flin"
+          },
+          ", and Prof. ",
+          {
+            label: "Kui Ren (任奎)",
+            href: "https://person.zju.edu.cn/kuiren"
+          },
+          " (ACM/IEEE Fellow)."
+        ]
       },
       {
         year: "Oct 2017 - Oct 2019",
         title: "Joint Ph.D. Student",
-        text: "Robotics Institute, Carnegie Mellon University. Advisors: Dr. Dong Huang and Prof. Fernando De la Torre."
+        textParts: [
+          "Robotics Institute, Carnegie Mellon University. Advisors: Dr. ",
+          {
+            label: "Dong Huang (黄东)",
+            href: "https://www.donghuang-research.com/"
+          },
+          " and Prof. ",
+          {
+            label: "Fernando De la Torre",
+            href: "https://www.cs.cmu.edu/~ftorre/"
+          },
+          "."
+        ]
       },
       {
         year: "Sep 2014 - Feb 2016",
         title: "M.S. in Computer Science and Technology",
-        text: "Xi'an Jiaotong University. Advisor: Prof. Yinliang Zhao."
+        textParts: [
+          "Xi'an Jiaotong University. Advisor: Prof. ",
+          {
+            label: "Yinliang Zhao (赵银亮)",
+            href: "http://gr.xjtu.edu.cn/web/zhaoy"
+          },
+          "."
+        ]
       },
       {
         year: "Sep 2009 - Jul 2013",
@@ -345,86 +436,172 @@
 
   SiteContent.courses = [
     {
-      code: "Graduate",
-      name: "高等计算机网络与通讯",
-      school: "软件工程学院",
-      term: "2025春季 / 2024春季",
-      level: "研究生课程",
-      overview:
-        "面向研究生的高等计算机网络与通讯课程，围绕现代网络系统、无线通信、移动计算和智能互联系统中的关键技术展开。",
-      topics: ["Computer networks", "wireless communication", "mobile systems", "AIoT networking"],
-      offerings: [
-        { label: "2025春季" },
-        { label: "2025春季" },
-        { label: "2024春季" }
-      ],
-      outcomes: [
-        "理解高等计算机网络体系结构、协议机制和系统设计方法。",
-        "结合无线感知、移动计算和 AIoT 场景分析网络系统问题。",
-        "通过论文阅读和课程讨论提升研究型网络系统分析能力。"
-      ]
+      id: "advanced-computer-networks-and-communications",
+      en: {
+        code: "Graduate",
+        name: "Advanced Computer Networks and Communications",
+        school: "School of Software Engineering",
+        level: "Graduate Course",
+        overview:
+          "A graduate course on advanced computer networks and communications, covering modern networked systems, wireless communication, mobile computing, and intelligent connected systems.",
+        topics: ["computer networks", "wireless communication", "mobile systems", "AIoT networking"],
+        offerings: [
+          { label: "Spring 2025" },
+          { label: "Spring 2025" },
+          { label: "Spring 2024" }
+        ],
+        outcomes: [
+          "Understand advanced network architectures, protocol mechanisms, and system design methods.",
+          "Analyze networking problems in wireless sensing, mobile computing, and AIoT scenarios.",
+          "Build research-oriented reading, discussion, and technical analysis skills."
+        ]
+      },
+      zh: {
+        code: "研究生",
+        name: "高等计算机网络与通讯",
+        school: "软件工程学院",
+        level: "研究生课程",
+        overview:
+          "面向研究生的高等计算机网络与通讯课程，围绕现代网络系统、无线通信、移动计算和智能互联系统中的关键技术展开。",
+        topics: ["计算机网络", "无线通信", "移动系统", "AIoT 网络"],
+        offerings: [
+          { label: "2025春季" },
+          { label: "2025春季" },
+          { label: "2024春季" }
+        ],
+        outcomes: [
+          "理解高等计算机网络体系结构、协议机制和系统设计方法。",
+          "结合无线感知、移动计算和 AIoT 场景分析网络系统问题。",
+          "通过论文阅读和课程讨论提升研究型网络系统分析能力。"
+        ]
+      }
     },
     {
-      code: "Undergraduate",
-      name: "虚拟现实技术",
-      school: "西安交通大学米兰理工联合创新学院",
-      term: "2026春季 / 2025春季",
-      level: "本科生课程",
-      overview:
-        "面向本科生的虚拟现实技术课程，覆盖 VR 系统基础、交互设计、三维内容构建和课程大作业实践。",
-      topics: ["virtual reality", "3D interaction", "Unity / WebXR", "course project"],
-      offerings: [
-        {
-          label: "2026春季",
-          href: "./vr-2026-projects.html",
-          action: "大作业展示"
-        },
-        { label: "2025春季" }
-      ],
-      outcomes: [
-        "理解虚拟现实系统的显示、追踪、交互和内容组织方式。",
-        "完成一个团队 VR 大作业，从创意、实现到演示形成闭环。",
-        "训练面向沉浸式应用的人机交互设计和工程表达能力。"
-      ]
+      id: "virtual-reality-technology",
+      en: {
+        code: "Undergraduate",
+        name: "Virtual Reality Technology",
+        school: "XJTU-POLIMI Joint School of Design and Innovation",
+        level: "Undergraduate Course",
+        overview:
+          "An undergraduate course on virtual reality systems, interaction design, 3D content creation, and hands-on course projects.",
+        topics: ["virtual reality", "3D interaction", "Unity / WebXR", "course project"],
+        offerings: [
+          {
+            label: "Spring 2026",
+            href: "./vr-2026-projects.html",
+            action: "Project Showcase"
+          },
+          { label: "Spring 2025" }
+        ],
+        outcomes: [
+          "Understand VR display, tracking, interaction, and content organization.",
+          "Complete a team-based VR project from concept and implementation to public demonstration.",
+          "Practice human-computer interaction design and engineering communication for immersive applications."
+        ]
+      },
+      zh: {
+        code: "本科生",
+        name: "虚拟现实技术",
+        school: "西安交通大学米兰理工联合创新学院",
+        level: "本科生课程",
+        overview:
+          "面向本科生的虚拟现实技术课程，覆盖 VR 系统基础、交互设计、三维内容构建和课程大作业实践。",
+        topics: ["虚拟现实", "三维交互", "Unity / WebXR", "课程大作业"],
+        offerings: [
+          {
+            label: "2026春季",
+            href: "./vr-2026-projects.html",
+            action: "大作业展示"
+          },
+          { label: "2025春季" }
+        ],
+        outcomes: [
+          "理解虚拟现实系统的显示、追踪、交互和内容组织方式。",
+          "完成一个团队 VR 大作业，从创意、实现到演示形成闭环。",
+          "训练面向沉浸式应用的人机交互设计和工程表达能力。"
+        ]
+      }
     },
     {
-      code: "Graduate",
-      name: "专业英语实践",
-      school: "电子与信息学部",
-      term: "2025年春季 / 2023年春季",
-      level: "研究生课程",
-      overview:
-        "面向研究生的专业英语实践课程，强调学术表达、论文阅读、技术报告写作和英文展示能力。",
-      topics: ["academic English", "paper reading", "technical writing", "presentation"],
-      offerings: [
-        { label: "2025年春季" },
-        { label: "2023年春季" }
-      ],
-      outcomes: [
-        "提升英文科技文献阅读和专业词汇表达能力。",
-        "练习英文技术报告、摘要、演示和学术交流。",
-        "将专业方向内容转化为清晰、准确的英文表达。"
-      ]
+      id: "professional-english-practice",
+      en: {
+        code: "Graduate",
+        name: "Professional English Practice",
+        school: "Faculty of Electronic and Information Engineering",
+        level: "Graduate Course",
+        overview:
+          "A graduate practice course focused on academic communication, paper reading, technical writing, and English presentation skills.",
+        topics: ["academic English", "paper reading", "technical writing", "presentation"],
+        offerings: [
+          { label: "Spring 2025" },
+          { label: "Spring 2023" }
+        ],
+        outcomes: [
+          "Improve technical reading and professional vocabulary in English.",
+          "Practice English technical reports, abstracts, presentations, and academic communication.",
+          "Translate domain knowledge into clear and accurate English expression."
+        ]
+      },
+      zh: {
+        code: "研究生",
+        name: "专业英语实践",
+        school: "电子与信息学部",
+        level: "研究生课程",
+        overview:
+          "面向研究生的专业英语实践课程，强调学术表达、论文阅读、技术报告写作和英文展示能力。",
+        topics: ["学术英语", "论文阅读", "技术写作", "英文展示"],
+        offerings: [
+          { label: "2025年春季" },
+          { label: "2023年春季" }
+        ],
+        outcomes: [
+          "提升英文科技文献阅读和专业词汇表达能力。",
+          "练习英文技术报告、摘要、演示和学术交流。",
+          "将专业方向内容转化为清晰、准确的英文表达。"
+        ]
+      }
     },
     {
-      code: "Undergraduate",
-      name: "计算机组成原理课程实践",
-      school: "软件工程学院",
-      term: "2025春 / 2024秋 / 2023秋",
-      level: "本科生课程",
-      overview:
-        "面向本科生的计算机组成原理课程实践，围绕计算机系统结构、指令执行、处理器组成和软硬件协同实践展开。",
-      topics: ["computer organization", "processor design", "instruction execution", "system practice"],
-      offerings: [
-        { label: "2025春" },
-        { label: "2024秋" },
-        { label: "2023秋" }
-      ],
-      outcomes: [
-        "理解计算机组成原理中的关键部件和指令执行流程。",
-        "通过实践任务加深对处理器、存储层次和系统接口的认识。",
-        "训练从硬件结构到软件运行机制的系统级分析能力。"
-      ]
+      id: "computer-organization-practice",
+      en: {
+        code: "Undergraduate",
+        name: "Computer Organization Principles Practice",
+        school: "School of Software Engineering",
+        level: "Undergraduate Course",
+        overview:
+          "An undergraduate practice course on computer organization, covering system structure, instruction execution, processor components, and hardware-software co-design.",
+        topics: ["computer organization", "processor design", "instruction execution", "system practice"],
+        offerings: [
+          { label: "Spring 2025" },
+          { label: "Fall 2024" },
+          { label: "Fall 2023" }
+        ],
+        outcomes: [
+          "Understand key components in computer organization and the instruction execution process.",
+          "Use practical assignments to connect processors, memory hierarchy, and system interfaces.",
+          "Build system-level reasoning from hardware structure to software execution."
+        ]
+      },
+      zh: {
+        code: "本科生",
+        name: "计算机组成原理课程实践",
+        school: "软件工程学院",
+        level: "本科生课程",
+        overview:
+          "面向本科生的计算机组成原理课程实践，围绕计算机系统结构、指令执行、处理器组成和软硬件协同实践展开。",
+        topics: ["计算机组成", "处理器设计", "指令执行", "系统实践"],
+        offerings: [
+          { label: "2025春" },
+          { label: "2024秋" },
+          { label: "2023秋" }
+        ],
+        outcomes: [
+          "理解计算机组成原理中的关键部件和指令执行流程。",
+          "通过实践任务加深对处理器、存储层次和系统接口的认识。",
+          "训练从硬件结构到软件运行机制的系统级分析能力。"
+        ]
+      }
     }
   ];
 
@@ -438,25 +615,27 @@
         role: "授课教师 / Instructor",
         name: "王飞",
         englishName: "Fei Wang",
-        photo: "./assets/media/people/fei-wang.svg",
+        photo: "./assets/media/people/fei-wang.jpg",
         href: "https://gr.xjtu.edu.cn/zh/web/feynmanw"
       },
       {
         role: "助教 / TA",
         name: "张婷婷",
         englishName: "Tingting Zhang",
-        photo: "./assets/media/people/2024tingting-zhang.png",
+        photo: "./assets/media/people/vr-tingting-zhang.jpg",
         href: "https://scholar.google.com/citations?user=R7kxvQkAAAAJ"
       },
       {
         role: "助教 / TA",
         name: "李怡诺",
-        englishName: "Yinuo Li"
+        englishName: "Yinuo Li",
+        photo: "./assets/media/people/yinuo-li.jpg"
       },
       {
         role: "助教 / TA",
         name: "李亚宁",
         englishName: "Yaning Li",
+        photo: "./assets/media/people/yaning-li.jpg",
         href: "https://scholar.google.com/citations?user=ydbRdm4AAAAJ"
       }
     ],
@@ -474,34 +653,6 @@
         authors: ["作者 1", "作者 2", "作者 3", "作者 4"],
         description:
           "这里填入第二个作品的介绍。可以继续补充作品的目标场景、交互方式、使用工具和最终演示效果。"
-      },
-      {
-        title: "第三个作品名称",
-        video: "https://player.bilibili.com/player.html?isOutside=true&aid=115150086541498&bvid=BV1uza4zWEaa&cid=32172802420&p=1",
-        authors: ["作者 1", "作者 2", "作者 3", "作者 4"],
-        description:
-          "这里填入第三个作品的介绍。此条目使用 Bilibili 视频嵌入，适合展示国内平台上的课程演示视频。"
-      },
-      {
-        title: "第四个作品名称",
-        video: "https://www.youtube.com/embed/QgiRK3_qPWk?si=nkpDf2T304OZevvm",
-        authors: ["作者 1", "作者 2", "作者 3", "作者 4"],
-        description:
-          "这里填入第四个作品的介绍。后续可以按同样的数据结构继续增加更多项目。"
-      },
-      {
-        title: "第五个作品名称",
-        video: "https://www.youtube.com/embed/QgiRK3_qPWk?si=nkpDf2T304OZevvm",
-        authors: ["作者 1", "作者 2", "作者 3", "作者 4"],
-        description:
-          "这里填入第五个作品的介绍。建议补充项目亮点、VR 交互设计和团队分工。"
-      },
-      {
-        title: "第六个作品名称",
-        video: "https://www.youtube.com/embed/QgiRK3_qPWk?si=nkpDf2T304OZevvm",
-        authors: ["作者 1", "作者 2", "作者 3", "作者 4"],
-        description:
-          "这里填入第六个作品的介绍。等真实作品信息齐备后，可直接替换标题、作者、视频和描述。"
       }
     ]
   };
@@ -805,7 +956,7 @@
             bio:
               "Leads XJTU AIoT Group with interests spanning efficient AI systems, multimodal intelligence, embodied AI, and AIoT applications.",
             link: "./fei-wang.html",
-            photo: "./assets/media/people/fei-wang.svg",
+            photo: "./assets/media/people/fei-wang.jpg",
             photoAlt: "Profile portrait for Fei Wang",
             palette: ["#1c355e", "#c7e0ff"]
           }
@@ -1448,6 +1599,15 @@
       },
     ],
     notes: [
+      {
+        slug: "group-wiki",
+        title: "Group Wiki",
+        date: "Lab Note",
+        cover: "./notes/group-wiki/assets/cover.svg",
+        coverAlt: "Cover for the AIoT Group Wiki",
+        text:
+          "A living guide for research onboarding, recommended courses, media, books, must-read papers, campus life, and group resources."
+      },
       {
         slug: "how-we-review-new-papers-as-a-group",
         title: "How we review new papers as a group",

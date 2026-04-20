@@ -9,8 +9,12 @@
     return `./notes/${encodeURIComponent(slug)}/index.html`;
   }
 
+  function externalLinkAttrs(href) {
+    return /^https?:\/\//i.test(href || "") ? ' target="_blank" rel="noreferrer"' : "";
+  }
+
   function buttonMarkup(action) {
-    return `<a class="button ${action.kind === "secondary" ? "button-secondary" : "button-primary"}" href="${action.href}">${SiteUI.escapeHtml(action.label)}</a>`;
+    return `<a class="button ${action.kind === "secondary" ? "button-secondary" : "button-primary"}" href="${SiteUI.escapeHtml(action.href)}"${externalLinkAttrs(action.href)}>${SiteUI.escapeHtml(action.label)}</a>`;
   }
 
   function headerMarkup(currentPage) {
@@ -63,7 +67,10 @@
             <p class="footer-title">Pages</p>
             <div class="footer-links">
               ${SiteContent.site.footerLinks
-                .map((item) => `<a href="${item.href}">${SiteUI.escapeHtml(item.label)}</a>`)
+                .map(
+                  (item) =>
+                    `<a href="${SiteUI.escapeHtml(item.href)}"${externalLinkAttrs(item.href)}>${SiteUI.escapeHtml(item.label)}</a>`
+                )
                 .join("")}
             </div>
           </div>
@@ -111,6 +118,24 @@
         ${extra || '<span class="heading-orbit" aria-hidden="true"></span>'}
       </div>
     `;
+  }
+
+  function richTextPartsMarkup(parts, fallback) {
+    if (!Array.isArray(parts)) {
+      return SiteUI.escapeHtml(fallback || "");
+    }
+
+    return parts
+      .map((part) => {
+        if (typeof part === "string") {
+          return SiteUI.escapeHtml(part);
+        }
+        if (part && part.href && part.label) {
+          return `<a class="inline-link" href="${part.href}" target="_blank" rel="noreferrer">${SiteUI.escapeHtml(part.label)}</a>`;
+        }
+        return "";
+      })
+      .join("");
   }
 
   function renderAboutPage() {
@@ -388,7 +413,7 @@
               photo: profile.photo
             })}" alt="${SiteUI.escapeHtml(profile.photoAlt || profile.name)}" decoding="async">
             <ul class="clean-list">
-              ${profile.quickFacts.map((item) => `<li>${SiteUI.escapeHtml(item)}</li>`).join("")}
+              ${profile.quickFacts.map((item) => `<li>${richTextPartsMarkup(item, item)}</li>`).join("")}
             </ul>
             <div class="chip-row">
               ${profile.profileLinks
@@ -404,6 +429,40 @@
           <div class="panel stack-panel">
             ${profile.bio.map((paragraph) => `<p>${SiteUI.escapeHtml(paragraph)}</p>`).join("")}
           </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="shell">
+          ${sectionHeading("Significant Performance", "Professional Statement")}
+          ${
+            profile.significantPerformance.intro
+              ? `<div class="panel stack-panel performance-summary">
+                  <p>${SiteUI.escapeHtml(profile.significantPerformance.intro)}</p>
+                </div>`
+              : ""
+          }
+          <div class="card-grid card-grid-3 performance-grid">
+            ${profile.significantPerformance.items
+              .map(
+                (item) => `
+                  <article class="panel info-card performance-card">
+                    <div class="meta-row">
+                      <span class="date-pill">${SiteUI.escapeHtml(item.period)}</span>
+                    </div>
+                    <h3>${SiteUI.escapeHtml(item.title)}</h3>
+                    <p>${SiteUI.escapeHtml(item.text)}</p>
+                  </article>
+                `
+              )
+              .join("")}
+          </div>
+          ${
+            profile.significantPerformance.note
+              ? `<div class="panel stack-panel performance-note">
+                  <p>${SiteUI.escapeHtml(profile.significantPerformance.note)}</p>
+                </div>`
+              : ""
+          }
         </div>
       </section>
       <section class="section section-muted">
@@ -456,7 +515,7 @@
                   <article class="panel timeline-card">
                     <span class="date-pill">${SiteUI.escapeHtml(item.year)}</span>
                     <h3>${SiteUI.escapeHtml(item.title)}</h3>
-                    <p>${SiteUI.escapeHtml(item.text)}</p>
+                    <p>${richTextPartsMarkup(item.textParts, item.text)}</p>
                   </article>
                 `
               )
@@ -464,6 +523,45 @@
           </div>
         </div>
       </section>
+    `;
+  }
+
+  function courseOfferingMarkup(offering) {
+    const label = SiteUI.escapeHtml(offering.label);
+    const action = offering.action ? SiteUI.escapeHtml(offering.action) : "";
+    const content = action ? `<span>${label}</span><strong>${action}</strong>` : `<span>${label}</span>`;
+    if (!offering.href) {
+      return `<span class="course-offering-chip">${content}</span>`;
+    }
+    const external = /^https?:\/\//i.test(offering.href);
+    return `<a class="course-offering-chip course-offering-link" href="${offering.href}"${
+      external ? ' target="_blank" rel="noreferrer"' : ""
+    }>${content}</a>`;
+  }
+
+  function courseLanguageCardMarkup(course, language) {
+    const data = course[language];
+    const label = language === "en" ? "English" : "中文";
+    return `
+      <article class="panel course-card course-language-card">
+        <div class="meta-row">
+          <span class="date-pill">${SiteUI.escapeHtml(label)}</span>
+          <span>${SiteUI.escapeHtml(data.code)}</span>
+          <span>${SiteUI.escapeHtml(data.level)}</span>
+        </div>
+        <h3>${SiteUI.escapeHtml(data.name)}</h3>
+        <p class="course-school">${SiteUI.escapeHtml(data.school || "")}</p>
+        <p>${SiteUI.escapeHtml(data.overview)}</p>
+        <div class="course-offering-list" aria-label="${SiteUI.escapeHtml(data.name)} offerings">
+          ${(data.offerings || []).map(courseOfferingMarkup).join("")}
+        </div>
+        <div class="chip-row">
+          ${(data.topics || []).map((topic) => `<span>${SiteUI.escapeHtml(topic)}</span>`).join("")}
+        </div>
+        <ul class="clean-list">
+          ${(data.outcomes || []).map((item) => `<li>${SiteUI.escapeHtml(item)}</li>`).join("")}
+        </ul>
+      </article>
     `;
   }
 
@@ -488,41 +586,14 @@
       <section class="section">
         <div class="shell">
           ${sectionHeading("Course Offerings", "Teaching Archive")}
-          <div class="course-grid">
+          <div class="course-pair-list">
             ${SiteContent.courses
               .map(
                 (course) => `
-                  <article class="panel course-card">
-                    <div class="meta-row">
-                      <span class="date-pill">${SiteUI.escapeHtml(course.code)}</span>
-                      <span>${SiteUI.escapeHtml(course.level)}</span>
-                    </div>
-                    <h3>${SiteUI.escapeHtml(course.name)}</h3>
-                    <p class="course-school">${SiteUI.escapeHtml(course.school || "")}</p>
-                    <p>${SiteUI.escapeHtml(course.overview)}</p>
-                    <div class="course-offering-list" aria-label="${SiteUI.escapeHtml(course.name)} offerings">
-                      ${(course.offerings || [])
-                        .map((offering) => {
-                          const label = SiteUI.escapeHtml(offering.label);
-                          const action = offering.action ? SiteUI.escapeHtml(offering.action) : "";
-                          const content = action ? `<span>${label}</span><strong>${action}</strong>` : `<span>${label}</span>`;
-                          if (!offering.href) {
-                            return `<span class="course-offering-chip">${content}</span>`;
-                          }
-                          const external = /^https?:\/\//i.test(offering.href);
-                          return `<a class="course-offering-chip course-offering-link" href="${offering.href}"${
-                            external ? ' target="_blank" rel="noreferrer"' : ""
-                          }>${content}</a>`;
-                        })
-                        .join("")}
-                    </div>
-                    <div class="chip-row">
-                      ${(course.topics || []).map((topic) => `<span>${SiteUI.escapeHtml(topic)}</span>`).join("")}
-                    </div>
-                    <ul class="clean-list">
-                      ${(course.outcomes || []).map((item) => `<li>${SiteUI.escapeHtml(item)}</li>`).join("")}
-                    </ul>
-                  </article>
+                  <div class="course-pair" id="${SiteUI.escapeHtml(course.id)}">
+                    ${courseLanguageCardMarkup(course, "en")}
+                    ${courseLanguageCardMarkup(course, "zh")}
+                  </div>
                 `
               )
               .join("")}
