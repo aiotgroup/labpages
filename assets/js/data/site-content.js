@@ -7,7 +7,7 @@
     footerMark: "X",
     tagline: "Ubiquitous AI, Intelligent Systems, Connected Future.",
     description:
-      "A multi-page static group website for XJTU AIoT Group, rebuilt with a cleaner structure and editable local content.",
+      "XJTU AIoT Group explores AI for ubiquitous sensing, wearable computing, multimodal learning, and efficient edge intelligence.",
     copyright: "Copyright \u00A9 XJTU AIoT Group. Designed and Developed by Shengyao Ding and Fei Wang.",
     nav: [
       { key: "about", label: "About", href: "./index.html" },
@@ -177,9 +177,21 @@
       href: "https://hqf1h4do6vh.feishu.cn/wiki/Qb7XwbUDjiTbikkEid2ctIHzn1d"
     },
     bio: [
-      "I am an Associate Professor and Ph.D. supervisor in the School of Software Engineering, Faculty of Electronic and Information Engineering, Xi'an Jiaotong University. My research interest is building novel sensory systems for human, event, and things sensing, including activity recognition, human pose estimation, person re-identification, and broader intelligent sensing and communications.",
-      "My work sits at the intersection of machine learning, deep learning, sensors, robotics, signal processing, large language models, and AIoT systems. I have published papers in top-tier journals such as ACM IMWUT, IEEE Internet of Things Journal, IEEE Transactions on Industrial Informatics, and IEEE Transactions on Image Processing, as well as flagship conferences including IEEE GLOBECOM, ICCV, ACM MobiHoc, CVPR, and UbiComp. I received the IEEE GLOBECOM 2019 Best Paper Award.",
-      "I currently lead the AIoT Group at Xi'an Jiaotong University. Our group has released several open research projects and benchmarks, including Person-in-WiFi 3D (CVPR 2024), XRF55 Dataset (UbiComp 2024), XRF V2 (UbiComp 2025), and Awesome Wireless Sensing Generalization (IEEE COMST 2026). I am also a founding leadership member of the Sensing Dataset Platform for Intelligent Sensing and Communications, SDP4ISAC."
+      "I am an Associate Professor and Ph.D. supervisor in the School of Software Engineering, Faculty of Electronic and Information Engineering, Xi'an Jiaotong University. My goal is to make AI more present, helpful, and humane in the physical world. I am especially motivated by socially meaningful problems where intelligent sensing can improve health, safety, accessibility, and the quality of everyday life without demanding constant user attention.",
+      "My recent research directions are closely aligned with our group roadmap: intelligent sensing with WiFi, mmWave, UWB, and other ambient signals; wearable computing and human-computer interaction with watches, bands, glasses, and physiological sensors; multimodal machine learning that fuses wireless, vision, audio, language, and motion data under missingness and noise; and smart IoT, security, and efficient edge AI that bring robust perception to resource-constrained devices with privacy-aware, real-time deployment in mind.",
+      [
+        "Alongside publications in venues such as ACM IMWUT, IEEE Internet of Things Journal, IEEE Transactions on Industrial Informatics, IEEE Transactions on Image Processing, IEEE GLOBECOM, ICCV, CVPR, and UbiComp, I care deeply about building open infrastructure that helps the community move faster. Our group has released projects and benchmarks including ",
+        { label: "Person-in-WiFi 3D", href: "https://aiotgroup.github.io/Person-in-WiFi-3D/" },
+        ", ",
+        { label: "XRF55", href: "https://aiotgroup.github.io/XRF55/" },
+        ", ",
+        { label: "XRF V2", href: "https://github.com/aiotgroup/XRFV2" },
+        ", and ",
+        { label: "Awesome Wireless Sensing Generalization", href: "https://github.com/aiotgroup/awesome-wireless-sensing-generalization" },
+        ". I also received the IEEE GLOBECOM 2019 Best Paper Award and serve as a founding leadership member of the Sensing Dataset Platform for Intelligent Sensing and Communications, ",
+        { label: "SDP4ISAC", href: "https://sdp8.org/" },
+        "."
+      ]
     ],
     significantPerformance: {
       items: [
@@ -212,13 +224,12 @@
     ],
     profileLinks: [
       { label: "Email", href: "mailto:feynmanw@xjtu.edu.cn" },
-      { label: "Google Scholar", href: "https://scholar.google.com/citations?user=LKPpmXQAAAAJ&hl=en" },
-      { label: "SDP4ISAC", href: "https://sdp8.org/" }
+      { label: "Google Scholar", href: "https://scholar.google.com/citations?user=LKPpmXQAAAAJ&hl=en" }
     ],
     quickFacts: [
       "School of Software Engineering, Xi'an Jiaotong University",
       "Contact: feynmanw[at]xjtu.edu.cn",
-      "IEEE Senior Member (Apr 2026)",
+      [{ strong: "IEEE Senior Member (Apr 2026)" }],
       "Executive Committee Member, CCF Technical Committee on Internet of Things (Sep 2025)",
       "Executive Committee Member, CCF Technical Committee on Ubiquitous Computing (Aug 2025)",
       [
@@ -448,7 +459,7 @@
           "A graduate course on advanced computer networks and communications, covering modern networked systems, wireless communication, mobile computing, and intelligent connected systems.",
         topics: ["computer networks", "wireless communication", "mobile systems", "AIoT networking"],
         offerings: [
-          { label: "Spring 2025" },
+          { label: "Spring 2026" },
           { label: "Spring 2025" },
           { label: "Spring 2024" }
         ],
@@ -467,7 +478,7 @@
           "面向研究生的高等计算机网络与通讯课程，围绕现代网络系统、无线通信、移动计算和智能互联系统中的关键技术展开。",
         topics: ["计算机网络", "无线通信", "移动系统", "AIoT 网络"],
         offerings: [
-          { label: "2025春季" },
+          { label: "2026春季" },
           { label: "2025春季" },
           { label: "2024春季" }
         ],

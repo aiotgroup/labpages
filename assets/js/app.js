@@ -130,6 +130,9 @@
         if (typeof part === "string") {
           return SiteUI.escapeHtml(part);
         }
+        if (part && part.strong) {
+          return `<strong>${SiteUI.escapeHtml(part.strong)}</strong>`;
+        }
         if (part && part.href && part.label) {
           return `<a class="inline-link" href="${part.href}" target="_blank" rel="noreferrer">${SiteUI.escapeHtml(part.label)}</a>`;
         }
@@ -471,7 +474,7 @@
         <div class="shell">
           ${sectionHeading("Biography", "Profile")}
           <div class="panel stack-panel">
-            ${profile.bio.map((paragraph) => `<p>${SiteUI.escapeHtml(paragraph)}</p>`).join("")}
+            ${profile.bio.map((paragraph) => `<p>${richTextPartsMarkup(paragraph, paragraph)}</p>`).join("")}
           </div>
         </div>
       </section>
