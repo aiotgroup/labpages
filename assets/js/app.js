@@ -9,6 +9,49 @@
     return `./notes/${encodeURIComponent(slug)}/index.html`;
   }
 
+  function youtubeVideoId(url) {
+    const value = String(url || "");
+    const embedMatch = value.match(/youtube(?:-nocookie)?\.com\/embed\/([^?&/]+)/i);
+    if (embedMatch) {
+      return embedMatch[1];
+    }
+
+    const watchMatch = value.match(/[?&]v=([^?&]+)/i);
+    if (watchMatch) {
+      return watchMatch[1];
+    }
+
+    const shortMatch = value.match(/youtu\.be\/([^?&/]+)/i);
+    return shortMatch ? shortMatch[1] : "";
+  }
+
+  function videoEmbedSrc(url) {
+    const id = youtubeVideoId(url);
+    if (!id) {
+      return url;
+    }
+
+    const params = new URLSearchParams({
+      rel: "0",
+      modestbranding: "1",
+      playsinline: "1"
+    });
+
+    if (/^https?:$/i.test(window.location.protocol)) {
+      params.set("origin", window.location.origin);
+    }
+
+    return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?${params.toString()}`;
+  }
+
+  function videoWatchHref(url) {
+    const id = youtubeVideoId(url);
+    if (id) {
+      return `https://www.youtube.com/watch?v=${encodeURIComponent(id)}`;
+    }
+    return url;
+  }
+
   function externalLinkAttrs(href) {
     return /^https?:\/\//i.test(href || "") ? ' target="_blank" rel="noreferrer"' : "";
   }
@@ -711,7 +754,14 @@
                 (project, index) => `
                   <article class="panel vr-project-card">
                     <div class="vr-video-frame">
-                      <iframe src="${project.video}" title="${SiteUI.escapeHtml(project.title)} video" loading="lazy" allowfullscreen></iframe>
+                      <iframe
+                        src="${SiteUI.escapeHtml(videoEmbedSrc(project.video))}"
+                        title="${SiteUI.escapeHtml(project.title)} video"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                      </iframe>
                     </div>
                     <div class="vr-project-copy">
                       <p class="eyebrow">Project ${String(index + 1).padStart(2, "0")}</p>
@@ -720,6 +770,7 @@
                         ${(project.authors || []).map((author) => `<span>${SiteUI.escapeHtml(author)}</span>`).join("")}
                       </div>
                       <p>${SiteUI.escapeHtml(project.description)}</p>
+                      <a class="inline-link" href="${SiteUI.escapeHtml(videoWatchHref(project.video))}" target="_blank" rel="noreferrer">Open video in a new tab</a>
                     </div>
                   </article>
                 `

@@ -874,11 +874,6 @@ select {
   line-height: 1.1;
 }
 
-.vr-project-copy p:last-child {
-  margin-bottom: 0;
-  color: var(--muted);
-}
-
 .vr-author-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
@@ -894,6 +889,15 @@ select {
   color: #42413e;
   text-align: center;
   font-size: 0.92rem;
+}
+
+.vr-project-copy > p:not(.eyebrow) {
+  color: var(--muted);
+}
+
+.vr-project-copy .inline-link {
+  display: inline-flex;
+  margin-top: 12px;
 }
 
 .dataset-card {
