@@ -498,7 +498,7 @@
         level: "Undergraduate Course",
         overview:
           "An undergraduate course on virtual reality systems, interaction design, 3D content creation, and hands-on course projects.",
-        topics: ["virtual reality", "3D interaction", "Unity / WebXR", "course project"],
+        topics: ["virtual reality", "3D interaction", "Unity / Unreal Engine", "course project"],
         offerings: [
           {
             label: "Spring 2026",
@@ -520,7 +520,7 @@
         level: "本科生课程",
         overview:
           "面向本科生的虚拟现实技术课程，覆盖 VR 系统基础、交互设计、三维内容构建和课程大作业实践。",
-        topics: ["虚拟现实", "三维交互", "Unity / WebXR", "课程大作业"],
+        topics: ["虚拟现实", "三维交互", "Unity / Unreal Engine", "课程大作业"],
         offerings: [
           {
             label: "2026春季",
@@ -1135,12 +1135,48 @@
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
+            name: "Zhijian Wang (王之鉴)",
+            role: "Undergraduate Student, Research Intern",
+            photo: "./assets/media/people/2026zhijian-wang.jpg",
+            photoAlt: "Portrait for Zhijian Wang",
+            bio:
+              "Working on wireless sensing and multimodal learning.",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
+            name: "Shi Chen (陈昰)",
+            role: "Undergraduate Student, Research Intern",
+            photo: "./assets/media/people/2026shi-chen.jpg",
+            photoAlt: "Portrait for Shi Chen",
+            bio:
+              "Working on IMU sensing.",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
             name: "Xilei Han (韩茜蕾)",
             role: "Undergraduate Student, Research Intern",
             photo: "./assets/media/people/2027xilei-han.jpg",
             photoAlt: "Sample portrait for Xilei Han",
             bio:
               "",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
+            name: "Hang Xu (许航)",
+            role: "Undergraduate Student, Research Intern",
+            photo: "./assets/media/people/2027hang-xu.jpg",
+            photoAlt: "Portrait for Hang Xu",
+            bio:
+              "Interested in multimodal foundation models.",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
+            name: "Shihan Pan (潘适晗)",
+            role: "Undergraduate Student, Research Intern",
+            photo: "./assets/media/people/2028shihan-pan.jpg",
+            photoAlt: "Portrait for Shihan Pan",
+            bio:
+              "Working on weakly supervised IMU-based action localization.",
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
@@ -1331,6 +1367,15 @@
     intro:
       "The gallery documents both research milestones and everyday group life.",
     snapshots: [
+      {
+        title: "More Portraits of Kexin Ren",
+        date: "April 20, 2026",
+        caption: "More photos of Kexin Ren are collected here, capturing her beautiful moments.",
+        tag: "Personal Photos",
+        image: "./assets/media/gallery/20260420-kexin-ren-portraits.jpg",
+        photoAlt: "A horizontal collage of Kexin Ren portraits",
+        palette: ["#214c71", "#e4f2ff"]
+      },
       {
         title: "Mentorship and Friendship",
         date: "April 17, 2026",
