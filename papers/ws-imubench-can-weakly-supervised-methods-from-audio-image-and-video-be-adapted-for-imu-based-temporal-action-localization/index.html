@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WS-IMUBench: Can Weakly Supervised Methods from Audio, Image, and Video Be Adapted for IMU-based Temporal Action Localization? - XJTU AIoT Group</title>
-  <meta name="description" content="WS-IMUBench establishes a large benchmarking study for weakly supervised IMU temporal action localization and analyzes how methods from audio, image, and video transfer to sequence-level IMU labels.">
+  <meta name="description" content="WS-IMUBench formalizes weakly supervised IMU temporal action localization and benchmarks seven representative methods transferred from audio, image, and video on seven public IMU datasets under sequence-level labels.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,15 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a>
+        <a href="../../fei-wang.html">Fei Wang</a>
+        <a href="../../publications.html">Publications</a>
+        <a href="../../dataset.html">Datasets</a>
+        <a href="../../course.html">Courses</a>
+        <a href="../../awards.html">Awards</a>
+        <a href="../../team.html">Team</a>
+        <a href="../../gallery.html">Gallery</a>
+        <a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -35,17 +43,13 @@
           <div class="paper-meta-row">
             <span class="paper-pill">arXiv preprint arXiv:2602.01850, 2026</span>
             <span class="paper-pill">2026</span>
-            <span class="paper-pill">Video &amp; Streaming</span>
+            <span class="paper-pill">Ubiquitous Sensing</span>
             <span class="paper-pill">XJTU AIoT Group</span>
           </div>
-          <p class="paper-summary">WS-IMUBench establishes a large benchmarking study for weakly supervised IMU temporal action localization and analyzes how methods from audio, image, and video transfer to sequence-level IMU labels.</p>
+          <p class="paper-summary">WS-IMUBench formalizes weakly supervised IMU temporal action localization and benchmarks seven representative methods transferred from audio, image, and video on seven public IMU datasets under sequence-level labels.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
-            
-            
-            
-            
+            <a class="paper-link-chip" href="https://arxiv.org/pdf/2602.01850">Paper</a>
           </div>
         </div>
         <aside class="paper-hero-side">
@@ -70,7 +74,7 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Video &amp; Streaming</p>
+            <p>Ubiquitous Sensing</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
@@ -84,32 +88,225 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>IMU-based human activity recognition is widely used in wearable computing, but most existing work still follows a <strong>clip classification</strong> paradigm that ignores the finer temporal structure of continuous behavior. This paper shifts the focus to <strong>IMU Temporal Action Localization (IMU-TAL)</strong>, where the goal is to predict both action classes and their start/end times.</p>
-<p>Dense temporal annotation is expensive to scale, so the authors study whether weakly supervised localization methods from <strong>audio</strong>, <strong>image</strong>, and <strong>video</strong> can be adapted to IMU streams using only sequence-level labels. The result is <strong>WS-IMUBench</strong>, a benchmark study rather than a single new model.</p>
-<h2>Main Contributions</h2>
+<p>IMU-based Human Activity Recognition (HAR) has enabled many wearable and ubiquitous computing applications, but the common <strong>clip classification</strong> paradigm only predicts one label for a pre-segmented sensor snippet. Real-world behavior is continuous: actions start, stop, overlap, transition, and repeat. This paper therefore studies <strong>IMU Temporal Action Localization (IMU-TAL)</strong>, where a model must predict both the action category and the temporal boundaries of each action in a continuous inertial stream.</p>
+<p>The main obstacle is annotation cost. Fully supervised TAL requires dense start/end boundary labels, which are expensive and inconsistent to annotate for abstract IMU waveforms. <strong>WS-IMUBench</strong> addresses this bottleneck by studying <strong>Weakly Supervised IMU-TAL (WS-IMU-TAL)</strong>, where training uses only sequence-level multi-hot labels that indicate which actions appear, without revealing when they occur.</p>
+<p>Rather than proposing one more localization model, the paper asks a broader question: can weakly supervised localization methods that work in <strong>audio</strong>, <strong>image</strong>, and <strong>video</strong> be adapted to IMU streams? WS-IMUBench answers this through a systematic benchmark, standardized task setup, unified metrics, and diagnostic analysis of transfer failures.</p>
+<h2>At A Glance</h2>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Item</th>
+<th>WS-IMUBench Setup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Task</td>
+<td>Weakly supervised IMU Temporal Action Localization</td>
+</tr>
+<tr>
+<td>Supervision</td>
+<td>Sequence-level multi-hot labels only</td>
+</tr>
+<tr>
+<td>Methods</td>
+<td>7 weakly supervised methods from audio, image, and video</td>
+</tr>
+<tr>
+<td>Datasets</td>
+<td>7 public IMU datasets</td>
+</tr>
+<tr>
+<td>Training scale</td>
+<td>3,540 training runs</td>
+</tr>
+<tr>
+<td>Inference scale</td>
+<td>7,080 inference evaluations</td>
+</tr>
+<tr>
+<td>Main metrics</td>
+<td>Frame-level Precision/Recall/F1, misalignment ratios, segment-level mAP</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Research Questions</h2>
+<p>The benchmark is organized around three research questions:</p>
 <ul>
-<li>Establishes a systematic benchmark for <strong>weakly supervised IMU temporal action localization</strong>.</li>
-<li>Evaluates <strong>seven representative methods</strong> from neighboring modalities on <strong>seven public IMU datasets</strong>.</li>
-<li>Analyzes which paradigms transfer well, where they fail, and what research directions are most promising for IMU-TAL.</li>
+<li><strong>RQ1: Transferability.</strong> How can weakly supervised localization paradigms from other modalities be adapted to continuous IMU streams? What IMU-specific choices are needed for instances, bags, aggregation, and proposals?</li>
+<li><strong>RQ2: Effectiveness.</strong> How well do transferred weakly supervised methods recognize and localize actions across diverse IMU datasets?</li>
+<li><strong>RQ3: Insights and future directions.</strong> What are the main failure modes, and what do they imply for better WS-IMU-TAL systems?</li>
 </ul>
-<h2>Method</h2>
-<p>The benchmark keeps the supervision level intentionally weak: models only see <strong>sequence-level labels</strong>, not dense frame-level boundaries. Under that setting, the paper measures how well existing weakly supervised localization ideas can adapt to IMU data, including methods originally designed for audio, image, and video tasks.</p>
-<p>Rather than claiming one universal winner, the paper emphasizes a benchmarker's view:</p>
+<h2>Problem Formulation</h2>
+<p>WS-IMUBench casts WS-IMU-TAL as a <strong>Multiple Instance Learning (MIL)</strong> problem:</p>
 <ul>
-<li>which methods are stable,</li>
-<li>which datasets are favorable,</li>
-<li>and which failure modes repeatedly appear.</li>
+<li>A long untrimmed IMU recording is treated as a <strong>bag</strong>.</li>
+<li>Candidate temporal clips, snippets, or proposals are treated as <strong>instances</strong>.</li>
+<li>Each bag has only a <strong>sequence-level label</strong>, indicating which action classes appear somewhere in the sequence.</li>
+<li>The model must learn instance-level action evidence from bag-level supervision, then output predicted action tuples <code>(class, start, end)</code> during inference.</li>
 </ul>
-<h2>Evaluation Highlights</h2>
+<p>This formulation makes cross-modal transfer possible. The paper does not transfer raw representations from audio, image, or video. Instead, it transfers the <strong>bag-instance abstraction</strong>, <strong>weak aggregation mechanisms</strong>, and <strong>localization/refinement strategies</strong>, then adapts them to IMU-specific temporal signals.</p>
+<h2>Cross-Modal Method Adaptation</h2>
+<p>WS-IMUBench adapts seven representative weakly supervised methods from three established domains.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Source Modality</th>
+<th>Paradigm</th>
+<th>Adapted Methods</th>
+<th>IMU Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Audio</td>
+<td>Weakly supervised sound event detection</td>
+<td>DCASE, CDur</td>
+<td>IMU streams are 1D temporal signals; slice-level predictions are aggregated with MIL pooling.</td>
+</tr>
+<tr>
+<td>Image</td>
+<td>Weakly supervised object detection</td>
+<td>WSDDN, OICR, PCL</td>
+<td>Temporal intervals replace image region proposals; proposal scoring and pseudo-label refinement are transferred to 1D time.</td>
+</tr>
+<tr>
+<td>Video</td>
+<td>Weakly supervised temporal action localization</td>
+<td>CoLA, RSKP</td>
+<td>IMU snippets play the role of video snippets; contrastive refinement and temporal propagation improve localization.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The image-derived methods require the largest adaptation because IMU data does not have an equivalent of visual region proposal algorithms such as Selective Search. The paper therefore uses a <strong>multi-scale temporal proposal generator</strong>, producing <strong>3,000 temporal proposals per sequence</strong> through a mix of structured sliding windows and random sampling.</p>
+<h2>Benchmark Datasets</h2>
+<p>The evaluation covers seven public IMU datasets spanning daily activities, sports, locomotion, and laboratory procedures.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Dataset</th>
+<th style="text-align: right;">Subjects</th>
+<th style="text-align: right;">Classes</th>
+<th style="text-align: right;">Sensor Axes</th>
+<th style="text-align: right;">Median Segment Duration</th>
+<th>Scenario</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SBHAR</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">12.76 s</td>
+<td>Locomotion</td>
+</tr>
+<tr>
+<td>Opportunity</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">113</td>
+<td style="text-align: right;">2.60 s</td>
+<td>Daily-life actions</td>
+</tr>
+<tr>
+<td>WetLab</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">11.23 s</td>
+<td>Laboratory</td>
+</tr>
+<tr>
+<td>Hang-Time</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1.80 s</td>
+<td>Sports</td>
+</tr>
+<tr>
+<td>RWHAR</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">621.16 s</td>
+<td>Locomotion</td>
+</tr>
+<tr>
+<td>WEAR</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">43.12 s</td>
+<td>Sports</td>
+</tr>
+<tr>
+<td>XRFV2</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">7.00 s</td>
+<td>Daily-life actions</td>
+</tr>
+</tbody>
+</table></div>
+<p>These datasets expose very different temporal regimes. Opportunity and Hang-Time contain short, frequent transitions; RWHAR has extremely long continuous action segments; XRFV2 has relatively uniform durations; SBHAR, WetLab, and WEAR sit between these extremes. This diversity is central to understanding when weak supervision works and when it breaks.</p>
+<h2>Evaluation Protocol</h2>
+<p>The benchmark evaluates <strong>7 weakly supervised models</strong> and <strong>3 fully supervised upper-bound models</strong>: ActionFormer, TemporalMaxer, and TriDet. All methods are run with three random seeds: <code>2022</code>, <code>2024</code>, and <code>2026</code>.</p>
+<p>For Opportunity, Hang-Time, SBHAR, RWHAR, WetLab, and WEAR, the paper uses <strong>leave-one-subject-out (LOSO)</strong> cross-validation. For XRFV2, it reports both cross-subject LOSO and the official in-domain split.</p>
+<p>Two inference modes are compared:</p>
 <ul>
-<li>More than <strong>3,540 training runs</strong> and <strong>7,080 inference evaluations</strong>.</li>
-<li>Shows that transferability is strongly <strong>modality-dependent</strong>.</li>
-<li>Finds that temporal-domain methods are generally more stable than image-derived proposal approaches.</li>
-<li>Highlights short actions, temporal ambiguity, and proposal quality as dominant failure modes.</li>
+<li><strong>full_input:</strong> process the entire continuous stream at once, approximating offline analysis.</li>
+<li><strong>window_input:</strong> process shorter windows and merge predictions with temporal non-maximum suppression, approximating online or streaming use.</li>
 </ul>
+<p>Window lengths are dataset-dependent: 100 seconds for Opportunity and Hang-Time, 1000 seconds for RWHAR, SBHAR, WEAR, and WetLab, and 30 seconds for XRFV2.</p>
+<h2>Metrics</h2>
+<p>WS-IMUBench deliberately goes beyond a single mAP number. It evaluates both continuous labeling quality and segment detection quality:</p>
+<ul>
+<li><strong>Frame-level Precision, Recall, and F1</strong> after rasterizing predicted and ground-truth segments into per-time-step labels.</li>
+<li><strong>Misalignment ratios</strong>, including deletion, underfill, fragmentation, insertion, overfill, and merge errors.</li>
+<li><strong>Segment-level mAP</strong> averaged across temporal IoU thresholds <code>{0.3, 0.4, 0.5, 0.6, 0.7}</code>.</li>
+</ul>
+<p>This combination helps diagnose why a method fails: it may classify the right action but miss boundaries, over-fragment actions, hallucinate background, or merge adjacent segments.</p>
+<h2>Key Findings</h2>
+<h3>Transfer Is Modality-Dependent</h3>
+<p>Temporal-domain methods adapted from audio and video are generally more stable than image-derived proposal methods. DCASE and RSKP are strong examples because their original designs already assume continuous sequential data. In contrast, WSDDN, OICR, and PCL depend heavily on proposal quality; temporal proposals generated from IMU signals are much weaker than visual object proposals generated from images.</p>
+<h3>Weak Supervision Can Be Competitive On Favorable Datasets</h3>
+<p>Weakly supervised methods can achieve meaningful localization without frame-level boundaries. The strongest results appear on datasets with longer actions and richer sensing:</p>
+<ul>
+<li>On <strong>RWHAR</strong>, DCASE reaches <strong>65.07 mAP</strong>.</li>
+<li>On <strong>WEAR</strong>, RSKP reaches <strong>63.29 mAP</strong>.</li>
+</ul>
+<p>These results narrow the gap to fully supervised methods on favorable datasets, suggesting that weak supervision is practical when action duration and sensing dimensionality provide enough temporal evidence.</p>
+<h3>Short Actions And Low-Dimensional Signals Are Hard</h3>
+<p>Performance drops sharply on datasets dominated by short actions or sparse sensor channels. Opportunity has a median action duration of only <strong>2.60 seconds</strong>, and SBHAR uses only <strong>3 sensor axes</strong>. In these cases, sequence-level labels provide too little temporal signal for reliable boundary discovery.</p>
+<h3>Larger Models Are Not Necessarily Better</h3>
+<p>Model scale does not directly predict WS-IMU-TAL performance. RSKP is one of the lightest evaluated methods, with <strong>274,944 trainable parameters</strong>, yet it is a top performer across several datasets. OICR and PCL are much heavier, both with <strong>31,907,948 parameters</strong>, but their performance is limited by proposal quality and weak pseudo-label refinement under IMU-specific noise.</p>
+<h3>Window-Level And Full-Sequence Inputs Behave Differently</h3>
+<p>Different model families prefer different input regimes. Detection-style methods such as DCASE and CDur often benefit from full-sequence context. Proposal-based MIL methods such as WSDDN, OICR, and PCL can degrade on full sequences because sparse action evidence becomes diluted. CoLA often benefits from cleaner window-level contrastive learning, while RSKP is comparatively robust due to temporal propagation.</p>
+<h2>Failure Modes</h2>
+<p>The paper identifies three recurring bottlenecks:</p>
+<ul>
+<li><strong>Dataset heterogeneity.</strong> IMU datasets differ in placement, axis count, sampling rate, action duration, subject behavior, and preprocessing. A model that works on one dataset may not transfer cleanly to another.</li>
+<li><strong>Temporal proposal generation.</strong> IMU lacks a content-aware proposal mechanism comparable to image object proposals. Random or structured sampling can miss true action boundaries, creating a hard ceiling for proposal-based weak supervision.</li>
+<li><strong>Lack of unified IMU pretraining.</strong> Unlike vision, the IMU community does not yet have an ImageNet-like pretraining foundation. Cross-dataset representation alignment is difficult because coordinate frames, sensor placements, missing modalities, and device filters vary widely.</li>
+</ul>
+<h2>Future Directions</h2>
+<p>WS-IMUBench points to several research directions for scalable weakly supervised IMU localization:</p>
+<ul>
+<li>IMU-specific temporal proposal generation using change-point detection, actionness scoring, or learned proposal networks.</li>
+<li>Boundary-aware objectives that preserve onset and offset information instead of only optimizing sequence-level classification.</li>
+<li>Multi-scale temporal modeling to separate dominant actions from subtle concurrent actions.</li>
+<li>IMU foundation models trained with objectives that preserve temporal structure, not just clip-level semantics.</li>
+<li>Standardized pretraining and evaluation suites to reduce fragmentation across datasets and devices.</li>
+</ul>
+<h2>Why It Matters</h2>
+<p>The paper helps move IMU sensing beyond isolated clip recognition toward scalable continuous behavior understanding. If weakly supervised localization can work reliably, future wearable systems could learn from cheap sequence-level labels instead of expensive dense annotations, making it easier to build health monitoring, sports analytics, activity summarization, and real-world context-aware sensing systems.</p>
 <h2>Resources</h2>
 <ul>
 <li><a href="https://arxiv.org/abs/2602.01850">arXiv abstract</a></li>
+<li><a href="https://arxiv.org/pdf/2602.01850">PDF</a></li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@article{li2026wsimubench,
@@ -119,7 +316,6 @@
   year = {2026}
 }
 </code></pre>
-
         </article>
       </div>
     </section>

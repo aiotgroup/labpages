@@ -102,7 +102,6 @@
           <div class="footer-brand">
             <div class="footer-badge">${SiteUI.escapeHtml(footerMark)}</div>
             <div>
-              <strong>${SiteUI.escapeHtml(SiteContent.site.title)}</strong>
               <p>${SiteUI.escapeHtml(SiteContent.site.description)}</p>
             </div>
           </div>
@@ -182,6 +181,23 @@
         return "";
       })
       .join("");
+  }
+
+  function sponsorLogoMarkup(sponsor) {
+    const name = typeof sponsor === "string" ? sponsor : sponsor.name;
+    const logo = typeof sponsor === "object" && sponsor ? sponsor.logo : "";
+    const color = typeof sponsor === "object" && /^#[0-9a-f]{6}$/i.test(sponsor.color || "") ? sponsor.color : "";
+    const style = color ? ` style="--sponsor-color: ${color}"` : "";
+
+    return `
+      <span class="marquee-item sponsor-logo-card" aria-label="${SiteUI.escapeHtml(name)}"${style}>
+        ${
+          logo
+            ? `<img src="${SiteUI.escapeHtml(logo)}" alt="${SiteUI.escapeHtml(`${name} logo`)}" loading="lazy" decoding="async">`
+            : `<span class="sponsor-wordmark">${SiteUI.escapeHtml(name)}</span>`
+        }
+      </span>
+    `;
   }
 
   function renderAboutPage() {
@@ -274,7 +290,7 @@
           <div class="marquee">
             <div class="marquee-track">
               ${[...about.sponsors, ...about.sponsors]
-                .map((name) => `<span class="marquee-item">${SiteUI.escapeHtml(name)}</span>`)
+                .map(sponsorLogoMarkup)
                 .join("")}
             </div>
           </div>
@@ -482,11 +498,15 @@
           descriptionHtml: `
             <p>${SiteUI.escapeHtml(profile.note)}</p>
             <div class="admissions-callout">
-              <div>
+              <div class="admissions-copy">
                 <strong>Interns & Master's Applicants</strong>
                 <p>${SiteUI.escapeHtml(profile.admissionsNote)}</p>
+                ${profile.admissionsNoteZh ? `<p lang="zh-CN">${SiteUI.escapeHtml(profile.admissionsNoteZh)}</p>` : ""}
               </div>
-              <a class="admissions-link" href="${profile.admissionsLink.href}" target="_blank" rel="noreferrer">${SiteUI.escapeHtml(profile.admissionsLink.label)}</a>
+              <a class="admissions-link" href="${profile.admissionsLink.href}" target="_blank" rel="noreferrer">
+                <span class="admissions-link-label">${SiteUI.escapeHtml(profile.admissionsLink.label)}</span>
+                <span class="admissions-link-hint">Open link / 点击查看</span>
+              </a>
             </div>
           `,
           actions: [

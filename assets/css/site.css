@@ -15,6 +15,10 @@
   --radius-md: 18px;
   --radius-pill: 999px;
   --shell: min(1180px, calc(100vw - 40px));
+  --page-accent: #2563eb;
+  --page-accent-soft: rgba(37, 99, 235, 0.12);
+  --brand-mark-bg: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+  --brand-mark-shadow: rgba(37, 99, 235, 0.24);
 }
 
 *,
@@ -35,6 +39,70 @@ body {
   color: var(--text);
   font-family: "Source Sans 3", sans-serif;
   line-height: 1.6;
+}
+
+body[data-page="about"] {
+  --page-accent: #2563eb;
+  --page-accent-soft: rgba(37, 99, 235, 0.12);
+  --brand-mark-bg: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+  --brand-mark-shadow: rgba(37, 99, 235, 0.24);
+}
+
+body[data-page="fei-wang"] {
+  --page-accent: #0f766e;
+  --page-accent-soft: rgba(15, 118, 110, 0.12);
+  --brand-mark-bg: linear-gradient(135deg, #0f766e 0%, #22c55e 100%);
+  --brand-mark-shadow: rgba(15, 118, 110, 0.24);
+}
+
+body[data-page="publications"] {
+  --page-accent: #7c3aed;
+  --page-accent-soft: rgba(124, 58, 237, 0.12);
+  --brand-mark-bg: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  --brand-mark-shadow: rgba(124, 58, 237, 0.24);
+}
+
+body[data-page="dataset"] {
+  --page-accent: #0891b2;
+  --page-accent-soft: rgba(8, 145, 178, 0.12);
+  --brand-mark-bg: linear-gradient(135deg, #0891b2 0%, #14b8a6 100%);
+  --brand-mark-shadow: rgba(8, 145, 178, 0.24);
+}
+
+body[data-page="course"],
+body[data-page="vr-2026-projects"] {
+  --page-accent: #e11d48;
+  --page-accent-soft: rgba(225, 29, 72, 0.12);
+  --brand-mark-bg: linear-gradient(135deg, #e11d48 0%, #f97316 100%);
+  --brand-mark-shadow: rgba(225, 29, 72, 0.24);
+}
+
+body[data-page="awards"] {
+  --page-accent: #ca8a04;
+  --page-accent-soft: rgba(202, 138, 4, 0.14);
+  --brand-mark-bg: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+  --brand-mark-shadow: rgba(202, 138, 4, 0.24);
+}
+
+body[data-page="team"] {
+  --page-accent: #4f46e5;
+  --page-accent-soft: rgba(79, 70, 229, 0.12);
+  --brand-mark-bg: linear-gradient(135deg, #4f46e5 0%, #0ea5e9 100%);
+  --brand-mark-shadow: rgba(79, 70, 229, 0.24);
+}
+
+body[data-page="gallery"] {
+  --page-accent: #db2777;
+  --page-accent-soft: rgba(219, 39, 119, 0.12);
+  --brand-mark-bg: linear-gradient(135deg, #db2777 0%, #fb7185 100%);
+  --brand-mark-shadow: rgba(219, 39, 119, 0.24);
+}
+
+body[data-page="notes"] {
+  --page-accent: #4338ca;
+  --page-accent-soft: rgba(67, 56, 202, 0.12);
+  --brand-mark-bg: linear-gradient(135deg, #4338ca 0%, #14b8a6 100%);
+  --brand-mark-shadow: rgba(67, 56, 202, 0.24);
 }
 
 img {
@@ -133,6 +201,7 @@ select {
   position: relative;
   color: #2f2f2d;
   font-size: 0.98rem;
+  transition: color 180ms ease;
 }
 
 .nav-link::after {
@@ -154,7 +223,13 @@ select {
   transform: scaleX(1);
 }
 
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--page-accent);
+}
+
 .nav-link.is-active {
+  color: var(--page-accent);
   font-weight: 700;
 }
 
@@ -248,6 +323,10 @@ select {
   text-transform: uppercase;
 }
 
+.admissions-copy p + p {
+  margin-top: 6px;
+}
+
 .admissions-callout p {
   margin: 0;
   color: #2f2f2d;
@@ -259,21 +338,50 @@ select {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   flex: 0 0 auto;
-  min-height: 46px;
-  padding: 0 20px;
+  gap: 2px;
+  min-width: 158px;
+  min-height: 60px;
+  padding: 10px 18px;
   border-radius: 8px;
-  background: #171717;
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  background: var(--brand-mark-bg);
   color: #ffffff;
+  position: relative;
   font-weight: 800;
-  box-shadow: var(--shadow-soft);
+  box-shadow: 0 16px 34px var(--brand-mark-shadow);
   transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.admissions-link::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+.admissions-link-label {
+  font-size: 1rem;
+  line-height: 1.1;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.admissions-link-hint {
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.2;
+  opacity: 0.9;
 }
 
 .admissions-link:hover,
 .admissions-link:focus-visible {
   transform: translateY(-1px);
-  box-shadow: 0 18px 32px rgba(22, 22, 22, 0.16);
+  box-shadow: 0 20px 38px var(--brand-mark-shadow);
 }
 
 .button-row {
@@ -565,11 +673,44 @@ select {
   display: flex;
   gap: 12px;
   min-width: max-content;
-  animation: marquee-scroll 28s linear infinite;
+  animation: marquee-scroll 42s linear infinite;
 }
 
 .marquee-item {
   box-shadow: var(--shadow-soft);
+}
+
+.sponsor-logo-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 194px;
+  height: 84px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(22, 22, 22, 0.08);
+}
+
+.sponsor-logo-card img {
+  display: block;
+  width: 154px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.sponsor-wordmark {
+  display: grid;
+  place-items: center;
+  width: 154px;
+  height: 52px;
+  color: var(--sponsor-color, #171717);
+  font-family: "Exo", sans-serif;
+  font-size: 0.98rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  text-align: center;
 }
 
 .toolbar {
@@ -1052,19 +1193,27 @@ select {
 
 .footer-brand {
   display: flex;
+  align-items: center;
   gap: 18px;
+}
+
+.footer-brand p {
+  margin: 0;
 }
 
 .footer-badge {
   display: inline-grid;
   place-items: center;
-  width: 70px;
-  height: 70px;
-  border-radius: 22px;
-  background: linear-gradient(145deg, #2a2a2a, #454545);
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  background: var(--brand-mark-bg);
   font-family: "Exo", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 800;
+  box-shadow: 0 14px 32px var(--brand-mark-shadow);
 }
 
 .footer-title {
@@ -1160,7 +1309,7 @@ select {
   .nav-link:hover,
   .nav-link:focus-visible,
   .nav-link.is-active {
-    background: rgba(248, 216, 220, 0.4);
+    background: var(--page-accent-soft);
   }
 
   .nav-link::after {

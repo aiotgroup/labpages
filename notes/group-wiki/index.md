@@ -189,7 +189,3 @@ eyebrow: Lab Note
 2. 校外访问校园网：[校园VPN](http://vpn.xjtu.edu.cn/)
 
 3. 校园卡充值：可在**支付宝-校园一卡通**在线充值,延迟几分钟到账
-
-## Sponsors and Partners
-
-NSFC / CSC / China Postdoctoral Science Foundation / Shaanxi Science and Technology Program / Huawei / Carnegie Mellon University

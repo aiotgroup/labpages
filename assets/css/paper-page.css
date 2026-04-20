@@ -80,11 +80,13 @@ a {
   width: 42px;
   height: 42px;
   border-radius: 14px;
-  background: linear-gradient(145deg, #171717, #353535);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
   color: #fff;
   font-family: "Exo", sans-serif;
   font-size: 1.2rem;
   font-weight: 800;
+  box-shadow: 0 14px 32px rgba(124, 58, 237, 0.24);
 }
 
 .paper-brand-copy {
