@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "generate": "node tools/generate-paper-pages.js",
-    "check": "node --check assets/js/app.js && node --check tools/generate-paper-pages.js"
+    "gallery:previews": "node tools/generate-gallery-previews.js",
+    "people:previews": "node tools/generate-people-previews.js",
+    "check": "node --check assets/js/helpers.js && node --check assets/js/app.js && node --check tools/generate-paper-pages.js && node --check tools/generate-gallery-previews.js && node --check tools/generate-people-previews.js"
   },
   "repository": {
     "type": "git",

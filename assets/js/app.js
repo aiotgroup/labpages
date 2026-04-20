@@ -374,12 +374,12 @@
         },
         `
           <div class="profile-card profile-card-compact">
-            <img class="avatar-large" src="${SiteUI.portraitSrc({
+            <img class="avatar-large" src="${SiteUI.portraitPreviewSrc({
               name: profile.name,
               role: "Faculty",
               palette: ["#264a72", "#d9ebff"],
               photo: profile.photo
-            })}" alt="${SiteUI.escapeHtml(profile.photoAlt || profile.name)}">
+            })}" alt="${SiteUI.escapeHtml(profile.photoAlt || profile.name)}" decoding="async">
             <ul class="clean-list">
               ${profile.quickFacts.map((item) => `<li>${SiteUI.escapeHtml(item)}</li>`).join("")}
             </ul>
@@ -567,7 +567,7 @@
     const href = member.link ? ` href="${member.link}" target="_blank" rel="noreferrer"` : "";
     return `
       <${tagName} class="panel member-card"${href}>
-        <img class="member-avatar" src="${SiteUI.portraitSrc(member)}" alt="${SiteUI.escapeHtml(member.photoAlt || member.name)}">
+        <img class="member-avatar" src="${SiteUI.portraitPreviewSrc(member)}" alt="${SiteUI.escapeHtml(member.photoAlt || member.name)}" loading="lazy" decoding="async">
         <div class="member-copy">
           <h3>${SiteUI.escapeHtml(member.name)}</h3>
           <p class="muted member-role">${SiteUI.escapeHtml(member.role)}</p>
@@ -638,7 +638,7 @@
               .map(
                 (item) => `
                   <article class="panel snapshot-card">
-                    <img class="snapshot-image" src="${SiteUI.snapshotSrc(item)}" alt="${SiteUI.escapeHtml(item.photoAlt || item.title)}">
+                    <img class="snapshot-image" src="${SiteUI.snapshotPreviewSrc(item)}" alt="${SiteUI.escapeHtml(item.photoAlt || item.title)}" loading="lazy" decoding="async">
                     <div class="snapshot-copy">
                       <div class="meta-row">
                         <span class="date-pill">${SiteUI.escapeHtml(item.tag)}</span>

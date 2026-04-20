@@ -93,6 +93,38 @@
     return preferredImage(item, ["photo", "image"], createSnapshotData);
   }
 
+  function optimizedMediaSrc(src, mediaFolder) {
+    if (typeof src !== "string") {
+      return src;
+    }
+    const folder = mediaFolder.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const pattern = new RegExp(`(/assets/media/${folder}/)([^/]+)\\.(jpe?g|png)$`, "i");
+    return src.replace(pattern, "$1optimized/$2.jpg");
+  }
+
+  function portraitPreviewSrc(person) {
+    return preferredImage(
+      person,
+      ["thumbnail", "thumb", "preview"],
+      () => optimizedMediaSrc(portraitSrc(person), "people")
+    );
+  }
+
+  function galleryPreviewSrc(src) {
+    return src.replace(
+      /(\/assets\/media\/gallery\/)([^/]+)\.(jpe?g|png)$/i,
+      "$1optimized/$2.jpg"
+    );
+  }
+
+  function snapshotPreviewSrc(item) {
+    return preferredImage(
+      item,
+      ["thumbnail", "thumb", "preview"],
+      () => galleryPreviewSrc(snapshotSrc(item))
+    );
+  }
+
   function groupBy(items, getKey) {
     return items.reduce((acc, item) => {
       const key = getKey(item);
@@ -197,7 +229,9 @@
     createAvatarData,
     createSnapshotData,
     portraitSrc,
+    portraitPreviewSrc,
     snapshotSrc,
+    snapshotPreviewSrc,
     groupBy,
     publicationTheme,
     buildPublicationSummary,
