@@ -1073,13 +1073,14 @@ select {
 }
 
 .footer-links {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 22px;
 }
 
 .footer-links a,
 .footer-links span {
+  display: block;
   color: rgba(255, 255, 255, 0.86);
 }
 

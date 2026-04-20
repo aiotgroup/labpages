@@ -335,11 +335,9 @@
               .map(
                 (item) => `
                   <article class="panel info-card dataset-card">
-                    ${
-                      item.cover
-                        ? `<img class="dataset-cover" src="${item.cover}" alt="${SiteUI.escapeHtml(item.coverAlt || item.title)}">`
-                        : ""
-                    }
+                    <img class="dataset-cover" src="${SiteUI.datasetCardCoverSrc(item)}" alt="${SiteUI.escapeHtml(
+                      item.coverAlt || `${item.title} title card`
+                    )}">
                     <div class="meta-row">
                       <span class="date-pill">${SiteUI.escapeHtml(item.year)}</span>
                       <span>${SiteUI.escapeHtml(item.venue)}</span>
@@ -372,6 +370,52 @@
                         .join("")}
                     </div>
                   </article>
+                `
+              )
+              .join("")}
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  function renderNotesPage() {
+    const notes = SiteContent.notes;
+    return `
+      ${pageHeroMarkup(
+        {
+          eyebrow: "Notes",
+          title: "Group knowledge, onboarding, and shared references.",
+          description: notes.intro,
+          actions: [
+            { label: "Open Gallery", href: "./gallery.html", kind: "secondary" },
+            { label: "Back To About", href: "./index.html", kind: "primary" }
+          ]
+        },
+        `
+          <div class="aside-card">
+            <p class="eyebrow">Notes</p>
+            <h3>${notes.items.length} maintained entry</h3>
+            <p>This page collects long-form group knowledge pages that deserve their own top-level archive instead of living inside the gallery.</p>
+          </div>
+        `
+      )}
+      <section class="section">
+        <div class="shell">
+          ${sectionHeading("Group Notes", "Writing")}
+          <div class="card-grid card-grid-2">
+            ${notes.items
+              .map(
+                (item) => `
+                  <a class="panel info-card note-card" href="${localNoteHref(item.slug)}">
+                    <img class="note-card-cover" src="${SiteUI.noteCardCoverSrc(item)}" alt="${SiteUI.escapeHtml(
+                      item.coverAlt || `${item.title} title card`
+                    )}">
+                    <span class="date-pill">${SiteUI.escapeHtml(item.date)}</span>
+                    <h3>${SiteUI.escapeHtml(item.title)}</h3>
+                    <p>${SiteUI.escapeHtml(item.text)}</p>
+                    <span class="inline-link">Open note</span>
+                  </a>
                 `
               )
               .join("")}
@@ -792,15 +836,18 @@
       ${pageHeroMarkup(
         {
           eyebrow: "Gallery",
-          title: "Research snapshots and lab notes.",
+          title: "Research snapshots and life in the lab.",
           description: gallery.intro,
-          actions: [{ label: "Back To About", href: "./index.html", kind: "primary" }]
+          actions: [
+            { label: "Open Notes", href: "./notes.html", kind: "secondary" },
+            { label: "Back To About", href: "./index.html", kind: "primary" }
+          ]
         },
         `
           <div class="aside-card">
             <p class="eyebrow">Gallery</p>
-            <h3>Mix visuals and short writing.</h3>
-            <p>The gallery showcases our group’s activities, daily moments, and individual posts, including conference highlights, group events, and informal snapshots of research life.</p>
+            <h3>Snapshots from research and everyday life.</h3>
+            <p>The gallery showcases our group's activities, travel, celebrations, conferences, and informal moments around research life.</p>
           </div>
         `
       )}
@@ -828,30 +875,6 @@
           </div>
         </div>
       </section>
-      <section class="section section-muted">
-        <div class="shell">
-          ${sectionHeading("Lab Notes", "Writing")}
-          <div class="card-grid card-grid-2">
-            ${gallery.notes
-              .map(
-                (item) => `
-                  <a class="panel info-card note-card" href="${localNoteHref(item.slug)}">
-                    ${
-                      item.cover
-                        ? `<img class="note-card-cover" src="${item.cover}" alt="${SiteUI.escapeHtml(item.coverAlt || item.title)}">`
-                        : ""
-                    }
-                    <span class="date-pill">${SiteUI.escapeHtml(item.date)}</span>
-                    <h3>${SiteUI.escapeHtml(item.title)}</h3>
-                    <p>${SiteUI.escapeHtml(item.text)}</p>
-                    <span class="inline-link">Open note</span>
-                  </a>
-                `
-              )
-              .join("")}
-          </div>
-        </div>
-      </section>
     `;
   }
 
@@ -873,6 +896,8 @@
         return renderTeamPage();
       case "gallery":
         return renderGalleryPage();
+      case "notes":
+        return renderNotesPage();
       case "about":
       default:
         return renderAboutPage();

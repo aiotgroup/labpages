@@ -243,7 +243,7 @@ function navMarkup(siteContent, basePath, sectionLabel) {
         <span class="${sectionLabel === "note" ? "note-brand-mark" : "paper-brand-mark"}">${escapeHtml(brandMark)}</span>
         <span class="${sectionLabel === "note" ? "note-brand-copy" : "paper-brand-copy"}">
           <strong>${escapeHtml(siteContent.site.title)}</strong>
-          <small>${sectionLabel === "note" ? "Lab Notes" : "Publication Detail"}</small>
+          <small>${sectionLabel === "note" ? "Notes" : "Publication Detail"}</small>
         </span>
       </a>
       <nav class="${sectionLabel === "note" ? "note-nav" : "paper-nav"}" aria-label="Primary">
@@ -489,7 +489,7 @@ function notePageHtml(siteContent, note, meta, articleHtml) {
           </div>
           <p class="note-summary">${escapeHtml(summary)}</p>
           <div class="note-link-row">
-            <a class="note-link-chip" href="../../gallery.html">Back to gallery</a>
+            <a class="note-link-chip" href="../../notes.html">Back to notes</a>
             <a class="note-link-chip" href="../../index.html">Back to about</a>
           </div>
         </div>
@@ -559,7 +559,9 @@ function generateNoteFiles(siteContent) {
   let markdownWritten = 0;
   let assetsCreated = 0;
 
-  siteContent.gallery.notes.forEach((note) => {
+  const notes = siteContent.notes && Array.isArray(siteContent.notes.items) ? siteContent.notes.items : [];
+
+  notes.forEach((note) => {
     const dir = path.join(notesDir, note.slug);
     const assetsDir = path.join(dir, "assets");
     const coverFile = path.join(assetsDir, "cover.svg");

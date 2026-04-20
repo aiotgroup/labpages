@@ -8,7 +8,7 @@
     tagline: "Ubiquitous AI, Intelligent Systems, Connected Future.",
     description:
       "A multi-page static group website for XJTU AIoT Group, rebuilt with a cleaner structure and editable local content.",
-    copyright: "Copyright \u00A9 XJTU AIoT Group. Designed and Developed by Shengyao Ding.",
+    copyright: "Copyright \u00A9 XJTU AIoT Group. Designed and Developed by Shengyao Ding and Fei Wang.",
     nav: [
       { key: "about", label: "About", href: "./index.html" },
       { key: "fei-wang", label: "Fei Wang", href: "./fei-wang.html" },
@@ -17,7 +17,8 @@
       { key: "course", label: "Courses", href: "./course.html" },
       { key: "awards", label: "Awards", href: "./awards.html" },
       { key: "team", label: "Team", href: "./team.html" },
-      { key: "gallery", label: "Gallery", href: "./gallery.html" }
+      { key: "gallery", label: "Gallery", href: "./gallery.html" },
+      { key: "notes", label: "Notes", href: "./notes.html" }
     ],
     footerLinks: [
       { label: "XJTU AIoT Group", href: "./index.html" },
@@ -25,6 +26,7 @@
       { label: "Datasets", href: "./dataset.html" },
       { label: "Team", href: "./team.html" },
       { label: "Gallery", href: "./gallery.html" },
+      { label: "Notes", href: "./notes.html" },
       { label: "GitHub", href: "https://github.com/aiotgroup" }
     ]
   };
@@ -1597,52 +1599,21 @@
         photoAlt: "Poster session preparation snapshot",
         palette: ["#214c71", "#e4f2ff"]
       },
-    ],
-    notes: [
+    ]
+  };
+
+  SiteContent.notes = {
+    intro:
+      "This page keeps the group's long-form internal knowledge pages in one place, separate from the photo gallery. It is the right home for onboarding resources, shared references, and living documentation.",
+    items: [
       {
         slug: "group-wiki",
         title: "Group Wiki",
-        date: "Lab Note",
+        date: "Group Knowledge Base",
         cover: "./notes/group-wiki/assets/cover.svg",
-        coverAlt: "Cover for the AIoT Group Wiki",
+        coverAlt: "Title card for the AIoT Group Wiki",
         text:
           "A living guide for research onboarding, recommended courses, media, books, must-read papers, campus life, and group resources."
-      },
-      {
-        slug: "how-we-review-new-papers-as-a-group",
-        title: "How we review new papers as a group",
-        date: "Lab Note",
-        cover: "./notes/how-we-review-new-papers-as-a-group/assets/cover.svg",
-        coverAlt: "Cover for paper review workflow note",
-        text:
-          "We try to read for assumptions, systems bottlenecks, and reproducibility details first. That habit keeps discussions grounded and makes follow-up experiments more focused."
-      },
-      {
-        slug: "a-practical-rule-for-demos",
-        title: "A practical rule for demos",
-        date: "Lab Note",
-        cover: "./notes/a-practical-rule-for-demos/assets/cover.svg",
-        coverAlt: "Cover for demo preparation note",
-        text:
-          "If the benchmark is important enough to appear on the slide, it should be repeatable on a clean setup. Demo confidence is part of the research story."
-      },
-      {
-        slug: "teaching-feeds-research",
-        title: "Teaching feeds research",
-        date: "Lab Note",
-        cover: "./notes/teaching-feeds-research/assets/cover.svg",
-        coverAlt: "Cover for teaching and research note",
-        text:
-          "Course questions often expose which explanations are still fuzzy. Cleaning those up tends to improve both papers and codebases."
-      },
-      {
-        slug: "what-we-celebrate-internally",
-        title: "What we celebrate internally",
-        date: "Lab Note",
-        cover: "./notes/what-we-celebrate-internally/assets/cover.svg",
-        coverAlt: "Cover for internal culture note",
-        text:
-          "Not just acceptances or awards: clear debugging notes, clean experiments, and a helpful teammate handoff usually matter just as much."
       }
     ]
   };

@@ -125,6 +125,22 @@
     );
   }
 
+  function titleCardSrc(section, slug) {
+    return `./assets/media/title-covers/${section}/${slug}.svg`;
+  }
+
+  function datasetCardCoverSrc(item) {
+    return preferredImage(item, ["cardCover"], () =>
+      titleCardSrc("datasets", item.slug)
+    );
+  }
+
+  function noteCardCoverSrc(item) {
+    return preferredImage(item, ["cardCover"], () =>
+      titleCardSrc("notes", item.slug)
+    );
+  }
+
   function groupBy(items, getKey) {
     return items.reduce((acc, item) => {
       const key = getKey(item);
@@ -232,6 +248,8 @@
     portraitPreviewSrc,
     snapshotSrc,
     snapshotPreviewSrc,
+    datasetCardCoverSrc,
+    noteCardCoverSrc,
     groupBy,
     publicationTheme,
     buildPublicationSummary,

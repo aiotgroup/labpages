@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -91,7 +91,6 @@
   <img src="./assets/hilots-temporal-sensitivity.png" alt="High and low temporal sensitivity regions in LiDAR point clouds">
   <figcaption>Figure 1. Nearby objects are less sensitive to temporal changes, while farther objects show stronger category and shape variation.</figcaption>
 </figure>
-
 <h2>Method</h2>
 <p>HiLoTs has three stages:</p>
 <ul>
@@ -104,7 +103,6 @@
   <img src="./assets/hilots-pipeline.png" alt="HiLoTs segmentation pipeline with voxelization, student-teacher learning, and voxel-to-point refinement">
   <figcaption>Figure 2. HiLoTs combines cylindrical voxelization, student-teacher semi-supervised training, temporal sensitivity modeling, and point-wise refinement.</figcaption>
 </figure>
-
 <h2>HiLoTs Embedding Unit</h2>
 <p>The <strong>HiLoTs Embedding Unit (HEU)</strong> is the main architectural contribution. It separates far-range and near-range cylindrical voxel features before temporal modeling:</p>
 <ul>
@@ -117,7 +115,6 @@
   <img src="./assets/hilots-embedding-unit.png" alt="HiLoTs Embedding Unit with multi-voxel aggregation, HTSF, LTSF, and cross-attention">
   <figcaption>Figure 3. HEU explicitly models high- and low-temporal-sensitivity regions, then fuses them into the segmentation decoder.</figcaption>
 </figure>
-
 <h2>Experimental Setup</h2>
 <p>HiLoTs is evaluated on two autonomous-driving LiDAR benchmarks:</p>
 <div class="markdown-table-wrap"><table class="markdown-table">
@@ -125,24 +122,26 @@
 <tr>
 <th>Dataset</th>
 <th>Sensor / Scale</th>
-<th align="right">Classes</th>
+<th style="text-align:right">Classes</th>
 <th>Evaluation Split</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>SemanticKITTI</td>
 <td>64-beam Velodyne HDL-64E at 10 Hz; 19,120 training scenes</td>
-<td align="right">19</td>
+<td style="text-align:right">19</td>
 <td>Sequence 08 validation set with 4,070 scenes</td>
 </tr>
 <tr>
 <td>nuScenes</td>
 <td>32-beam Velodyne HDL-32E at 20 Hz; 27,287 training scenes</td>
-<td align="right">16</td>
+<td style="text-align:right">16</td>
 <td>Validation set with 5,850 scenes</td>
 </tr>
-</tbody></table></div>
-<p>The paper reports mean Intersection-over-Union (<strong>mIoU</strong>) under <strong>1%</strong>, <strong>10%</strong>, <strong>20%</strong>, and <strong>50%</strong> labeled-frame ratios. HiLoTs is trained for 50,000 iterations with AdamW, batch size 16 on four RTX 3090 GPUs. The temporal input length is set to <strong>t = 5</strong>, and the cylindrical voxel grid resolution is <strong>240 x 180 x 20</strong>.</p>
+</tbody>
+</table>
+</div><p>The paper reports mean Intersection-over-Union (<strong>mIoU</strong>) under <strong>1%</strong>, <strong>10%</strong>, <strong>20%</strong>, and <strong>50%</strong> labeled-frame ratios. HiLoTs is trained for 50,000 iterations with AdamW, batch size 16 on four RTX 3090 GPUs. The temporal input length is set to <strong>t = 5</strong>, and the cylindrical voxel grid resolution is <strong>240 x 180 x 20</strong>.</p>
 <h2>Main Results</h2>
 <p>HiLoTs is a LiDAR-only method, yet it performs competitively with LiDAR+Camera semi-supervised approaches while avoiding camera input and RGB annotation.</p>
 <div class="markdown-table-wrap"><table class="markdown-table">
@@ -150,85 +149,88 @@
 <tr>
 <th>Method</th>
 <th>Modality</th>
-<th align="right">SemanticKITTI 1 / 10 / 20 / 50</th>
-<th align="right">nuScenes 1 / 10 / 20 / 50</th>
+<th style="text-align:right">SemanticKITTI 1 / 10 / 20 / 50</th>
+<th style="text-align:right">nuScenes 1 / 10 / 20 / 50</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Cylinder3D</td>
 <td>LiDAR</td>
-<td align="right">45.4 / 56.1 / 57.8 / 58.7</td>
-<td align="right">53.4 / 63.4 / 67.0 / 71.9</td>
+<td style="text-align:right">45.4 / 56.1 / 57.8 / 58.7</td>
+<td style="text-align:right">53.4 / 63.4 / 67.0 / 71.9</td>
 </tr>
 <tr>
 <td>LaserMix</td>
 <td>LiDAR</td>
-<td align="right">50.6 / 60.0 / 61.9 / 62.3</td>
-<td align="right">55.3 / 69.9 / 71.8 / 73.2</td>
+<td style="text-align:right">50.6 / 60.0 / 61.9 / 62.3</td>
+<td style="text-align:right">55.3 / 69.9 / 71.8 / 73.2</td>
 </tr>
 <tr>
 <td>DDSemi</td>
 <td>LiDAR</td>
-<td align="right">59.3 / 65.1 / 66.3 / 67.0</td>
-<td align="right">58.1 / 70.2 / 74.0 / 76.5</td>
+<td style="text-align:right">59.3 / 65.1 / 66.3 / 67.0</td>
+<td style="text-align:right">58.1 / 70.2 / 74.0 / 76.5</td>
 </tr>
 <tr>
 <td>FRNet</td>
 <td>LiDAR</td>
-<td align="right">55.8 / 64.8 / 65.2 / 65.4</td>
-<td align="right">61.2 / 72.2 / 74.6 / 75.4</td>
+<td style="text-align:right">55.8 / 64.8 / 65.2 / 65.4</td>
+<td style="text-align:right">61.2 / 72.2 / 74.6 / 75.4</td>
 </tr>
 <tr>
 <td>LaserMix++</td>
 <td>LiDAR+Camera</td>
-<td align="right">63.2 / 67.5 / 67.7 / 68.6</td>
-<td align="right">65.3 / 75.3 / 75.2 / 76.3</td>
+<td style="text-align:right">63.2 / 67.5 / 67.7 / 68.6</td>
+<td style="text-align:right">65.3 / 75.3 / 75.2 / 76.3</td>
 </tr>
 <tr>
 <td>HiLoTs</td>
 <td>LiDAR</td>
-<td align="right">58.6 / 65.7 / 66.5 / 67.6</td>
-<td align="right">58.7 / 72.2 / 75.2 / 76.9</td>
+<td style="text-align:right">58.6 / 65.7 / 66.5 / 67.6</td>
+<td style="text-align:right">58.7 / 72.2 / 75.2 / 76.9</td>
 </tr>
-</tbody></table></div>
-<p>On SemanticKITTI, HiLoTs improves over strong LiDAR-only semi-supervised baselines at 10%, 20%, and 50% labeled ratios. On nuScenes, it reaches 76.9 mIoU at the 50% labeled ratio and remains close to LiDAR+Camera methods without using image data.</p>
+</tbody>
+</table>
+</div><p>On SemanticKITTI, HiLoTs improves over strong LiDAR-only semi-supervised baselines at 10%, 20%, and 50% labeled ratios. On nuScenes, it reaches 76.9 mIoU at the 50% labeled ratio and remains close to LiDAR+Camera methods without using image data.</p>
 <figure class="markdown-figure">
   <img src="./assets/hilots-error-visualization.png" alt="HiLoTs error-map visualization compared with LaserMix and ground truth">
   <figcaption>Figure 4. Error-map visualization shows that HiLoTs improves distant-object segmentation, where temporal variation is stronger.</figcaption>
 </figure>
-
 <h2>Ablation Findings</h2>
 <p>The ablation study confirms that both high- and low-temporal-sensitivity modeling matter, with the complete HEU giving the strongest results.</p>
 <div class="markdown-table-wrap"><table class="markdown-table">
 <thead>
 <tr>
 <th>HEU Variant</th>
-<th align="right">SemanticKITTI 10 / 20 / 50</th>
-<th align="right">nuScenes 10 / 20 / 50</th>
+<th style="text-align:right">SemanticKITTI 10 / 20 / 50</th>
+<th style="text-align:right">nuScenes 10 / 20 / 50</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>None</td>
-<td align="right">59.2 / 60.3 / 60.9</td>
-<td align="right">66.8 / 68.4 / 69.2</td>
+<td style="text-align:right">59.2 / 60.3 / 60.9</td>
+<td style="text-align:right">66.8 / 68.4 / 69.2</td>
 </tr>
 <tr>
 <td>HTSF only</td>
-<td align="right">63.4 / 63.9 / 64.5</td>
-<td align="right">69.2 / 71.8 / 74.3</td>
+<td style="text-align:right">63.4 / 63.9 / 64.5</td>
+<td style="text-align:right">69.2 / 71.8 / 74.3</td>
 </tr>
 <tr>
 <td>LTSF only</td>
-<td align="right">62.8 / 63.5 / 64.3</td>
-<td align="right">68.5 / 71.2 / 73.9</td>
+<td style="text-align:right">62.8 / 63.5 / 64.3</td>
+<td style="text-align:right">68.5 / 71.2 / 73.9</td>
 </tr>
 <tr>
 <td>Full HEU</td>
-<td align="right">65.7 / 66.5 / 67.6</td>
-<td align="right">72.2 / 75.2 / 76.9</td>
+<td style="text-align:right">65.7 / 66.5 / 67.6</td>
+<td style="text-align:right">72.2 / 75.2 / 76.9</td>
 </tr>
-</tbody></table></div>
-<p>The fusion study also shows that cross-attention is better than simple addition or concatenation. Using the low-sensitivity flow as the query reaches the best overall configuration: <strong>65.7 / 66.5 / 67.6</strong> mIoU on SemanticKITTI and <strong>72.2 / 75.2 / 76.9</strong> on nuScenes under 10%, 20%, and 50% labels.</p>
+</tbody>
+</table>
+</div><p>The fusion study also shows that cross-attention is better than simple addition or concatenation. Using the low-sensitivity flow as the query reaches the best overall configuration: <strong>65.7 / 66.5 / 67.6</strong> mIoU on SemanticKITTI and <strong>72.2 / 75.2 / 76.9</strong> on nuScenes under 10%, 20%, and 50% labels.</p>
 <p>The Multi-Voxel Aggregation design is also important. Compared with random or density-based voxel selection, aggregation reaches <strong>65.7 / 66.5 / 67.6</strong> on SemanticKITTI and <strong>72.2 / 75.2 / 76.9</strong> on nuScenes, outperforming alternatives by roughly 2-3 mIoU in many settings.</p>
 <h2>Resources</h2>
 <ul>

@@ -4,10 +4,11 @@
   "description": "This project is a multi-page static website for `XJTU AIoT Group`.",
   "private": true,
   "scripts": {
-    "generate": "node tools/generate-paper-pages.js",
+    "generate": "node tools/generate-title-covers.js && node tools/generate-paper-pages.js",
+    "generate:title-covers": "node tools/generate-title-covers.js",
     "gallery:previews": "node tools/generate-gallery-previews.js",
     "people:previews": "node tools/generate-people-previews.js",
-    "check": "node --check assets/js/helpers.js && node --check assets/js/app.js && node --check tools/generate-paper-pages.js && node --check tools/generate-gallery-previews.js && node --check tools/generate-people-previews.js"
+    "check": "node --check assets/js/helpers.js && node --check assets/js/app.js && node --check tools/generate-paper-pages.js && node --check tools/generate-title-covers.js && node --check tools/generate-gallery-previews.js && node --check tools/generate-people-previews.js"
   },
   "repository": {
     "type": "git",
