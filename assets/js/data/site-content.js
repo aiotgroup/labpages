@@ -1380,6 +1380,15 @@
         palette: ["#214c71", "#e4f2ff"]
       },
       {
+        title: "More Portraits of Yixi Xiang",
+        date: "April 19, 2026",
+        caption: "More photos of Yixi Xiang are collected here, capturing her beautiful moments.",
+        tag: "Personal Photos",
+        image: "./assets/media/gallery/2025xyx-graduation-celebration-card.jpg",
+        photoAlt: "A horizontal collage of Yixi Xiang portraits",
+        palette: ["#214c71", "#e4f2ff"]
+      },
+      {
         title: "Mentorship and Friendship",
         date: "April 17, 2026",
         caption: "Our academic lineage gathered in Xi’an, reflecting on 10-20 years of friendship and mentorship.",
@@ -1467,15 +1476,6 @@
         tag: "Celebration",
         image: "./assets/media/gallery/2025biyekuaile-xian.jpg",
         photoAlt: "Poster session preparation snapshot",
-        palette: ["#214c71", "#e4f2ff"]
-      },
-      {
-        title: "June 2025 Graduation Celebration",
-        date: "June, 2025",
-        caption: "Yixi Xiang graduated with top academic honors (ranked 1st).",
-        tag: "Celebration",
-        image: "./assets/media/gallery/2025xyx-graduation-celebration-card.jpg",
-        photoAlt: "Yixi Xiang graduation celebration collage",
         palette: ["#214c71", "#e4f2ff"]
       },
       {
