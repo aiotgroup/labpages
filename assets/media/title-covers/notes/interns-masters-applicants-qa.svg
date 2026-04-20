@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="课题组 Q&amp;A title card">
+  <defs>
+    <linearGradient id="admissionsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f766e"/>
+      <stop offset="52%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#f8d8dc"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" rx="44" fill="url(#admissionsGradient)"/>
+  <circle cx="210" cy="158" r="112" fill="rgba(255,255,255,0.16)"/>
+  <circle cx="1000" cy="180" r="94" fill="rgba(255,255,255,0.16)"/>
+  <path d="M0 572C128 526 238 512 346 530C472 552 574 622 704 636C852 652 992 594 1200 500V760H0Z" fill="rgba(255,255,255,0.13)"/>
+  <rect x="86" y="418" width="1028" height="226" rx="34" fill="rgba(255,255,255,0.14)"/>
+  <text x="102" y="510" font-family="Exo, Arial, sans-serif" font-size="58" font-weight="800" fill="#ffffff">课题组 Q&amp;A</text>
+  <text x="102" y="582" font-family="Exo, Arial, sans-serif" font-size="48" font-weight="800" fill="#ffffff">Admissions &amp; Mentoring</text>
+  <text x="102" y="632" font-family="Source Sans 3, Arial, sans-serif" font-size="28" fill="rgba(255,255,255,0.86)">AIoT Group 招生与培养问答</text>
+</svg>

@@ -136,7 +136,7 @@
   }
 
   function noteCardCoverSrc(item) {
-    return preferredImage(item, ["cardCover"], () =>
+    return preferredImage(item, ["cardCover", "cover"], () =>
       titleCardSrc("notes", item.slug)
     );
   }

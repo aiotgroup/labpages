@@ -396,7 +396,9 @@
             ${datasets.items
               .map(
                 (item) => `
-                  <article class="panel info-card dataset-card">
+                  <article class="panel info-card dataset-card" role="link" tabindex="0" data-href="${localPaperHref(
+                    item.slug
+                  )}" aria-label="Open ${SiteUI.escapeHtml(item.title)} paper page">
                     <img class="dataset-cover" src="${SiteUI.datasetCardCoverSrc(item)}" alt="${SiteUI.escapeHtml(
                       item.coverAlt || `${item.title} title card`
                     )}">
@@ -441,6 +443,25 @@
     `;
   }
 
+  function setupDatasetCards(shell) {
+    shell.querySelectorAll(".dataset-card[data-href]").forEach((card) => {
+      card.addEventListener("click", (event) => {
+        if (event.target.closest("a, button, input, textarea, select, label")) {
+          return;
+        }
+        window.location.href = card.dataset.href;
+      });
+
+      card.addEventListener("keydown", (event) => {
+        if (event.target !== card || (event.key !== "Enter" && event.key !== " ")) {
+          return;
+        }
+        event.preventDefault();
+        window.location.href = card.dataset.href;
+      });
+    });
+  }
+
   function renderNotesPage() {
     const notes = SiteContent.notes;
     return `
@@ -457,7 +478,7 @@
         `
           <div class="aside-card">
             <p class="eyebrow">Notes</p>
-            <h3>${notes.items.length} maintained entry</h3>
+            <h3>${notes.items.length} maintained ${notes.items.length === 1 ? "entry" : "entries"}</h3>
             <p>This page collects long-form group knowledge pages that deserve their own top-level archive instead of living inside the gallery.</p>
           </div>
         `
@@ -503,7 +524,7 @@
                 <p>${SiteUI.escapeHtml(profile.admissionsNote)}</p>
                 ${profile.admissionsNoteZh ? `<p lang="zh-CN">${SiteUI.escapeHtml(profile.admissionsNoteZh)}</p>` : ""}
               </div>
-              <a class="admissions-link" href="${profile.admissionsLink.href}" target="_blank" rel="noreferrer">
+              <a class="admissions-link" href="${profile.admissionsLink.href}"${externalLinkAttrs(profile.admissionsLink.href)}>
                 <span class="admissions-link-label">${SiteUI.escapeHtml(profile.admissionsLink.label)}</span>
                 <span class="admissions-link-hint">Open link / 点击查看</span>
               </a>
@@ -1059,6 +1080,10 @@
 
     if (page === "publications") {
       setupPublicationFilters(shell);
+    }
+
+    if (page === "dataset") {
+      setupDatasetCards(shell);
     }
   }
 

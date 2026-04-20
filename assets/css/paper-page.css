@@ -441,8 +441,14 @@ a {
   border-radius: 18px;
 }
 
+.paper-article .markdown-figure {
+  margin: 30px 0;
+}
+
 .paper-article .markdown-figure img {
   width: 100%;
+  border: 1px solid rgba(36, 72, 107, 0.12);
+  background: #ffffff;
 }
 
 .paper-article .markdown-figure figcaption {

@@ -196,7 +196,7 @@
       "我们欢迎本科科研实习生和有意申请硕士研究生的同学加入。关于课题组与招生信息，请参考：",
     admissionsLink: {
       label: "Q&A / 招生问答",
-      href: "https://hqf1h4do6vh.feishu.cn/wiki/Qb7XwbUDjiTbikkEid2ctIHzn1d"
+      href: "./notes/interns-masters-applicants-qa/index.html"
     },
     bio: [
       "I am an Associate Professor and Ph.D. supervisor in the School of Software Engineering, Faculty of Electronic and Information Engineering, Xi'an Jiaotong University. My goal is to make AI more present, helpful, and humane in the physical world. I am especially motivated by socially meaningful problems where intelligent sensing can improve health, safety, accessibility, and the quality of everyday life without demanding constant user attention.",
@@ -677,7 +677,7 @@
     projects: [
       {
         title: "作品名称示例",
-        video: "https://www.youtube.com/embed/LL3yonBuQK0?si=NXzYvJuifnapTZfY",
+        video: "https://www.youtube.com/embed/LL3yonBuQK0?si=4QUSCsqjBFuFMje3",
         authors: ["学生A", "学生B", "学生C", "学生D"],
         description:
           "这是第一个作品的简短介绍。描述该 VR 项目的核心创意、使用的技术栈以及在 XJTU-POLIMI 课程中的收获。"
@@ -1684,6 +1684,15 @@
     intro:
       "This page keeps the group's long-form internal knowledge pages in one place, separate from the photo gallery. It is the right home for onboarding resources, shared references, and living documentation.",
     items: [
+      {
+        slug: "interns-masters-applicants-qa",
+        title: "课题组 Q&A",
+        date: "Admissions Q&A",
+        cover: "./notes/interns-masters-applicants-qa/assets/cover.svg",
+        coverAlt: "Title card for the interns and master's applicants Q&A",
+        text:
+          "面向本科科研实习生、硕士生和博士生申请者的课题组招生、培养、研究方向与发展问答。"
+      },
       {
         slug: "group-wiki",
         title: "Group Wiki",

@@ -3,8 +3,8 @@ title: WS-IMUBench: Can Weakly Supervised Methods from Audio, Image, and Video B
 authors: Pei Li, Jiaxi Yin, Lei Ouyang, Shihan Pan, Ge Wang, Han Ding, Fei Wang
 institution: XJTU AIoT Group
 summary: WS-IMUBench formalizes weakly supervised IMU temporal action localization and benchmarks seven representative methods transferred from audio, image, and video on seven public IMU datasets under sequence-level labels.
-cover: ./assets/cover.svg
-coverAlt: Cover image for WS-IMUBench: Can Weakly Supervised Methods from Audio, Image, and Video Be Adapted for IMU-based Temporal Action Localization?
+cover: ./assets/fig1-cross-modal-ws-imu-tal.png
+coverAlt: Cross-modal weak supervision analogy from audio, image, and video to IMU temporal action localization.
 eyebrow: Publication
 paper: https://arxiv.org/pdf/2602.01850
 ---
@@ -16,6 +16,11 @@ IMU-based Human Activity Recognition (HAR) has enabled many wearable and ubiquit
 The main obstacle is annotation cost. Fully supervised TAL requires dense start/end boundary labels, which are expensive and inconsistent to annotate for abstract IMU waveforms. **WS-IMUBench** addresses this bottleneck by studying **Weakly Supervised IMU-TAL (WS-IMU-TAL)**, where training uses only sequence-level multi-hot labels that indicate which actions appear, without revealing when they occur.
 
 Rather than proposing one more localization model, the paper asks a broader question: can weakly supervised localization methods that work in **audio**, **image**, and **video** be adapted to IMU streams? WS-IMUBench answers this through a systematic benchmark, standardized task setup, unified metrics, and diagnostic analysis of transfer failures.
+
+<figure class="markdown-figure">
+  <img src="./assets/fig1-cross-modal-ws-imu-tal.png" alt="Cross-modal weak supervision analogy from audio, image, and video to IMU temporal action localization.">
+  <figcaption>Weak supervision has already been successful in audio, image, and video localization tasks. WS-IMUBench asks whether the same coarse-label-to-fine-boundary idea can transfer to continuous IMU streams.</figcaption>
+</figure>
 
 ## At A Glance
 
@@ -48,6 +53,11 @@ WS-IMUBench casts WS-IMU-TAL as a **Multiple Instance Learning (MIL)** problem:
 
 This formulation makes cross-modal transfer possible. The paper does not transfer raw representations from audio, image, or video. Instead, it transfers the **bag-instance abstraction**, **weak aggregation mechanisms**, and **localization/refinement strategies**, then adapts them to IMU-specific temporal signals.
 
+<figure class="markdown-figure">
+  <img src="./assets/fig2-mil-pipeline.png" alt="Multiple Instance Learning pipeline for weakly supervised IMU temporal localization.">
+  <figcaption>The benchmark frames an untrimmed IMU sequence as a bag, temporal candidates as instances, and sequence-level labels as bag-level supervision.</figcaption>
+</figure>
+
 ## Cross-Modal Method Adaptation
 
 WS-IMUBench adapts seven representative weakly supervised methods from three established domains.
@@ -59,6 +69,11 @@ WS-IMUBench adapts seven representative weakly supervised methods from three est
 | Video | Weakly supervised temporal action localization | CoLA, RSKP | IMU snippets play the role of video snippets; contrastive refinement and temporal propagation improve localization. |
 
 The image-derived methods require the largest adaptation because IMU data does not have an equivalent of visual region proposal algorithms such as Selective Search. The paper therefore uses a **multi-scale temporal proposal generator**, producing **3,000 temporal proposals per sequence** through a mix of structured sliding windows and random sampling.
+
+<figure class="markdown-figure">
+  <img src="./assets/fig5-temporal-proposal-generation.png" alt="Comparison between image region proposal generation and IMU temporal proposal generation.">
+  <figcaption>For image-derived weakly supervised detection methods, 2D region proposals are replaced with multi-scale temporal proposals over the IMU timeline.</figcaption>
+</figure>
 
 ## Benchmark Datasets
 
@@ -75,6 +90,11 @@ The evaluation covers seven public IMU datasets spanning daily activities, sport
 | XRFV2 | 16 | 30 | 36 | 7.00 s | Daily-life actions |
 
 These datasets expose very different temporal regimes. Opportunity and Hang-Time contain short, frequent transitions; RWHAR has extremely long continuous action segments; XRFV2 has relatively uniform durations; SBHAR, WetLab, and WEAR sit between these extremes. This diversity is central to understanding when weak supervision works and when it breaks.
+
+<figure class="markdown-figure">
+  <img src="./assets/fig7-dataset-visualization.png" alt="Visualization of temporal action distributions across seven IMU benchmark datasets.">
+  <figcaption>The seven datasets differ sharply in action duration, transition frequency, and temporal regularity, which explains why weak supervision succeeds on some benchmarks and struggles on others.</figcaption>
+</figure>
 
 ## Evaluation Protocol
 
@@ -122,9 +142,19 @@ Performance drops sharply on datasets dominated by short actions or sparse senso
 
 Model scale does not directly predict WS-IMU-TAL performance. RSKP is one of the lightest evaluated methods, with **274,944 trainable parameters**, yet it is a top performer across several datasets. OICR and PCL are much heavier, both with **31,907,948 parameters**, but their performance is limited by proposal quality and weak pseudo-label refinement under IMU-specific noise.
 
+<figure class="markdown-figure">
+  <img src="./assets/fig8-model-parameters.png" alt="Trainable parameter comparison for the weakly supervised models in WS-IMUBench.">
+  <figcaption>Model size alone does not explain performance: lightweight temporal methods can outperform much larger proposal-based models when their inductive bias better matches IMU streams.</figcaption>
+</figure>
+
 ### Window-Level And Full-Sequence Inputs Behave Differently
 
 Different model families prefer different input regimes. Detection-style methods such as DCASE and CDur often benefit from full-sequence context. Proposal-based MIL methods such as WSDDN, OICR, and PCL can degrade on full sequences because sparse action evidence becomes diluted. CoLA often benefits from cleaner window-level contrastive learning, while RSKP is comparatively robust due to temporal propagation.
+
+<figure class="markdown-figure">
+  <img src="./assets/fig9-prediction-visualization.png" alt="Prediction visualization comparing ground truth, full-input inference, and window-input inference across datasets.">
+  <figcaption>Prediction visualizations compare ground truth with full-sequence and window-level inference, making over-segmentation, missed boundaries, and dataset-specific behavior easier to inspect.</figcaption>
+</figure>
 
 ## Failure Modes
 
