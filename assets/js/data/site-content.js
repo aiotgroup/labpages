@@ -21,9 +21,12 @@
       { key: "notes", label: "Notes", href: "./notes.html" }
     ],
     footerLinks: [
-      { label: "XJTU AIoT Group", href: "./index.html" },
+      { label: "About", href: "./index.html" },
+      { label: "Fei Wang", href: "./fei-wang.html" },
       { label: "Publications", href: "./publications.html" },
       { label: "Datasets", href: "./dataset.html" },
+      { label: "Courses", href: "./course.html" },
+      { label: "Awards", href: "./awards.html" },
       { label: "Team", href: "./team.html" },
       { label: "Gallery", href: "./gallery.html" },
       { label: "Notes", href: "./notes.html" },
