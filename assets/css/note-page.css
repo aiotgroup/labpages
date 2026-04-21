@@ -118,6 +118,11 @@ code {
   text-decoration: none;
 }
 
+.note-nav a:hover,
+.note-nav a:focus-visible {
+  font-weight: 700;
+}
+
 .note-main {
   padding-bottom: 64px;
 }

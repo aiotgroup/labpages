@@ -117,6 +117,11 @@ a {
   color: #2f2f2d;
 }
 
+.paper-nav a:hover,
+.paper-nav a:focus-visible {
+  font-weight: 700;
+}
+
 .paper-nav a::after {
   content: "";
   position: absolute;
@@ -128,11 +133,6 @@ a {
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 180ms ease;
-}
-
-.paper-nav a:hover::after,
-.paper-nav a:focus-visible::after {
-  transform: scaleX(1);
 }
 
 .paper-hero {

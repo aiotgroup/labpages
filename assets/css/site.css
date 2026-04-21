@@ -201,7 +201,6 @@ select {
   position: relative;
   color: #2f2f2d;
   font-size: 0.98rem;
-  transition: color 180ms ease;
 }
 
 .nav-link::after {
@@ -217,19 +216,17 @@ select {
   transition: transform 180ms ease;
 }
 
-.nav-link:hover::after,
-.nav-link:focus-visible::after,
 .nav-link.is-active::after {
   transform: scaleX(1);
 }
 
 .nav-link:hover,
 .nav-link:focus-visible {
-  color: var(--page-accent);
+  font-weight: 700;
 }
 
 .nav-link.is-active {
-  color: var(--page-accent);
+  color: #161616;
   font-weight: 700;
 }
 
@@ -1319,10 +1316,8 @@ select {
     border-radius: 16px;
   }
 
-  .nav-link:hover,
-  .nav-link:focus-visible,
   .nav-link.is-active {
-    background: var(--page-accent-soft);
+    background: rgba(22, 22, 22, 0.06);
   }
 
   .nav-link::after {
