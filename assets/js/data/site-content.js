@@ -677,7 +677,7 @@
     projects: [
       {
         title: "作品名称示例",
-        video: "https://www.youtube.com/embed/LL3yonBuQK0?si=4QUSCsqjBFuFMje3",
+        video: "https://player.bilibili.com/player.html?isOutside=true&aid=115150086541498&bvid=BV1uza4zWEaa&cid=32172802420&p=1",
         authors: ["学生A", "学生B", "学生C", "学生D"],
         description:
           "这是第一个作品的简短介绍。描述该 VR 项目的核心创意、使用的技术栈以及在 XJTU-POLIMI 课程中的收获。"

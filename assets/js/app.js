@@ -41,7 +41,7 @@
       params.set("origin", window.location.origin);
     }
 
-    return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?${params.toString()}`;
+    return `https://www.youtube.com/embed/${encodeURIComponent(id)}?${params.toString()}`;
   }
 
   function videoWatchHref(url) {
@@ -736,6 +736,7 @@
 
   function renderVRShowcase2026Page() {
     const showcase = SiteContent.vrShowcase2026;
+    console.log(SiteUI.escapeHtml(videoEmbedSrc(showcase.projects[0].video)));
     return `
       ${pageHeroMarkup(
         {
