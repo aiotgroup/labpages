@@ -1687,7 +1687,7 @@
       {
         slug: "interns-masters-applicants-qa",
         title: "课题组 Q&A",
-        date: "Admissions Q&A",
+        tags: "Admissions Q&A",
         cover: "./notes/interns-masters-applicants-qa/assets/cover.svg",
         coverAlt: "Title card for the interns and master's applicants Q&A",
         text:
@@ -1696,7 +1696,7 @@
       {
         slug: "group-wiki",
         title: "Group Wiki",
-        date: "Group Knowledge Base",
+        tags: "Group Knowledge Base",
         cover: "./notes/group-wiki/assets/cover.svg",
         coverAlt: "Title card for the AIoT Group Wiki",
         text:

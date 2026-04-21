@@ -494,7 +494,7 @@
                     <img class="note-card-cover" src="${SiteUI.noteCardCoverSrc(item)}" alt="${SiteUI.escapeHtml(
                       item.coverAlt || `${item.title} title card`
                     )}">
-                    <span class="date-pill">${SiteUI.escapeHtml(item.date)}</span>
+                    <span class="date-pill">${SiteUI.escapeHtml(item.tags)}</span>
                     <h3>${SiteUI.escapeHtml(item.title)}</h3>
                     <p>${SiteUI.escapeHtml(item.text)}</p>
                     <span class="inline-link">Open note</span>
