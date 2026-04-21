@@ -1,6 +1,6 @@
 ---
 title: 课题组 Q&A
-date: Admissions Q&A
+tags: Admissions Q&A
 summary: 面向本科科研实习生、硕士生和博士生申请者的课题组招生、培养、研究方向与发展问答。
 cover: ./assets/cover.svg
 coverAlt: Cover image for the AIoT Group admissions Q&A
