@@ -475,6 +475,7 @@ function notePageHtml(siteContent, note, meta, articleHtml) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/css/note-page.css">
+  <script defer src="../../assets/js/note-page.js"></script>
 </head>
 <body${bodyClass}>
   ${navMarkup(siteContent, "../../", "note")}
