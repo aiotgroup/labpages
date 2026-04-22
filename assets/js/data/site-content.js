@@ -471,47 +471,6 @@
 
   SiteContent.courses = [
     {
-      id: "advanced-computer-networks-and-communications",
-      en: {
-        code: "Graduate",
-        name: "Advanced Computer Networks and Communications",
-        school: "School of Software Engineering",
-        level: "Graduate Course",
-        overview:
-          "A graduate course on advanced computer networks and communications, covering modern networked systems, wireless communication, mobile computing, and intelligent connected systems.",
-        topics: ["computer networks", "wireless communication", "mobile systems", "AIoT networking"],
-        offerings: [
-          { label: "Spring 2026" },
-          { label: "Spring 2025" },
-          { label: "Spring 2024" }
-        ],
-        outcomes: [
-          "Understand advanced network architectures, protocol mechanisms, and system design methods.",
-          "Analyze networking problems in wireless sensing, mobile computing, and AIoT scenarios.",
-          "Build research-oriented reading, discussion, and technical analysis skills."
-        ]
-      },
-      zh: {
-        code: "研究生",
-        name: "高等计算机网络与通讯",
-        school: "软件工程学院",
-        level: "研究生课程",
-        overview:
-          "面向研究生的高等计算机网络与通讯课程，围绕现代网络系统、无线通信、移动计算和智能互联系统中的关键技术展开。",
-        topics: ["计算机网络", "无线通信", "移动系统", "AIoT 网络"],
-        offerings: [
-          { label: "2026春季" },
-          { label: "2025春季" },
-          { label: "2024春季" }
-        ],
-        outcomes: [
-          "理解高等计算机网络体系结构、协议机制和系统设计方法。",
-          "结合无线感知、移动计算和 AIoT 场景分析网络系统问题。",
-          "通过论文阅读和课程讨论提升研究型网络系统分析能力。"
-        ]
-      }
-    },
-    {
       id: "virtual-reality-technology",
       en: {
         code: "Undergraduate",
@@ -555,6 +514,47 @@
           "理解虚拟现实系统的显示、追踪、交互和内容组织方式。",
           "完成一个团队 VR 大作业，从创意、实现到演示形成闭环。",
           "训练面向沉浸式应用的人机交互设计和工程表达能力。"
+        ]
+      }
+    },
+    {
+      id: "advanced-computer-networks-and-communications",
+      en: {
+        code: "Graduate",
+        name: "Advanced Computer Networks and Communications",
+        school: "School of Software Engineering",
+        level: "Graduate Course",
+        overview:
+          "A graduate course on advanced computer networks and communications, covering modern networked systems, wireless communication, mobile computing, and intelligent connected systems.",
+        topics: ["computer networks", "wireless communication", "mobile systems", "AIoT networking"],
+        offerings: [
+          { label: "Spring 2026" },
+          { label: "Spring 2025" },
+          { label: "Spring 2024" }
+        ],
+        outcomes: [
+          "Understand advanced network architectures, protocol mechanisms, and system design methods.",
+          "Analyze networking problems in wireless sensing, mobile computing, and AIoT scenarios.",
+          "Build research-oriented reading, discussion, and technical analysis skills."
+        ]
+      },
+      zh: {
+        code: "研究生",
+        name: "高等计算机网络与通信",
+        school: "软件工程学院",
+        level: "研究生课程",
+        overview:
+          "面向研究生的高等计算机网络与通信课程，围绕现代网络系统、无线通信、移动计算和智能互联系统中的关键技术展开。",
+        topics: ["计算机网络", "无线通信", "移动系统", "AIoT 网络"],
+        offerings: [
+          { label: "2026春季" },
+          { label: "2025春季" },
+          { label: "2024春季" }
+        ],
+        outcomes: [
+          "理解高等计算机网络体系结构、协议机制和系统设计方法。",
+          "结合无线感知、移动计算和 AIoT 场景分析网络系统问题。",
+          "通过论文阅读和课程讨论提升研究型网络系统分析能力。"
         ]
       }
     },
@@ -677,14 +677,14 @@
     projects: [
       {
         title: "作品名称示例",
-        video: "https://player.bilibili.com/player.html?isOutside=true&aid=115150086541498&bvid=BV1uza4zWEaa&cid=32172802420&p=1",
+        video: "https://www.youtube.com/embed/aYi7hHWG7zw?si=duGxb9THfapzr57x",
         authors: ["学生A", "学生B", "学生C", "学生D"],
         description:
           "这是第一个作品的简短介绍。描述该 VR 项目的核心创意、使用的技术栈以及在 XJTU-POLIMI 课程中的收获。"
       },
       {
         title: "第二个作品名称",
-        video: "https://www.youtube.com/embed/QgiRK3_qPWk?si=nkpDf2T304OZevvm",
+        video: "https://www.youtube.com/embed/LL3yonBuQK0?si=8ZeUalA1c5rdOtlB",
         authors: ["作者 1", "作者 2", "作者 3", "作者 4"],
         description:
           "这里填入第二个作品的介绍。可以继续补充作品的目标场景、交互方式、使用工具和最终演示效果。"
@@ -1647,15 +1647,6 @@
         caption: "We celebrated the Chinese New Year together.",
         tag: "Festival",
         image: "./assets/media/gallery/2017newyear.jpg",
-        photoAlt: "Poster session preparation snapshot",
-        palette: ["#214c71", "#e4f2ff"]
-      },
-      {
-        title: "Time Square @ New York",
-        date: "December, 2017",
-        caption: "We drove to New York City from Pittsburgh to celebrate Christmas.",
-        tag: "Festival",
-        image: "./assets/media/gallery/2017timesquare.jpg",
         photoAlt: "Poster session preparation snapshot",
         palette: ["#214c71", "#e4f2ff"]
       },
