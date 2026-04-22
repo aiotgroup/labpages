@@ -1248,14 +1248,28 @@ select {
 }
 
 .footer-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   margin-top: 18px;
   padding-top: 18px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.footer-meta p {
+.footer-meta p,
+.footer-counter {
   margin: 0;
   color: rgba(255, 255, 255, 0.72);
+}
+
+.footer-counter {
+  white-space: nowrap;
+}
+
+.footer-counter strong {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 700;
 }
 
 @keyframes marquee-scroll {
@@ -1273,6 +1287,11 @@ select {
   .detail-layout,
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .footer-meta {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .metric-grid,

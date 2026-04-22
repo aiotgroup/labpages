@@ -1676,6 +1676,24 @@
       "This page keeps the group's long-form internal knowledge pages in one place, separate from the photo gallery. It is the right home for onboarding resources, shared references, and living documentation.",
     items: [
       {
+        slug: "useful-talks",
+        title: "有用的 Talks",
+        tags: "Talks",
+        cover: "./notes/useful-talks/assets/cover.svg",
+        coverAlt: "Title card for useful talks",
+        text:
+          "记录我觉得有用的讲座、课程和科研训练视频，方便学生按需回看。"
+      },
+      {
+        slug: "research-training-videos",
+        title: "科研入门视频训练清单",
+        tags: "Training Videos",
+        cover: "./notes/research-training-videos/assets/cover.svg",
+        coverAlt: "Title card for research training videos",
+        text:
+          "整理跟李沐学AI与 bryanyzhu 两位 UP 主的视频，用于训练本科实习生和入门阶段研究生。"
+      },
+      {
         slug: "interns-masters-applicants-qa",
         title: "课题组 Q&A",
         tags: "Admissions Q&A",

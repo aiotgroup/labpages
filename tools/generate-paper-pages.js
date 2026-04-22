@@ -462,6 +462,7 @@ function notePageHtml(siteContent, note, meta, articleHtml) {
   const cover = meta.cover || "./assets/cover.svg";
   const coverAlt = meta.coverAlt || title;
   const eyebrow = meta.eyebrow || "Lab Note";
+  const bodyClass = meta.bodyClass ? ` class="${escapeHtml(meta.bodyClass)}"` : "";
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -475,7 +476,7 @@ function notePageHtml(siteContent, note, meta, articleHtml) {
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/css/note-page.css">
 </head>
-<body>
+<body${bodyClass}>
   ${navMarkup(siteContent, "../../", "note")}
   <main class="note-main">
     <section class="note-hero">

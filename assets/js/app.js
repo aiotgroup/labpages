@@ -119,9 +119,24 @@
         </div>
         <div class="shell footer-meta">
           <p>${SiteUI.escapeHtml(SiteContent.site.copyright || "")}</p>
+          <p class="footer-counter" id="busuanzi_container_site_pv">
+            Visits <strong id="busuanzi_value_site_pv">--</strong>
+          </p>
         </div>
       </footer>
     `;
+  }
+
+  function setupVisitCounter() {
+    if (document.querySelector('script[data-counter-provider="busuanzi"]')) {
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.dataset.counterProvider = "busuanzi";
+    script.src = "https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
+    document.body.appendChild(script);
   }
 
   function pageHeroMarkup(config, asideMarkup) {
@@ -1078,6 +1093,7 @@
     `;
 
     setupNavToggle(shell);
+    setupVisitCounter();
 
     if (page === "publications") {
       setupPublicationFilters(shell);
