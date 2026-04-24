@@ -1001,6 +1001,15 @@
         title: "Students and Collaborators",
         members: [
           {
+            name: "Pei Li (李沛)",
+            role: "M.Eng. Student",
+            photo: "./assets/media/people/2023pei-li.jpg",
+            photoAlt: "Sample portrait for Pei Li",
+            bio:
+              "Temporal action localization using smart devices equipped with IMUs.",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
             name: "Tingting Zhang (张婷婷)",
             role: "M.Eng. Student",
             photo: "./assets/media/people/2024tingting-zhang.png",
@@ -1008,6 +1017,24 @@
             bio:
               "Human sensing with smart devices with IMUs.",
             link: "https://scholar.google.com/citations?user=R7kxvQkAAAAJ",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
+            name: "Wenqian Xu (徐文谦)",
+            role: "M.Eng. Student",
+            photo: "./assets/media/people/2024wenqian-xu.jpg",
+            photoAlt: "Sample portrait for Wenqian Xu",
+            bio:
+              "Using LLMs for equipment diagnostics with nuclear power sensor data.",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
+            name: "Kainan Shi (施凯南)",
+            role: "M.Eng. Student",
+            photo: "./assets/media/people/2024kainan-shi.jpg",
+            photoAlt: "Sample portrait for Kainan Shi",
+            bio:
+              "Taking LLMs as featues extractors for recommender systems.",
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
@@ -1062,33 +1089,6 @@
             photoAlt: "Sample portrait for Chuntong Chu",
             bio:
               "Intereseted in LLM Agent.",
-            palette: ["#5d4628", "#ffe6c8"]
-          },
-          {
-            name: "Wenqian Xu (徐文谦)",
-            role: "M.Eng. Student",
-            photo: "./assets/media/people/2024wenqian-xu.jpg",
-            photoAlt: "Sample portrait for Wenqian Xu",
-            bio:
-              "Using LLMs for equipment diagnostics with nuclear power sensor data.",
-            palette: ["#5d4628", "#ffe6c8"]
-          },
-          {
-            name: "Kainan Shi (施凯南)",
-            role: "M.Eng. Student",
-            photo: "./assets/media/people/2024kainan-shi.jpg",
-            photoAlt: "Sample portrait for Kainan Shi",
-            bio:
-              "Taking LLMs as featues extractors for recommender systems.",
-            palette: ["#5d4628", "#ffe6c8"]
-          },
-          {
-            name: "Pei Li (李沛)",
-            role: "M.Eng. Student",
-            photo: "./assets/media/people/2023pei-li.jpg",
-            photoAlt: "Sample portrait for Pei Li",
-            bio:
-              "Temporal action localization using smart devices equipped with IMUs.",
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
@@ -1296,6 +1296,15 @@
             photoAlt: "Sample portrait for Mengdie Zhu",
             bio:
               "Graduated in 2024 and now in Nanjing.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Kangwei Yan (颜康威)",
+            role: "M.Eng.",
+            photo: "./assets/media/people/2021kangwei-yan.jpg",
+            photoAlt: "Sample portrait for Kangwei Yan",
+            bio:
+              "Graduated in 2024 and then joined Guangzhou Yingzi Technology Co., Ltd.",
             palette: ["#3d376a", "#e0dcff"]
           },
           {
@@ -1675,6 +1684,15 @@
     intro:
       "This page keeps the group's long-form internal knowledge pages in one place, separate from the photo gallery. It is the right home for onboarding resources, shared references, and living documentation.",
     items: [
+      {
+        slug: "recommended-courses",
+        title: "推荐课程",
+        tags: "Course Note",
+        cover: "./notes/recommended-courses/assets/cover.svg",
+        coverAlt: "Title card for recommended courses",
+        text:
+          "整理几门适合视觉、语言模型、多模态与高效 AI 方向学生系统学习的课程，并补充主讲老师信息。"
+      },
       {
         slug: "useful-talks",
         title: "有用的 Talks",
