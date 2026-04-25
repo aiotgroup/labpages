@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="有用的 Talks">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="分享的 Talks">
   <defs>
     <linearGradient id="noteGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#4338ca"/>
@@ -11,7 +11,7 @@
   <circle cx="220" cy="170" r="104" fill="rgba(255,255,255,0.15)"/>
   <circle cx="990" cy="164" r="78" fill="rgba(255,255,255,0.15)"/>
   <path d="M0 578C128 534 238 518 354 536C482 556 572 620 702 620C844 620 948 548 1200 528V760H0Z" fill="rgba(255,255,255,0.14)"/>
-  <text x="102" y="536" font-family="Exo, Arial, sans-serif" font-size="64" font-weight="800" fill="#ffffff">有用的 Talks</text>
+  <text x="102" y="536" font-family="Exo, Arial, sans-serif" font-size="64" font-weight="800" fill="#ffffff">分享的 Talks</text>
   <text x="102" y="602" font-family="Source Sans 3, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.88)">April 2026</text>
   <text x="102" y="648" font-family="Source Sans 3, Arial, sans-serif" font-size="28" fill="rgba(255,255,255,0.76)">Talk Note</text>
 </svg>

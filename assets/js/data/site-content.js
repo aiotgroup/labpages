@@ -1695,12 +1695,12 @@
       },
       {
         slug: "useful-talks",
-        title: "有用的 Talks",
+        title: "分享的 Talks",
         tags: "Talks",
         cover: "./notes/useful-talks/assets/cover.svg",
-        coverAlt: "Title card for useful talks",
+        coverAlt: "Title card for shared talks",
         text:
-          "记录我觉得有用的讲座、课程和科研训练视频，方便学生按需回看。"
+          "记录值得分享的讲座、课程和科研训练视频，方便学生按需回看。"
       },
       {
         slug: "research-training-videos",

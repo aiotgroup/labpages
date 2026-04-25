@@ -1,19 +1,37 @@
 ---
-title: 有用的 Talks
+title: 分享的 Talks
 date: April 2026
-summary: 记录我觉得有用的讲座、课程和科研训练视频，方便学生按需回看。
+summary: 记录值得分享的讲座、课程和科研训练视频，方便学生按需回看。
 cover: ./assets/cover.svg
-coverAlt: Cover image for useful talks
+coverAlt: Cover image for shared talks
 eyebrow: Talk Note
 bodyClass: video-note-page
 ---
 
-# 有用的 Talks
+# 分享的 Talks
 
-这里记录一些我觉得有用的 talks、课程和科研训练视频，供本科实习生、入门阶段研究生和组内同学按需回看。
+这里记录一些值得分享的 talks、课程和科研训练视频，供本科实习生、入门阶段研究生和组内同学按需回看。
 
-<div class="video-grid">
-  <figure class="video-card">
+## 分享清单
+
+<div class="video-entry-grid">
+<section class="video-entry">
+  <h3>兰迪·波许教授的最后一课 Randy Pausch&#39;s Last Lecture 【2007】【纪录片】【美国】</h3>
+  <figure class="video-card video-card--feature">
+    <button class="video-frame video-lazy" type="button" data-video-src="//player.bilibili.com/player.html?isOutside=true&amp;aid=7704341&amp;bvid=BV1ks411a7Xq&amp;cid=12625510&amp;p=1" data-video-title="兰迪·波许教授的最后一课 Randy Pausch&#39;s Last Lecture 【2007】【纪录片】【美国】" aria-label="Play video: 兰迪·波许教授的最后一课 Randy Pausch&#39;s Last Lecture 【2007】【纪录片】【美国】">
+      <img class="video-poster" src="https://live-cmu-etc-site.pantheonsite.io/sites/default/files/cmu-etc-site-files/styles/large_box_800_x_600/public/2025-08/ask-randy-800x600.jpg.webp?itok=OjJOYeT7" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+      <span class="video-play-button" aria-hidden="true"></span>
+      <span class="video-play-label">Play</span>
+    </button>
+    <figcaption>兰迪·波许教授的最后一课 Randy Pausch&#39;s Last Lecture 【2007】【纪录片】【美国】</figcaption>
+  </figure>
+  <p>简介：兰迪·波许，这位曾被《纽约时报》评为“影响世界的100人”、受到布什总统鼓励的美国卡内基·梅隆大学计算机系教授，于 2008 年 7 月 25 日安详地离开人世，但他却给无数人留下了心灵的财富，他所提倡的精神也永远鼓励那些敢于追求梦想的人。2007 年 9 月 18 日，他走上讲台，做了自己生命中的最后一次演讲。</p>
+  <p>人物介绍：兰迪·波许 Randy Pausch（1960-2008）是卡内基·梅隆大学的计算机科学、人机交互及设计教授，并主持“人与计算机交互”课程长达十年，也是虚拟科技的先驱者之一。2006 年，他被诊断患有胰腺癌。次年 8 月，他被告知可能仅剩 3 到 6 个月的生命。同年 9 月 18 日，他在卡内基梅隆大学作了轰动全球的“最后的演讲”。2008 年 7 月 25 日，他因胰腺癌并发症在家中去世，终年 47 岁，在生命中的最后时刻，其妻子和三个孩子始终陪伴在他身边。</p>
+</section>
+
+<section class="video-entry">
+  <h3>【研究生基本功 Rebuttal 保姆级教程】导师没空教你的，我来帮你补上（工科必看）</h3>
+  <figure class="video-card video-card--feature">
     <button class="video-frame video-lazy" type="button" data-video-src="//player.bilibili.com/player.html?isOutside=true&amp;aid=113577105037160&amp;bvid=BV1hEzdY1EqJ&amp;cid=27125418956&amp;p=1" data-video-title="【研究生基本功 Rebuttal 保姆级教程】导师没空教你的，我来帮你补上（工科必看）" aria-label="Play video: 【研究生基本功 Rebuttal 保姆级教程】导师没空教你的，我来帮你补上（工科必看）">
       <img class="video-poster" src="https://i2.hdslb.com/bfs/archive/400d3e94631bb9c38750374bd8c9980d7a31f37a.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
       <span class="video-play-button" aria-hidden="true"></span>
@@ -21,7 +39,12 @@ bodyClass: video-note-page
     </button>
     <figcaption>【研究生基本功 Rebuttal 保姆级教程】导师没空教你的，我来帮你补上（工科必看）</figcaption>
   </figure>
-  <figure class="video-card">
+  <p>这个视频介绍了 Rebuttal 的一些有用经验，如果你正要 rebuttal，请先看这个视频。</p>
+</section>
+
+<section class="video-entry">
+  <h3>何恺明 MIT 第一课：深度学习卷积神经网络 Deep Learning Bootcamp: Kaiming He</h3>
+  <figure class="video-card video-card--feature">
     <button class="video-frame video-lazy" type="button" data-video-src="//player.bilibili.com/player.html?isOutside=true&amp;aid=1851572806&amp;bvid=BV19W421F7qH&amp;cid=1468634669&amp;p=1" data-video-title="何恺明 MIT 第一课：深度学习卷积神经网络 Deep Learning Bootcamp: Kaiming He" aria-label="Play video: 何恺明 MIT 第一课：深度学习卷积神经网络 Deep Learning Bootcamp: Kaiming He">
       <img class="video-poster" src="https://i2.hdslb.com/bfs/archive/2449dfdc946cf076f546a96b39e6cfb4eee6fa1b.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
       <span class="video-play-button" aria-hidden="true"></span>
@@ -29,7 +52,12 @@ bodyClass: video-note-page
     </button>
     <figcaption>何恺明 MIT 第一课：深度学习卷积神经网络 Deep Learning Bootcamp: Kaiming He</figcaption>
   </figure>
-  <figure class="video-card">
+  <p>Kaiming He 是计算机视觉领域具有重要影响力的学者，这是他从 Meta 离开去 MIT 教职后的第一课，介绍了一些经典的深度学习网络和计算机视觉任务。如果你刚入门深度学习或者计算机视觉，请看这个视频。</p>
+</section>
+
+<section class="video-entry">
+  <h3>MIT 何恺明：生成模型综述 | 3月3日</h3>
+  <figure class="video-card video-card--feature">
     <button class="video-frame video-lazy" type="button" data-video-src="//player.bilibili.com/player.html?isOutside=true&amp;aid=114124679812026&amp;bvid=BV1AW9QYoEoo&amp;cid=28752940440&amp;p=1" data-video-title="MIT 何恺明：生成模型综述 | 3月3日" aria-label="Play video: MIT 何恺明：生成模型综述 | 3月3日">
       <img class="video-poster" src="https://i1.hdslb.com/bfs/archive/76c95f5d37957ccb4ccaae005b9c65448958cf0a.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
       <span class="video-play-button" aria-hidden="true"></span>
@@ -37,7 +65,12 @@ bodyClass: video-note-page
     </button>
     <figcaption>MIT 何恺明：生成模型综述 | 3月3日</figcaption>
   </figure>
-  <figure class="video-card">
+  <p>Kaiming He 是计算机视觉领域具有重要影响力的学者，这是他从 Meta 离开去 MIT 教职后的第二课，介绍了生成模型的定义和主要方法，并用统一的视角看待判别模型和生成模型。如果你对生成模型感兴趣，请看这个。</p>
+</section>
+
+<section class="video-entry">
+  <h3>恺明老师带你看完视觉目标检测30年 | NeurIPS 2025 | 何恺明 | Kaiming He | 原创中英字幕</h3>
+  <figure class="video-card video-card--feature">
     <button class="video-frame video-lazy" type="button" data-video-src="//player.bilibili.com/player.html?isOutside=true&amp;aid=115919841919116&amp;bvid=BV1nckaBcEra&amp;cid=35477587843&amp;p=1" data-video-title="恺明老师带你看完视觉目标检测30年 | NeurIPS 2025 | 何恺明 | Kaiming He | 原创中英字幕" aria-label="Play video: 恺明老师带你看完视觉目标检测30年 | NeurIPS 2025 | 何恺明 | Kaiming He | 原创中英字幕">
       <img class="video-poster" src="https://i2.hdslb.com/bfs/archive/5e5d476ef9d64139bfd181100669ab0baf206d03.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
       <span class="video-play-button" aria-hidden="true"></span>
@@ -45,4 +78,6 @@ bodyClass: video-note-page
     </button>
     <figcaption>恺明老师带你看完视觉目标检测30年 | NeurIPS 2025 | 何恺明 | Kaiming He | 原创中英字幕</figcaption>
   </figure>
+  <p>Kaiming He 是计算机视觉领域具有重要影响力的学者，这是其 2015 年的 Faster R-CNN 在 NeurIPS 2025 获得时间检验奖的报告，通过 30 年来的目标检测最佳论文，回顾了这个领域。</p>
+</section>
 </div>
