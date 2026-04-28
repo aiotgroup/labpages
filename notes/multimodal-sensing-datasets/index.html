@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多模态感知数据集 - XJTU AIoT Group</title>
+  <meta name="description" content="根据《我们关注的多模态感知数据集【更新至2025.12】》整理 8 个数据集，并补充按任务选型的简要建议。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/note-page.css">
+  <script defer src="../../assets/js/note-page.js"></script>
+</head>
+<body class="dataset-note-page">
+  <header class="note-header">
+    <div class="note-shell note-nav-shell">
+      <a class="note-brand" href="../../index.html">
+        <span class="note-brand-mark">X</span>
+        <span class="note-brand-copy">
+          <strong>XJTU AIoT Group</strong>
+          <small>Notes</small>
+        </span>
+      </a>
+      <nav class="note-nav" aria-label="Primary">
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="note-main">
+    <section class="note-hero">
+      <div class="note-shell note-hero-grid">
+        <div class="note-hero-copy">
+          <p class="note-eyebrow">Dataset Note</p>
+          <h1>多模态感知数据集</h1>
+          <div class="note-meta-row">
+            <span class="note-pill">April 2026</span>
+            <span class="note-pill">multimodal-sensing-datasets</span>
+          </div>
+          <p class="note-summary">根据《我们关注的多模态感知数据集【更新至2025.12】》整理 8 个数据集，并补充按任务选型的简要建议。</p>
+          <div class="note-link-row">
+            <a class="note-link-chip" href="../../notes.html">Back to notes</a>
+            <a class="note-link-chip" href="../../index.html">Back to about</a>
+          </div>
+        </div>
+        <aside class="note-panel note-cover-panel">
+          <img src="./assets/cover.svg" alt="Cover image for multimodal sensing datasets">
+        </aside>
+      </div>
+    </section>
+
+    <section class="note-section">
+      <div class="note-shell">
+        <article class="note-panel note-article">
+          <h1>多模态感知数据集</h1>
+<p>这份 note 根据 PDF《我们关注的多模态感知数据集【更新至2025.12】》整理，目的是把原始 slides 里的数据集名称、模态、任务和选型建议整理成更适合网页阅读的版本。</p>
+<p>说明：</p>
+<ul>
+<li>原始材料：<a href="./assets/multimodal-sensing-datasets-2025-12.pdf">PDF 下载</a></li>
+<li>以下内容以 PDF 中的原始表述为主，少量英文 benchmark / task 名称按原文保留。</li>
+<li>个别数据集在 PDF 中的介绍跨了两页，若存在“同步模态数”和“模态总数”两种说法，这里会按 PDF 原样保留并注明。</li>
+</ul>
+<h2>总览表</h2>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>数据集</th>
+<th>主要模态</th>
+<th>主要任务</th>
+<th>链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>XRF55</td>
+<td>WiFi、毫米波雷达、RGB、Depth、IR、RFID</td>
+<td>5 大类、55 种动作，HAR</td>
+<td><a href="https://aiotgroup.github.io/XRF55/">Project</a></td>
+</tr>
+<tr>
+<td>XRF V2</td>
+<td>5 个 IMUs、1 个耳机 IMU、WiFi、RGB-D-IR</td>
+<td>30 多个动作的动作定位，temporal action localization</td>
+<td><a href="https://github.com/aiotgroup/XRFV2">GitHub</a></td>
+</tr>
+<tr>
+<td>MM-Fi</td>
+<td>LiDAR、WiFi、毫米波雷达、RGB 处理后的 pose</td>
+<td>27 种动作，姿态估计、动作识别</td>
+<td><a href="https://ntu-aiot-lab.github.io/mm-fi">Project</a></td>
+</tr>
+<tr>
+<td>OctoNet</td>
+<td>11 种模态</td>
+<td>HAR、3DHPE</td>
+<td><a href="https://openreview.net/forum?id=z3TftXOizf">Paper</a> / <a href="https://aiot-lab.github.io/OctoNet/">Project</a> / <a href="https://huggingface.co/datasets/hku-aiot/OctoNet">Dataset</a></td>
+</tr>
+<tr>
+<td>CUHK-X</td>
+<td>PDF 中提到 8 种模态和 text caption；另有 7 个 synchronized modalities 的表述</td>
+<td>HAR、HAU、HARn，动作描述等</td>
+<td><a href="https://siyang-jiang.github.io/CUHK-X/">Project</a></td>
+</tr>
+<tr>
+<td>WEAR</td>
+<td>4 个四肢 IMUs、第一视角相机</td>
+<td>temporal action localization</td>
+<td><a href="https://mariusbock.github.io/wear/">Project</a></td>
+</tr>
+<tr>
+<td>Ego4D / Ego-Exo4D</td>
+<td>第一、第三视角视频、IMUs</td>
+<td>动作描述、动作识别、姿态估计等</td>
+<td><a href="https://github.com/facebookresearch/Ego4d">GitHub</a></td>
+</tr>
+<tr>
+<td>SensorQA</td>
+<td>与 CUHK-X、XRF V2 相关的多模态输入</td>
+<td>行为问答</td>
+<td><a href="https://github.com/benjamin-reichman/SensorQA">GitHub</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2>按任务怎么选</h2>
+<p>根据 PDF 最后一页给出的总结，如果我们是按任务选验证数据集，可以先从下面这个映射开始：</p>
+<ul>
+<li>动作分类：<code>XRF55</code>、<code>MM-Fi</code>、<code>OctoNet</code></li>
+<li>动作定位：<code>XRF V2</code>、<code>WEAR</code></li>
+<li>姿态估计：<code>MM-Fi</code>、<code>OctoNet</code>、<code>XRF V2</code>、<code>XRF55</code></li>
+<li>动作描述 / NLP 相关：<code>XRF V2</code>、<code>CUHK-X</code>、<code>SensorQA</code></li>
+<li>毫米波雷达相关：<code>XRF55</code>、<code>MM-Fi</code>、<code>OctoNet</code>、<code>CUHK-X</code></li>
+<li>WiFi 相关：<code>XRF55</code>、<code>XRF V2</code>、<code>MM-Fi</code>、<code>OctoNet</code></li>
+</ul>
+<h2>逐个看</h2>
+<h3>1. XRF55</h3>
+<ul>
+<li>模态：WiFi、毫米波雷达、RGB、Depth、IR、RFID</li>
+<li>任务：5 大类、55 种动作，HAR</li>
+<li>适合什么时候看：如果你想要一个模态覆盖很广、动作类别也比较丰富的多模态 HAR 数据集，XRF55 很适合作为起点。</li>
+<li>链接：<a href="https://aiotgroup.github.io/XRF55/">Project Website</a></li>
+</ul>
+<div class="dataset-gallery">
+  <img src="./assets/xrf55-1.png" alt="XRF55 figure 1" loading="lazy" decoding="async">
+  <img src="./assets/xrf55-2.png" alt="XRF55 figure 2" loading="lazy" decoding="async">
+  <img src="./assets/xrf55-3.png" alt="XRF55 figure 3" loading="lazy" decoding="async">
+  <img src="./assets/xrf55-4.png" alt="XRF55 figure 4" loading="lazy" decoding="async">
+  <img src="./assets/xrf55-5.png" alt="XRF55 figure 5" loading="lazy" decoding="async">
+</div>
+
+<h3>2. XRF V2</h3>
+<ul>
+<li>模态：5 个 IMUs、1 个耳机 IMU、WiFi、RGB-D-IR</li>
+<li>任务：30 多个动作的动作定位，temporal action localization</li>
+<li>适合什么时候看：如果你关心动作定位，尤其想做“可穿戴 + WiFi + 视觉”的多模态时序定位任务，XRF V2 很值得重点看。</li>
+<li>链接：<a href="https://github.com/aiotgroup/XRFV2">GitHub</a></li>
+</ul>
+<div class="dataset-gallery">
+  <img src="./assets/xrfv2-1.png" alt="XRF V2 figure 1" loading="lazy" decoding="async">
+  <img src="./assets/xrfv2-2.png" alt="XRF V2 figure 2" loading="lazy" decoding="async">
+  <img src="./assets/xrfv2-3.png" alt="XRF V2 figure 3" loading="lazy" decoding="async">
+  <img src="./assets/xrfv2-4.png" alt="XRF V2 figure 4" loading="lazy" decoding="async">
+</div>
+
+<h3>3. MM-Fi</h3>
+<ul>
+<li>模态：LiDAR、WiFi、毫米波雷达、RGB 处理后的 pose</li>
+<li>任务：27 种动作，用于姿态估计、动作识别</li>
+<li>适合什么时候看：如果你的研究同时关心无线感知和姿态估计，MM-Fi 是比较典型的桥梁型数据集。</li>
+<li>链接：<a href="https://ntu-aiot-lab.github.io/mm-fi">Project Website</a></li>
+</ul>
+<div class="dataset-gallery">
+  <img src="./assets/mmfi-1.png" alt="MM-Fi figure 1" loading="lazy" decoding="async">
+  <img src="./assets/mmfi-2.png" alt="MM-Fi figure 2" loading="lazy" decoding="async">
+  <img src="./assets/mmfi-3.png" alt="MM-Fi figure 3" loading="lazy" decoding="async">
+  <img src="./assets/mmfi-4.png" alt="MM-Fi figure 4" loading="lazy" decoding="async">
+  <img src="./assets/mmfi-5.png" alt="MM-Fi figure 5" loading="lazy" decoding="async">
+</div>
+
+<h3>4. OctoNet</h3>
+<ul>
+<li>模态：11 种模态</li>
+<li>任务：HAR、3DHPE</li>
+<li>适合什么时候看：如果你想研究更“全”的多模态设置，或者想比较不同传感器组合对 HAR / 3D human pose estimation 的影响，OctoNet 很有参考价值。</li>
+<li>链接：<a href="https://openreview.net/forum?id=z3TftXOizf">Paper</a>、<a href="https://aiot-lab.github.io/OctoNet/">Project Website</a>、<a href="https://huggingface.co/datasets/hku-aiot/OctoNet">Dataset</a></li>
+</ul>
+<div class="dataset-gallery">
+  <img src="./assets/octonet-1.png" alt="OctoNet figure 1" loading="lazy" decoding="async">
+  <img src="./assets/octonet-2.png" alt="OctoNet figure 2" loading="lazy" decoding="async">
+  <img src="./assets/octonet-3.png" alt="OctoNet figure 3" loading="lazy" decoding="async">
+  <img src="./assets/octonet-4.png" alt="OctoNet figure 4" loading="lazy" decoding="async">
+  <img src="./assets/octonet-5.png" alt="OctoNet figure 5" loading="lazy" decoding="async">
+  <img src="./assets/octonet-6.png" alt="OctoNet figure 6" loading="lazy" decoding="async">
+</div>
+
+<h3>5. CUHK-X</h3>
+<ul>
+<li>模态：PDF 一处写为 <code>11</code> 种模态；另一处强调其有 <code>58,445</code> 个 samples、<code>30</code> 名 participants、<code>7</code> 个 synchronized modalities；同时又提到 <code>8</code> 种模态和 text caption 描述</li>
+<li>任务：HAR、HAU、HARn 三个 benchmark，共 8 个任务；也适合动作描述等任务</li>
+<li>适合什么时候看：如果你关心“感知 + 描述 + benchmark 设计”这类更综合的问题，CUHK-X 是这份 PDF 里信息量很大的一项。</li>
+<li>备注：这里保留 PDF 原始表述，因为不同页面对模态数量的描述略有差异。</li>
+<li>链接：<a href="https://siyang-jiang.github.io/CUHK-X/">Project Website</a></li>
+</ul>
+<div class="dataset-gallery">
+  <img src="./assets/cuhkx-1.png" alt="CUHK-X figure 1" loading="lazy" decoding="async">
+  <img src="./assets/cuhkx-2.png" alt="CUHK-X figure 2" loading="lazy" decoding="async">
+  <img src="./assets/cuhkx-3.png" alt="CUHK-X figure 3" loading="lazy" decoding="async">
+  <img src="./assets/cuhkx-4.png" alt="CUHK-X figure 4" loading="lazy" decoding="async">
+  <img src="./assets/cuhkx-5.png" alt="CUHK-X figure 5" loading="lazy" decoding="async">
+  <img src="./assets/cuhkx-6.png" alt="CUHK-X figure 6" loading="lazy" decoding="async">
+</div>
+
+<h3>6. WEAR</h3>
+<ul>
+<li>模态：4 个四肢 IMUs（左手腕、右手腕、左脚踝、右脚踝）+ 第一视角相机</li>
+<li>任务：temporal action localization</li>
+<li>数据特点：<ul>
+<li>纯户外环境</li>
+<li>18 种不同的户外健身活动</li>
+<li>3 大类活动：慢跑、拉伸、力量</li>
+<li>惯性部分使用 4 个 Bangle.js 开源智能手表，主要用 3D 加速度计</li>
+<li>视觉部分使用头戴式 GoPro，相机向下倾斜 45 度</li>
+</ul>
+</li>
+<li>适合什么时候看：如果你想做第一视角 + 四肢 IMU 的动作定位，而且希望场景是更真实的户外运动环境，WEAR 很有特色。</li>
+<li>链接：<a href="https://mariusbock.github.io/wear/">Project Website</a></li>
+</ul>
+<div class="dataset-gallery">
+  <img src="./assets/wear-1.png" alt="WEAR figure 1" loading="lazy" decoding="async">
+  <img src="./assets/wear-2.png" alt="WEAR figure 2" loading="lazy" decoding="async">
+  <img src="./assets/wear-3.png" alt="WEAR figure 3" loading="lazy" decoding="async">
+  <img src="./assets/wear-4.png" alt="WEAR figure 4" loading="lazy" decoding="async">
+  <img src="./assets/wear-5.png" alt="WEAR figure 5" loading="lazy" decoding="async">
+</div>
+
+<h3>7. Ego4D / Ego-Exo4D</h3>
+<ul>
+<li>模态：第一、第三视角视频、IMUs</li>
+<li>任务：动作描述、动作识别、姿态估计等基础任务</li>
+<li>PDF 中的提醒：<ul>
+<li>Ego4D、EPIC-Kitchens、Ego-Exo4D 都属于已有的多模态第一视角数据集</li>
+<li>虽然它们包含 IMU 数据，但这些 IMU 往往内置在头戴式相机中</li>
+<li>由于 IMU 和摄像头都在头部，信息高度相关，能提供的互补性有限</li>
+</ul>
+</li>
+<li>适合什么时候看：如果你主要做 egocentric understanding，这是绕不开的一类基准；但如果你强调“视觉之外的互补感知”，就要注意 PDF 里提到的模态冗余问题。</li>
+<li>链接：<a href="https://github.com/facebookresearch/Ego4d">GitHub</a></li>
+</ul>
+<div class="dataset-gallery">
+  <img src="./assets/ego4d-1.png" alt="Ego4D figure 1" loading="lazy" decoding="async">
+  <img src="./assets/ego4d-2.png" alt="Ego4D figure 2" loading="lazy" decoding="async">
+  <img src="./assets/ego4d-3.png" alt="Ego4D figure 3" loading="lazy" decoding="async">
+  <img src="./assets/ego4d-4.png" alt="Ego4D figure 4" loading="lazy" decoding="async">
+</div>
+
+<h3>8. SensorQA</h3>
+<ul>
+<li>任务：行为问答，与 <code>CUHK-X</code> 和 <code>XRF V2</code> 相关</li>
+<li>适合什么时候看：如果你希望把多模态感知进一步推进到问答、语言理解或者更接近 agent / reasoning 的场景，SensorQA 是这份 PDF 里最偏多模态 QA 的条目。</li>
+<li>链接：<a href="https://github.com/benjamin-reichman/SensorQA">GitHub</a></li>
+</ul>
+<div class="dataset-gallery">
+  <img src="./assets/sensorqa-1.png" alt="SensorQA figure 1" loading="lazy" decoding="async">
+  <img src="./assets/sensorqa-2.png" alt="SensorQA figure 2" loading="lazy" decoding="async">
+  <img src="./assets/sensorqa-3.png" alt="SensorQA figure 3" loading="lazy" decoding="async">
+</div>
+
+<h2>我会怎么用这份清单</h2>
+<ul>
+<li>刚开始做多模态 HAR：先看 <code>XRF55</code>、<code>MM-Fi</code></li>
+<li>重点做动作定位：先看 <code>XRF V2</code>、<code>WEAR</code></li>
+<li>重点做姿态估计：先看 <code>MM-Fi</code>、<code>OctoNet</code></li>
+<li>想把任务延伸到 caption / QA：优先看 <code>CUHK-X</code>、<code>SensorQA</code></li>
+<li>关心无线模态：优先筛 <code>XRF55</code>、<code>XRF V2</code>、<code>MM-Fi</code>、<code>OctoNet</code></li>
+</ul>
+<blockquote>
+<p>如果后面要继续扩展，这个 note 很适合再补两列：一列写“数据规模 / 参与人数 / 环境”，一列写“适合当训练集还是验证集”。</p>
+</blockquote>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

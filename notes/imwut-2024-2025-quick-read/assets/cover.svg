@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="IMWUT 2024-2025 速读">
+  <defs>
+    <linearGradient id="imwutGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#214c71"/>
+      <stop offset="52%" stop-color="#2c6b8a"/>
+      <stop offset="100%" stop-color="#f0cbd0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" rx="44" fill="url(#imwutGradient)"/>
+  <circle cx="196" cy="168" r="98" fill="rgba(255,255,255,0.14)"/>
+  <circle cx="1018" cy="162" r="70" fill="rgba(255,255,255,0.12)"/>
+  <rect x="86" y="110" width="468" height="226" rx="30" fill="rgba(255,255,255,0.12)"/>
+  <path d="M148 180h220M148 228h338M148 276h286" fill="none" stroke="rgba(255,255,255,0.82)" stroke-linecap="round" stroke-width="18"/>
+  <rect x="700" y="122" width="420" height="178" rx="26" fill="rgba(255,255,255,0.12)"/>
+  <text x="742" y="198" font-family="Exo, Arial, sans-serif" font-size="50" font-weight="800" fill="#ffffff">ACM IMWUT</text>
+  <text x="742" y="252" font-family="Source Sans 3, Arial, sans-serif" font-size="28" fill="rgba(255,255,255,0.86)">2024 / 2025 quick-read entry</text>
+  <rect x="86" y="434" width="1028" height="234" rx="34" fill="rgba(255,255,255,0.14)"/>
+  <text x="102" y="528" font-family="Exo, Arial, sans-serif" font-size="60" font-weight="800" fill="#ffffff">IMWUT 2024-2025 速读</text>
+  <text x="102" y="592" font-family="Source Sans 3, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.88)">A note about how to use the Feishu reading guide</text>
+</svg>

@@ -2,7 +2,7 @@
   const SiteContent = (window.SiteContent = window.SiteContent || {});
 
   SiteContent.site = {
-    title: "XJTU AIoT Group",
+    title: "XJTU AIoT Group / Where Amazing Happens",
     brandMark: "X",
     footerMark: "X",
     tagline: "Ubiquitous AI, Intelligent Systems, Connected Future.",
@@ -1684,6 +1684,24 @@
     intro:
       "This page keeps the group's long-form internal knowledge pages in one place, separate from the photo gallery. It is the right home for onboarding resources, shared references, and living documentation.",
     items: [
+      {
+        slug: "imwut-2024-2025-quick-read",
+        title: "IMWUT 2024-2025 速读",
+        tags: "Reading Guide",
+        cover: "./notes/imwut-2024-2025-quick-read/assets/cover.svg",
+        coverAlt: "Title card for the IMWUT 2024-2025 quick-read note",
+        text:
+          "介绍组内飞书速读文档的入口和使用方式，适合招生考核与新成员入组导读。"
+      },
+      {
+        slug: "multimodal-sensing-datasets",
+        title: "多模态感知数据集",
+        tags: "Dataset Note",
+        cover: "./notes/multimodal-sensing-datasets/assets/cover.svg",
+        coverAlt: "Title card for multimodal sensing datasets",
+        text:
+          "根据《我们关注的多模态感知数据集【更新至2025.12】》整理 8 个数据集，并补充按任务选型的简要建议。"
+      },
       {
         slug: "recommended-courses",
         title: "推荐课程",
