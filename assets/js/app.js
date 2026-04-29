@@ -533,9 +533,25 @@
           asideClass: "hero-panel hero-panel-plain",
           descriptionHtml: `
             <p>${SiteUI.escapeHtml(profile.note)}</p>
+            ${
+              profile.phdOpening
+                ? `
+            <div class="recruitment-banner" lang="zh-CN">
+              <div class="recruitment-banner__copy">
+                <span class="recruitment-banner__eyebrow">${SiteUI.escapeHtml(profile.phdOpening.label)}</span>
+                <p class="recruitment-banner__text">${SiteUI.escapeHtml(profile.phdOpening.text)}</p>
+              </div>
+              ${
+                profile.phdOpening.link
+                  ? `<a class="recruitment-banner__link" href="${profile.phdOpening.link.href}"${externalLinkAttrs(profile.phdOpening.link.href)}>${SiteUI.escapeHtml(profile.phdOpening.link.label)}</a>`
+                  : ""
+              }
+            </div>`
+                : ""
+            }
             <div class="admissions-callout">
               <div class="admissions-copy">
-                <strong>Interns & Master's Applicants</strong>
+                <strong>Interns, Master's & Ph.D. Applicants</strong>
                 <p>${SiteUI.escapeHtml(profile.admissionsNote)}</p>
                 ${profile.admissionsNoteZh ? `<p lang="zh-CN">${SiteUI.escapeHtml(profile.admissionsNoteZh)}</p>` : ""}
               </div>

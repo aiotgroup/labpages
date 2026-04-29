@@ -190,10 +190,18 @@
     photoAlt: "Profile photo for Fei Wang",
     note:
       "Associate Professor in the School of Software Engineering at Xi'an Jiaotong University, working at the intersection of artificial intelligence, ubiquitous computing, wireless sensing, wearable systems, and multimodal learning.",
+    phdOpening: {
+      label: "Ph.D. Opening / 博士招生",
+      text: "招收2027年秋季入学的计算机科学与技术专业普通全日制博士生。",
+      link: {
+        label: "Q&A / 招生问答",
+        href: "./notes/interns-masters-applicants-qa/index.html"
+      }
+    },
     admissionsNote:
-      "We welcome applications from interns and prospective master's students. For more information about the group and admissions, please refer to: ",
+      "We welcome applications from interns and prospective master's and Ph.D. students. For more information about the group and admissions, please refer to the Q&A page.",
     admissionsNoteZh:
-      "我们欢迎本科科研实习生和有意申请硕士研究生的同学加入。关于课题组与招生信息，请参考：",
+      "我们欢迎本科科研实习生、有意申请硕士研究生和博士研究生的同学加入。",
     admissionsLink: {
       label: "Q&A / 招生问答",
       href: "./notes/interns-masters-applicants-qa/index.html"

@@ -296,6 +296,71 @@ select {
   margin-top: 12px;
 }
 
+.recruitment-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 18px;
+  padding: 20px 22px;
+  border-radius: 20px;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  background:
+    linear-gradient(135deg, rgba(15, 118, 110, 0.16), rgba(255, 255, 255, 0.98)),
+    #ffffff;
+  box-shadow: 0 18px 40px rgba(15, 118, 110, 0.12);
+}
+
+.recruitment-banner__copy {
+  min-width: 0;
+}
+
+.recruitment-banner__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(15, 118, 110, 0.16);
+  color: #0f5f58;
+  font-family: "Exo", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.recruitment-banner__text {
+  margin: 10px 0 0;
+  color: #103b37;
+  font-size: 1.16rem;
+  font-weight: 700;
+  line-height: 1.42;
+}
+
+.recruitment-banner__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: #0f766e;
+  color: #ffffff;
+  font-weight: 800;
+  box-shadow: 0 14px 28px rgba(15, 118, 110, 0.2);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.recruitment-banner__link:hover,
+.recruitment-banner__link:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 34px rgba(15, 118, 110, 0.24);
+  background: #0b655e;
+}
+
 .admissions-callout {
   display: flex;
   align-items: center;
@@ -1360,11 +1425,13 @@ select {
     align-items: start;
   }
 
+  .recruitment-banner,
   .admissions-callout {
     align-items: stretch;
     flex-direction: column;
   }
 
+  .recruitment-banner__link,
   .admissions-link {
     width: 100%;
   }
