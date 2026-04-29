@@ -1685,6 +1685,15 @@
       "This page keeps the group's long-form internal knowledge pages in one place, separate from the photo gallery. It is the right home for onboarding resources, shared references, and living documentation.",
     items: [
       {
+        slug: "semester-reflection-meet",
+        title: "课题组的师生反思机制",
+        tags: "Lab Reflection",
+        cover: "./notes/semester-reflection-meet/assets/cover.svg",
+        coverAlt: "Title card for the semester reflection meet note",
+        text:
+          "对《课题组 Q&A》Q10 的展开说明，介绍期末反思会议、改进计划、退出机制与三份配套问卷。"
+      },
+      {
         slug: "imwut-2024-2025-quick-read",
         title: "IMWUT 2024-2025 速读",
         tags: "Reading Guide",

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="课题组的师生反思机制">
+  <defs>
+    <linearGradient id="reflectionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#214c71"/>
+      <stop offset="56%" stop-color="#3a7b69"/>
+      <stop offset="100%" stop-color="#f0cbd0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" rx="44" fill="url(#reflectionGradient)"/>
+  <circle cx="194" cy="164" r="98" fill="rgba(255,255,255,0.14)"/>
+  <circle cx="1010" cy="182" r="74" fill="rgba(255,255,255,0.12)"/>
+  <rect x="88" y="108" width="454" height="230" rx="32" fill="rgba(255,255,255,0.12)"/>
+  <path d="M150 184h264M150 232h204M150 280h304" fill="none" stroke="rgba(255,255,255,0.8)" stroke-linecap="round" stroke-width="18"/>
+  <rect x="86" y="438" width="1028" height="226" rx="34" fill="rgba(255,255,255,0.14)"/>
+  <text x="102" y="532" font-family="Exo, Arial, sans-serif" font-size="50" font-weight="800" fill="#ffffff">课题组的师生反思机制</text>
+  <text x="102" y="596" font-family="Source Sans 3, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.88)">Reflection meeting, improvement plan, and mutual evaluation</text>
+</svg>
