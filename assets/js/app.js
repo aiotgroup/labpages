@@ -62,7 +62,8 @@
 
   function headerMarkup(currentPage) {
     const brandMark = SiteContent.site.brandMark || "XJ";
-    const activePage = currentPage === "vr-2026-projects" ? "course" : currentPage;
+    const activePage =
+      currentPage === "vr-2026-projects" || currentPage === "vr-2026-reading" ? "course" : currentPage;
     return `
       <header class="site-header">
         <div class="shell nav-shell">
@@ -704,6 +705,8 @@
   function courseLanguageCardMarkup(course, language) {
     const data = course[language];
     const label = language === "en" ? "English" : "中文";
+    const resourceLabel =
+      language === "en" ? "2026 Spring VR Academic Reading" : "2026春 学术论文阅读";
     return `
       <article class="panel course-card course-language-card">
         <div class="meta-row">
@@ -717,6 +720,17 @@
         <div class="course-offering-list" aria-label="${SiteUI.escapeHtml(data.name)} offerings">
           ${(data.offerings || []).map(courseOfferingMarkup).join("")}
         </div>
+        ${
+          data.resources && data.resources.length
+            ? `
+        <div class="course-resource-block">
+          <p class="eyebrow course-resource-label">${SiteUI.escapeHtml(resourceLabel)}</p>
+          <div class="course-offering-list" aria-label="${SiteUI.escapeHtml(data.name)} academic reading">
+            ${data.resources.map(courseOfferingMarkup).join("")}
+          </div>
+        </div>`
+            : ""
+        }
         <div class="chip-row">
           ${(data.topics || []).map((topic) => `<span>${SiteUI.escapeHtml(topic)}</span>`).join("")}
         </div>
@@ -765,9 +779,104 @@
     `;
   }
 
+  function vrReadingPaperMarkup(paper) {
+    const segments = String(paper.title || "").split("|");
+    const code = (segments[0] || "").trim();
+    const title = segments.slice(1).join("|").trim() || code;
+    return `
+      <article class="panel vr-reading-paper">
+        <div class="meta-row">
+          <span class="date-pill">${SiteUI.escapeHtml(code)}</span>
+        </div>
+        <h5>${SiteUI.escapeHtml(title)}</h5>
+        ${
+          paper.authors
+            ? `<p class="vr-reading-paper__authors"><strong>Authors / 作者：</strong>${SiteUI.escapeHtml(paper.authors)}</p>`
+            : ""
+        }
+        <p>${SiteUI.escapeHtml(paper.summary || "")}</p>
+      </article>
+    `;
+  }
+
+  function vrReadingGuideMarkup(guide) {
+    if (!guide) {
+      return "";
+    }
+
+    return `
+      <section class="vr-reading-guide" id="${SiteUI.escapeHtml(guide.id || "")}">
+        <article class="panel vr-reading-overview">
+          <div class="vr-reading-overview__copy">
+            <p class="eyebrow">${SiteUI.escapeHtml(guide.label || "Reading Guide")}</p>
+            <h3>${SiteUI.escapeHtml(guide.title)}</h3>
+            <p>${SiteUI.escapeHtml(guide.description || "")}</p>
+          </div>
+          <div class="vr-reading-overview__meta">
+            <span>${SiteUI.escapeHtml(guide.curator || "")}</span>
+            <span>${SiteUI.escapeHtml(guide.countLabel || "")}</span>
+          </div>
+        </article>
+        <div class="vr-reading-section-list">
+          ${(guide.sections || [])
+            .map(
+              (section) => `
+                <article class="panel vr-reading-section">
+                  <div class="vr-reading-section__header">
+                    <p class="eyebrow">Reading Theme</p>
+                    <h3>${SiteUI.escapeHtml(section.title || "")}</h3>
+                    ${
+                      section.description
+                        ? `<p>${SiteUI.escapeHtml(section.description)}</p>`
+                        : ""
+                    }
+                  </div>
+                  <div class="vr-reading-group-list">
+                    ${(section.groups || [])
+                      .map(
+                        (group) => `
+                          <section class="vr-reading-group">
+                            ${
+                              group.title && group.title !== "未分类"
+                                ? `<h4>${SiteUI.escapeHtml(group.title)}</h4>`
+                                : ""
+                            }
+                            <div class="vr-reading-paper-grid">
+                              ${(group.papers || []).map(vrReadingPaperMarkup).join("")}
+                            </div>
+                          </section>
+                        `
+                      )
+                      .join("")}
+                  </div>
+                </article>
+              `
+            )
+            .join("")}
+        </div>
+      </section>
+    `;
+  }
+
+  function vrReadingLibraryMarkup(guides) {
+    if (!Array.isArray(guides) || !guides.length) {
+      return "";
+    }
+
+    return `
+      <section class="section">
+        <div class="shell">
+          ${sectionHeading("Academic Reading References", "Curated Reading")}
+          <div class="vr-reading-library">
+            ${guides.map(vrReadingGuideMarkup).join("")}
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
   function renderVRShowcase2026Page() {
     const showcase = SiteContent.vrShowcase2026;
-    console.log(SiteUI.escapeHtml(videoEmbedSrc(showcase.projects[0].video)));
     return `
       ${pageHeroMarkup(
         {
@@ -784,9 +893,9 @@
         },
         `
           <div class="aside-card">
-            <p class="eyebrow">Final Projects</p>
+            <p class="eyebrow">Projects</p>
             <h3>${SiteUI.escapeHtml(showcase.title)}</h3>
-            <p>Student demos are collected as embedded videos with team information and short project notes.</p>
+            <p>Student demos are collected as embedded videos with team information and short project notes for the 2026 Spring Virtual Reality Technology course.</p>
           </div>
         `
       )}
@@ -852,6 +961,58 @@
           </div>
         </div>
       </section>
+    `;
+  }
+
+  function renderVRReadingPage() {
+    const showcase = SiteContent.vrShowcase2026;
+    const readingGuides = window.VRReadingContent
+      ? ["chi2025", "chi2024", "uist2025", "uist2024"]
+          .map((key) => window.VRReadingContent[key])
+          .filter(Boolean)
+      : [];
+    const readingCurator = readingGuides[0] && readingGuides[0].curator;
+    const totalPapers = readingGuides.reduce((sum, guide) => {
+      return (
+        sum +
+        (guide.sections || []).reduce((sectionSum, section) => {
+          return sectionSum + (section.groups || []).reduce((groupSum, group) => groupSum + (group.papers || []).length, 0);
+        }, 0)
+      );
+    }, 0);
+
+    return `
+      ${pageHeroMarkup(
+        {
+          eyebrow: "Virtual Reality Technology",
+          title: "2026 Spring VR Academic Reading / 2026春 学术论文阅读",
+          descriptionHtml: `
+            <p>${SiteUI.escapeHtml(showcase.subtitle)}</p>
+            <p>This page collects curated VR reading references from CHI 2025, CHI 2024, UIST 2025, and UIST 2024 for the Virtual Reality Technology course.</p>
+            ${
+              readingCurator
+                ? `
+            <div class="vr-reading-credit">
+              <span class="vr-reading-credit__label">Academic Reading</span>
+              <strong>${SiteUI.escapeHtml(readingCurator)}</strong>
+            </div>`
+                : ""
+            }
+          `,
+          actions: [
+            { label: "Back To Courses", href: "./course.html", kind: "primary" },
+            { label: "Project Showcase", href: "./vr-2026-projects.html", kind: "secondary" }
+          ]
+        },
+        `
+          <div class="aside-card">
+            <p class="eyebrow">Reading Archive</p>
+            <h3>VR papers for course-guided reading.</h3>
+            <p>This separate page organizes ${SiteUI.escapeHtml(String(totalPapers))} papers across four venue-year collections for fast browsing and follow-up reading.</p>
+          </div>
+        `
+      )}
+      ${vrReadingLibraryMarkup(readingGuides)}
     `;
   }
 
@@ -1017,6 +1178,8 @@
         return renderCoursePage();
       case "vr-2026-projects":
         return renderVRShowcase2026Page();
+      case "vr-2026-reading":
+        return renderVRReadingPage();
       case "awards":
         return renderAwardsPage();
       case "team":

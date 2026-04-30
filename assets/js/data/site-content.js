@@ -496,6 +496,13 @@
           },
           { label: "Spring 2025" }
         ],
+        resources: [
+          {
+            label: "2026 Spring VR Academic Reading",
+            href: "./vr-2026-reading.html",
+            action: "CHI / UIST"
+          }
+        ],
         outcomes: [
           "Understand VR display, tracking, interaction, and content organization.",
           "Complete a team-based VR project from concept and implementation to public demonstration.",
@@ -517,6 +524,13 @@
             action: "大作业展示"
           },
           { label: "2025春季" }
+        ],
+        resources: [
+          {
+            label: "2026春 学术论文阅读",
+            href: "./vr-2026-reading.html",
+            action: "CHI / UIST"
+          }
         ],
         outcomes: [
           "理解虚拟现实系统的显示、追踪、交互和内容组织方式。",
