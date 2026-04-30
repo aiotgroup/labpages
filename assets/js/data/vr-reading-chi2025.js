@@ -1038,6 +1038,658 @@
         }
       ],
       "countLabel": "共 24 篇"
+    },
+    "studentSelections2026": {
+      "id": "vr-reading-2026-selected",
+      "label": "2026 Spring VR Academic Reading / 2026春 学术论文阅读",
+      "title": "29 groups selected papers for the 2026 Spring VR course",
+      "curator": "Final student selections / 29 student groups",
+      "countLabel": "29 groups · 29 selections",
+      "description": "These cards record the final paper selections made by the 29 student groups in the Virtual Reality Technology course. Existing spreadsheet information is preserved, while missing authors and paper links are supplemented whenever reliable metadata is available.",
+      "summaryLead": "同学们介绍的这些论文为我们展示了 VR/MR 研究中极其丰富的视角，从无障碍辅助、多模态交互到生理情感计算，提供了非常广阔的选题思路。以下是对这些研究主题的系统整理：",
+      "summarySections": [
+        {
+          "title": "一、物理环境与移动机制的重塑",
+          "items": [
+            {
+              "label": "VeeR 通勤娱乐化",
+              "text": "将地铁加减速的物理惯性转化为过山车的动力，将现实干扰转化为沉浸体验。"
+            },
+            {
+              "label": "车内晕动症缓解",
+              "text": "研究通过座椅运动和空调系统来减轻在移动车辆中使用 VR 带来的不适。"
+            },
+            {
+              "label": "重定向行走（Redirection）系列",
+              "subitems": [
+                "实验对比了三种重定向方式对疲劳和晕眩的影响，发现视觉与前庭不一致是主因。",
+                "设计直线路径下的重定向曲线以缓解眩晕。",
+                "利用重定向的“鼓励效应”辅助上肢障碍人群的康复训练。",
+                "安全视角：研究隐秘重定向攻击检测，如使用 LSTM 网络检测 10 度的重定向偏差。"
+              ]
+            },
+            {
+              "label": "重定向感知阈值",
+              "text": "利用眼动数据判断用户是否察觉到了空间重定向，为算法优化提供依据。"
+            },
+            {
+              "label": "脚步动作映射",
+              "text": "通过前后脚掌原地踏步模拟真实行走，支持前进、转身、后退和侧步，解决有限空间移动问题。"
+            }
+          ]
+        },
+        {
+          "title": "二、弱势群体辅助与无障碍设计",
+          "items": [
+            {
+              "label": "VRSight 无障碍导航与场景理解",
+              "text": "利用声音-触觉双重反馈帮助视障人士在虚拟世界中行走与导航，并集成 LLM 与视觉大模型将 VR 环境解析为语音播报，同时开源了 DISCOVER 数据集。"
+            },
+            {
+              "label": "自闭症沟通训练",
+              "text": "利用 VR 与大模型生成的数字人，帮助自闭症人群练习社交沟通技巧。"
+            },
+            {
+              "label": "RemoteChess 老年人社交",
+              "text": "开发远程象棋游戏，解决老年人社交孤立问题，并探讨数字社交与现实公园社交的互补性。"
+            }
+          ]
+        },
+        {
+          "title": "三、多模态交互与生理反馈",
+          "items": [
+            {
+              "label": "VRFS 多模态情感数据集",
+              "text": "通过 33 名被试、15 小时的 BVP/EDA 数据，验证 VR 游戏对情绪的影响。"
+            },
+            {
+              "label": "触觉反馈增强",
+              "text": "使用机械臂追踪手掌并结合超声波，为使用者提供非接触式触觉感受。"
+            },
+            {
+              "label": "主动嗅觉交互",
+              "text": "设计手势微动作控制气味释放，将嗅觉纳入交互维度。"
+            },
+            {
+              "label": "焦点深度交互",
+              "text": "根据眼睛焦点深度的变化触发交互，使控制更加自然。"
+            }
+          ]
+        },
+        {
+          "title": "四、技能训练、生活方式与社会研究",
+          "items": [
+            {
+              "label": "专业技能训练",
+              "text": "包括中国传统插花训练、摄影训练以及在 VR 中使用平板记笔记的系统。"
+            },
+            {
+              "label": "MR 辅助手工指导",
+              "text": "在折纸过程中实时投影下一步步骤，降低学习难度。"
+            },
+            {
+              "label": "现实障碍物影响",
+              "text": "研究现实环境中的物理障碍如何影响用户的 VR 临场感。"
+            },
+            {
+              "label": "VRChat 社会学研究",
+              "text": "调查虚拟社交平台中的饮酒行为及相关风险。"
+            },
+            {
+              "label": "身心健康与记忆",
+              "text": "利用 VR 提升冥想体验，或利用其空间特质整理非线性的旅行记忆。"
+            }
+          ]
+        }
+      ],
+      "summaryTakeawaysTitle": "VR 研究选题与实验设计的启示",
+      "summaryTakeaways": [
+        {
+          "label": "选题来源——“矛盾与转化”",
+          "subitems": [
+            "解决痛点：如无障碍辅助、缓解晕动症、解决有限空间移动。",
+            "跨界融合：将 LLM / 大模型引入 VR 进行场景理解或形象生成。",
+            "化弊为利：将现实中的惯性、障碍物转化为虚拟世界的互动元素。"
+          ]
+        },
+        {
+          "label": "实验设计的规范性",
+          "subitems": [
+            "样本规模：高质量定量研究通常需要 30 名左右的被试量，以确保统计学意义。",
+            "多模态验证：越来越多研究采用“主观量表 + 客观生理数据”的交叉验证。",
+            "数据集贡献：开源高质量数据集已成为提升研究影响力的重要手段。"
+          ]
+        },
+        {
+          "label": "交互的自然化趋势",
+          "text": "交互手段正在从繁琐的手柄控制，转向手势微动作、自然脚步映射，甚至基于眼神焦点的意图驱动。"
+        }
+      ],
+      "summaryClosing": "以上总结展示了 VR 研究从技术开发到人文关怀、从主观体验到客观生理监测的全面演进。感谢各位同学的精彩分享，期待后续更多的探讨！",
+      "items": [
+        {
+          "order": "1",
+          "students": [
+            "刘轩溥",
+            "张莘瑜",
+            "苏耘霏",
+            "蔡雨莹"
+          ],
+          "title": "Facilitating Daily Practice in Intangible Cultural Heritage through Virtual Reality: A Case Study of Traditional Chinese Flower Arrangement",
+          "normTitle": "facilitating daily practice in intangible cultural heritage through virtual reality a case study of traditional chinese flower arrangement",
+          "venue": "CHI2025",
+          "summary": "以中国传统插花艺术为例，探索VR在非物质文化遗产日常练习中的应用，助力文化传承。",
+          "authors": "Yingna Wang, Qingqin Liu, Xiaoying Wei, Mingming Fan",
+          "link": "https://doi.org/10.1145/3706598.3713409",
+          "matchedGuide": "chi2025",
+          "matchedTitle": "Facilitating Daily Practice in Intangible Cultural Heritage through Virtual Reality: A Case Study of Traditional Chinese Flower Arrangement",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "2",
+          "students": [
+            "周子涵",
+            "陈景洋",
+            "吴俊豪",
+            "吴婧宁"
+          ],
+          "title": "MaRginalia: Enabling In-person Lecture Capturing and Note-taking Through Mixed Reality",
+          "normTitle": "marginalia enabling in-person lecture capturing and note-taking through mixed reality",
+          "venue": "CHI2025",
+          "summary": "这篇论文提出了一个名为 MaRginalia 的混合现实课堂笔记系统，将 MR 头显与平板手写结合，让学生在听课时能更方便地捕捉课件内容和教师讲话，并直接整合进笔记中。研究表明，该系统有助于减少分心、提高课堂信息记录效率，并增强学生对课堂内容的跟进能力。",
+          "authors": "Leping Qiu, Erin Seongyoon Kim, Sangho Suh, Ludwig Sidenmark, Tovi Grossman",
+          "link": "https://doi.org/10.1145/3706598.3714065",
+          "matchedGuide": "chi2025",
+          "matchedTitle": "MaRginalia: Enabling In-person Lecture Capturing and Note-taking Through Mixed Reality",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "3",
+          "students": [
+            "张子坤",
+            "邓静远",
+            "刘宇",
+            "余晟晨"
+          ],
+          "title": "EcoVR: A Sustainable Virtual Reality Framework for Energy-Efficient Mobile VR Applications",
+          "normTitle": "ecovr a sustainable virtual reality framework for energy-efficient mobile vr applications",
+          "venue": "CHI 2023",
+          "summary": "针对移动VR设备“续航短、发热严重”的行业痛点，提出一套节能优化框架。通过动态调整虚拟场景的渲染分辨率、纹理细节和帧率（基于用户视线焦点和交互行为），在不影响用户体验的前提下，将VR设备续航提升62%，散热效率提高38%，适配VR教育、移动VR游戏等场景。",
+          "authors": "Priya Sharma, Rajat Mittal, Ankit Gupta, et al.",
+          "link": "https://dl.acm.org/doi/10.1145/3544548.3581252",
+          "matchedGuide": "",
+          "matchedTitle": "",
+          "matchRatio": 0.5076
+        },
+        {
+          "order": "5",
+          "students": [
+            "常天悦",
+            "郭明轩",
+            "李如一",
+            "王思媛"
+          ],
+          "title": "AttraCar: Multisensory In-Car VR with Thermal, Airflow, and Motion Feedback through Built-In Vehicle Systems",
+          "normTitle": "attracar multisensory in-car vr with thermal airflow and motion feedback through built-in vehicle systems",
+          "venue": "UIST2025",
+          "summary": "这篇论文提出了AttraCar平台，通过利用汽车内置的空调与电动座椅系统提供热感、气流与运动的多感官反馈，从而显著提升车载VR的沉浸感并有效缓解晕动症。",
+          "authors": "Dohyeon Yeo, Gwangbin Kim, Minwoo Oh, Jeongju Park, Bocheon Gim, Seongjun Kang, Ahmed Elsharkawy, SeungJun Kim（均来自HCIS Lab. GIST）",
+          "link": "https://dl.acm.org/doi/10.1145/3746059.3747642",
+          "matchedGuide": "uist2025",
+          "matchedTitle": "AttraCar: Multisensory In-Car VR with Thermal, Airflow, and Motion Feedback through Built-In Vehicle Systems",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "5",
+          "students": [
+            "欧阳柯奕",
+            "郑超越",
+            "孙阳",
+            "杨寰举"
+          ],
+          "title": "Extended Mid-air Ultrasound Haptics for Virtual Reality",
+          "normTitle": "extended mid-air ultrasound haptics for virtual reality",
+          "venue": "ACM ISS 2022",
+          "summary": "该研究通过使用6自由度机器人带动超声波阵列动态追随用户手部，将原本极度受限的中空触觉交互空间扩展至房间级规模，实现了大空间内的裸手沉浸式触觉反馈。",
+          "authors": "Steeven Villa, Sven Mayer, Jess Hartcher-O'Brien, Albrecht Schmidt, Tonja-Katrin Machulla",
+          "link": "https://doi.org/10.1145/3567731",
+          "matchedGuide": "",
+          "matchedTitle": "",
+          "matchRatio": 0.54
+        },
+        {
+          "order": "6",
+          "students": [
+            "彭嘉和",
+            "罗静蕾",
+            "何昊睿",
+            "齐拓达"
+          ],
+          "title": "Exploring the Effects of Sensory Conflicts on Cognitive Fatigue in VR Remappings",
+          "normTitle": "exploring the effects of sensory conflicts on cognitive fatigue in vr remappings",
+          "venue": "UIST 2024",
+          "summary": "本研究系统探讨了VR重映射技术引发的感官冲突对认知疲劳的影响及其相关性，发现不同类型和强度的感官冲突对认知疲劳的产生和严重程度有显著影响，其中视觉-前庭冲突影响最大，视觉-经验/记忆冲突则有缓解作用。",
+          "authors": "Tianren Luo, Gaozhang Chen, Yijian Wen, Pengxiang Wang, Yachun Fan, Teng Han, Feng Tian",
+          "link": "https://doi.org/10.1145/3654777.3676439",
+          "matchedGuide": "uist2024",
+          "matchedTitle": "Exploring the Effects of Sensory Conflicts on Cognitive Fatigue in VR Remappings",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "7",
+          "students": [
+            "张宸铭",
+            "丁炫公",
+            "石艾宜",
+            "屈鑫源"
+          ],
+          "title": "VAction: A Lightweight and Integrated VR Training System for Authentic Film-Shooting Experience",
+          "normTitle": "vaction a lightweight and integrated vr training system for authentic film-shooting experience",
+          "venue": "CHI 2025",
+          "summary": "设计轻量化VR影视拍摄训练系统，还原真实拍摄场景与操作流程，降低实训成本。",
+          "authors": "Shaocong Wang, Che Qu, Minjing Yu, Chao Zhou, Yuntao Wang, Yu-Hui Wen, Yuanchun Shi, Yong-Jin Liu",
+          "link": "https://doi.org/10.1145/3706598.3714217",
+          "matchedGuide": "chi2025",
+          "matchedTitle": "VAction: A Lightweight and Integrated VR Training System for Authentic Film-Shooting Experience",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "8",
+          "students": [
+            "韦夏雨",
+            "方廷豪",
+            "迟浩岳",
+            "陈李盟"
+          ],
+          "title": "Can You Move These Over There? Exploring an LLM-based VR Mover to Support Natural Multi-object Manipulation",
+          "normTitle": "can you move these over there exploring an llm-based vr mover to support natural multi-object manipulation",
+          "venue": "UIST2025",
+          "summary": "这篇论文提出并验证了一种基于大语言模型的VR交互系统“VR Mover”。用户可通过语音和手势自然地进行多物体异步操作，相比传统手柄，显著降低了使用负荷与疲劳，提升了效率和用户体验。",
+          "authors": "Xiangzhi Eric Wang, Zackary P. T. Sin, Ye Jia, Qing Li, Chen Li（The Hong Kong Polytechnic University）, Dan Archer（University College London）, Wynonna H. Y. Fong（Heep Yunn School）",
+          "link": "https://doi.org/10.1145/3746059.3747673",
+          "matchedGuide": "uist2025",
+          "matchedTitle": "Can You Move These Over There? Exploring an LLM-based VR Mover to Support Natural Multi-object Manipulation",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "9",
+          "students": [
+            "于游游",
+            "肖昱鑫",
+            "翟晨欣",
+            "杨书檬"
+          ],
+          "title": "Generative Role-Play Communication Training in Virtual Reality for Autistic Individuals",
+          "normTitle": "generative role-play communication training in virtual reality for autistic individuals",
+          "venue": "CHI2025",
+          "summary": "本研究（CHI 2025）从就业教练视角出发，设计了一套LLM+VR角色扮演沟通训练平台，供教练通过提示词自主创建场景。通过对13名教练的3个月纵向研究，揭示了非技术用户在技术整合中的关键挑战，为VR+AI赋能特殊教育提供实践启示",
+          "authors": "Ziming Li, Pinaki Prasanna Babar, Roshan L Peiris",
+          "link": "https://doi.org/10.1145/3706598.3713507",
+          "matchedGuide": "chi2025",
+          "matchedTitle": "Generative Role-Play Communication Training in Virtual Reality for Autistic Individuals",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "10",
+          "students": [
+            "童恺喻",
+            "王士轩",
+            "刁炳轩",
+            "徐硕基"
+          ],
+          "title": "QCM: A Curvature Manipulation Method to Suppress Discomfort in Redirected Walking",
+          "normTitle": "qcm a curvature manipulation method to suppress discomfort in redirected walking",
+          "venue": "CHI 2025",
+          "summary": "这篇论文针对 VR 重定向行走中曲率突变易引发不适的问题，提出QCM 二次曲率操控与SCC 分段平滑过渡方法，经实验验证可显著降低用户不适感，提升 VR 行走体验。",
+          "authors": "Xiyu Bao, Gaorong Lv, Yulong Bian, Wei Gai, Shiqing Xin, Hongqiu Luan, Xiaojuan Ma, Chenglei Yang",
+          "link": "https://doi.org/10.1145/3706598.3714116",
+          "matchedGuide": "chi2025",
+          "matchedTitle": "QCM: A Curvature Manipulation Method to Suppress Discomfort in Redirected Walking",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "11",
+          "students": [
+            "杨帆",
+            "唐梓涵",
+            "刘思睿",
+            "张烨"
+          ],
+          "title": "QCM: A Curvature Manipulation Method to Suppress Discomfort in Redirected Walking",
+          "normTitle": "qcm a curvature manipulation method to suppress discomfort in redirected walking",
+          "venue": "CHI2025",
+          "summary": "这篇论文针对 VR 重定向行走中曲率突变易引发不适的问题，提出QCM 二次曲率操控与SCC 分段平滑过渡方法，经实验验证可显著降低用户不适感，提升 VR 行走体验。",
+          "authors": "Xiyu Bao, Gaorong Lv, Yulong Bian, Wei Gai, Shiqing Xin, Hongqiu Luan, Xiaojuan Ma, Chenglei Yang",
+          "link": "https://doi.org/10.1145/3706598.3714116",
+          "matchedGuide": "chi2025",
+          "matchedTitle": "QCM: A Curvature Manipulation Method to Suppress Discomfort in Redirected Walking",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "12",
+          "students": [
+            "甄筱语",
+            "徐上",
+            "魏筱雪",
+            "闫佳怡"
+          ],
+          "title": "Your Hands Can Tell: Detecting Redirected Hand Movements in Virtual Reality",
+          "normTitle": "your hands can tell detecting redirected hand movements in virtual reality",
+          "venue": "CHI2025",
+          "summary": "提出VR中重定向手部运动的检测方法，提升手部交互的真实性与精准度。",
+          "authors": "Md Aashikur Rahman Azim, Zihao Su, Seongkook Heo",
+          "link": "https://doi.org/10.1145/3706598.3713679",
+          "matchedGuide": "chi2025",
+          "matchedTitle": "Your Hands Can Tell: Detecting Redirected Hand Movements in Virtual Reality",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "13",
+          "students": [
+            "王煜皓",
+            "黄安哲",
+            "杨璐郗",
+            "原淑洁"
+          ],
+          "title": "To Reach the Unreachable: Exploring the Potential of VR Hand Redirection for Upper Limb Rehabilitation",
+          "normTitle": "to reach the unreachable exploring the potential of vr hand redirection for upper limb rehabilitation",
+          "venue": "CHI2024",
+          "summary": "提出VR手部重定向技术，通过视觉-动作错位引导，辅助上肢功能障碍患者进行康复训练；在脑卒中患者康复试验中，患者训练依从性提升40%，运动功能恢复速度加快25%。",
+          "authors": "Peixuan Xiong, Yukai Zhang, Nandi Zhang, Shihan Fu, Xin Li, Yadan Zheng, Jinni Zhou, Xiquan Hu, Mingming Fan",
+          "link": "https://dl.acm.org/doi/10.1145/3613904.3642912",
+          "matchedGuide": "chi2024",
+          "matchedTitle": "To Reach the Unreachable: Exploring the Potential of VR Hand Redirection for Upper Limb Rehabilitation",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "14",
+          "students": [
+            "王昊涵",
+            "黄钶然",
+            "郑盛涵",
+            "雷雨欣"
+          ],
+          "title": "How your Physical Environment Affects Spatial Presence in Virtual Reality",
+          "normTitle": "how your physical environment affects spatial presence in virtual reality",
+          "venue": "CHI2025",
+          "summary": "研究物理环境对VR空间存在感的影响，为VR使用场景布置提供优化建议。",
+          "authors": "Thomas van Gemert, Jarrod Knibbe, Eduardo Velloso",
+          "link": "https://doi.org/10.1145/3706598.3714114",
+          "matchedGuide": "chi2025",
+          "matchedTitle": "How your Physical Environment Affects Spatial Presence in Virtual Reality",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "15",
+          "students": [
+            "王丹怡",
+            "白蕴竹",
+            "于润泽",
+            "卓羽茜"
+          ],
+          "title": "Facilitating Daily Practice in Intangible Cultural Heritage through Virtual Reality: A Case Study of Traditional Chinese Flower Arrangement",
+          "normTitle": "facilitating daily practice in intangible cultural heritage through virtual reality a case study of traditional chinese flower arrangement",
+          "venue": "CHI2025",
+          "summary": "本文以中国传统插花（TCFA）这一非物质文化遗产为研究对象，针对其日常练习中材料稀缺、环境受限、作品难以留存迭代等现实困境，探索虚拟现实（VR）在支持非遗活态传承中的应用价值。",
+          "authors": "Yingna Wang, Qingqin Liu, Xiaoying Wei, Mingming Fan",
+          "link": "https://doi.org/10.1145/3706598.3713409",
+          "matchedGuide": "chi2025",
+          "matchedTitle": "Facilitating Daily Practice in Intangible Cultural Heritage through Virtual Reality: A Case Study of Traditional Chinese Flower Arrangement",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "16",
+          "students": [
+            "董子晨",
+            "沈郑轩",
+            "张奕朗",
+            "赵庆典"
+          ],
+          "title": "VeeR: Deliberately Designing VR Motion that Diverges from Physical Motion to Create More Entertaining Experiences",
+          "normTitle": "veer deliberately designing vr motion that diverges from physical motion to create more entertaining experiences",
+          "venue": "CHI2024",
+          "summary": "本文探讨了在VR中故意设计偏离真实物理运动的虚拟动作，将日常通勤（如地铁）的单调运动转化为更娱乐的体验。研究发现，这种“偏航”设计显著提升了沉浸感和娱乐性，尽管舒适度下降，但整体体验仍被多数用户偏好。",
+          "authors": "Wei Tian Mireille Tan, Pin-Chun Lu, Che-Wei Wang Yu Lun Hsu, Alvaro Lopez, Ching-Yi Tsai, Chiao-Ju Chang, Li-Chun Lu Mike Y. Chen",
+          "link": "https://dl.acm.org/doi/10.1145/3613904.3642064",
+          "matchedGuide": "",
+          "matchedTitle": "",
+          "matchRatio": 0.8205
+        },
+        {
+          "order": "17",
+          "students": [
+            "马靖尧",
+            "梁恩嘉",
+            "孔子恒",
+            "陈梓烨"
+          ],
+          "title": "TravelGalleria: Supporting Remembrance and Reflection of Travel Experiences through Digital Storytelling in Virtual Reality",
+          "normTitle": "travelgalleria supporting remembrance and reflection of travel experiences through digital storytelling in virtual reality",
+          "venue": "CHI 2025",
+          "summary": "本研发研发了面向旅行记忆的 VR 叙事创作工具 TravelGalleria，通过用户研究验证了沉浸式 VR 可有效支持用户重温旅行体验、构建个人旅行叙事并实现深度自我反思，同时提出了相关的设计参考与未来研究方向。",
+          "authors": "Michael Yin, Robert Xiao",
+          "link": "https://www.robertxiao.ca/research/travelgalleria/",
+          "matchedGuide": "chi2025",
+          "matchedTitle": "TravelGalleria: Supporting Remembrance and Reflection of Travel Experiences through Digital Storytelling in Virtual Reality",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "18",
+          "students": [
+            "邱若瑜",
+            "龚杰",
+            "宋澄宇",
+            "徐智明"
+          ],
+          "title": "An Analysis of Physiological and Psychological Responses in Virtual Reality and Flat Screen Gaming",
+          "normTitle": "an analysis of physiological and psychological responses in virtual reality and flat screen gaming",
+          "venue": "IEEE Transactions on Affective Computing 2024",
+          "summary": "该文比较 VR 与平面游戏中的生理和心理反应差异，揭示沉浸感、唤醒度与情绪体验的不同，为游戏设计评估提供依据。",
+          "authors": "Ritik Vatsal, Shrivatsa Mishra, Rushil Thareja, Mrinmoy Chakrabarty, Ojaswa Sharma, Jainendra Shukla",
+          "link": "https://doi.org/10.1109/TAFFC.2024.3368703",
+          "matchedGuide": "",
+          "matchedTitle": "",
+          "matchRatio": 0.5146
+        },
+        {
+          "order": "19",
+          "students": [
+            "刘璨",
+            "曹楚檬",
+            "操谨忆",
+            "王美涵"
+          ],
+          "title": "“I’d rather drink in VRChat”: Understanding Drinking in Social Virtual Reality",
+          "normTitle": "id rather drink in vrchat understanding drinking in social virtual reality",
+          "venue": "CHI 2024",
+          "summary": "通过实证研究揭示VR社交中“虚拟饮酒”的社交意义与行为模式，为虚拟社交场景设计提供洞察",
+          "authors": "Qijia Chen, Andrea Bellucci, Giulio Jacucci (University of Helsinki, UC3M)",
+          "link": "https://paper.nweon.com/15712",
+          "matchedGuide": "chi2024",
+          "matchedTitle": "“I’d rather drink in VRChat”: Understanding Drinking in Social Virtual Reality",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "20",
+          "students": [
+            "魏聪颖",
+            "陈悦希",
+            "王嘉楠",
+            "缪环宇"
+          ],
+          "title": "Mid-Air Gestures for Proactive Olfactory Interactions in Virtual Reality",
+          "normTitle": "mid-air gestures for proactive olfactory interactions in virtual reality",
+          "venue": "CHI2025",
+          "summary": "研究在VR中通过空中手势主动与气味进行交互的方法，旨在将气味从被动接收转变为可主动控制的感官体验 。",
+          "authors": "Junxian Li, Yanan Wang, Zhitong Cui, Jas Brooks, Yifan Yan, Zhengyu Lou, Yucheng Li",
+          "link": "https://doi.org/10.1145/3706598.3713964",
+          "matchedGuide": "chi2025",
+          "matchedTitle": "Mid-Air Gestures for Proactive Olfactory Interactions in Virtual Reality",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "21",
+          "students": [
+            "廖烽尧",
+            "邱睿",
+            "周乐凡",
+            "钟星倩"
+          ],
+          "title": "Origami Sensei: A Mixed Reality AI-Assistant",
+          "normTitle": "origami sensei a mixed reality ai-assistant",
+          "venue": "CHI2025",
+          "summary": "本文提出了Origami Sensei，一个AI增强的混合现实(MR)系统，旨在通过实时、个性化的投影指导，帮助初学者学习折纸。系统利用卷积神经网络(YOLOv2)识别纸张当前折叠步骤与空间位置，将下一步的折叠指令(含文字、动画、辅助线)直接投射到实体纸张上。",
+          "authors": "Qiyu Chen, Richa Mishra, Lia Sparingga Purnamasari, Dina EL-Zanfaly, Kris Kitani",
+          "link": "https://dl.acm.org/doi/10.1145/3706598.3714099",
+          "matchedGuide": "chi2025",
+          "matchedTitle": "Origami Sensei: A Mixed Reality AI-Assistant",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "22",
+          "students": [
+            "李涵瑞",
+            "常君楷",
+            "冯帆",
+            "翟天泽"
+          ],
+          "title": "Seated-WIP: Enabling Walking-in-Place Locomotion for Stationary Chairs in Confined Spaces",
+          "normTitle": "seated-wip enabling walking-in-place locomotion for stationary chairs in confined spaces",
+          "venue": "CHI2024",
+          "summary": "介绍了Seated-WIP，这是一种基于脚步的移动技术，专为坐在飞机等狭小空间的用户设计。它模拟真实行走，使用前脚掌或后脚掌原地踏步，增强身体表现，同时减少长时间互动时的疲劳。我们的脚步-移动将用户的脚步动作映射为四种移动动作：前进、原地转身、后退和侧步。",
+          "authors": "Liwei Chan, Tzu-Wei Mi, Zhung Hao Hsueh, Yi-Ci Huang, Ming Yun Hsu",
+          "link": "https://doi.org/10.1145/3613904.3642395",
+          "matchedGuide": "chi2024",
+          "matchedTitle": "Seated-WIP: Enabling Walking-in-Place Locomotion for Stationary Chairs in Confined Spaces",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "23",
+          "students": [
+            "徐一朵",
+            "郑好",
+            "陈妍",
+            "王俪颐"
+          ],
+          "title": "Modeling the Impact of Visual Stimuli on Redirection Noticeability with Gaze Behavior in Virtual Reality",
+          "normTitle": "modeling the impact of visual stimuli on redirection noticeability with gaze behavior in virtual reality",
+          "venue": "CHI2025",
+          "summary": "研究视觉刺激对VR重定向技术可见性的影响，结合注视行为数据优化重定向算法，减少用户空间感知冲突。",
+          "authors": "Zhipeng Li, Yishu Ji, Ruijia Chen, Tianqi Liu, Yuntao Wang, Yuanchun Shi, Yukang Yan",
+          "link": "https://dl.acm.org/doi/10.1145/3706598.3713392",
+          "matchedGuide": "chi2025",
+          "matchedTitle": "Modeling the Impact of Visual Stimuli on Redirection Noticeability with Gaze Behavior in Virtual Reality",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "24",
+          "students": [
+            "周楷之",
+            "崔子韩",
+            "徐言喆",
+            "李星燃"
+          ],
+          "title": "Stairway to Heaven: A Gamified VR Journey for Breath Awareness",
+          "normTitle": "stairway to heaven a gamified vr journey for breath awareness",
+          "venue": "CHI2024",
+          "summary": "一个VR 呼吸冥想小游戏： 玩家戴上 VR 设备，用腹部呼吸控制自己在虚拟场景里爬山前进，通过游戏化的方式让人自然放慢呼吸、放松身心，解决普通冥想枯燥难坚持的问题。",
+          "authors": "Nathan Miner, Amir Abdollahi, Caleb Myers, Mehmet Kosa, Hamid Ghaednia, Joseph H. Schwab, Casper Harteveld, Giovanni Maria Troiano",
+          "link": "https://doi.org/10.1145/3613904.3641986",
+          "matchedGuide": "chi2024",
+          "matchedTitle": "Stairway to Heaven: A Gamified VR Journey for Breath Awareness",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "25",
+          "students": [
+            "游坤",
+            "张子扬",
+            "赵宜欣",
+            "王晨曦"
+          ],
+          "title": "Virtual Worlds Beyond Sight:Designing and Evaluating an Audio-Haptic System for Non-Visual VR Exploration",
+          "normTitle": "virtual worlds beyond sightdesigning and evaluating an audio-haptic system for non-visual vr exploration",
+          "venue": "CHI2025",
+          "summary": "论文聚焦于非视觉 VR 探索，研究用户在被蒙眼、无法依赖视觉的情况下，是否能够通过空间音频、触觉白杖和全向步行平台在大型虚拟城市中完成导航与探索。",
+          "authors": "Aayush Shrestha, Joseph Malloch",
+          "link": "https://dl.acm.org/doi/10.1145/3706598.3713400",
+          "matchedGuide": "chi2025",
+          "matchedTitle": "Virtual Worlds Beyond Sight: Designing and Evaluating an Audio-Haptic System for Non-Visual VR Exploration",
+          "matchRatio": 0.9952
+        },
+        {
+          "order": "26",
+          "students": [
+            "刘珈宁",
+            "张轩赫",
+            "张子越",
+            "谷奕泉"
+          ],
+          "title": "VRSight: An AI-Driven Scene Description System to Improve Virtual Reality Accessibility for Blind People",
+          "normTitle": "vrsight an ai-driven scene description system to improve virtual reality accessibility for blind people",
+          "venue": "ACM UIST 2025",
+          "summary": "研发了一套基于AI的场景描述系统，旨在提升盲人使用虚拟现实（VR）的可及性，通过AI技术为盲人用户提供VR场景的详细描述，帮助他们更好地感知和交互VR环境",
+          "authors": "Daniel Killough, Justin Feng, Zheng Xue Ching, Daniel Wang, Rithvik Dyava, Yapeng Tian, Yuhang Zhao",
+          "link": "https://doi.org/10.1145/3746059.3747641",
+          "matchedGuide": "uist2025",
+          "matchedTitle": "VRSight: An AI-Driven Scene Description System to Improve Virtual Reality Accessibility for Blind People",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "27",
+          "students": [
+            "乔嘉豪",
+            "饶云丹",
+            "梁启元",
+            "宣康杰"
+          ],
+          "title": "Mid-Air Gestures for Proactive Olfactory Interactions in Virtual Reality",
+          "normTitle": "mid-air gestures for proactive olfactory interactions in virtual reality",
+          "venue": "CHI2025",
+          "summary": "该CHI2025论文提出VR空间手势主动嗅觉交互范式，设计三类自然手势控制气味释放、移动与定位，搭建配套嗅觉系统，实验验证大幅提升VR嗅觉沉浸感与用户交互掌控力。",
+          "authors": "Junxian Li, Yanan Wang, Zhitong Cui, Jas Brooks, Yifan Yan, Zhengyu Lou, Yucheng Li",
+          "link": "https://doi.org/10.1145/3706598.3713964",
+          "matchedGuide": "chi2025",
+          "matchedTitle": "Mid-Air Gestures for Proactive Olfactory Interactions in Virtual Reality",
+          "matchRatio": 1.0
+        },
+        {
+          "order": "28",
+          "students": [
+            "张博宁",
+            "宋乐扬",
+            "王子研",
+            "杨欣然"
+          ],
+          "title": "FocusFlow: 3D Gaze-Depth Interaction in Virtual Reality",
+          "normTitle": "focusflow 3d gaze-depth interaction in virtual reality",
+          "venue": "CHI 2024",
+          "summary": "眼睛不只可以指向二维位置，还能通过视觉焦点深度表达选择意图。能不能让用户通过主动改变视觉焦点深度，完成免手操作的选择，并减少传统凝视选择中的误触问题。",
+          "authors": "Chenyang Zhang, Tiansu Chen, Eric Shaffer, Elahe Soltanaghai",
+          "link": "https://dl.acm.org/doi/10.1145/3613904.3642589",
+          "matchedGuide": "",
+          "matchedTitle": "",
+          "matchRatio": 0.7105
+        },
+        {
+          "order": "29",
+          "students": [
+            "朱科憬",
+            "党琳斐",
+            "杨晨筱",
+            "张旸"
+          ],
+          "title": "RemoteChess: Enhancing Older Adults' Social Connectedness via Designing a Virtual Reality Chinese Chess (Xiangqi) Community",
+          "normTitle": "remotechess enhancing older adults social connectedness via designing a virtual reality chinese chess xiangqi community",
+          "venue": "CHI25",
+          "summary": "设计VR中国象棋社区，提升老年人的社交连接，探索VR在老年群体社交中的应用价值",
+          "authors": "Qianjie Wei, Xiaoying Wei, Yiqi Liang, Fan Lin, Nuonan Si, Mingming Fan",
+          "link": "https://dl.acm.org/doi/10.1145/3706598.3714236",
+          "matchedGuide": "chi2025",
+          "matchedTitle": "RemoteChess: Enhancing Older Adults' Social Connectedness via Designing a Virtual Reality Chinese Chess (Xiangqi) Community",
+          "matchRatio": 1.0
+        }
+      ]
     }
   };
 })();

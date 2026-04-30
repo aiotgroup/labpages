@@ -875,6 +875,152 @@
     `;
   }
 
+  function vrSelectedReadingCardMarkup(item, index) {
+    return `
+      <article class="panel vr-selected-card">
+        <div class="meta-row">
+          <span class="date-pill">Group ${String(index + 1).padStart(2, "0")}</span>
+          <span>${SiteUI.escapeHtml(item.venue || "")}</span>
+        </div>
+        <h3>
+          ${
+            item.link
+              ? `<a class="vr-selected-card__title-link" href="${SiteUI.escapeHtml(item.link)}" target="_blank" rel="noreferrer">${SiteUI.escapeHtml(item.title || "")}</a>`
+              : SiteUI.escapeHtml(item.title || "")
+          }
+        </h3>
+        <div class="vr-selected-card__students">
+          ${(item.students || []).map((student) => `<span>${SiteUI.escapeHtml(student)}</span>`).join("")}
+        </div>
+        ${
+          item.authors
+            ? `<p class="vr-selected-card__authors"><strong>Authors / 作者：</strong>${SiteUI.escapeHtml(item.authors)}</p>`
+            : ""
+        }
+        ${
+          item.summary
+            ? `<p class="vr-selected-card__summary">${SiteUI.escapeHtml(item.summary)}</p>`
+            : ""
+        }
+        ${
+          item.link
+            ? `<a class="inline-link" href="${SiteUI.escapeHtml(item.link)}" target="_blank" rel="noreferrer">Open paper link</a>`
+            : ""
+        }
+      </article>
+    `;
+  }
+
+  function vrSelectedSummaryItemsMarkup(items) {
+    if (!Array.isArray(items) || !items.length) {
+      return "";
+    }
+
+    return `
+      <ul class="vr-selected-summary__list">
+        ${items
+          .map((item) => {
+            if (typeof item === "string") {
+              return `<li>${SiteUI.escapeHtml(item)}</li>`;
+            }
+            const label = SiteUI.escapeHtml(item.label || item.title || "");
+            const text = item.text ? SiteUI.escapeHtml(item.text) : "";
+            const nested = item.subitems ? vrSelectedSummaryItemsMarkup(item.subitems) : "";
+            return `
+              <li>
+                ${label ? `<strong>${label}</strong>` : ""}
+                ${text ? `${label ? "：" : ""}${text}` : ""}
+                ${nested}
+              </li>
+            `;
+          })
+          .join("")}
+      </ul>
+    `;
+  }
+
+  function vrSelectedSummaryMarkup(selection) {
+    if (!selection) {
+      return "";
+    }
+
+    const hasSections = Array.isArray(selection.summarySections) && selection.summarySections.length;
+    const hasTakeaways = Array.isArray(selection.summaryTakeaways) && selection.summaryTakeaways.length;
+    if (!selection.summaryLead && !hasSections && !hasTakeaways && !selection.summaryClosing) {
+      return "";
+    }
+
+    return `
+      <div class="vr-reading-overview__summary vr-selected-summary">
+        ${
+          selection.summaryLead
+            ? `<p class="vr-selected-summary__lead">${SiteUI.escapeHtml(selection.summaryLead)}</p>`
+            : ""
+        }
+        ${
+          hasSections
+            ? `
+          <div class="vr-selected-summary__grid">
+            ${selection.summarySections
+              .map(
+                (section) => `
+                  <section class="vr-selected-summary__section">
+                    <h4>${SiteUI.escapeHtml(section.title || "")}</h4>
+                    ${vrSelectedSummaryItemsMarkup(section.items)}
+                  </section>
+                `
+              )
+              .join("")}
+          </div>`
+            : ""
+        }
+        ${
+          hasTakeaways
+            ? `
+          <section class="vr-selected-summary__takeaways">
+            <h4>${SiteUI.escapeHtml(selection.summaryTakeawaysTitle || "研究启示")}</h4>
+            ${vrSelectedSummaryItemsMarkup(selection.summaryTakeaways)}
+          </section>`
+            : ""
+        }
+        ${
+          selection.summaryClosing
+            ? `<p class="vr-selected-summary__closing">${SiteUI.escapeHtml(selection.summaryClosing)}</p>`
+            : ""
+        }
+      </div>
+    `;
+  }
+
+  function vrSelectedReadingMarkup(selection) {
+    if (!selection || !Array.isArray(selection.items) || !selection.items.length) {
+      return "";
+    }
+
+    return `
+      <section class="section">
+        <div class="shell">
+          ${sectionHeading("Student Reading Selections", "2026 Spring")}
+          <article class="panel vr-reading-overview">
+            <div class="vr-reading-overview__copy">
+              <p class="eyebrow">${SiteUI.escapeHtml(selection.label || "Student Selections")}</p>
+              <h3>${SiteUI.escapeHtml(selection.title || "")}</h3>
+              <p>${SiteUI.escapeHtml(selection.description || "")}</p>
+            </div>
+            <div class="vr-reading-overview__meta">
+              <span>${SiteUI.escapeHtml(selection.curator || "")}</span>
+              <span>${SiteUI.escapeHtml(selection.countLabel || "")}</span>
+            </div>
+            ${vrSelectedSummaryMarkup(selection)}
+          </article>
+          <div class="vr-selected-grid">
+            ${(selection.items || []).map(vrSelectedReadingCardMarkup).join("")}
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
   function renderVRShowcase2026Page() {
     const showcase = SiteContent.vrShowcase2026;
     return `
@@ -966,12 +1112,12 @@
 
   function renderVRReadingPage() {
     const showcase = SiteContent.vrShowcase2026;
+    const selectedReadings = window.VRReadingContent && window.VRReadingContent.studentSelections2026;
     const readingGuides = window.VRReadingContent
       ? ["chi2025", "chi2024", "uist2025", "uist2024"]
           .map((key) => window.VRReadingContent[key])
           .filter(Boolean)
       : [];
-    const readingCurator = readingGuides[0] && readingGuides[0].curator;
     const totalPapers = readingGuides.reduce((sum, guide) => {
       return (
         sum +
@@ -988,16 +1134,7 @@
           title: "2026 Spring VR Academic Reading / 2026春 学术论文阅读",
           descriptionHtml: `
             <p>${SiteUI.escapeHtml(showcase.subtitle)}</p>
-            <p>This page collects curated VR reading references from CHI 2025, CHI 2024, UIST 2025, and UIST 2024 for the Virtual Reality Technology course.</p>
-            ${
-              readingCurator
-                ? `
-            <div class="vr-reading-credit">
-              <span class="vr-reading-credit__label">Academic Reading</span>
-              <strong>${SiteUI.escapeHtml(readingCurator)}</strong>
-            </div>`
-                : ""
-            }
+            <p>This page first records the final paper selections made by 29 student groups, then collects the broader VR reading references from CHI 2025, CHI 2024, UIST 2025, and UIST 2024 for the Virtual Reality Technology course.</p>
           `,
           actions: [
             { label: "Back To Courses", href: "./course.html", kind: "primary" },
@@ -1008,10 +1145,11 @@
           <div class="aside-card">
             <p class="eyebrow">Reading Archive</p>
             <h3>VR papers for course-guided reading.</h3>
-            <p>This separate page organizes ${SiteUI.escapeHtml(String(totalPapers))} papers across four venue-year collections for fast browsing and follow-up reading.</p>
+            <p>This separate page organizes 29 student-group selections on top of ${SiteUI.escapeHtml(String(totalPapers))} papers across four venue-year collections for fast browsing and follow-up reading.</p>
           </div>
         `
       )}
+      ${vrSelectedReadingMarkup(selectedReadings)}
       ${vrReadingLibraryMarkup(readingGuides)}
     `;
   }
