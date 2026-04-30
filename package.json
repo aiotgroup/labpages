@@ -1,7 +1,7 @@
 {
   "name": "xjtu-aiot-group-site",
   "version": "1.0.0",
-  "description": "This project is a multi-page static website for `XJTU AIoT Group`.",
+  "description": "This project is a multi-page static website for `XJTU AIRS Lab`.",
   "private": true,
   "scripts": {
     "generate": "node tools/generate-title-covers.js && node tools/generate-paper-pages.js",

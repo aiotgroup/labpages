@@ -1,7 +1,7 @@
 ---
 title: DC-Gen: Post-Training Diffusion Acceleration with Deeply Compressed Latent Space
 authors: Wenkun He*, Yuchao Gu*, Junyu Chen*, Dongyun Zou, Yujun Lin, Zhekai Zhang, Haocheng Xi, Muyang Li, Ligeng Zhu, Jincheng Yu, Junsong Chen, Enze Xie, Fei Wang, Han Cai
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for DC-Gen: Post-Training Diffusion Acceleration with Deeply Compressed Latent Space

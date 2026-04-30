@@ -1,7 +1,7 @@
 ---
 title: Searching Efficient 3D Architectures with Sparse Point-Voxel Convolution
 authors: Haotian Tang*, Zhijian Liu*, Shengyu Zhao, Yujun Lin, Ji Lin, Hanrui Wang, Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Searching Efficient 3D Architectures with Sparse Point-Voxel Convolution

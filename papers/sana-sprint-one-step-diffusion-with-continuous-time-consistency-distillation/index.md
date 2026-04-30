@@ -1,7 +1,7 @@
 ---
 title: SANA-Sprint: One-Step Diffusion with Continuous-Time Consistency Distillation
 authors: Junsong Chen*, Shuchen Xue*, Yuyang Zhao, Jincheng Yu, Sayak Paul, Junyu Chen, Han Cai, Fei Wang, Enze Xie
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for SANA-Sprint: One-Step Diffusion with Continuous-Time Consistency Distillation

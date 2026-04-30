@@ -1,7 +1,7 @@
 ---
 title: IDPT: Interconnected Dual Pyramid Transformer for Face Super-Resolution
 authors: Jingang Shi, Yusi Wang, Songlin Dong, Xiaopeng Hong, Zitong Yu#, Fei Wang, Changxin Wang, Yihong Gong
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for IDPT: Interconnected Dual Pyramid Transformer for Face Super-Resolution

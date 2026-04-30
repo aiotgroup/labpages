@@ -1,7 +1,7 @@
 ---
 title: BullyDetect: Detecting School Physical Bullying with Wi-Fi and Deep Wavelet Transformer
 authors: Bo Lan, Fei Wang#, Lekun Xia, Fan Nai, Shiqiang Nie, Han Ding, Jinsong Han
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for BullyDetect: Detecting School Physical Bullying with Wi-Fi and Deep Wavelet Transformer

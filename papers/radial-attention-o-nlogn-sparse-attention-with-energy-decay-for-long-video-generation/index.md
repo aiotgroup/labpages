@@ -1,7 +1,7 @@
 ---
 title: Radial Attention: O(nlogn) Sparse Attention with Energy Decay for Long Video Generation
 authors: Xingyang Li*, Muyang Li*, Tianle Cai, Haocheng Xi, Shuo Yang, Yujun Lin, Lvmin Zhang, Songlin Yang, Jinbo Hu, Kelly Peng, Maneesh Agrawala, Ion Stoica, Kurt Keutzer, Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Radial Attention: O(nlogn) Sparse Attention with Energy Decay for Long Video Generation

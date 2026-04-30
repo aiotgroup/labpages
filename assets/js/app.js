@@ -62,13 +62,19 @@
 
   function headerMarkup(currentPage) {
     const brandMark = SiteContent.site.brandMark || "XJ";
+    const logoMark = SiteContent.site.logoMark;
+    const logoMarkAlt = SiteContent.site.logoMarkAlt || SiteContent.site.title || "Site logo";
     const activePage =
       currentPage === "vr-2026-projects" || currentPage === "vr-2026-reading" ? "course" : currentPage;
     return `
       <header class="site-header">
         <div class="shell nav-shell">
           <a class="brand" href="./index.html" aria-label="${SiteUI.escapeHtml(SiteContent.site.title)} home">
-            <span class="brand-mark">${SiteUI.escapeHtml(brandMark)}</span>
+            ${
+              logoMark
+                ? `<span class="brand-mark brand-mark--logo"><img src="${SiteUI.escapeHtml(logoMark)}" alt="${SiteUI.escapeHtml(logoMarkAlt)}" loading="eager" decoding="async"></span>`
+                : `<span class="brand-mark">${SiteUI.escapeHtml(brandMark)}</span>`
+            }
             <span class="brand-copy">
               <strong>${SiteUI.escapeHtml(SiteContent.site.title)}</strong>
               <small>${SiteUI.escapeHtml(SiteContent.site.tagline)}</small>
@@ -97,11 +103,19 @@
 
   function footerMarkup() {
     const footerMark = SiteContent.site.footerMark || SiteContent.site.brandMark || "XJ";
+    const logoMark = SiteContent.site.logoMark;
+    const logoMarkAlt = SiteContent.site.logoMarkAlt || SiteContent.site.title || "Site logo";
     return `
       <footer class="site-footer">
         <div class="shell footer-grid">
           <div class="footer-brand">
-            <div class="footer-badge">${SiteUI.escapeHtml(footerMark)}</div>
+            <div class="footer-badge${logoMark ? " footer-badge--logo" : ""}">
+              ${
+                logoMark
+                  ? `<img src="${SiteUI.escapeHtml(logoMark)}" alt="${SiteUI.escapeHtml(logoMarkAlt)}" loading="lazy" decoding="async">`
+                  : SiteUI.escapeHtml(footerMark)
+              }
+            </div>
             <div>
               <p>${SiteUI.escapeHtml(SiteContent.site.description)}</p>
             </div>
@@ -344,7 +358,7 @@
       ${pageHeroMarkup(
         {
           eyebrow: "Publications",
-          title: "Publications from the XJTU AIoT Group.",
+          title: "Publications from the XJTU AIRS Lab.",
           description:
             "Explore our work on wireless sensing, ubiquitous computing, multimodal learning, and AI systems for understanding people and the physical world.",
           actions: [
@@ -390,7 +404,7 @@
       ${pageHeroMarkup(
         {
           eyebrow: "Datasets",
-          title: "Datasets and benchmarks from XJTU AIoT Group.",
+          title: "Datasets and benchmarks from XJTU AIRS Lab.",
           description: datasets.intro,
           actions: [
             { label: "Browse Publications", href: "./publications.html", kind: "secondary" },
@@ -1189,7 +1203,7 @@
           eyebrow: "Awards",
           title: "Recognitions earned by our students and faculty.",
           description:
-            "A curated record of student competition results, paper awards, academic honors, and professional service milestones from the XJTU AIoT Group.",
+            "A curated record of student competition results, paper awards, academic honors, and professional service milestones from the XJTU AIRS Lab.",
           actions: [{ label: "Meet Our Team", href: "./team.html", kind: "primary" }]
         },
         `

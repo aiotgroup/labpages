@@ -1,7 +1,7 @@
 ---
 title: SANA-1.5: Efficient Scaling of Training-Time and Inference-Time Compute in Linear Diffusion Transformer
 authors: Enze Xie*, Junsong Chen*, Yuyang Zhao, Jincheng Yu, Ligeng Zhu, Chengyue Wu, Yujun Lin, Zhekai Zhang, Muyang Li, Junyu Chen, Han Cai, Bingchen Liu, Daquan Zhou, Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for SANA-1.5: Efficient Scaling of Training-Time and Inference-Time Compute in Linear Diffusion Transformer

@@ -1,7 +1,7 @@
 ---
 title: Efficient Streaming Language Models with Attention Sinks
 authors: Guangxuan Xiao, Yuandong Tian, Beidi Chen, Fei Wang, Mike Lewis
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Efficient Streaming Language Models with Attention Sinks

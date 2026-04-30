@@ -1,7 +1,7 @@
 ---
 title: SANA: Efficient High-Resolution Image Synthesis with Linear Diffusion Transformers
 authors: Enze Xie*, Junsong Chen*, Junyu Chen, Han Cai, Haotian Tang, Yujun Lin, Zhekai Zhang, Muyang Li, Ligeng Zhu, Yao Lu, Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for SANA: Efficient High-Resolution Image Synthesis with Linear Diffusion Transformers

@@ -1,7 +1,7 @@
 ---
 title: Continuous User Authentication by Contactless Wireless Sensing
 authors: Fei Wang, Zhejiang Li#, Jinsong Han#
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Continuous User Authentication by Contactless Wireless Sensing

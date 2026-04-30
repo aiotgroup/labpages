@@ -1,7 +1,7 @@
 ---
 title: One Snapshot is All You Need: A Generalized Method for mmWave Signal Generation
 authors: Teng Huang, Han Ding, Wenxin Sun, Cui Zhao, Ge Wang, Fei Wang, Kun Zhao, Zhi Wang, Wei Xi
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This paper introduces mmGen, a generalized framework for full-scene mmWave signal generation that synthesizes realistic radar signatures from a single captured scene snapshot and reconstructed 3D meshes.
 cover: ./assets/cover.svg
 coverAlt: Cover image for One Snapshot is All You Need: A Generalized Method for mmWave Signal Generation

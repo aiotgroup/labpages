@@ -1,7 +1,7 @@
 ---
 title: AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration
 authors: Ji Lin*, Jiaming Tang*, Haotian Tang*, Shang Yang*, Wei-Ming Chen, Wei-Chen Wang, Guangxuan Xiao, Xingyu Dang, Chuang Gan, and Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration

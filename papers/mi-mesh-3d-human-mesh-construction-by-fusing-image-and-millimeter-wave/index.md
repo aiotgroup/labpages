@@ -1,7 +1,7 @@
 ---
 title: MI-Mesh: 3D Human Mesh Construction by Fusing Image and Millimeter Wave
 authors: Han Ding, Zhenbin Chen, Cui Zhao#, Fei Wang, Ge Wang, Wei Xi, Jizhong Zhao
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for MI-Mesh: 3D Human Mesh Construction by Fusing Image and Millimeter Wave

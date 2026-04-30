@@ -1,7 +1,7 @@
 ---
 title: QeRL: Beyond Efficiency -- Quantization-enhanced Reinforcement Learning for LLMs
 authors: Wei Huang, Yi Ge, Shuai Yang, Yicheng Xiao, Huizi Mao, Yujun Lin, Hanrong Ye, Sifei Liu, Ka Chun Cheung, Hongxu Yin, Yao Lu, Xiaojuan Qi, Fei Wang, Yukang Chen
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for QeRL: Beyond Efficiency -- Quantization-enhanced Reinforcement Learning for LLMs

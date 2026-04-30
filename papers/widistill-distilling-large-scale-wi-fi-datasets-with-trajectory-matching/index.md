@@ -1,7 +1,7 @@
 ---
 title: WiDistill: Distilling Large-scale Wi-Fi Datasets with Trajectory Matching
 authors: T Wang, F Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for WiDistill: Distilling Large-scale Wi-Fi Datasets with Trajectory Matching

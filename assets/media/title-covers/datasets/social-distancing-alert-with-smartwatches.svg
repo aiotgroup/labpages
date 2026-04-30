@@ -16,5 +16,5 @@
   <text x="110" y="315" font-family="Georgia, 'Times New Roman', serif" font-size="96" font-weight="700" fill="#ffffff"><tspan x="110" y="315">SoDA Dataset</tspan></text>
   <line x1="112" y1="610" x2="454" y2="610" stroke="rgba(255,255,255,0.7)" stroke-width="6" stroke-linecap="round"/>
   <text x="110" y="690" font-family="'Trebuchet MS', 'Segoe UI', Arial, sans-serif" font-size="34" font-weight="600" fill="rgba(255,255,255,0.92)">2022 arXiv, 2022</text>
-  <text x="110" y="762" font-family="Arial, sans-serif" font-size="26" fill="rgba(255,255,255,0.74)">XJTU AIoT Group</text>
+  <text x="110" y="762" font-family="Arial, sans-serif" font-size="26" fill="rgba(255,255,255,0.74)">XJTU AIRS Lab</text>
 </svg>

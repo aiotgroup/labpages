@@ -1,7 +1,7 @@
 ---
 title: COAT: Compressing Optimizer states and Activation for Memory-Efficient FP8 Training
 authors: Haocheng Xi, Han Cai, Ligeng Zhu, Yao Lu, Kurt Keutzer, Jianfei Chen, Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for COAT: Compressing Optimizer states and Activation for Memory-Efficient FP8 Training

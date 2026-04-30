@@ -1,6 +1,6 @@
-# XJTU AIoT Group Website
+# XJTU AIRS Lab Website
 
-This project is a multi-page static website for `XJTU AIoT Group`.
+This project is a multi-page static website for `XJTU AIRS Lab`.
 
 ## Structure
 

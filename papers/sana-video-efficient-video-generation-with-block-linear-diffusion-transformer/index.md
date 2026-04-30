@@ -1,7 +1,7 @@
 ---
 title: SANA-Video: Efficient Video Generation with Block Linear Diffusion Transformer
 authors: Junsong Chen*, Yuyang Zhao*, Jincheng Yu*, Ruihang Chu, Junyu Chen, Shuai Yang, Xianbang Wang, Yicheng Pan, Daquan Zhou, Huan Ling, Haozhe Liu, Hongwei Yi, Hao Zhang, Muyang Li, Yukang Chen, Han Cai, Sanja Fidler, Ping Luo, Fei Wang, Enze Xie
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for SANA-Video: Efficient Video Generation with Block Linear Diffusion Transformer

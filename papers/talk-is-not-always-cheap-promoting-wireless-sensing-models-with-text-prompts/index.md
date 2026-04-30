@@ -1,7 +1,7 @@
 ---
 title: Talk is Not Always Cheap: Promoting Wireless Sensing Models with Text Prompts
 authors: Zhenkui Yang, Zeyi Huang, Ge Wang, Han Ding, Tony Xiao Han, Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: WiTalk enhances wireless sensing models with hierarchical text prompts, showing that semantic descriptions can improve recognition and temporal localization without changing the backbone architecture.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Talk is Not Always Cheap: Promoting Wireless Sensing Models with Text Prompts

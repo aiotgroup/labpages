@@ -1,7 +1,7 @@
 ---
 title: QuEst: Graph Transformer for Quantum Circuit Reliability Estimation
 authors: Hanrui Wang, Pengyu Liu, Jinglei Cheng, Zhiding Liang, Jiaqi Gu, Zirui Li, Yongshan Ding, Weiwen Jiang, Yiyu Shi, Xuehai Qian, David Z Pan, Frederic T Chong, Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for QuEst: Graph Transformer for Quantum Circuit Reliability Estimation

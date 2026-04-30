@@ -1,7 +1,7 @@
 ---
 title: QuantumNAT: Quantum Noise-Aware Training with Noise Injection, Quantization and Normalization
 authors: Hanrui Wang, Jiaqi Gu, Yongshan Ding, Zirui Li, David Z. Pan, Frederic T. Chong, Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for QuantumNAT: Quantum Noise-Aware Training with Noise Injection, Quantization and Normalization

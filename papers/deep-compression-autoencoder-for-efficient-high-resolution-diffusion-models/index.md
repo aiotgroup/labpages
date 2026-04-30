@@ -1,7 +1,7 @@
 ---
 title: Deep Compression Autoencoder for Efficient High-Resolution Diffusion Models
 authors: Junyu Chen*, Han Cai*, Junsong Chen, Enze Xie, Shang Yang, Haotian Tang, Muyang Li, Yao Lu, Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Deep Compression Autoencoder for Efficient High-Resolution Diffusion Models

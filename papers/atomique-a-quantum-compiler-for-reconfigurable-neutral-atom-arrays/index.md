@@ -1,7 +1,7 @@
 ---
 title: Atomique: A Quantum Compiler for Reconfigurable Neutral Atom Arrays
 authors: Hanrui Wang, Pengyu Liu, Daniel Bochen Tan, Yilian Liu, Jiaqi Gu, David Z. Pan, Jason Cong, Umut A. Acar, Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Atomique: A Quantum Compiler for Reconfigurable Neutral Atom Arrays

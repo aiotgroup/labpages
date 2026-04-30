@@ -1,7 +1,7 @@
 ---
 title: Deep Gradient Compression: Reducing the Communication Bandwidth in Distributed Training
 authors: Yujun Lin, Fei Wang, Huizi Mao, Yu Wang, William J. Dally
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Deep Gradient Compression: Reducing the Communication Bandwidth in Distributed Training

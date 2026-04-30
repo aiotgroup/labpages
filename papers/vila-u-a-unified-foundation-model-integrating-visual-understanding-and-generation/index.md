@@ -1,7 +1,7 @@
 ---
 title: VILA-U: a Unified Foundation Model Integrating Visual Understanding and Generation
 authors: Yecheng Wu*, Zhuoyang Zhang*, Junyu Chen, Haotian Tang, Dacheng Li, Yunhao Fang, Ligeng Zhu, Enze Xie, Hongxu Yin, Li Yi, Fei Wang, Yao Lu
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for VILA-U: a Unified Foundation Model Integrating Visual Understanding and Generation

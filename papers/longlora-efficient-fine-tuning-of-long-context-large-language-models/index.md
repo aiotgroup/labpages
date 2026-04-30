@@ -1,7 +1,7 @@
 ---
 title: LongLoRA: Efficient Fine-tuning of Long-Context Large Language Models
 authors: Yukang Chen, Shengju Qian, Haotian Tang, Xin Lai, Zhijian Liu, Fei Wang, Jiaya Jia
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for LongLoRA: Efficient Fine-tuning of Long-Context Large Language Models

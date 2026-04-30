@@ -1,7 +1,7 @@
 ---
 title: TinyTL: Reduce Activations, Not Trainable Parameters for Efficient On-Device Learning
 authors: Han Cai, Chuang Gan, Ligeng Zhu, Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for TinyTL: Reduce Activations, Not Trainable Parameters for Efficient On-Device Learning

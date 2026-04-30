@@ -1,7 +1,7 @@
 ---
 title: We Can Hear You with mmWave Radar! An End-to-End Eavesdropping System
 authors: Dachao Han, Teng Huang, Han Ding, Cui Zhao, Fei Wang, Ge Wang, Wei Xi
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: mmSpeech reconstructs intelligible speech from loudspeaker-induced vibrations captured by mmWave radar, enabling through-wall audio recovery without prior speaker knowledge.
 cover: ./assets/cover.svg
 coverAlt: Cover image for We Can Hear You with mmWave Radar! An End-to-End Eavesdropping System

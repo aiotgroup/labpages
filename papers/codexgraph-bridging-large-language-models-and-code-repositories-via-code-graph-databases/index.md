@@ -1,7 +1,7 @@
 ---
 title: CodexGraph: Bridging Large Language Models and Code Repositories via Code Graph Databases
 authors: Xiangyan Liu, Bo Lan, Zhiyuan Hu, Yang Liu, Zhicheng Zhang, Fei Wang, Michael Qizhe Shieh, Wenmeng Zhou
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: CodexGraph improves repository-scale code intelligence by connecting LLM agents to graph-database representations of code structure for precise retrieval and navigation.
 cover: ./assets/cover.svg
 coverAlt: Cover image for CodexGraph: Bridging Large Language Models and Code Repositories via Code Graph Databases

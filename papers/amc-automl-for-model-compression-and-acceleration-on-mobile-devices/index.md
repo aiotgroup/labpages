@@ -1,7 +1,7 @@
 ---
 title: AMC: AutoML for Model Compression and Acceleration on Mobile Devices
 authors: Yihui He*, Ji Lin*, Zhijian Liu, Hanrui Wang, Li-Jia Li, and Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for AMC: AutoML for Model Compression and Acceleration on Mobile Devices

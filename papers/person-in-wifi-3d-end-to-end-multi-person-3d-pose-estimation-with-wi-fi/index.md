@@ -1,7 +1,7 @@
 ---
 title: Person-in-WiFi 3D: End-to-End Multi-Person 3D Pose Estimation with Wi-Fi
 authors: Kangwei Yan, Fei Wang#, Bo Qian, Han Ding, Jinsong Han, Xing Wei
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Person-in-WiFi 3D: End-to-End Multi-Person 3D Pose Estimation with Wi-Fi

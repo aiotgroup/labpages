@@ -1,7 +1,7 @@
 ---
 title: A Framework for Behavior Privacy Preserving in Radio Frequency Signal
 authors: J Liu, J Han, L Yang, F Wang, F Lin, K Ren
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for A Framework for Behavior Privacy Preserving in Radio Frequency Signal

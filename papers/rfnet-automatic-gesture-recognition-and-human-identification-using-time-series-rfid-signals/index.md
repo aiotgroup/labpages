@@ -1,7 +1,7 @@
 ---
 title: RFnet: Automatic gesture recognition and human identification using time series RFID signals
 authors: H Ding, L Guo, C Zhao, F Wang, G Wang, Z Jiang, W Xi, J Zhao
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for RFnet: Automatic gesture recognition and human identification using time series RFID signals

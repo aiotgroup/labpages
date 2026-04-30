@@ -1,7 +1,7 @@
 ---
 title: Jet-Nemotron: Efficient Language Model with Post Neural Architecture Search
 authors: Yuxian Gu, Qinghao Hu, Shang Yang, Haocheng Xi, Junyu Chen, Fei Wang, Han Cai
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Jet-Nemotron: Efficient Language Model with Post Neural Architecture Search

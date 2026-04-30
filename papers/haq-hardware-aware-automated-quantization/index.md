@@ -1,7 +1,7 @@
 ---
 title: HAQ: Hardware-Aware Automated Quantization
 authors: Kuan Wang*, Zhijian Liu*, Yujun Lin*, Ji Lin, and Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for HAQ: Hardware-Aware Automated Quantization

@@ -1,7 +1,7 @@
 ---
 title: APQ: Joint Search for Nerwork Architecture, Pruning and Quantization Policy
 authors: Tianzhe Wang, Kuan Wang, Han Cai, Ji Lin, Zhijian Liu, Hanrui Wang, Yujun Lin, Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for APQ: Joint Search for Nerwork Architecture, Pruning and Quantization Policy

@@ -1,7 +1,7 @@
 ---
 title: LongVILA: Scaling Long-Context Visual Language Models for Long Videos
 authors: Yukang Chen*, Fuzhao Xue*, Dacheng Li*, Qinghao Hu*, Ligeng Zhu, Xiuyu Li, Yunhao Fang, Haotian Tang, Shang Yang, Zhijian Liu, Ethan He, Hongxu Yin, Pavlo Molchanov, Jan Kautz, Linxi Fan, Yuke Zhu, Yao Lu, Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for LongVILA: Scaling Long-Context Visual Language Models for Long Videos

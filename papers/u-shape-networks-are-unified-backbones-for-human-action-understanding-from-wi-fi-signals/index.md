@@ -1,7 +1,7 @@
 ---
 title: U-shape Deep Networks are Unified Backbones for Human Action Understanding from Wi-Fi Signals
 authors: Fei Wang, Yiao Gao, Bo Lan, Han Ding, Jingang Shi#, Jinsong Han#
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for U-shape Deep Networks are Unified Backbones for Human Action Understanding from Wi-Fi Signals

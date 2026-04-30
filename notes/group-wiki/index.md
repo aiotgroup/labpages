@@ -1,9 +1,9 @@
 ---
 title: Group Wiki
 date: April 2026
-summary: A living guide for AIoT Group members, covering research onboarding, recommended courses, media, books, must-read papers, campus life, and sponsors.
+summary: A living guide for AIRS Lab members, covering research onboarding, recommended courses, media, books, must-read papers, campus life, and sponsors.
 cover: ./assets/cover.svg
-coverAlt: Cover image for the AIoT Group Wiki
+coverAlt: Cover image for the AIRS Lab Wiki
 eyebrow: Lab Note
 ---
 

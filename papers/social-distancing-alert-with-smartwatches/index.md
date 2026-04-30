@@ -1,7 +1,7 @@
 ---
 title: Social distancing alert with smartwatches
 authors: X Wang, X Wu, H Meng, Y Fan, J Shi, H Ding, F Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Social distancing alert with smartwatches

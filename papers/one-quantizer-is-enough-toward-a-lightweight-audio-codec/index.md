@@ -1,7 +1,7 @@
 ---
 title: One Quantizer is Enough: Toward a Lightweight Audio Codec
 authors: L Zhai, H Ding, C Zhao, F Wang, G Wang, W Zhi, W Xi
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for One Quantizer is Enough: Toward a Lightweight Audio Codec

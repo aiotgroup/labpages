@@ -2,13 +2,17 @@
   const SiteContent = (window.SiteContent = window.SiteContent || {});
 
   SiteContent.site = {
-    title: "XJTU AIoT Group / Where Amazing Happens",
+    title: "XJTU AIRS Lab",
     brandMark: "X",
     footerMark: "X",
-    tagline: "Ubiquitous AI, Intelligent Systems, Connected Future.",
+    logoMark: "./assets/media/branding/airs-lab-mark.svg",
+    logoMarkAlt: "AIRS Lab logo mark",
+    logoLockup: "./assets/media/branding/airs-lab-logo.svg",
+    logoLockupAlt: "XJTU AIRS Lab logo",
+    tagline: "Artificial Intelligence, Interaction, and Real-World Systems",
     description:
-      "XJTU AIoT Group explores AI for ubiquitous sensing, wearable computing, multimodal learning, and efficient edge intelligence.",
-    copyright: "Copyright \u00A9 XJTU AIoT Group. Designed and Developed by Shengyao Ding and Fei Wang.",
+      "XJTU AIRS Lab explores AI, interaction, and real-world systems across ubiquitous sensing, wearable computing, multimodal learning, and efficient edge intelligence.",
+    copyright: "Copyright \u00A9 XJTU AIRS Lab. Designed and Developed by Shengyao Ding and Fei Wang.",
     nav: [
       { key: "about", label: "About", href: "./index.html" },
       { key: "fei-wang", label: "Fei Wang", href: "./fei-wang.html" },
@@ -39,7 +43,7 @@
       eyebrow: "About",
       title: "AI for Ubiquitous Sensing,\nSystems, and Everyday Life.",
       description:
-        "XJTU AIoT Group explores the intersection of artificial intelligence and ubiquitous computing, building intelligent sensing and interaction systems that can serve people in the physical world.",
+        "XJTU AIRS Lab explores the intersection of artificial intelligence and ubiquitous computing, building intelligent sensing, interaction, and real-world systems that can serve people in the physical world.",
       actions: [
         { label: "Browse Publications", href: "./publications.html", kind: "primary" },
         { label: "Meet The Team", href: "./team.html", kind: "secondary" },
@@ -241,7 +245,7 @@
           title: "Academic Leadership and Talent Development",
           period: "2020 - Present",
           text:
-            "Since joining Xi'an Jiaotong University, I have directed the AIoT Group Laboratory, shaped research roadmaps, managed competitive funding including NSFC programs, mentored more than 20 graduate students, and maintained high-impact publications in journals such as IEEE TMC, IEEE TII, IEEE IoTJ, IEEE TIP, and ACM IMWUT."
+            "Since joining Xi'an Jiaotong University, I have directed the AIRS Lab, shaped research roadmaps, managed competitive funding including NSFC programs, mentored more than 20 graduate students, and maintained high-impact publications in journals such as IEEE TMC, IEEE TII, IEEE IoTJ, IEEE TIP, and ACM IMWUT."
         }
       ]
     },
@@ -1011,7 +1015,7 @@
             name: "Fei Wang",
             role: "Associate Professor, Xi'an Jiaotong University",
             bio:
-              "Leads XJTU AIoT Group with interests spanning efficient AI systems, multimodal intelligence, embodied AI, and AIoT applications.",
+              "Leads XJTU AIRS Lab with interests spanning efficient AI systems, multimodal intelligence, embodied AI, and AIoT applications.",
             link: "./fei-wang.html",
             photo: "./assets/media/people/fei-wang.jpg",
             photoAlt: "Profile portrait for Fei Wang",
@@ -1774,7 +1778,7 @@
         title: "Group Wiki",
         tags: "Group Knowledge Base",
         cover: "./notes/group-wiki/assets/cover.svg",
-        coverAlt: "Title card for the AIoT Group Wiki",
+        coverAlt: "Title card for the AIRS Lab Wiki",
         text:
           "A living guide for research onboarding, recommended courses, media, books, must-read papers, campus life, and group resources."
       }

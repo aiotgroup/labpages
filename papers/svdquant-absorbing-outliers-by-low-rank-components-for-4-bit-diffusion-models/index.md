@@ -1,7 +1,7 @@
 ---
 title: SVDQuant: Absorbing Outliers by Low-Rank Components for 4-Bit Diffusion Models
 authors: Muyang Li*, Yujun Lin*, Zhekai Zhang*, Tianle Cai, Xiuyu Li, Junxian Guo, Enze Xie, Chenlin Meng, Jun-Yan Zhu, Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for SVDQuant: Absorbing Outliers by Low-Rank Components for 4-Bit Diffusion Models

@@ -1,7 +1,7 @@
 ---
 title: Locality-aware Parallel Decoding for Efficient Autoregressive Image Generation
 authors: Zhuoyang Zhang*, Luke J. Huang*, Chengyue Wu, Shang Yang, Kelly Peng, Yao Lu, Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This paper studies how to parallelize autoregressive image generation without discarding the locality priors that make autoregressive decoders strong. The main idea is to preserve spatially local dependencies while decoding multiple regions more efficiently.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Locality-aware Parallel Decoding for Efficient Autoregressive Image Generation

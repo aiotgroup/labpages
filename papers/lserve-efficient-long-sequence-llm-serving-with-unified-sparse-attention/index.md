@@ -1,7 +1,7 @@
 ---
 title: LServe: Efficient Long-sequence LLM Serving with Unified Sparse Attention
 authors: Shang Yang*, Junxian Guo*, Haotian Tang, Qinghao Hu, Guangxuan Xiao, Jiaming Tang, Yujun Lin, Zhijian Liu, Yao Lu, Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for LServe: Efficient Long-sequence LLM Serving with Unified Sparse Attention

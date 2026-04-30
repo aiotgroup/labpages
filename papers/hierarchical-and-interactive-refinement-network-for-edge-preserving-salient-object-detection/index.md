@@ -1,7 +1,7 @@
 ---
 title: Hierarchical and Interactive Refinement Network for Edge-Preserving Salient Object Detection
 authors: Sanping Zhou, Jinjun Wang#, Le Wang, Jimuyang Zhang, Fei Wang, Dong Huang, Nanning Zheng
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Hierarchical and Interactive Refinement Network for Edge-Preserving Salient Object Detection

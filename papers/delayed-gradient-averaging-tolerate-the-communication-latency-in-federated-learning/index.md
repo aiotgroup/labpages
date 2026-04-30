@@ -1,7 +1,7 @@
 ---
 title: Delayed Gradient Averaging: Tolerate the Communication Latency in Federated Learning
 authors: Ligeng Zhu, Hongzhou Lin, Yao Lu, Yujun Lin, Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Delayed Gradient Averaging: Tolerate the Communication Latency in Federated Learning

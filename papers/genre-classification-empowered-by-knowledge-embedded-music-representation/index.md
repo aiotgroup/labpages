@@ -1,7 +1,7 @@
 ---
 title: Genre Classification Empowered by Knowledge-Embedded Music Representation
 authors: Han Ding, Linwei Zhai, Cui Zhao#, Fei Wang, Ge Wang, Wei Xi, Zhi Wang, Jizhong Zhao
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Genre Classification Empowered by Knowledge-Embedded Music Representation

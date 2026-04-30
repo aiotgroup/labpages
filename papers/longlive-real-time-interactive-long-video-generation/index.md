@@ -1,7 +1,7 @@
 ---
 title: LongLive: Real-time Interactive Long Video Generation
 authors: Shuai Yang, Wei Huang, Ruihang Chu, Yicheng Xiao, Yuyang Zhao, Xianbang Wang, Muyang Li, Enze Xie, Yingcong Chen, Yao Lu, Fei Wang, Yukang Chen
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: LongLive focuses on real-time interactive long-video generation, framing the problem around prompt responsiveness, temporal coherence, and the systems costs of maintaining long outputs.
 cover: ./assets/cover.svg
 coverAlt: Cover image for LongLive: Real-time Interactive Long Video Generation

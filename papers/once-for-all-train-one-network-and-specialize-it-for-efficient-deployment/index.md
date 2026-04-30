@@ -1,7 +1,7 @@
 ---
 title: Once-for-All: Train One Network and Specialize it for Efficient Deployment
 authors: Han Cai, Chuang Gan, Tianzhe Wang, Zhekai Zhang, Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Once-for-All: Train One Network and Specialize it for Efficient Deployment

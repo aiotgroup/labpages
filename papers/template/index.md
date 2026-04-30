@@ -1,7 +1,7 @@
 ---
 title: Paper Title
 authors: Author A, Author B, Author C
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: Write a one- or two-sentence summary that appears in the paper hero area and the page metadata.
 cover: ./assets/cover.svg
 coverAlt: Cover image for this paper

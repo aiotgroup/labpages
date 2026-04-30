@@ -1,7 +1,7 @@
 ---
 title: QServe: W4A8KV4 Quantization and System Co-design for Efficient LLM Serving
 authors: Yujun Lin*, Haotian Tang*, Shang Yang*, Zhekai Zhang, Guangxuan Xiao, Chuang Gan, Fei Wang
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: QServe pairs quantization with serving-system co-design, showing that low-bit arithmetic only becomes truly useful when runtime memory access, cache layout, and execution planning are optimized together.
 cover: ./assets/cover.svg
 coverAlt: Cover image for QServe: W4A8KV4 Quantization and System Co-design for Efficient LLM Serving

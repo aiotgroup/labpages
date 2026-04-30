@@ -1,7 +1,7 @@
 ---
 title: CCS: Continuous Learning for Customized Incremental Wireless Sensing Services
 authors: Q Fu, F Wang, M Zhu, H Ding, J Han, TX Han
-institution: XJTU AIoT Group
+institution: XJTU AIRS Lab
 summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
 cover: ./assets/cover.svg
 coverAlt: Cover image for CCS: Continuous Learning for Customized Incremental Wireless Sensing Services
